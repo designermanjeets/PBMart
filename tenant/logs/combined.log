@@ -1,0 +1,2 @@
+{"level":"info","message":"GET /","service":"tenant-service","timestamp":"2025-02-25T17:48:10.779Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T17:48:14.417Z"}

@@ -88,10 +88,10 @@ module.exports.CreateChannel = async () => {
   let retries = 5;
   while (retries) {
     try {
-      const connection = await amqplib.connect(MESSAGE_BROKER_URL);
+      const connection = await amqplib.connect(MSG_QUEUE_URL);
       const channel = await connection.createChannel();
-      await channel.assertExchange(EXCHANGE_NAME, "direct", false);
-      console.log("Successfully connected to RabbitMQ");
+      await channel.assertExchange(EXCHANGE_NAME, 'direct', false);
+      console.log('Successfully connected to RabbitMQ');
       return channel;
     } catch (err) {
       console.log(`Error connecting to message broker (retries left: ${retries}):`, err.message);
@@ -101,21 +101,21 @@ module.exports.CreateChannel = async () => {
     }
   }
   // After all retries, return null
-  console.log("Failed to connect to RabbitMQ after multiple attempts");
+  console.log('Failed to connect to RabbitMQ after multiple attempts');
   return null;
 };
 
 module.exports.PublishMessage = async (channel, service, msg) => {
   try {
     if (!channel) {
-      logger.warn("Cannot publish message: Channel not available");
+      console.log('Cannot publish message: Channel not available');
       return false;
     }
     
     await channel.publish(EXCHANGE_NAME, service, Buffer.from(JSON.stringify(msg)));
     return true;
   } catch (err) {
-    logger.error(`Error publishing message: ${err.message}`);
+    console.log('Error publishing message:', err.message);
     return false;
   }
 };
@@ -123,21 +123,21 @@ module.exports.PublishMessage = async (channel, service, msg) => {
 module.exports.SubscribeMessage = async (channel, service) => {
   try {
     if (!channel) {
-      console.log("Channel not available for subscription");
+      console.log('Channel not available for subscription');
       return;
     }
     
-    const appQueue = await channel.assertQueue(QUEUE_NAME);
+    const appQueue = await channel.assertQueue(EXCHANGE_NAME);
     
     channel.bindQueue(appQueue.queue, EXCHANGE_NAME, PRODUCT_SERVICE);
     
     channel.consume(appQueue.queue, data => {
-      console.log("Received data in product service");
+      console.log('Received data in products service');
       console.log(data.content.toString());
       service.SubscribeEvents(JSON.parse(data.content.toString()));
       channel.ack(data);
     });
   } catch (err) {
-    console.log("Error in subscription:", err.message);
+    console.log('Error in subscription:', err.message);
   }
 };

@@ -6,9 +6,34 @@ const {
   PublishMessage,
 } = require("../utils");
 const UserAuth = require("./middlewares/auth");
+const mongoose = require("mongoose");
 
 module.exports = (app, channel) => {
   const service = new ProductService();
+
+  // Add health check endpoint FIRST, before any routes with path parameters
+  app.get('/health', async (req, res, next) => {
+    try {
+      // Check database connection
+      const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+      
+      // Check message broker connection (if available)
+      let mqStatus = 'not configured';
+      if (channel) {
+        mqStatus = 'connected';
+      }
+      
+      return res.status(200).json({
+        service: 'Products Service',
+        status: 'active',
+        time: new Date().toISOString(),
+        database: dbStatus,
+        messageBroker: mqStatus
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
 
   app.post("/product/create", async (req, res, next) => {
     const { name, desc, type, unit, price, available, suplier, banner } =
@@ -140,33 +165,6 @@ module.exports = (app, channel) => {
       return res.status(200).json(data);
     } catch (error) {
       return res.status(404).json({ error });
-    }
-  });
-
-  // Add health check endpoint
-  app.get('/health', async (req, res) => {
-    const { repository } = service;
-    try {
-      // Check database connection
-      const dbStatus = await repository.checkConnection();
-      
-      // Check message broker connection
-      const brokerStatus = channel ? 'connected' : 'disconnected';
-      
-      return res.status(200).json({
-        service: 'Products Service',
-        status: 'active',
-        time: new Date(),
-        database: dbStatus ? 'connected' : 'disconnected',
-        messageBroker: brokerStatus
-      });
-    } catch (err) {
-      return res.status(503).json({
-        service: 'Products Service',
-        status: 'error',
-        time: new Date(),
-        error: err.message
-      });
     }
   });
 };

@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const amqplib = require("amqplib");
-const logger = require('./utils/logger');
+const logger = require('./logger');
 
 const {
   APP_SECRET,

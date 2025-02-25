@@ -12,7 +12,7 @@ module.exports = {
   DB_URL: process.env.MONGODB_URI,
   APP_SECRET: process.env.APP_SECRET,
   EXCHANGE_NAME: process.env.EXCHANGE_NAME,
-  MSG_QUEUE_URL: process.env.MSG_QUEUE_URL,
+  MSG_QUEUE_URL: process.env.MSG_QUEUE_URL || 'amqp://rabbitmq:5672',
   CUSTOMER_SERVICE: "customer_service",
   SHOPPING_SERVICE: "shopping_service",
 };
