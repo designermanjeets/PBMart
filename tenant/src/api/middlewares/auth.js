@@ -1,18 +1,23 @@
 const { ValidateSignature } = require('../../utils');
-const logger = require('../../utils/logger');
+const { AuthenticationError } = require('../../utils/errors');
 
-module.exports = async (req, res, next) => {
+/**
+ * Middleware to validate JWT token
+ */
+const validateToken = async (req, res, next) => {
     try {
         const isAuthorized = await ValidateSignature(req);
-
+        
         if (isAuthorized) {
             return next();
         }
         
-        logger.warn(`Unauthorized access attempt: ${req.method} ${req.originalUrl}`);
-        return res.status(403).json({ message: 'Not Authorized' });
+        throw new AuthenticationError('Not Authorized');
     } catch (err) {
-        logger.error(`Auth error: ${err.message}`);
-        return res.status(403).json({ message: 'Not Authorized' });
+        next(err);
     }
+};
+
+module.exports = {
+    validateToken
 }; 

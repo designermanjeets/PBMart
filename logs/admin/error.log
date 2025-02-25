@@ -36,3 +36,4 @@
 {"level":"error","message":"Error: Route /api/admin/health not found","module":"error-handler","service":"admin-service","timestamp":"2025-02-25 22:42:40"}
 {"level":"error","message":"Authentication error: No token provided","module":"auth-middleware","service":"admin-service","timestamp":"2025-02-25 22:42:57"}
 {"level":"error","message":"AuthenticationError: No token provided","module":"error-handler","service":"admin-service","timestamp":"2025-02-25 22:42:57"}
+{"level":"error","message":"Error: Route /api/admin/auth not found","module":"error-handler","service":"admin-service","timestamp":"2025-02-25 22:45:56"}

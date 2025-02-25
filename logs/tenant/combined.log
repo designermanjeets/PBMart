@@ -19,3 +19,21 @@
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:30:11.431Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:30:11.713Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:41:46.620Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:48:05.170Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:26.206Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:27.026Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:27.410Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:28.935Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:37.850Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:42.602Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:52:53.702Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:53:16.509Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:53:16.896Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:53:17.132Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T22:56:34.142Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:03:00.911Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:01.531Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:13.451Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:13.629Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:13.839Z"}
+{"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:14.061Z"}

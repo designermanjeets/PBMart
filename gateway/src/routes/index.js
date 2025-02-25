@@ -79,15 +79,13 @@ router.use('/tenant', validateToken, createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/tenant': '/api/tenant'
-  }
-}));
-
-// Admin Service Routes - Public endpoints (no token required)
-router.use('/admin/auth', createProxyMiddleware({
-  target: ADMIN_SERVICE_URL,
-  changeOrigin: true,
-  pathRewrite: {
-    '^/admin/auth': '/api/admin/auth'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to tenant service: ${req.method} ${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to tenant service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
   }
 }));
 
@@ -97,25 +95,6 @@ router.use('/admin', validateToken, createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/admin': '/api/admin'
-  }
-}));
-
-// Admin Service Test Route (no token required)
-router.use('/admin/test', createProxyMiddleware({
-  target: ADMIN_SERVICE_URL,
-  changeOrigin: true,
-  pathRewrite: {
-    '^/admin/test': '/api/admin/test'
-  },
-  onProxyReq: (proxyReq, req, res) => {
-    console.log('Proxying request to admin test endpoint');
-  },
-  onProxyRes: (proxyRes, req, res) => {
-    console.log('Received response from admin test endpoint:', proxyRes.statusCode);
-  },
-  onError: (err, req, res) => {
-    console.error('Proxy error:', err);
-    res.status(500).json({ error: 'Proxy error', message: err.message });
   }
 }));
 
