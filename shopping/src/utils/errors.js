@@ -33,7 +33,7 @@ class AuthenticationError extends AppError {
 }
 
 class AuthorizationError extends AppError {
-  constructor(message = 'Not authorized to access this resource') {
+  constructor(message = 'Not authorized') {
     super(message, 403);
     this.name = 'AuthorizationError';
   }

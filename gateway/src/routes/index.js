@@ -68,6 +68,13 @@ router.use('/shopping', validateToken, createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/shopping': '/api/shopping'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to shopping service: ${req.method} ${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to shopping service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
   }
 }));
 

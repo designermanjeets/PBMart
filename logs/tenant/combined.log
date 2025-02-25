@@ -46,3 +46,8 @@
 {"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:19:04.459Z"}
 {"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:20:41.544Z"}
 {"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:23:22.769Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:27:30.645Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:31:25.496Z"}
+2025-02-25 23:36:19 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-25 23:36:54 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-25 23:36:59 [[32minfo[39m]: GET /api/tenant{"metadata":{}}

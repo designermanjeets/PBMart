@@ -32,3 +32,8 @@
 {"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-25 22:41:48"}
 {"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 22:43:58"}
 {"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:23:50"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:26:05"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:31:25"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:31:29"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:34:47"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:36:54"}

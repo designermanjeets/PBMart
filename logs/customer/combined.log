@@ -87,3 +87,12 @@
 {"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:23:45"}
 {"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:23:45"}
 {"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:23:46"}
+{"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:25:26"}
+{"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:25:26"}
+{"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:25:26"}
+{"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:25:27"}
+{"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-25 23:25:59"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:27:30"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:31:25"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:34:47"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:36:54"}

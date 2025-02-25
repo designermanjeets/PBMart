@@ -9,14 +9,13 @@ module.exports.setupRootRoutes = (app) => {
       service: 'Tenant Service',
       version: '1.0.0',
       endpoints: [
-        '/api/tenant/register',
+        '/api/tenant/signup',
         '/api/tenant/login',
         '/api/tenant/profile',
-        '/api/tenant/products',
-        '/api/tenant/orders',
         '/api/tenant/settings',
-        '/api/tenant/support',
-        '/api/tenant/health' 
+        '/api/tenant/users',
+        '/api/tenant/users/:id',
+        '/api/tenant/health'
       ]
     });
   });

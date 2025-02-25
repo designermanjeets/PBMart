@@ -300,3 +300,16 @@
 {"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-02-25 23:23:30"}
 {"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-02-25 23:23:30"}
 {"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-02-25 23:23:40"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-02-25 23:25:40"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-02-25 23:27:30"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-02-25 23:27:30"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-02-25 23:27:30"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-02-25 23:31:25"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-02-25 23:31:25"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-02-25 23:31:25"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-02-25 23:34:47"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-02-25 23:34:47"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-02-25 23:34:47"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-02-25 23:36:54"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-02-25 23:36:54"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-02-25 23:36:54"}

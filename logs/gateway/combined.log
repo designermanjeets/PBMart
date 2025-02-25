@@ -231,3 +231,29 @@
 {"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:23:45.645Z"}
 {"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:23:46.039Z"}
 {"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-02-25T23:23:50.916Z"}
+{"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:25:26.188Z"}
+{"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:25:26.609Z"}
+{"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:25:26.847Z"}
+{"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:25:27.191Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-25T23:25:32.839Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-02-25T23:25:40.618Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-02-25T23:25:51.617Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-02-25T23:25:51.851Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-02-25T23:25:58.371Z"}
+{"level":"info","message":"Incoming request: GET /api/customer","service":"api-gateway","timestamp":"2025-02-25T23:25:59.389Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-02-25T23:26:05.250Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-02-25T23:26:10.003Z"}
+{"level":"info","message":"Incoming request: GET /api/admin","service":"api-gateway","timestamp":"2025-02-25T23:26:15.289Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T23:27:30.239Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-02-25T23:27:32.042Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-02-25T23:27:32.313Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T23:31:25.249Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-02-25T23:31:29.206Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-02-25T23:31:43.120Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T23:34:47.066Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-02-25T23:34:56.218Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-02-25T23:34:57.193Z"}
+{"level":"info","message":"Incoming request: GET /api/tenant","service":"api-gateway","timestamp":"2025-02-25T23:35:00.876Z"}
+{"level":"info","message":"Incoming request: GET /api/tenant","service":"api-gateway","timestamp":"2025-02-25T23:35:01.203Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T23:36:54.404Z"}
+{"level":"info","message":"Incoming request: GET /api/tenant","service":"api-gateway","timestamp":"2025-02-25T23:36:59.402Z"}

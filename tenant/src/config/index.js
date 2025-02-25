@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'prod') {
 module.exports = {
     PORT: process.env.PORT,
     DB_URL: process.env.MONGODB_URI,
-    APP_SECRET: process.env.APP_SECRET,
+    APP_SECRET: process.env.APP_SECRET || 'your_jwt_secret_key',
     MESSAGE_BROKER_URL: process.env.MSG_QUEUE_URL,
     EXCHANGE_NAME: process.env.EXCHANGE_NAME,
     TENANT_SERVICE: 'tenant_service',

@@ -63,7 +63,7 @@ module.exports = async (app) => {
     setupRootRoutes(app);
     
     // Setup API routes with prefix
-    app.use('/api/tenant', tenant(channel));
+    app.use('/api/tenant', tenant(app, channel));
 
     // Add this before the error handler middleware
     app.use('*', (req, res, next) => {
