@@ -52,6 +52,13 @@ router.use('/customer', validateToken, createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/customer': '/api/customer'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to customer service: ${req.method} ${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to customer service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
   }
 }));
 
@@ -70,6 +77,13 @@ router.use('/products', validateToken, createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/products': '/api/products'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to products service: ${req.method} ${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to products service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
   }
 }));
 

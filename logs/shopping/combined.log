@@ -31,3 +31,4 @@
 {"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-25 22:30:08"}
 {"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-25 22:41:48"}
 {"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 22:43:58"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:23:50"}

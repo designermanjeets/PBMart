@@ -1,9 +1,12 @@
-const { validateToken } = require('../../utils/token');
+const { validateToken: validateJWT } = require('../../utils/token');
 const { AuthenticationError, AuthorizationError } = require('../../utils/errors');
 const { createLogger } = require('../../utils/logger');
 const logger = createLogger('auth-middleware');
 
-module.exports = async (req, res, next) => {
+/**
+ * Middleware to validate JWT token
+ */
+const validateToken = async (req, res, next) => {
     try {
         // Get the authorization header
         const authorization = req.headers.authorization;
@@ -20,7 +23,7 @@ module.exports = async (req, res, next) => {
         }
         
         // Verify the token
-        const payload = await validateToken(token);
+        const payload = await validateJWT(token);
         
         if (!payload) {
             throw new AuthenticationError('Invalid token');
@@ -46,3 +49,5 @@ module.exports = async (req, res, next) => {
         next(error);
     }
 };
+
+module.exports = validateToken;

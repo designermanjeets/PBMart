@@ -12,19 +12,19 @@ class CustomerService {
     }
 
     async SignIn(userInputs){
+        const { email, password } = userInputs;
+        
         try {
-            const { email, password } = userInputs;
-            
             const existingCustomer = await this.repository.FindCustomer({ email });
             
             if (!existingCustomer) {
-                throw new AuthenticationError('Invalid email or password');
+                throw new ValidationError('Invalid email or password');
             }
             
-            const validPassword = await existingCustomer.comparePassword(password);
+            const validPassword = await ValidatePassword(password, existingCustomer.password, existingCustomer.salt);
             
             if (!validPassword) {
-                throw new AuthenticationError('Invalid email or password');
+                throw new ValidationError('Invalid email or password');
             }
             
             // Update last login
@@ -37,44 +37,47 @@ class CustomerService {
             });
             
             return FormateData({ id: existingCustomer._id, token });
-        } catch (error) {
-            logger.error(`Error signing in: ${error.message}`);
-            throw error;
+        } catch (err) {
+            logger.error(`Error during sign in: ${err.message}`);
+            throw err;
         }
     }
 
     async SignUp(userInputs){
+        const { email, password, phone } = userInputs;
+        
         try {
-            const { email, password, phone } = userInputs;
+            // Check if user already exists
+            const existingCustomer = await this.repository.FindCustomer({ email });
             
+            if (existingCustomer) {
+                throw new ValidationError('Email already exists');
+            }
+
             // Create salt
             const salt = await GenerateSalt();
             
-            // Create password
+            // Hash password
             const hashedPassword = await GeneratePassword(password, salt);
             
-            const customer = await this.repository.CreateCustomer({
-                email,
+            // Create customer
+            const customer = await this.repository.CreateCustomer({ 
+                email, 
                 password: hashedPassword,
                 phone,
-                salt
+                salt 
             });
-            
-            const token = await GenerateSignature({
-                email: customer.email,
-                _id: customer._id,
-                isActive: customer.isActive
+
+            // Generate token
+            const token = await GenerateSignature({ 
+                email: customer.email, 
+                _id: customer._id 
             });
-            
+
             return FormateData({ id: customer._id, token });
-        } catch (error) {
-            logger.error(`Error signing up: ${error.message}`);
-            
-            if (error.name === 'ValidationError') {
-                throw error;
-            }
-            
-            throw new DatabaseError(`Failed to sign up: ${error.message}`);
+        } catch (err) {
+            logger.error(`Error during sign up: ${err.message}`);
+            throw err;
         }
     }
 
@@ -229,26 +232,20 @@ class CustomerService {
     }
 
     async SubscribeEvents(payload){
-        try {
-            const { event, data } = payload;
-            const { userId, product, qty } = data;
-            
-            switch (event) {
-                case 'ADD_TO_WISHLIST':
-                case 'REMOVE_FROM_WISHLIST':
-                    this.AddToWishlist(userId, product);
-                    break;
-                case 'ADD_TO_CART':
-                    this.ManageCart(userId, product, qty, false);
-                    break;
-                case 'REMOVE_FROM_CART':
-                    this.ManageCart(userId, product, qty, true);
-                    break;
-                default:
-                    break;
-            }
-        } catch (error) {
-            logger.error(`Error subscribing to events: ${error.message}`);
+        logger.info('Subscribing to events');
+        
+        const { event, data } = payload;
+        
+        switch(event) {
+            case 'ADD_TO_WISHLIST':
+            case 'REMOVE_FROM_WISHLIST':
+            case 'ADD_TO_CART':
+            case 'REMOVE_FROM_CART':
+            case 'CREATE_ORDER':
+                this.repository.ManageCart(data.userId, data.product, data.qty, event);
+                break;
+            default:
+                break;
         }
     }
 

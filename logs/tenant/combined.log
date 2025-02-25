@@ -37,3 +37,12 @@
 {"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:13.629Z"}
 {"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:13.839Z"}
 {"level":"info","message":"GET /api/tenant","service":"tenant-service","timestamp":"2025-02-25T23:03:14.061Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:06:21.662Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:08:41.881Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:11:52.735Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:13:26.918Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:15:21.576Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:17:20.041Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:19:04.459Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:20:41.544Z"}
+{"level":"info","message":"Message broker channel created successfully","service":"tenant-service","timestamp":"2025-02-25T23:23:22.769Z"}
