@@ -1,26 +1,37 @@
 const { ProductRepository } = require("../database");
 const { FormateData } = require("../utils");
-const { NotFoundError, ValidationError, DatabaseError } = require('../utils/errors');
+const { NotFoundError, ValidationError, DatabaseError, APIError } = require('../utils/errors');
 const { createLogger } = require('../utils/logger');
 const logger = createLogger('product-service');
+const { publishMessage } = require('../utils/message-broker');
+const { CUSTOMER_SERVICE } = require('../config');
 
 // Business logic for handling product-related operations
 class ProductService {
-  constructor() {
+  constructor(channel) {
     this.repository = new ProductRepository();
+    this.channel = channel;
   }
 
   // Create a new product
-  async CreateProduct(productData) {
+  async CreateProduct(productInputs) {
     try {
-      const product = await this.repository.CreateProduct(productData);
-      return FormateData(product);
-    } catch (error) {
-      logger.error(`Error creating product: ${error.message}`);
-      if (error.name === 'ValidationError') {
-        throw new ValidationError(error.message);
+      const productResult = await this.repository.CreateProduct(productInputs);
+      
+      // Publish event if channel is available
+      if (this.channel) {
+        publishMessage(this.channel, CUSTOMER_SERVICE, { 
+          event: 'CREATE_PRODUCT',
+          data: { productResult }
+        });
+      } else {
+        logger.warn("Message broker channel not available. Event not published.");
       }
-      throw new DatabaseError(`Failed to create product: ${error.message}`);
+      
+      return FormateData(productResult);
+    } catch (err) {
+      logger.error(`Error creating product: ${err.message}`);
+      throw new APIError('Failed to create product');
     }
   }
 

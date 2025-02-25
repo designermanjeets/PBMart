@@ -7,12 +7,22 @@ services:
     container_name: nosql-db
     volumes:
       - ./db/:/data/db
+    networks:
+      - app-network
 
   rabbitmq:
     image: rabbitmq:alpine
     container_name: rabbitmq
     ports:
       - '5672:5672'
+      - '15672:15672'  # Management UI
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   products:
     build:
@@ -23,15 +33,22 @@ services:
       - "8002:8002"
     restart: always
     depends_on:
-      - "nosql-db"
-      - "rabbitmq"
+      rabbitmq:
+        condition: service_healthy
+      nosql-db:
+        condition: service_started
+    environment:
+      - NODE_ENV=dev
+      - MESSAGE_BROKER_URL=amqp://rabbitmq:5672
     volumes:
-      - .:/app
+      - ./products:/app/products
       - /app/products/node_modules
       - ./logs/products:/app/products/logs
-
     env_file:
       - ./products/.env.dev
+    networks:
+      - app-network
+
   shopping:
     build:
       dockerfile: Dockerfile
@@ -41,14 +58,19 @@ services:
       - "8003:8003"
     restart: always
     depends_on:
-      - "nosql-db"
-      - "rabbitmq"
+      rabbitmq:
+        condition: service_healthy
+      nosql-db:
+        condition: service_started
     volumes:
       - .:/app
       - /app/shopping/node_modules
       - ./logs/shopping:/app/shopping/logs
     env_file:
       - ./shopping/.env.dev
+    networks:
+      - app-network
+
   customer:
     build:
       dockerfile: Dockerfile
@@ -58,14 +80,19 @@ services:
       - "8001:8001"
     restart: always
     depends_on:
-      - "nosql-db"
-      - "rabbitmq"
+      rabbitmq:
+        condition: service_healthy
+      nosql-db:
+        condition: service_started
     volumes:
-      - .:/app/
+      - ./customer:/app/customer
       - /app/customer/node_modules
       - ./logs/customer:/app/customer/logs
     env_file:
       - ./customer/.env.dev
+    networks:
+      - app-network
+
   tenant:
     build:
       dockerfile: Dockerfile
@@ -75,14 +102,19 @@ services:
       - "8004:8004"
     restart: always
     depends_on:
-      - "nosql-db"
-      - "rabbitmq"
+      rabbitmq:
+        condition: service_healthy
+      nosql-db:
+        condition: service_started
     volumes:
-      - .:/app/
+      - ./tenant:/app/tenant
       - /app/tenant/node_modules
       - ./logs/tenant:/app/tenant/logs
     env_file:
       - ./tenant/.env.dev
+    networks:
+      - app-network
+
   nginx-proxy:
     build:
       dockerfile: Dockerfile
@@ -94,6 +126,9 @@ services:
       - tenant
     ports:
       - 80:80
+    networks:
+      - app-network
+
   gateway:
     build:
       dockerfile: Dockerfile
@@ -113,3 +148,31 @@ services:
       - ./logs/gateway:/app/gateway/logs
     env_file:
       - ./gateway/.env.dev
+    networks:
+      - app-network
+
+  admin:
+    build:
+      dockerfile: Dockerfile
+      context: ./admin
+    container_name: admin
+    ports:
+      - "8005:8005"
+    restart: always
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      nosql-db:
+        condition: service_started
+    volumes:
+      - .:/app
+      - /app/admin/node_modules
+      - ./logs/admin:/app/admin/logs
+    env_file:
+      - ./admin/.env.dev
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

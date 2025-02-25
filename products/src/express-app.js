@@ -4,7 +4,7 @@ const path = require("path");
 const { products, appEvents } = require("./api");
 const errorHandler = require('./api/middlewares/error-handler');
 
-const { CreateChannel } = require("./utils");
+const { createChannel } = require("./utils/message-broker");
 const logger = require('./utils/logger');
 
 module.exports = async (app) => {
@@ -13,9 +13,6 @@ module.exports = async (app) => {
   app.use(cors());
   app.use(express.static(__dirname + "/public"));
 
-  //api
-  // appEvents(app);
-
   // Request logging middleware
   app.use((req, res, next) => {
     logger.info(`${req.method} ${req.url}`);
@@ -23,17 +20,22 @@ module.exports = async (app) => {
   });
 
   // Create message broker channel
+  let channel;
   try {
-    const channel = await CreateChannel();
-    
-    // API with channel (which might be null)
-    products(app, channel);
+    channel = await createChannel();
+    if (!channel) {
+      logger.warn("Message broker channel not available. Some functionality may be limited.");
+    } else {
+      logger.info("Message broker channel created successfully");
+    }
   } catch (err) {
-    logger.error('Failed to create channel:', err);
-    // Still initialize API without messaging capabilities
-    products(app, null);
+    logger.error(`Error creating message broker channel: ${err.message}`);
+    logger.info("Continuing without message broker functionality");
   }
 
-  // Error handling middleware (should be last)
+  // API
+  products(app, channel);
+  
+  // Error handling
   app.use(errorHandler);
 };

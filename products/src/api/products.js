@@ -1,10 +1,6 @@
 const { CUSTOMER_SERVICE, SHOPPING_SERVICE } = require("../config");
 const ProductService = require("../services/product-service");
-const {
-  PublishCustomerEvent,
-  PublishShoppingEvent,
-  PublishMessage,
-} = require("../utils");
+const { publishMessage, subscribeMessage } = require('../utils/message-broker');
 const UserAuth = require("./middlewares/auth");
 const { validateBody, validateParams, validateQuery } = require('./middlewares/validator');
 const { productSchema } = require('./middlewares/schemas');
@@ -14,29 +10,41 @@ const { createLogger } = require('../utils/logger');
 const logger = createLogger('products-api');
 
 module.exports = (app, channel) => {
-  const service = new ProductService();
+  const service = new ProductService(channel);
+  
+  // If channel is available, subscribe to events
+  if (channel) {
+    subscribeMessage(channel, CUSTOMER_SERVICE, (msg) => {
+      logger.info("Received customer event");
+      service.SubscribeEvents(msg);
+    });
+  } else {
+    logger.warn("Message broker channel not available. Event subscription skipped.");
+  }
 
   // Health check endpoint
-  app.get('/health', async (req, res, next) => {
+  app.get('/health', async (req, res) => {
     try {
       // Check database connection
-      const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+      const dbStatus = mongoose.connection.readyState === 1;
       
       // Check message broker connection
-      let mqStatus = 'not configured';
-      if (channel) {
-        mqStatus = 'connected';
-      }
+      const brokerStatus = channel ? 'connected' : 'disconnected';
       
       return res.status(200).json({
         service: 'Products Service',
         status: 'active',
-        time: new Date().toISOString(),
-        database: dbStatus,
-        messageBroker: mqStatus
+        time: new Date(),
+        database: dbStatus ? 'connected' : 'disconnected',
+        messageBroker: brokerStatus
       });
     } catch (err) {
-      next(err);
+      return res.status(503).json({
+        service: 'Products Service',
+        status: 'error',
+        time: new Date(),
+        error: err.message
+      });
     }
   });
 
@@ -146,7 +154,7 @@ module.exports = (app, channel) => {
       }
       
       // Publish message to customer service
-      PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
+      publishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
       
       res.status(200).json(data.data.product);
     } catch (error) {
@@ -174,7 +182,7 @@ module.exports = (app, channel) => {
       }
       
       // Publish message to customer service
-      PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
+      publishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
       
       res.status(200).json(data.data.product);
     } catch (error) {
@@ -202,8 +210,8 @@ module.exports = (app, channel) => {
       }
       
       // Publish messages to customer and shopping services
-      PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
-      PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify(data));
+      publishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
+      publishMessage(channel, SHOPPING_SERVICE, JSON.stringify(data));
       
       const response = { product: data.data.product, unit: data.data.qty };
       
@@ -233,8 +241,8 @@ module.exports = (app, channel) => {
       }
       
       // Publish messages to customer and shopping services
-      PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
-      PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify(data));
+      publishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
+      publishMessage(channel, SHOPPING_SERVICE, JSON.stringify(data));
       
       const response = { product: data.data.product, unit: data.data.qty };
       

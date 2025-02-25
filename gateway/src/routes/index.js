@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const productsRoutes = require('./products');
-const customersRoutes = require('./customers');
-const shoppingRoutes = require('./shopping');
-const tenantRoutes = require('./tenant');
+const { 
+  CUSTOMER_SERVICE_URL, 
+  SHOPPING_SERVICE_URL, 
+  PRODUCT_SERVICE_URL, 
+  TENANT_SERVICE_URL, 
+  ADMIN_SERVICE_URL 
+} = require('../config');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+const { validateToken } = require('../middlewares');
 
 // Root path handler
 router.get('/', (req, res) => {
@@ -14,25 +19,104 @@ router.get('/', (req, res) => {
       { name: 'Products', endpoint: '/api/products' },
       { name: 'Customers', endpoint: '/api/customers' },
       { name: 'Shopping', endpoint: '/api/shopping' },
-      { name: 'Tenants', endpoint: '/api/tenants' }
+      { name: 'Tenants', endpoint: '/api/tenants' },
+      { name: 'Admin', endpoint: '/api/admin' } 
     ],
     documentation: '/api/docs'
   });
 });
 
 // Health check for the gateway itself
-router.get('/health', (req, res) => {
-  res.status(200).json({
-    service: 'API Gateway',
-    status: 'active',
-    time: new Date().toISOString()
-  });
+router.get('/health', async (req, res) => {
+  try {
+    return res.status(200).json({
+      service: 'API Gateway',
+      status: 'active',
+      time: new Date(),
+      database: 'N/A', // Gateway doesn't have a database
+      messageBroker: 'N/A' // Gateway doesn't connect to message broker
+    });
+  } catch (err) {
+    return res.status(503).json({
+      service: 'API Gateway',
+      status: 'error',
+      time: new Date(),
+      error: err.message
+    });
+  }
 });
 
-// Mount service routes
-router.use('/products', productsRoutes);
-router.use('/customers', customersRoutes);
-router.use('/shopping', shoppingRoutes);
-router.use('/tenants', tenantRoutes);
+// Customer Service Routes
+router.use('/customer', validateToken, createProxyMiddleware({
+  target: CUSTOMER_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/customer': '/api/customer'
+  }
+}));
+
+// Shopping Service Routes
+router.use('/shopping', validateToken, createProxyMiddleware({
+  target: SHOPPING_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/shopping': '/api/shopping'
+  }
+}));
+
+// Product Service Routes
+router.use('/products', validateToken, createProxyMiddleware({
+  target: PRODUCT_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/products': '/api/products'
+  }
+}));
+
+// Tenant Service Routes
+router.use('/tenant', validateToken, createProxyMiddleware({
+  target: TENANT_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/tenant': '/api/tenant'
+  }
+}));
+
+// Admin Service Routes - Public endpoints (no token required)
+router.use('/admin/auth', createProxyMiddleware({
+  target: ADMIN_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/admin/auth': '/api/admin/auth'
+  }
+}));
+
+// Admin Service Routes - Protected endpoints (token required)
+router.use('/admin', validateToken, createProxyMiddleware({
+  target: ADMIN_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/admin': '/api/admin'
+  }
+}));
+
+// Admin Service Test Route (no token required)
+router.use('/admin/test', createProxyMiddleware({
+  target: ADMIN_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/admin/test': '/api/admin/test'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log('Proxying request to admin test endpoint');
+  },
+  onProxyRes: (proxyRes, req, res) => {
+    console.log('Received response from admin test endpoint:', proxyRes.statusCode);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
+  }
+}));
 
 module.exports = router; 

@@ -1,0 +1,41 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "Admin Microservice for B2B eCommerce Platform",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=prod node src/index.js",
+    "dev": "NODE_ENV=dev nodemon src/index.js",
+    "test": "jest",
+    "init-db": "NODE_ENV=dev node src/scripts/init-db.js"
+  },
+  "keywords": [
+    "admin",
+    "microservice",
+    "b2b",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.2",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2",
+    "axios": "^0.21.4",
+    "chart.js": "^3.7.0",
+    "moment": "^2.29.1",
+    "pdfkit": "^0.13.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.2.2"
+  }
+} 

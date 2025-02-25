@@ -6,3 +6,16 @@
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T19:57:21.751Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T20:04:11.584Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T20:04:12.970Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T20:36:56.990Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T21:04:54.881Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:18:59.339Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:20:08.073Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:20:52.248Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:27:02.107Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:27:32.651Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:27:32.916Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:30:10.721Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:30:11.158Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:30:11.431Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:30:11.713Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T22:41:46.620Z"}

@@ -16,7 +16,7 @@ module.exports = {
   PRODUCT_SERVICE_URL: process.env.PRODUCT_SERVICE_URL || "http://products:8002",
   SHOPPING_SERVICE_URL: process.env.SHOPPING_SERVICE_URL || "http://shopping:8003",
   TENANT_SERVICE_URL: process.env.TENANT_SERVICE_URL || "http://tenant:8004",
-  
+  ADMIN_SERVICE_URL: process.env.ADMIN_SERVICE_URL || "http://admin:8005",
   // Rate limiting
   RATE_LIMIT_WINDOW_MS: process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000, // 15 minutes
   RATE_LIMIT_MAX: process.env.RATE_LIMIT_MAX || 100, // 100 requests per window

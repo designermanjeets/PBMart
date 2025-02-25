@@ -75,15 +75,24 @@ module.exports.PublishShoppingEvent = async (payload) => {
 //Message Broker
 
 module.exports.CreateChannel = async () => {
-  try {
-    const connection = await amqplib.connect(MSG_QUEUE_URL);
-    const channel = await connection.createChannel();
-    await channel.assertExchange(EXCHANGE_NAME, 'direct', { durable: true });
-    return channel;
-  } catch (err) {
-    logger.error('Error creating channel:', err);
-    return null;
+  let retries = 5;
+  while (retries) {
+    try {
+      const connection = await amqplib.connect(MESSAGE_BROKER_URL);
+      const channel = await connection.createChannel();
+      await channel.assertExchange(EXCHANGE_NAME, "direct", { durable: true });
+      console.log("Successfully connected to RabbitMQ");
+      return channel;
+    } catch (err) {
+      console.log(`Error connecting to message broker (retries left: ${retries}):`, err.message);
+      retries -= 1;
+      // Wait for 5 seconds before retrying
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
   }
+  // After all retries, return null
+  console.log("Failed to connect to RabbitMQ after multiple attempts");
+  return null;
 };
 
 module.exports.PublishMessage = async (channel, service, msg) => {
