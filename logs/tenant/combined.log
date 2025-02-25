@@ -1,3 +1,4 @@
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T17:57:11.888Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T18:02:33.264Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T18:09:20.547Z"}
+{"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T18:22:25.919Z"}

@@ -35,6 +35,22 @@ module.exports = (app, channel) => {
     }
   });
 
+  // Add the root path handler BEFORE any routes with path parameters
+  app.get('/', async (req, res, next) => {
+    try {
+      const { data } = await service.GetProducts();
+      return res.status(200).json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/whoami", (req, res, next) => {
+    return res
+      .status(200)
+      .json({ msg: "/ or /products : I am products Service" });
+  });
+
   app.post("/product/create", async (req, res, next) => {
     const { name, desc, type, unit, price, available, suplier, banner } =
       req.body;
@@ -63,6 +79,7 @@ module.exports = (app, channel) => {
     }
   });
 
+  // The /:id route should come LAST, after all specific routes
   app.get("/:id", async (req, res, next) => {
     const productId = req.params.id;
 
@@ -149,22 +166,5 @@ module.exports = (app, channel) => {
     const response = { product: data.data.product, unit: data.data.qty };
 
     res.status(200).json(response);
-  });
-
-  app.get("/whoami", (req, res, next) => {
-    return res
-      .status(200)
-      .json({ msg: "/ or /products : I am products Service" });
-  });
-
-  //get Top products and category
-  app.get("/", async (req, res, next) => {
-    //check validation
-    try {
-      const { data } = await service.GetProducts();
-      return res.status(200).json(data);
-    } catch (error) {
-      return res.status(404).json({ error });
-    }
   });
 };

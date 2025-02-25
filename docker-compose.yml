@@ -94,3 +94,22 @@ services:
       - tenant
     ports:
       - 80:80
+  gateway:
+    build:
+      dockerfile: Dockerfile
+      context: ./gateway
+    container_name: gateway
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      - "products"
+      - "shopping"
+      - "customer"
+      - "tenant"
+    volumes:
+      - .:/app
+      - /app/gateway/node_modules
+      - ./logs/gateway:/app/gateway/logs
+    env_file:
+      - ./gateway/.env.dev

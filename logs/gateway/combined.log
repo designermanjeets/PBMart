@@ -1,0 +1,16 @@
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T19:27:37.844Z"}
+{"level":"info","message":"Incoming request: GET /health","service":"api-gateway","timestamp":"2025-02-25T19:27:42.549Z"}
+{"level":"info","message":"Handling health check request","service":"api-gateway","timestamp":"2025-02-25T19:27:42.550Z"}
+{"level":"info","message":"Incoming request: GET /favicon.ico","service":"api-gateway","timestamp":"2025-02-25T19:27:42.582Z"}
+{"level":"info","message":"Incoming request: GET /","service":"api-gateway","timestamp":"2025-02-25T19:27:46.212Z"}
+{"level":"info","message":"Handling root path request","service":"api-gateway","timestamp":"2025-02-25T19:27:46.213Z"}
+{"level":"info","message":"Incoming request: GET /api/settings","service":"api-gateway","timestamp":"2025-02-25T19:27:49.832Z"}
+{"level":"info","message":"Incoming request: GET /api","service":"api-gateway","timestamp":"2025-02-25T19:27:53.313Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-02-25T19:27:59.520Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:28:05.412Z"}
+{"level":"info","message":"Incoming request: GET /api/customer/health","service":"api-gateway","timestamp":"2025-02-25T19:28:12.389Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:28:29.832Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping/health","service":"api-gateway","timestamp":"2025-02-25T19:28:39.583Z"}
+{"level":"info","message":"Incoming request: GET /api/customer/health","service":"api-gateway","timestamp":"2025-02-25T19:29:47.732Z"}
+{"level":"info","message":"Incoming request: GET /api/customer/health","service":"api-gateway","timestamp":"2025-02-25T19:29:49.862Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-02-25T19:29:54.839Z"}
