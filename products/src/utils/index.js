@@ -2,12 +2,16 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 const amqplib = require("amqplib");
+const logger = require("./logger");
 
 const {
   APP_SECRET,
   BASE_URL,
   EXCHANGE_NAME,
   MSG_QUEUE_URL,
+  MESSAGE_BROKER_URL,
+  QUEUE_NAME,
+  PRODUCT_SERVICE,
 } = require("../config");
 
 //Utility functions
@@ -81,17 +85,59 @@ module.exports.PublishShoppingEvent = async (payload) => {
 //Message Broker
 
 module.exports.CreateChannel = async () => {
+  let retries = 5;
+  while (retries) {
+    try {
+      const connection = await amqplib.connect(MESSAGE_BROKER_URL);
+      const channel = await connection.createChannel();
+      await channel.assertExchange(EXCHANGE_NAME, "direct", false);
+      console.log("Successfully connected to RabbitMQ");
+      return channel;
+    } catch (err) {
+      console.log(`Error connecting to message broker (retries left: ${retries}):`, err.message);
+      retries -= 1;
+      // Wait for 5 seconds before retrying
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+  }
+  // After all retries, return null
+  console.log("Failed to connect to RabbitMQ after multiple attempts");
+  return null;
+};
+
+module.exports.PublishMessage = async (channel, service, msg) => {
   try {
-    const connection = await amqplib.connect(MSG_QUEUE_URL);
-    const channel = await connection.createChannel();
-    await channel.assertQueue(EXCHANGE_NAME, "direct", { durable: true });
-    return channel;
+    if (!channel) {
+      logger.warn("Cannot publish message: Channel not available");
+      return false;
+    }
+    
+    await channel.publish(EXCHANGE_NAME, service, Buffer.from(JSON.stringify(msg)));
+    return true;
   } catch (err) {
-    throw err;
+    logger.error(`Error publishing message: ${err.message}`);
+    return false;
   }
 };
 
-module.exports.PublishMessage = (channel, service, msg) => {
-  channel.publish(EXCHANGE_NAME, service, Buffer.from(msg));
-  console.log("Sent: ", msg);
+module.exports.SubscribeMessage = async (channel, service) => {
+  try {
+    if (!channel) {
+      console.log("Channel not available for subscription");
+      return;
+    }
+    
+    const appQueue = await channel.assertQueue(QUEUE_NAME);
+    
+    channel.bindQueue(appQueue.queue, EXCHANGE_NAME, PRODUCT_SERVICE);
+    
+    channel.consume(appQueue.queue, data => {
+      console.log("Received data in product service");
+      console.log(data.content.toString());
+      service.SubscribeEvents(JSON.parse(data.content.toString()));
+      channel.ack(data);
+    });
+  } catch (err) {
+    console.log("Error in subscription:", err.message);
+  }
 };

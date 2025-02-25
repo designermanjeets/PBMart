@@ -1,45 +1,61 @@
 const { CustomerRepository } = require("../database");
 const { FormateData, GeneratePassword, GenerateSalt, GenerateSignature, ValidatePassword } = require('../utils');
+const { APIError, BadRequestError } = require('../utils/app-errors');
+const CircuitBreaker = require('../utils/circuit-breaker');
+const logger = require('../utils/logger');
 
 // All Business logic will be here
 class CustomerService {
 
     constructor(){
         this.repository = new CustomerRepository();
+        this.circuitBreaker = new CircuitBreaker();
     }
 
     async SignIn(userInputs){
-
         const { email, password } = userInputs;
         
-        const existingCustomer = await this.repository.FindCustomer({ email});
-
-        if(existingCustomer){
-            
-            const validPassword = await ValidatePassword(password, existingCustomer.password, existingCustomer.salt);
-            if(validPassword){
+        try {
+            return await this.circuitBreaker.execute(async () => {
+                const existingCustomer = await this.repository.FindCustomer({ email });
+                if(!existingCustomer) throw new APIError('Data Not found', 404, 'User not found!');
+                
+                const validPassword = await ValidatePassword(password, existingCustomer.password);
+                if(!validPassword) {
+                    logger.warn(`Failed login attempt for customer: ${email}`);
+                    throw new APIError('API Error', 400, 'Password does not match!');
+                }
+                
                 const token = await GenerateSignature({ email: existingCustomer.email, _id: existingCustomer._id});
+                logger.info(`Customer logged in: ${existingCustomer._id}`);
                 return FormateData({id: existingCustomer._id, token });
-            }
+            });
+        } catch (err) {
+            logger.error(`Error in SignIn: ${err.message}`);
+            throw new APIError('Data Not found', err);
         }
-
-        return FormateData(null);
     }
 
     async SignUp(userInputs){
-        
         const { email, password, phone } = userInputs;
         
-        // create salt
-        let salt = await GenerateSalt();
-        
-        let userPassword = await GeneratePassword(password, salt);
-        
-        const existingCustomer = await this.repository.CreateCustomer({ email, password: userPassword, phone, salt});
-        
-        const token = await GenerateSignature({ email: email, _id: existingCustomer._id});
-        return FormateData({id: existingCustomer._id, token });
-
+        try {
+            return await this.circuitBreaker.execute(async () => {
+                // create salt
+                let salt = await GenerateSalt();
+                
+                let userPassword = await GeneratePassword(password, salt);
+                
+                const existingCustomer = await this.repository.CreateCustomer({ email, password: userPassword, phone, salt});
+                
+                const token = await GenerateSignature({ email: email, _id: existingCustomer._id});
+                logger.info(`New customer created: ${existingCustomer._id}`);
+                return FormateData({ id: existingCustomer._id, token });
+            });
+        } catch (err) {
+            logger.error(`Error in SignUp: ${err.message}`);
+            throw new APIError('Data Not found', err);
+        }
     }
 
     async AddNewAddress(_id,userInputs){

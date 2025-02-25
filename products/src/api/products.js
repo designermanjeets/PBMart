@@ -142,4 +142,31 @@ module.exports = (app, channel) => {
       return res.status(404).json({ error });
     }
   });
+
+  // Add health check endpoint
+  app.get('/health', async (req, res) => {
+    const { repository } = service;
+    try {
+      // Check database connection
+      const dbStatus = await repository.checkConnection();
+      
+      // Check message broker connection
+      const brokerStatus = channel ? 'connected' : 'disconnected';
+      
+      return res.status(200).json({
+        service: 'Products Service',
+        status: 'active',
+        time: new Date(),
+        database: dbStatus ? 'connected' : 'disconnected',
+        messageBroker: brokerStatus
+      });
+    } catch (err) {
+      return res.status(503).json({
+        service: 'Products Service',
+        status: 'error',
+        time: new Date(),
+        error: err.message
+      });
+    }
+  });
 };

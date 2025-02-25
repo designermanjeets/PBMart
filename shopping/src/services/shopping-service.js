@@ -1,11 +1,14 @@
 const { ShoppingRepository } = require("../database");
 const { FormateData } = require("../utils");
+const CircuitBreaker = require('../utils/circuit-breaker');
+const logger = require('../utils/logger');
 
 // All Business logic will be here
 class ShoppingService {
 
     constructor(){
         this.repository = new ShoppingRepository();
+        this.circuitBreaker = new CircuitBreaker();
     }
 
     async GetCart({ _id }){
@@ -16,18 +19,31 @@ class ShoppingService {
 
 
     async PlaceOrder(userInput){
-
-        const { _id, txnNumber } = userInput
-
-        const orderResult = await this.repository.CreateNewOrder(_id, txnNumber);
-        
-        return FormateData(orderResult);
+        try {
+            return await this.circuitBreaker.execute(async () => {
+                const { _id, txnNumber } = userInput;
+                
+                const orderResult = await this.repository.CreateNewOrder(_id, txnNumber);
+                
+                logger.info(`New order created: ${orderResult._id}`);
+                return FormateData(orderResult);
+            });
+        } catch (err) {
+            logger.error(`Error in PlaceOrder: ${err.message}`);
+            throw new APIError('Data Not found', err);
+        }
     }
 
     async GetOrders(customerId){
-        
-        const orders = await this.repository.Orders(customerId);
-        return FormateData(orders)
+        try {
+            return await this.circuitBreaker.execute(async () => {
+                const orders = await this.repository.Orders(customerId);
+                return FormateData(orders);
+            });
+        } catch (err) {
+            logger.error(`Error in GetOrders: ${err.message}`);
+            throw new APIError('Data Not found', err);
+        }
     }
 
     async GetOrderDetails({ _id,orderId }){

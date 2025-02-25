@@ -1,14 +1,15 @@
 const express = require('express');
 const cors = require('cors');
-const { customer, appEvents } = require('./api');
+const { tenant } = require('./api');
 const { CreateChannel } = require('./utils');
 const logger = require('./utils/logger');
 
 module.exports = async (app) => {
-    app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));
+    app.use(express.json({ limit: '1mb' }));
+    app.use(express.urlencoded({ extended: true, limit: '1mb' }));
     app.use(cors());
-    
+    app.use(express.static(__dirname + '/public'));
+
     // Request logging middleware
     app.use((req, res, next) => {
         logger.info(`${req.method} ${req.url}`);
@@ -20,14 +21,11 @@ module.exports = async (app) => {
         const channel = await CreateChannel();
         
         // API with channel (which might be null)
-        customer(app, channel);
-        // Listening to events
-        appEvents(app);
+        tenant(app, channel);
     } catch (err) {
         logger.error('Failed to create channel:', err);
         // Still initialize API without messaging capabilities
-        customer(app, null);
-        appEvents(app);
+        tenant(app, null);
     }
 
     // Error handling middleware
@@ -43,4 +41,4 @@ module.exports = async (app) => {
         
         res.status(statusCode).json(data);
     });
-};
+}; 

@@ -169,8 +169,15 @@ class CustomerRepository {
         throw new Error('Unable to add to order!');
     }
 
- 
-
+    async checkConnection() {
+        try {
+            // Check if mongoose connection is established
+            return mongoose.connection.readyState === 1; // 1 = connected
+        } catch (err) {
+            console.log('Database connection check failed:', err);
+            return false;
+        }
+    }
 
 }
 

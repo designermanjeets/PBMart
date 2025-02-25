@@ -28,6 +28,7 @@ services:
     volumes:
       - .:/app
       - /app/products/node_modules
+      - ./logs/products:/app/products/logs
 
     env_file:
       - ./products/.env.dev
@@ -45,6 +46,7 @@ services:
     volumes:
       - .:/app
       - /app/shopping/node_modules
+      - ./logs/shopping:/app/shopping/logs
     env_file:
       - ./shopping/.env.dev
   customer:
@@ -61,8 +63,26 @@ services:
     volumes:
       - .:/app/
       - /app/customer/node_modules
+      - ./logs/customer:/app/customer/logs
     env_file:
       - ./customer/.env.dev
+  tenant:
+    build:
+      dockerfile: Dockerfile
+      context: ./tenant
+    container_name: tenant
+    ports:
+      - "8004:8004"
+    restart: always
+    depends_on:
+      - "nosql-db"
+      - "rabbitmq"
+    volumes:
+      - .:/app/
+      - /app/tenant/node_modules
+      - ./logs/tenant:/app/tenant/logs
+    env_file:
+      - ./tenant/.env.dev
   nginx-proxy:
     build:
       dockerfile: Dockerfile
@@ -71,5 +91,6 @@ services:
       - products
       - shopping
       - customer
+      - tenant
     ports:
       - 80:80

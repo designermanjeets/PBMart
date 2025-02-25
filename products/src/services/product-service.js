@@ -1,34 +1,40 @@
 const { ProductRepository } = require("../database");
 const { FormateData } = require("../utils");
+const CircuitBreaker = require('../utils/circuit-breaker');
+const logger = require('../utils/logger');
 
 // All Business logic will be here
 class ProductService {
 
     constructor(){
         this.repository = new ProductRepository();
+        this.circuitBreaker = new CircuitBreaker();
     }
     
 
     async CreateProduct(productInputs){
-
-        const productResult = await this.repository.CreateProduct(productInputs)
-        return FormateData(productResult);
+        try {
+            return await this.circuitBreaker.execute(async () => {
+                const productResult = await this.repository.CreateProduct(productInputs);
+                logger.info(`New product created: ${productResult._id}`);
+                return FormateData(productResult);
+            });
+        } catch (err) {
+            logger.error(`Error in CreateProduct: ${err.message}`);
+            throw new APIError('Data Not found', err);
+        }
     }
     
     async GetProducts(){
-        const products = await this.repository.Products();
-
-        let categories = {};
-
-        products.map(({ type }) => {
-            categories[type] = type;
-        });
-        
-        return FormateData({
-            products,
-            categories:  Object.keys(categories)  
-           })
-
+        try {
+            return await this.circuitBreaker.execute(async () => {
+                const products = await this.repository.Products();
+                return FormateData(products);
+            });
+        } catch (err) {
+            logger.error(`Error in GetProducts: ${err.message}`);
+            throw new APIError('Data Not found', err);
+        }
     }
 
     async GetProductDescription(productId){

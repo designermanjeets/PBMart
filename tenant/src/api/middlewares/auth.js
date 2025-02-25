@@ -15,4 +15,4 @@ module.exports = async (req, res, next) => {
         logger.error(`Auth error: ${err.message}`);
         return res.status(403).json({ message: 'Not Authorized' });
     }
-};
+}; 

@@ -66,4 +66,31 @@ module.exports = (app, channel) => {
     app.get('/whoami', (req,res,next) => {
         return res.status(200).json({msg: '/customer : I am Customer Service'})
     })
+
+    // Add health check endpoint
+    app.get('/health', async (req, res) => {
+        const { repository } = service;
+        try {
+            // Check database connection
+            const dbStatus = await repository.checkConnection();
+            
+            // Check message broker connection
+            const brokerStatus = channel ? 'connected' : 'disconnected';
+            
+            return res.status(200).json({
+                service: 'Customer Service',
+                status: 'active',
+                time: new Date(),
+                database: dbStatus ? 'connected' : 'disconnected',
+                messageBroker: brokerStatus
+            });
+        } catch (err) {
+            return res.status(503).json({
+                service: 'Customer Service',
+                status: 'error',
+                time: new Date(),
+                error: err.message
+            });
+        }
+    });
 }
