@@ -3,3 +3,6 @@
 {"level":"info","message":"GET /health","service":"customer-service","timestamp":"2025-02-25T18:22:40.501Z"}
 {"level":"info","message":"GET /health","service":"customer-service","timestamp":"2025-02-25T19:16:08.495Z"}
 {"level":"info","message":"GET /health","service":"customer-service","timestamp":"2025-02-25T19:29:54.862Z"}
+{"level":"info","message":"GET /health","module":"app","service":"customer-service","timestamp":"2025-02-25 19:47:38"}
+{"level":"info","message":"GET /health","module":"app","service":"customer-service","timestamp":"2025-02-25 19:47:59"}
+{"level":"info","message":"GET /health","module":"app","service":"customer-service","timestamp":"2025-02-25 20:04:15"}

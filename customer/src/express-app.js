@@ -1,13 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { customer, appEvents } = require('./api');
+const errorHandler = require('./api/middlewares/error-handler');
 const { CreateChannel } = require('./utils');
 const logger = require('./utils/logger');
 
 module.exports = async (app) => {
-    app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));
+    app.use(express.json({ limit: '1mb' }));
+    app.use(express.urlencoded({ extended: true, limit: '1mb' }));
     app.use(cors());
+    app.use(express.static(__dirname + "/public"));
     
     // Request logging middleware
     app.use((req, res, next) => {
@@ -21,26 +24,12 @@ module.exports = async (app) => {
         
         // API with channel (which might be null)
         customer(app, channel);
-        // Listening to events
-        appEvents(app);
     } catch (err) {
         logger.error('Failed to create channel:', err);
         // Still initialize API without messaging capabilities
         customer(app, null);
-        appEvents(app);
     }
 
-    // Error handling middleware
-    app.use((err, req, res, next) => {
-        logger.error(`Error: ${err.message}`);
-        
-        const statusCode = err.statusCode || 500;
-        const data = {
-            error: err.name || 'Internal Server Error',
-            message: err.message || 'Something went wrong',
-            ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-        };
-        
-        res.status(statusCode).json(data);
-    });
+    // Error handling middleware (should be last)
+    app.use(errorHandler);
 };

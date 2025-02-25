@@ -14,3 +14,69 @@
 {"level":"info","message":"Incoming request: GET /api/customer/health","service":"api-gateway","timestamp":"2025-02-25T19:29:47.732Z"}
 {"level":"info","message":"Incoming request: GET /api/customer/health","service":"api-gateway","timestamp":"2025-02-25T19:29:49.862Z"}
 {"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-02-25T19:29:54.839Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T19:42:38.218Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T19:46:07.907Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T19:47:14.063Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-02-25T19:47:38.576Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:47:44.237Z"}
+{"level":"error","message":"Product service request failed: connect ECONNREFUSED 172.22.0.7:8002","service":"api-gateway","timestamp":"2025-02-25T19:47:44.243Z"}
+{"level":"error","message":"Error: connect ECONNREFUSED 172.22.0.7:8002","service":"api-gateway","timestamp":"2025-02-25T19:47:44.244Z"}
+{"level":"info","message":"Incoming request: GET /api","service":"api-gateway","timestamp":"2025-02-25T19:47:54.781Z"}
+{"level":"info","message":"Incoming request: GET /api","service":"api-gateway","timestamp":"2025-02-25T19:47:55.527Z"}
+{"level":"info","message":"Incoming request: GET /api","service":"api-gateway","timestamp":"2025-02-25T19:47:55.692Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-02-25T19:47:59.058Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/health","service":"api-gateway","timestamp":"2025-02-25T19:48:06.846Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping/health","service":"api-gateway","timestamp":"2025-02-25T19:48:12.855Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:48:18.342Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:18.505Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:18.508Z"}
+{"level":"info","message":"Incoming request: GET /api/products/","service":"api-gateway","timestamp":"2025-02-25T19:48:25.278Z"}
+{"level":"warn","message":"Circuit breaker opened, will try again at Tue Feb 25 2025 19:48:55 GMT+0000 (Coordinated Universal Time)","service":"api-gateway","timestamp":"2025-02-25T19:48:25.295Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:25.296Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:25.297Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:48:40.360Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T19:48:40.362Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:48:40.831Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T19:48:40.833Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T19:56:26.923Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T19:57:14.073Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:57:14.104Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:57:14.105Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping/health","service":"api-gateway","timestamp":"2025-02-25T19:57:19.418Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/health","service":"api-gateway","timestamp":"2025-02-25T19:57:21.723Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T20:04:02.686Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/health","service":"api-gateway","timestamp":"2025-02-25T20:04:07.571Z"}
+{"level":"error","message":"Tenant service request failed: connect ECONNREFUSED 172.22.0.4:8004","service":"api-gateway","timestamp":"2025-02-25T20:04:07.590Z"}
+{"level":"error","message":"Error: connect ECONNREFUSED 172.22.0.4:8004","service":"api-gateway","timestamp":"2025-02-25T20:04:07.592Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/health","service":"api-gateway","timestamp":"2025-02-25T20:04:11.563Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/health","service":"api-gateway","timestamp":"2025-02-25T20:04:12.962Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-02-25T20:04:15.011Z"}
+{"level":"info","message":"Incoming request: GET /api","service":"api-gateway","timestamp":"2025-02-25T20:04:18.343Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping/health","service":"api-gateway","timestamp":"2025-02-25T20:04:20.515Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:22.135Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.171Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.172Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:22.838Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.845Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.846Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:23.029Z"}
+{"level":"warn","message":"Circuit breaker opened, will try again at Tue Feb 25 2025 20:04:53 GMT+0000 (Coordinated Universal Time)","service":"api-gateway","timestamp":"2025-02-25T20:04:23.035Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:23.036Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:23.036Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:23.202Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:23.203Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:23.338Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:23.338Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:23.500Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:23.501Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:24.872Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:24.872Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:25.052Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:25.053Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:04:27.404Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:27.405Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T20:06:08.779Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T20:08:34.701Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T20:13:08.360Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-25T20:14:37.528Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-02-25T20:15:02.089Z"}

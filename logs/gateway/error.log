@@ -1,0 +1,24 @@
+{"level":"error","message":"Product service request failed: connect ECONNREFUSED 172.22.0.7:8002","service":"api-gateway","timestamp":"2025-02-25T19:47:44.243Z"}
+{"level":"error","message":"Error: connect ECONNREFUSED 172.22.0.7:8002","service":"api-gateway","timestamp":"2025-02-25T19:47:44.244Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:18.505Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:18.508Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:25.296Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:48:25.297Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T19:48:40.362Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T19:48:40.833Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:57:14.104Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T19:57:14.105Z"}
+{"level":"error","message":"Tenant service request failed: connect ECONNREFUSED 172.22.0.4:8004","service":"api-gateway","timestamp":"2025-02-25T20:04:07.590Z"}
+{"level":"error","message":"Error: connect ECONNREFUSED 172.22.0.4:8004","service":"api-gateway","timestamp":"2025-02-25T20:04:07.592Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.171Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.172Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.845Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:22.846Z"}
+{"level":"error","message":"Product service request failed: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:23.036Z"}
+{"level":"error","message":"Error: getaddrinfo ENOTFOUND products","service":"api-gateway","timestamp":"2025-02-25T20:04:23.036Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:23.203Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:23.338Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:23.501Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:24.872Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:25.053Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:27.405Z"}

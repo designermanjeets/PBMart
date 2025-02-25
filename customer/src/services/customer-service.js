@@ -1,137 +1,255 @@
 const { CustomerRepository } = require("../database");
 const { FormateData, GeneratePassword, GenerateSalt, GenerateSignature, ValidatePassword } = require('../utils');
-const { APIError, BadRequestError } = require('../utils/app-errors');
-const CircuitBreaker = require('../utils/circuit-breaker');
-const logger = require('../utils/logger');
+const { NotFoundError, ValidationError, DatabaseError, AuthenticationError } = require('../utils/errors');
+const { createLogger } = require('../utils/logger');
+const logger = createLogger('customer-service');
 
 // All Business logic will be here
 class CustomerService {
 
     constructor(){
         this.repository = new CustomerRepository();
-        this.circuitBreaker = new CircuitBreaker();
     }
 
     async SignIn(userInputs){
-        const { email, password } = userInputs;
-        
         try {
-            return await this.circuitBreaker.execute(async () => {
-                const existingCustomer = await this.repository.FindCustomer({ email });
-                if(!existingCustomer) throw new APIError('Data Not found', 404, 'User not found!');
-                
-                const validPassword = await ValidatePassword(password, existingCustomer.password);
-                if(!validPassword) {
-                    logger.warn(`Failed login attempt for customer: ${email}`);
-                    throw new APIError('API Error', 400, 'Password does not match!');
-                }
-                
-                const token = await GenerateSignature({ email: existingCustomer.email, _id: existingCustomer._id});
-                logger.info(`Customer logged in: ${existingCustomer._id}`);
-                return FormateData({id: existingCustomer._id, token });
+            const { email, password } = userInputs;
+            
+            const existingCustomer = await this.repository.FindCustomer({ email });
+            
+            if (!existingCustomer) {
+                throw new AuthenticationError('Invalid email or password');
+            }
+            
+            const validPassword = await existingCustomer.comparePassword(password);
+            
+            if (!validPassword) {
+                throw new AuthenticationError('Invalid email or password');
+            }
+            
+            // Update last login
+            await existingCustomer.updateLastLogin();
+            
+            const token = await GenerateSignature({
+                email: existingCustomer.email,
+                _id: existingCustomer._id,
+                isActive: existingCustomer.isActive
             });
-        } catch (err) {
-            logger.error(`Error in SignIn: ${err.message}`);
-            throw new APIError('Data Not found', err);
+            
+            return FormateData({ id: existingCustomer._id, token });
+        } catch (error) {
+            logger.error(`Error signing in: ${error.message}`);
+            throw error;
         }
     }
 
     async SignUp(userInputs){
-        const { email, password, phone } = userInputs;
-        
         try {
-            return await this.circuitBreaker.execute(async () => {
-                // create salt
-                let salt = await GenerateSalt();
-                
-                let userPassword = await GeneratePassword(password, salt);
-                
-                const existingCustomer = await this.repository.CreateCustomer({ email, password: userPassword, phone, salt});
-                
-                const token = await GenerateSignature({ email: email, _id: existingCustomer._id});
-                logger.info(`New customer created: ${existingCustomer._id}`);
-                return FormateData({ id: existingCustomer._id, token });
+            const { email, password, phone } = userInputs;
+            
+            // Create salt
+            const salt = await GenerateSalt();
+            
+            // Create password
+            const hashedPassword = await GeneratePassword(password, salt);
+            
+            const customer = await this.repository.CreateCustomer({
+                email,
+                password: hashedPassword,
+                phone,
+                salt
             });
-        } catch (err) {
-            logger.error(`Error in SignUp: ${err.message}`);
-            throw new APIError('Data Not found', err);
+            
+            const token = await GenerateSignature({
+                email: customer.email,
+                _id: customer._id,
+                isActive: customer.isActive
+            });
+            
+            return FormateData({ id: customer._id, token });
+        } catch (error) {
+            logger.error(`Error signing up: ${error.message}`);
+            
+            if (error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to sign up: ${error.message}`);
         }
     }
 
-    async AddNewAddress(_id,userInputs){
-        
-        const { street, postalCode, city,country} = userInputs;
-    
-        const addressResult = await this.repository.CreateAddress({ _id, street, postalCode, city,country})
-
-        return FormateData(addressResult);
+    async AddNewAddress(customerId, userInputs){
+        try {
+            const { street, postalCode, city, country } = userInputs;
+            
+            const address = await this.repository.AddNewAddress(customerId, {
+                street,
+                postalCode,
+                city,
+                country
+            });
+            
+            return FormateData(address);
+        } catch (error) {
+            logger.error(`Error adding new address: ${error.message}`);
+            
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to add new address: ${error.message}`);
+        }
     }
 
-    async GetProfile(id){
-
-        const existingCustomer = await this.repository.FindCustomerById({id});
-        return FormateData(existingCustomer);
+    async GetProfile(customerId){
+        try {
+            const customer = await this.repository.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            return FormateData(customer);
+        } catch (error) {
+            logger.error(`Error getting profile: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to get profile: ${error.message}`);
+        }
     }
 
-    async GetShopingDetails(id){
-
-        const existingCustomer = await this.repository.FindCustomerById({id});
-
-        if(existingCustomer){
-            // const orders = await this.shopingRepository.Orders(id);
-           return FormateData(existingCustomer);
-        }       
-        return FormateData({ msg: 'Error'});
+    async GetShoppingDetails(customerId){
+        try {
+            const customer = await this.repository.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            return FormateData(customer);
+        } catch (error) {
+            logger.error(`Error getting shopping details: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to get shopping details: ${error.message}`);
+        }
     }
 
-    async GetWishList(customerId){
-        const wishListItems = await this.repository.Wishlist(customerId);
-        return FormateData(wishListItems);
+    async GetWishlist(customerId){
+        try {
+            const customer = await this.repository.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            return FormateData(customer.wishlist);
+        } catch (error) {
+            logger.error(`Error getting wishlist: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to get wishlist: ${error.message}`);
+        }
     }
 
     async AddToWishlist(customerId, product){
-         const wishlistResult = await this.repository.AddWishlistItem(customerId, product);        
-        return FormateData(wishlistResult);
+        try {
+            const customer = await this.repository.AddWishlistItem(customerId, product);
+            
+            return FormateData(customer.wishlist);
+        } catch (error) {
+            logger.error(`Error adding to wishlist: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to add to wishlist: ${error.message}`);
+        }
+    }
+
+    async RemoveFromWishlist(customerId, productId) {
+        try {
+            const customer = await this.repository.RemoveWishlistItem(customerId, productId);
+            
+            return FormateData(customer.wishlist);
+        } catch (error) {
+            logger.error(`Error removing from wishlist: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to remove from wishlist: ${error.message}`);
+        }
     }
 
     async ManageCart(customerId, product, qty, isRemove){
-        const cartResult = await this.repository.AddCartItem(customerId, product, qty, isRemove);        
-       return FormateData(cartResult);
+        try {
+            if (isRemove) {
+                const customer = await this.repository.RemoveCartItem(customerId, product._id);
+                return FormateData(customer);
+            }
+            
+            const customer = await this.repository.AddCartItem(customerId, product, qty);
+            return FormateData(customer);
+        } catch (error) {
+            logger.error(`Error managing cart: ${error.message}`);
+            
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to manage cart: ${error.message}`);
+        }
     }
 
     async ManageOrder(customerId, order){
-        const orderResult = await this.repository.AddOrderToProfile(customerId, order);
-        return FormateData(orderResult);
+        try {
+            const customer = await this.repository.AddOrderToProfile(customerId, order);
+            return FormateData(customer);
+        } catch (error) {
+            logger.error(`Error managing order: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to manage order: ${error.message}`);
+        }
     }
 
     async SubscribeEvents(payload){
- 
-        console.log('Triggering.... Customer Events')
-
-        payload = JSON.parse(payload)
-
-        const { event, data } =  payload;
-
-        const { userId, product, order, qty } = data;
-
-        switch(event){
-            case 'ADD_TO_WISHLIST':
-            case 'REMOVE_FROM_WISHLIST':
-                this.AddToWishlist(userId,product)
-                break;
-            case 'ADD_TO_CART':
-                this.ManageCart(userId,product, qty, false);
-                break;
-            case 'REMOVE_FROM_CART':
-                this.ManageCart(userId,product,qty, true);
-                break;
-            case 'CREATE_ORDER':
-                this.ManageOrder(userId,order);
-                break;
-            default:
-                break;
+        try {
+            const { event, data } = payload;
+            const { userId, product, qty } = data;
+            
+            switch (event) {
+                case 'ADD_TO_WISHLIST':
+                case 'REMOVE_FROM_WISHLIST':
+                    this.AddToWishlist(userId, product);
+                    break;
+                case 'ADD_TO_CART':
+                    this.ManageCart(userId, product, qty, false);
+                    break;
+                case 'REMOVE_FROM_CART':
+                    this.ManageCart(userId, product, qty, true);
+                    break;
+                default:
+                    break;
+            }
+        } catch (error) {
+            logger.error(`Error subscribing to events: ${error.message}`);
         }
- 
     }
 
 }

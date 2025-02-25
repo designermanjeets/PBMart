@@ -1,0 +1,13 @@
+version: '3'
+services:
+  products:
+    build: 
+      context: ./products
+      dockerfile: Dockerfile.simple
+    ports:
+      - "8002:8002"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./products:/app/products
+      - /app/products/node_modules 

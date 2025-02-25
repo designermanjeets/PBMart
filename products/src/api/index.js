@@ -1,5 +1,7 @@
+const products = require('./products');
+const appEvents = require('./app-events');
 
 module.exports = {
-    products: require('./products'),
-    appEvents: require('./app-events'),
-}
+    products,
+    appEvents
+};

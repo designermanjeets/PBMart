@@ -2,3 +2,6 @@
 {"level":"info","message":"GET /health","service":"shopping-service","timestamp":"2025-02-25T18:09:14.198Z"}
 {"level":"info","message":"GET /health","service":"shopping-service","timestamp":"2025-02-25T18:22:30.084Z"}
 {"level":"info","message":"GET /health","service":"shopping-service","timestamp":"2025-02-25T19:28:39.596Z"}
+{"level":"info","message":"GET /health","service":"shopping-service","timestamp":"2025-02-25T19:48:12.878Z"}
+{"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-25 19:57:19"}
+{"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-25 20:04:20"}

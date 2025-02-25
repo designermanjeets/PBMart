@@ -1,21 +1,40 @@
 const mongoose = require('mongoose');
 const { CustomerModel, AddressModel } = require('../models');
+const { NotFoundError, ValidationError, DatabaseError, AuthenticationError } = require('../../utils/errors');
+const { createLogger } = require('../../utils/logger');
+const logger = createLogger('customer-repository');
 
 //Dealing with data base operations
 class CustomerRepository {
 
     async CreateCustomer({ email, password, phone, salt }){
+        try {
+            // Check if customer already exists
+            const existingCustomer = await CustomerModel.findOne({ email });
+            
+            if (existingCustomer) {
+                throw new ValidationError('Email already registered');
+            }
+            
+            const customer = new CustomerModel({
+                email,
+                password,
+                salt,
+                phone,
+                address: []
+            })
 
-        const customer = new CustomerModel({
-            email,
-            password,
-            salt,
-            phone,
-            address: []
-        })
-
-        const customerResult = await customer.save();
-        return customerResult;
+            const customerResult = await customer.save();
+            return customerResult;
+        } catch (error) {
+            logger.error(`Error creating customer: ${error.message}`);
+            
+            if (error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw error;
+        }
     }
     
     async CreateAddress({ _id, street, postalCode, city, country}){
@@ -40,19 +59,42 @@ class CustomerRepository {
     }
 
     async FindCustomer({ email }){
-        const existingCustomer = await CustomerModel.findOne({ email: email });
-        return existingCustomer;
+        try {
+            const existingCustomer = await CustomerModel.findOne({ email }).select('+password +salt');
+            
+            if (!existingCustomer) {
+                throw new AuthenticationError('Invalid email or password');
+            }
+            
+            return existingCustomer;
+        } catch (error) {
+            logger.error(`Error finding customer: ${error.message}`);
+            throw error;
+        }
     }
 
     async FindCustomerById({ id }){
-
-        const existingCustomer = await CustomerModel.findById(id).populate('address');
-        // existingCustomer.cart = [];
-        // existingCustomer.orders = [];
-        // existingCustomer.wishlist = [];
-
-        // await existingCustomer.save();
-        return existingCustomer;
+        try {
+            const existingCustomer = await CustomerModel.findById(id);
+            
+            if (!existingCustomer) {
+                throw new NotFoundError(`Customer not found with ID: ${id}`);
+            }
+            
+            return existingCustomer;
+        } catch (error) {
+            logger.error(`Error finding customer by ID: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            if (error.name === 'CastError') {
+                throw new NotFoundError(`Invalid customer ID: ${id}`);
+            }
+            
+            throw new DatabaseError(`Failed to find customer by ID: ${error.message}`);
+        }
     }
 
     async Wishlist(customerId){
@@ -103,19 +145,19 @@ class CustomerRepository {
 
 
     async AddCartItem(customerId, { _id, name, price, banner},qty, isRemove){
-
- 
-        const profile = await CustomerModel.findById(customerId).populate('cart');
-
-
-        if(profile){ 
- 
+        try {
+            const customer = await this.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
             const cartItem = {
                 product: { _id, name, price, banner },
                 unit: qty,
             };
           
-            let cartItems = profile.cart;
+            let cartItems = customer.cart;
             
             if(cartItems.length > 0){
                 let isExist = false;
@@ -138,35 +180,49 @@ class CustomerRepository {
                 cartItems.push(cartItem);
             }
 
-            profile.cart = cartItems;
+            customer.cart = cartItems;
 
-            return await profile.save();
+            return await customer.save();
+        } catch (error) {
+            logger.error(`Error adding cart item: ${error.message}`);
+            
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to add cart item: ${error.message}`);
         }
-        
-        throw new Error('Unable to add to cart!');
     }
 
 
 
     async AddOrderToProfile(customerId, order){
- 
-        const profile = await CustomerModel.findById(customerId);
-
-        if(profile){ 
+        try {
+            const customer = await this.FindCustomerById(customerId);
             
-            if(profile.orders == undefined){
-                profile.orders = []
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
             }
-            profile.orders.push(order);
+            
+            if(customer.orders == undefined){
+                customer.orders = []
+            }
+            customer.orders.push(order);
 
-            profile.cart = [];
+            customer.cart = [];
 
-            const profileResult = await profile.save();
+            const customerResult = await customer.save();
 
-            return profileResult;
+            return customerResult;
+        } catch (error) {
+            logger.error(`Error adding order to profile: ${error.message}`);
+            
+            if (error.name === 'NotFoundError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to add order to profile: ${error.message}`);
         }
-        
-        throw new Error('Unable to add to order!');
     }
 
     async checkConnection() {
