@@ -1,0 +1,73 @@
+2025-02-26 05:40:57 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:40:57 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:41:58 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:41:58 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:42:59 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:42:59 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:21 [[31merror[39m]: [message-broker] Error subscribing to messages: PAYMENT_SERVICE is not defined{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:21 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:22 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:22 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:22 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:22 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:23 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:23 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:23 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:23 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:23 [[31merror[39m]: [message-broker] Error subscribing to messages: PAYMENT_SERVICE is not defined{"metadata":{}}
+2025-02-26 05:44:25 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:25 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:25 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:25 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:27 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:27 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:27 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:27 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:31 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:31 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:31 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:31 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:38 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:38 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:38 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:38 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:38 [[31merror[39m]: [message-broker] Error subscribing to messages: PAYMENT_SERVICE is not defined{"metadata":{}}
+2025-02-26 05:44:51 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:44:51 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:44:51 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:44:51 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:44:51 [[31merror[39m]: [message-broker] Error subscribing to messages: PAYMENT_SERVICE is not defined{"metadata":{}}
+2025-02-26 05:45:18 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:45:18 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:45:18 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:45:18 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:45:18 [[31merror[39m]: [message-broker] Error subscribing to messages: PAYMENT_SERVICE is not defined{"metadata":{}}
+2025-02-26 05:46:17 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:46:17 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:46:17 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:46:17 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:49:22 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:49:22 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:49:22 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:49:22 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:50:52 [[32minfo[39m]: GET /{"metadata":{}}
+2025-02-26 05:50:52 [[31merror[39m]: [error-handler] ERROR 💥: Route / not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 05:50:53 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 05:50:53 [[31merror[39m]: [error-handler] ERROR 💥: Route /favicon.ico not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 05:55:33 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:55:33 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:55:33 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:55:33 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:58:01 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 05:58:01 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 05:58:01 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 05:58:01 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 05:58:17 [[32minfo[39m]: GET /api/payment{"metadata":{}}
+2025-02-26 05:58:23 [[32minfo[39m]: GET /api/payment/health{"metadata":{}}

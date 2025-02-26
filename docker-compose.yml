@@ -173,6 +173,28 @@ services:
     networks:
       - app-network
 
+  payment:
+    build:
+      dockerfile: Dockerfile
+      context: ./payment
+    container_name: payment
+    ports:
+      - "8006:8006"
+    restart: always
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      nosql-db:
+        condition: service_started
+    volumes:
+      - ./payment:/app/payment
+      - /app/payment/node_modules
+      - ./logs/payment:/app/payment/logs
+    env_file:
+      - ./payment/.env.dev
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge

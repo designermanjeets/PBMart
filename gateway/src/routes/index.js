@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { 
-  CUSTOMERS_SERVICE_URL, 
-  SHOPPING_SERVICE_URL, 
-  PRODUCTS_SERVICE_URL, 
-  TENANTS_SERVICE_URL, 
-  ADMIN_SERVICE_URL 
+  CUSTOMERS_SERVICE, 
+  SHOPPING_SERVICE, 
+  PRODUCTS_SERVICE, 
+  TENANTS_SERVICE, 
+  ADMIN_SERVICE,
+  PAYMENT_SERVICE
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { validateToken } = require('../middleware');
@@ -20,7 +21,8 @@ router.get('/', (req, res) => {
       { name: 'Customers', endpoint: '/api/customers' },
       { name: 'Shopping', endpoint: '/api/shopping' },
       { name: 'Tenants', endpoint: '/api/tenants' },
-      { name: 'Admin', endpoint: '/api/admin' } 
+      { name: 'Admin', endpoint: '/api/admin' },
+      { name: 'Payment', endpoint: '/api/payment' }
     ],
     documentation: '/api/docs'
   });
@@ -48,7 +50,7 @@ router.get('/health', async (req, res) => {
 
 // Customer Service Routes
 router.use('/customers', validateToken, createProxyMiddleware({
-  target: CUSTOMERS_SERVICE_URL,
+  target: CUSTOMERS_SERVICE,
   changeOrigin: true,
   pathRewrite: {
     '^/customers': '/api/customers'
@@ -64,7 +66,7 @@ router.use('/customers', validateToken, createProxyMiddleware({
 
 // Shopping Service Routes
 router.use('/shopping', validateToken, createProxyMiddleware({
-  target: SHOPPING_SERVICE_URL,
+  target: SHOPPING_SERVICE,
   changeOrigin: true,
   pathRewrite: {
     '^/shopping': '/api/shopping'
@@ -80,7 +82,7 @@ router.use('/shopping', validateToken, createProxyMiddleware({
 
 // Product Service Routes
 router.use('/products', validateToken, createProxyMiddleware({
-  target: PRODUCTS_SERVICE_URL,
+  target: PRODUCTS_SERVICE,
   changeOrigin: true,
   pathRewrite: {
     '^/products': '/api/products'
@@ -96,7 +98,7 @@ router.use('/products', validateToken, createProxyMiddleware({
 
 // Tenant Service Routes
 router.use('/tenants', validateToken, createProxyMiddleware({
-  target: TENANTS_SERVICE_URL,
+  target: TENANTS_SERVICE,
   changeOrigin: true,
   pathRewrite: {
     '^/tenants': '/api/tenants'
@@ -112,10 +114,19 @@ router.use('/tenants', validateToken, createProxyMiddleware({
 
 // Admin Service Routes - Protected endpoints (token required)
 router.use('/admin', validateToken, createProxyMiddleware({
-  target: ADMIN_SERVICE_URL,
+  target: ADMIN_SERVICE,
   changeOrigin: true,
   pathRewrite: {
     '^/admin': '/api/admin'
+  }
+}));
+
+// Payment Service Routes
+router.use('/payment', validateToken, createProxyMiddleware({
+  target: PAYMENT_SERVICE,
+  changeOrigin: true,
+  pathRewrite: {  
+    '^/payment': '/api/payment'
   }
 }));
 

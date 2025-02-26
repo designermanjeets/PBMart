@@ -9,17 +9,18 @@ if (process.env.NODE_ENV !== "prod") {
 
 module.exports = {
   PORT: process.env.PORT || 8000,
-  APP_SECRET: process.env.APP_SECRET || "your_app_secret",
+  APP_SECRET: process.env.APP_SECRET,
   
   // Service URLs
-  CUSTOMERS_SERVICE_URL: process.env.CUSTOMERS_SERVICE_URL || "http://customers:8001",
-  PRODUCTS_SERVICE_URL: process.env.PRODUCTS_SERVICE_URL || "http://products:8002",
-  SHOPPING_SERVICE_URL: process.env.SHOPPING_SERVICE_URL || "http://shopping:8003",
-  TENANTS_SERVICE_URL: process.env.TENANTS_SERVICE_URL || "http://tenants:8004",
-  ADMIN_SERVICE_URL: process.env.ADMIN_SERVICE_URL || "http://admin:8005",
+  CUSTOMERS_SERVICE: process.env.CUSTOMERS_SERVICE,
+  PRODUCTS_SERVICE: process.env.PRODUCTS_SERVICE,
+  SHOPPING_SERVICE: process.env.SHOPPING_SERVICE,
+  TENANTS_SERVICE: process.env.TENANTS_SERVICE,
+  ADMIN_SERVICE: process.env.ADMIN_SERVICE,
+  PAYMENT_SERVICE: process.env.PAYMENT_SERVICE,
   // Rate limiting
-  RATE_LIMIT_WINDOW_MS: process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000, // 15 minutes
-  RATE_LIMIT_MAX: process.env.RATE_LIMIT_MAX || 100, // 100 requests per window
+  RATE_LIMIT_WINDOW_MS: process.env.RATE_LIMIT_WINDOW_MS || 900000, // 15 minutes
+  RATE_LIMIT_MAX: process.env.RATE_LIMIT_MAX || 100, // limit each IP to 100 requests per windowMs
   
   // Logging
   LOG_LEVEL: process.env.LOG_LEVEL || "info"

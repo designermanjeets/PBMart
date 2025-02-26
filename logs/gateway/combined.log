@@ -325,3 +325,21 @@
 {"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T05:29:11.532Z"}
 {"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-02-26T05:29:24.780Z"}
 {"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T05:29:30.772Z"}
+{"level":"info","message":"Incoming request: GET /api/admin","service":"api-gateway","timestamp":"2025-02-26T05:31:23.213Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T05:39:09.931Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T05:44:21.100Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T05:46:17.313Z"}
+{"level":"info","message":"Incoming request: GET /api/admin","service":"api-gateway","timestamp":"2025-02-26T05:46:27.831Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T05:46:31.228Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:46:38.066Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T05:49:22.186Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:49:26.198Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:49:27.134Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:49:45.784Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:50:25.693Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:50:41.325Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T05:50:46.029Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T05:58:01.102Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T05:58:11.569Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:58:17.195Z"}
+{"level":"info","message":"Incoming request: GET /api/payment/health","service":"api-gateway","timestamp":"2025-02-26T05:58:23.818Z"}
