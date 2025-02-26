@@ -12,12 +12,14 @@ module.exports.createChannel = async () => {
     try {
         const connection = await amqplib.connect(MESSAGE_BROKER_URL);
         const channel = await connection.createChannel();
-        await channel.assertExchange(EXCHANGE_NAME, 'topic', { durable: true });
         
-        logger.info('Message broker connection established');
+        // Use 'direct' exchange type to match existing exchange
+        await channel.assertExchange(EXCHANGE_NAME, 'direct', { durable: true });
+        
+        logger.info('Message broker channel created');
         return channel;
     } catch (error) {
-        logger.error(`Error creating channel: ${error.message}`);
+        logger.error(`Error creating message broker channel: ${error.message}`);
         throw error;
     }
 };

@@ -7,3 +7,12 @@
 2025-02-26 11:37:28 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
 2025-02-26 11:37:28 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
 2025-02-26 11:42:20 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-02-26 12:38:01 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-02-26 12:42:55 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-02-26 12:42:55 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 13:03:26 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-02-26 13:09:59 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
+2025-02-26 13:10:00 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 18:38:16 [error]: [error-handler] Error: Route /health not found{"metadata":{}}
+2025-02-26 18:38:16 [error]: [error-handler] Error: Route /favicon.ico not found{"metadata":{}}
+2025-02-26 18:38:44 [error]: [error-handler] Error: Route /favicon.ico not found{"metadata":{}}

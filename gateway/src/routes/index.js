@@ -9,7 +9,8 @@ const {
   PAYMENT_SERVICE,
   NOTIFICATION_SERVICE,
   SEARCH_SERVICE,
-  VENDOR_SERVICE_URL
+  VENDOR_SERVICE_URL,
+  RFQ_SERVICE_URL
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { validateToken } = require('../middleware');
@@ -154,12 +155,11 @@ router.use('/vendor', createProxyMiddleware({
   target: VENDOR_SERVICE_URL,
   changeOrigin: true,
   pathRewrite: {
-    '^/vendor': '/api/vendors'
+    '^/vendor': '/api/vendor'
   },
-  // Add logging to see what's happening
   onProxyReq: (proxyReq, req, res) => {
     console.log(`Proxying request to vendor service: ${req.method} ${req.url}`);
-    console.log(`Target URL: ${VENDOR_SERVICE_URL}/api/vendors${req.url}`);
+    console.log(`Target URL: ${VENDOR_SERVICE_URL}/api/vendor${req.url}`);
   },
   onError: (err, req, res) => {
     console.error('Proxy error to vendor service:', err);
@@ -198,6 +198,53 @@ router.use('/search', circuitBreaker.createCircuitBreaker(
     },
     'search-service'
 ));
+
+
+// RFQ Service Routes
+router.use('/rfq', createProxyMiddleware({
+  target: RFQ_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/rfq': '/api/rfqs'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to RFQ service: ${req.method} ${req.url}`);
+    console.log(`Target URL: ${RFQ_SERVICE_URL}/api/rfqs${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to RFQ service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
+  }
+}));
+
+// Add Quote routes
+router.use('/quotes', createProxyMiddleware({
+  target: RFQ_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/quotes': '/api/quotes'
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to Quote service: ${req.method} ${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to Quote service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
+  }
+}));
+
+// Add RFQ health check
+router.get('/rfq-health', async (req, res) => {
+  try {
+    const response = await axios.get(`${RFQ_SERVICE_URL}/health`);
+    return res.status(200).json(response.data);
+  } catch (error) {
+    return res.status(500).json({
+      error: 'Failed to reach RFQ service',
+      message: error.message
+    });
+  }
+});
 
 // Add this before the vendor routes
 router.get('/vendor-health', async (req, res) => {

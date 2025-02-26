@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Service API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .method {
+            font-weight: bold;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .get { background-color: #61affe; }
+        .post { background-color: #49cc90; }
+        .put { background-color: #fca130; }
+        .delete { background-color: #f93e3e; }
+        .path {
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+        .description {
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>RFQ Service API</h1>
+    <p>This service provides endpoints for managing Request for Quotes (RFQs) and Quotes in the B2B E-commerce platform.</p>
+    
+    <h2>RFQ Endpoints</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <span class="path">/api/rfqs</span>
+        <div class="description">Get all RFQs with pagination and filtering options</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <span class="path">/api/rfqs/:id</span>
+        <div class="description">Get a specific RFQ by ID</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <span class="path">/api/rfqs</span>
+        <div class="description">Create a new RFQ</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method put">PUT</span>
+        <span class="path">/api/rfqs/:id</span>
+        <div class="description">Update an existing RFQ</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method delete">DELETE</span>
+        <span class="path">/api/rfqs/:id</span>
+        <div class="description">Delete an RFQ</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <span class="path">/api/rfqs/:id/vendors</span>
+        <div class="description">Invite vendors to an RFQ</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method put">PUT</span>
+        <span class="path">/api/rfqs/:id/vendors/:vendorId</span>
+        <div class="description">Update vendor status in an RFQ</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <span class="path">/api/rfqs/:id/quotes</span>
+        <div class="description">Get all quotes for an RFQ</div>
+    </div>
+    
+    <h2>Quote Endpoints</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <span class="path">/api/quotes</span>
+        <div class="description">Get all quotes with pagination and filtering options</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <span class="path">/api/quotes/:id</span>
+        <div class="description">Get a specific quote by ID</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <span class="path">/api/quotes</span>
+        <div class="description">Create a new quote</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method put">PUT</span>
+        <span class="path">/api/quotes/:id</span>
+        <div class="description">Update an existing quote</div>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method delete">DELETE</span>
+        <span class="path">/api/quotes/:id</span>
+        <div class="description">Delete a quote</div>
+    </div>
+    
+    <h2>Health Check</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <span class="path">/health</span>
+        <div class="description">Check the health status of the RFQ service</div>
+    </div>
+    
+    <footer>
+        <p>RFQ Service API v1.0.0</p>
+    </footer>
+</body>
+</html> 

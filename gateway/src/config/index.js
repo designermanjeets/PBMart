@@ -29,4 +29,7 @@ module.exports = {
 
   // Vendor Service URL
   VENDOR_SERVICE_URL: process.env.VENDOR_SERVICE_URL || 'http://vendor-service:8010',
+
+  // RFQ Service URL
+  RFQ_SERVICE_URL: process.env.RFQ_SERVICE_URL || 'http://rfq-service:8011',
 };

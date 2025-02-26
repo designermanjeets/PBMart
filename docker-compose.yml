@@ -282,6 +282,29 @@ services:
       - app-network
     restart: always
 
+  rfq-service:
+    build:
+      context: ./rfq
+      dockerfile: Dockerfile
+    container_name: rfq-service
+    ports:
+      - "8011:8011"
+    volumes:
+      - ./rfq:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=dev
+      - PORT=8011
+      - MONGODB_URI=mongodb://nosql-db:27017/rfq-service
+      - MESSAGE_BROKER_URL=amqp://rabbitmq:5672
+      - APP_SECRET=your_app_secret
+    depends_on:
+      - nosql-db
+      - rabbitmq
+    networks:
+      - app-network
+    restart: unless-stopped
+
 volumes:
   esdata:
     driver: local

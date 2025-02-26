@@ -628,3 +628,119 @@
 {"level":"info","message":"Incoming request: GET /api/vendors/health","service":"api-gateway","timestamp":"2025-02-26T12:01:37.232Z"}
 {"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T12:01:38.848Z"}
 {"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T12:01:39.532Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T12:38:08.589Z"}
+2025-02-26 12:38:08 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T12:38:11.669Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T12:38:17.883Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:38:22.069Z"}
+{"level":"info","message":"Incoming request: GET /api/admin","service":"api-gateway","timestamp":"2025-02-26T12:38:23.265Z"}
+2025-02-26 12:43:02 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T12:43:02.649Z"}
+2025-02-26 12:45:42 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T12:45:42.897Z"}
+{"level":"info","message":"Incoming request: GET /api/admin","service":"api-gateway","timestamp":"2025-02-26T12:45:49.875Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:45:53.431Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T12:46:53.859Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:47:29.975Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T12:47:39.960Z"}
+2025-02-26 12:50:29 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T12:50:29.267Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:50:30.614Z"}
+2025-02-26 12:50:48 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T12:50:48.970Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:51:06.134Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:51:07.128Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:51:07.353Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:51:07.728Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T12:51:08.952Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T12:51:39.979Z"}
+2025-02-26 12:58:19 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T12:58:19.797Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T12:58:22.988Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T12:58:29.328Z"}
+2025-02-26 13:03:29 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T13:03:29.798Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T13:07:18.351Z"}
+2025-02-26 13:07:18 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T13:10:05.640Z"}
+2025-02-26 13:10:05 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T13:10:23.157Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T13:10:28.924Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T13:10:29.094Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:33:34.674Z"}
+{"level":"info","message":"Incoming request: GET /health","service":"api-gateway","timestamp":"2025-02-26T18:33:47.893Z"}
+{"level":"info","message":"Handling health check request","service":"api-gateway","timestamp":"2025-02-26T18:33:47.897Z"}
+{"level":"error","message":"Error: CUSTOMERS_SERVICE is not defined","service":"api-gateway","timestamp":"2025-02-26T18:33:47.901Z"}
+{"level":"info","message":"Incoming request: GET /health","service":"api-gateway","timestamp":"2025-02-26T18:35:28.509Z"}
+{"level":"info","message":"Handling health check request","service":"api-gateway","timestamp":"2025-02-26T18:35:28.511Z"}
+{"level":"error","message":"Error: CUSTOMERS_SERVICE is not defined","service":"api-gateway","timestamp":"2025-02-26T18:35:28.512Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T18:40:05.068Z"}
+{"level":"info","message":"Incoming request: GET /api//api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:40:09.123Z"}
+{"level":"info","message":"Incoming request: GET /api/api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:40:12.426Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:40:14.824Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:40:15.813Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:40:23.887Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:40:23.934Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:40:24.531Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:40:24.548Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/api/","service":"api-gateway","timestamp":"2025-02-26T18:40:28.892Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/api/health","service":"api-gateway","timestamp":"2025-02-26T18:40:48.767Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/health","service":"api-gateway","timestamp":"2025-02-26T18:41:02.304Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/health","service":"api-gateway","timestamp":"2025-02-26T18:41:02.646Z"}
+{"level":"info","message":"Incoming request: GET /api/verifications","service":"api-gateway","timestamp":"2025-02-26T18:41:46.023Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/health","service":"api-gateway","timestamp":"2025-02-26T18:41:49.333Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/verifications","service":"api-gateway","timestamp":"2025-02-26T18:41:51.509Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/api/verifications","service":"api-gateway","timestamp":"2025-02-26T18:41:59.118Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/api/verifications","service":"api-gateway","timestamp":"2025-02-26T18:42:22.292Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors/api/verifications","service":"api-gateway","timestamp":"2025-02-26T18:42:22.324Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T18:47:34.235Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:47:45.030Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:47:45.235Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:47:50.083Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:47:56.963Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:47:57.311Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:47:59.462Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:47:59.476Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:47:59.870Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:47:59.881Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:48:07.781Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:48:08.010Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:49:13.946Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:49:17.131Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:49:21.081Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:51:44.829Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:52:07.270Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/api/verification","service":"api-gateway","timestamp":"2025-02-26T18:52:25.046Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/verification","service":"api-gateway","timestamp":"2025-02-26T18:52:28.506Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/vendor","service":"api-gateway","timestamp":"2025-02-26T18:52:47.133Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/verifications","service":"api-gateway","timestamp":"2025-02-26T18:53:16.437Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/verification","service":"api-gateway","timestamp":"2025-02-26T18:53:19.565Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/","service":"api-gateway","timestamp":"2025-02-26T18:55:18.920Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:55:26.564Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:55:29.039Z"}
+{"level":"info","message":"Incoming request: GET /api/vendors","service":"api-gateway","timestamp":"2025-02-26T18:55:29.329Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:55:31.397Z"}
+{"level":"info","message":"Incoming request: GET /api/verifications","service":"api-gateway","timestamp":"2025-02-26T18:56:25.128Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:56:30.420Z"}
+{"level":"info","message":"Incoming request: GET /api/verification","service":"api-gateway","timestamp":"2025-02-26T18:56:30.748Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor","service":"api-gateway","timestamp":"2025-02-26T18:56:33.064Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/vendor","service":"api-gateway","timestamp":"2025-02-26T18:56:38.624Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/1","service":"api-gateway","timestamp":"2025-02-26T18:56:51.821Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/1/performance","service":"api-gateway","timestamp":"2025-02-26T18:57:06.766Z"}
+{"level":"info","message":"Incoming request: GET /api/vendor/1/performance","service":"api-gateway","timestamp":"2025-02-26T18:57:26.885Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T18:58:12.006Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:58:12.045Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T18:58:15.092Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:58:15.104Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:58:39.166Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:59:05.288Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:59:06.176Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:59:06.414Z"}
+{"level":"info","message":"Incoming request: GET /api/rfqs","service":"api-gateway","timestamp":"2025-02-26T18:59:06.579Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T18:59:08.523Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T18:59:08.780Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq/quote","service":"api-gateway","timestamp":"2025-02-26T18:59:21.654Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T18:59:24.409Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq/quote","service":"api-gateway","timestamp":"2025-02-26T18:59:26.731Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq/","service":"api-gateway","timestamp":"2025-02-26T18:59:28.881Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq/quotes","service":"api-gateway","timestamp":"2025-02-26T18:59:37.642Z"}

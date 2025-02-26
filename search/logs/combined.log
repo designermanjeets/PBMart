@@ -166,3 +166,71 @@
 2025-02-26 12:00:52 [info]: [search-controller] Subscribed to product events{"metadata":{}}
 2025-02-26 12:00:52 [info]: [express-app] Express app configured{"metadata":{}}
 2025-02-26 12:00:52 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 12:37:54 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 12:37:54 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 12:38:01 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-02-26 12:38:01 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-02-26 12:38:01 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 12:38:01 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 12:38:01 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 12:38:01 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 12:42:48 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 12:42:48 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 12:42:55 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-02-26 12:42:55 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-02-26 12:42:55 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 12:42:55 [warn]: [express-app] Failed to create message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 12:42:55 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 12:42:55 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 12:45:31 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 12:45:31 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 12:45:40 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 12:45:40 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-02-26 12:45:40 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-02-26 12:45:40 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 12:45:40 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 12:45:40 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 12:45:40 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 12:49:48 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 12:49:48 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 12:49:57 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 12:49:57 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 12:49:57 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 12:49:57 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 12:49:57 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 12:58:09 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 12:58:09 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 12:58:17 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 12:58:17 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 12:58:17 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 12:58:17 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 12:58:17 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 13:03:19 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 13:03:19 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 13:03:26 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-02-26 13:03:26 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-02-26 13:03:26 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 13:03:26 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 13:03:26 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 13:03:26 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 13:07:08 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 13:07:08 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 13:07:17 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 13:07:17 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 13:07:17 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 13:07:17 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 13:07:17 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 13:09:51 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 13:09:51 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 13:09:59 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
+2025-02-26 13:10:00 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-02-26 13:10:00 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 13:10:00 [warn]: [express-app] Failed to create message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 13:10:00 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 13:10:00 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 18:38:16 [error]: [error-handler] Error: Route /health not found{"metadata":{}}
+2025-02-26 18:38:16 [error]: [error-handler] Error: Route /favicon.ico not found{"metadata":{}}
+2025-02-26 18:38:44 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 18:38:44 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-02-26 18:38:44 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-02-26 18:38:44 [error]: [error-handler] Error: Route /favicon.ico not found{"metadata":{}}

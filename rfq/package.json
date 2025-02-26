@@ -1,0 +1,24 @@
+{
+  "name": "rfq-service",
+  "version": "1.0.0",
+  "description": "RFQ Service for B2B E-commerce Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=prod node src/index.js",
+    "dev": "NODE_ENV=dev nodemon src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22"
+  }
+} 

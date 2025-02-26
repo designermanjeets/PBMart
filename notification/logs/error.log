@@ -70,3 +70,11 @@
 2025-02-26 11:51:03 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
 2025-02-26 11:55:38 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
 2025-02-26 12:00:46 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 12:37:56 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 12:42:50 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 12:45:33 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 12:49:50 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 12:58:11 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 13:03:21 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 13:07:09 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 13:09:54 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}

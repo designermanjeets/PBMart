@@ -13,9 +13,9 @@ module.exports = (app, channel) => {
     // Initialize controllers
     const vendorController = new VendorController(channel);
     const verificationController = new VerificationController(channel);
-    
-    // API routes
-    app.use('/api/vendors', vendorRoutes(vendorController));
+   
+    // API routes - use singular form consistently
+    app.use('/api/vendor', vendorRoutes(vendorController));
     app.use('/api/verifications', verificationRoutes(verificationController));
     
     // Serve uploaded files (for local storage)
@@ -27,13 +27,6 @@ module.exports = (app, channel) => {
             status: 'success',
             message: 'Vendor service is running'
         });
-    });
-    
-    // Add a redirect for singular form to plural form
-    app.use('/api/vendor', (req, res) => {
-        // Redirect to the plural form
-        const newUrl = req.url === '/' ? '/api/vendors' : `/api/vendors${req.url}`;
-        res.redirect(newUrl);
     });
     
     // Error handling middleware

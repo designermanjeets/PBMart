@@ -24,3 +24,5 @@
 {"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:27.405Z"}
 {"level":"error","message":"Error: Request failed with status code 401","service":"api-gateway","timestamp":"2025-02-26T08:46:14.927Z"}
 {"level":"error","message":"Error: CUSTOMERS_SERVICE is not defined","service":"api-gateway","timestamp":"2025-02-26T09:02:17.508Z"}
+{"level":"error","message":"Error: CUSTOMERS_SERVICE is not defined","service":"api-gateway","timestamp":"2025-02-26T18:33:47.901Z"}
+{"level":"error","message":"Error: CUSTOMERS_SERVICE is not defined","service":"api-gateway","timestamp":"2025-02-26T18:35:28.512Z"}

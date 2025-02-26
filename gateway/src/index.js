@@ -44,7 +44,9 @@ app.get('/health', (req, res) => {
     { name: 'admin', url: ADMIN_SERVICE },
     { name: 'payment', url: PAYMENT_SERVICE },
     { name: 'notification', url: NOTIFICATION_SERVICE },
-    { name: 'search', url: SEARCH_SERVICE }
+    { name: 'search', url: SEARCH_SERVICE },
+    { name: 'vendor', url: VENDOR_SERVICE },
+    { name: 'rfq', url: RFQ_SERVICE }
   ];
   res.status(200).json({
     service: 'API Gateway',
