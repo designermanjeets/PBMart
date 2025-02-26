@@ -457,4 +457,38 @@ The service uses the following environment variables:
 
 ## Conclusion
 
-The Customer Service is designed with scalability, resilience, and maintainability in mind. By following the patterns and practices outlined in this documentation, you can extend and enhance the service while maintaining its reliability. 
+The Customer Service is designed with scalability, resilience, and maintainability in mind. By following the patterns and practices outlined in this documentation, you can extend and enhance the service while maintaining its reliability.
+
+## Tenant Service vs Customer Service
+
+In a B2B e-commerce platform, it's common to have both Tenant and Customer services, as they serve different purposes:
+
+### Tenant Service
+- Represents sellers or vendors in the B2B platform
+- Manages organizations that sell products/services 
+- Handles multi-tenancy aspects of the platform
+- Manages tenant-specific settings, branding, catalogs
+- Typically includes tenant admin users, tenant settings, etc.
+
+### Customer Service
+- Represents buyers or purchasing organizations
+- Manages organizations that buy products/services
+- Handles customer accounts, profiles, and purchasing history
+- Manages customer-specific pricing, discounts, etc.
+- Typically includes customer users, addresses, payment methods, etc.
+
+### Do You Need Both?
+Yes, for a complete B2B e-commerce platform, you typically need both services because they serve different user types with different needs:
+
+1. **Different User Journeys**: Sellers (tenants) and buyers (customers) have completely different journeys and needs in the platform.
+2. **Different Data Models**: The data you store for a tenant (seller) is very different from what you store for a customer (buyer).
+3. **Separation of Concerns**: Keeping these services separate follows good microservice design principles.
+4. **Scalability**: Different parts of your system may need to scale differently (you might have many more customers than tenants).
+
+### Example Scenario
+In your B2B platform:
+- **Tenant Service**: Manages Company A, B, and C who sell products on your platform
+- **Customer Service**: Manages Company X, Y, and Z who purchase products from those sellers
+- Each has different needs, permissions, and data requirements.
+
+> **Note**: If you're building a simplified version, you could potentially combine them, but for a proper B2B platform, having both services is the recommended approach.

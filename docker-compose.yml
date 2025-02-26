@@ -71,11 +71,11 @@ services:
     networks:
       - app-network
 
-  customer:
+  customers:
     build:
       dockerfile: Dockerfile
-      context: ./customer
-    container_name: customer
+      context: ./customers
+    container_name: customers
     ports:
       - "8001:8001"
     restart: always
@@ -85,19 +85,19 @@ services:
       nosql-db:
         condition: service_started
     volumes:
-      - ./customer:/app/customer
-      - /app/customer/node_modules
-      - ./logs/customer:/app/customer/logs
+      - ./customers:/app/customers
+      - /app/customers/node_modules
+      - ./logs/customers:/app/customers/logs
     env_file:
-      - ./customer/.env.dev
+      - ./customers/.env.dev
     networks:
       - app-network
 
-  tenant:
+  tenants:
     build:
       dockerfile: Dockerfile
-      context: ./tenant
-    container_name: tenant
+      context: ./tenants
+    container_name: tenants
     ports:
       - "8004:8004"
     restart: always
@@ -107,11 +107,11 @@ services:
       nosql-db:
         condition: service_started
     volumes:
-      - ./tenant:/app/tenant
-      - /app/tenant/node_modules
-      - ./logs/tenant:/app/tenant/logs
+      - ./tenants:/app/tenants
+      - /app/tenants/node_modules
+      - ./logs/tenants:/app/tenants/logs
     env_file:
-      - ./tenant/.env.dev
+      - ./tenants/.env.dev
     networks:
       - app-network
 
@@ -122,8 +122,8 @@ services:
     depends_on:
       - products
       - shopping
-      - customer
-      - tenant
+      - customers
+      - tenants
     ports:
       - 80:80
     networks:
@@ -140,8 +140,8 @@ services:
     depends_on:
       - "products"
       - "shopping"
-      - "customer"
-      - "tenant"
+      - "customers"
+      - "tenants"
     volumes:
       - .:/app
       - /app/gateway/node_modules

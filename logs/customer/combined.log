@@ -96,3 +96,8 @@
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:31:25"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:34:47"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-25 23:36:54"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-26 04:46:26"}
+{"level":"info","message":"GET /api/customer","module":"app","service":"customer-service","timestamp":"2025-02-26 04:47:14"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"customer-service","timestamp":"2025-02-26 04:49:35"}
+{"level":"info","message":"GET /api/customers","module":"app","service":"customer-service","timestamp":"2025-02-26 04:49:38"}
+{"level":"error","message":"Route /api/customers not found","module":"error-handler","service":"customer-service","status":"error","statusCode":404,"timestamp":"2025-02-26 04:49:38"}

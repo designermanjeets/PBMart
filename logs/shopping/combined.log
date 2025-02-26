@@ -37,3 +37,18 @@
 {"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:31:29"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:34:47"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-25 23:36:54"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 04:46:26"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-26 04:47:22"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 04:49:35"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:04:45"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:06:54"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:12:45"}
+{"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:14:10"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:17:32"}
+{"level":"info","message":"GET /health","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:18:03"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:19:26"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:23:13"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:26:02"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:27:14"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:27:44"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-02-26 05:29:11"}

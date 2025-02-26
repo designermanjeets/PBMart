@@ -13,8 +13,8 @@ module.exports = {
     APP_SECRET: process.env.APP_SECRET || 'your_jwt_secret_key',
     MESSAGE_BROKER_URL: process.env.MSG_QUEUE_URL,
     EXCHANGE_NAME: process.env.EXCHANGE_NAME,
-    TENANT_SERVICE: 'tenant_service',
-    CUSTOMER_SERVICE: 'customer_service',
+    TENANTS_SERVICE: 'tenants_service',
+    CUSTOMERS_SERVICE: 'customers_service',
     SHOPPING_SERVICE: 'shopping_service',
     QUEUE_NAME: 'TENANT_QUEUE'
 }; 

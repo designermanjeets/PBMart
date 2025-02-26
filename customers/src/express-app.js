@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
-const { customer, setupRootRoutes } = require('./api');
+const { customers, setupRootRoutes } = require('./api');
 const errorHandler = require('./api/middlewares/error-handler');
 const { CreateChannel } = require('./utils');
 const logger = require('./utils/logger');
@@ -43,7 +43,7 @@ module.exports = async (app) => {
             const brokerStatus = channel ? 'connected' : 'disconnected';
             
             return res.status(200).json({
-                service: 'Customer Service',
+                service: 'Customers Service',
                 status: 'active',
                 time: new Date(),
                 database: dbStatus ? 'connected' : 'disconnected',
@@ -51,7 +51,7 @@ module.exports = async (app) => {
             });
         } catch (err) {
             return res.status(503).json({
-                service: 'Customer Service',
+                service: 'Customers Service',
                 status: 'error',
                 time: new Date(),
                 error: err.message
@@ -63,7 +63,7 @@ module.exports = async (app) => {
     setupRootRoutes(app);
     
     // Setup API routes with prefix
-    app.use('/api/customer', customer(app, channel));
+    app.use('/api/customers', customers(app, channel));
 
     // Add this before the error handler middleware
     app.use('*', (req, res, next) => {

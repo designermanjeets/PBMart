@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { 
-  CUSTOMER_SERVICE_URL, 
+  CUSTOMERS_SERVICE_URL, 
   SHOPPING_SERVICE_URL, 
-  PRODUCT_SERVICE_URL, 
-  TENANT_SERVICE_URL, 
+  PRODUCTS_SERVICE_URL, 
+  TENANTS_SERVICE_URL, 
   ADMIN_SERVICE_URL 
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const { validateToken } = require('../middlewares');
+const { validateToken } = require('../middleware');
 
 // Root path handler
 router.get('/', (req, res) => {
@@ -47,11 +47,11 @@ router.get('/health', async (req, res) => {
 });
 
 // Customer Service Routes
-router.use('/customer', validateToken, createProxyMiddleware({
-  target: CUSTOMER_SERVICE_URL,
+router.use('/customers', validateToken, createProxyMiddleware({
+  target: CUSTOMERS_SERVICE_URL,
   changeOrigin: true,
   pathRewrite: {
-    '^/customer': '/api/customer'
+    '^/customers': '/api/customers'
   },
   onProxyReq: (proxyReq, req, res) => {
     console.log(`Proxying request to customer service: ${req.method} ${req.url}`);
@@ -80,7 +80,7 @@ router.use('/shopping', validateToken, createProxyMiddleware({
 
 // Product Service Routes
 router.use('/products', validateToken, createProxyMiddleware({
-  target: PRODUCT_SERVICE_URL,
+  target: PRODUCTS_SERVICE_URL,
   changeOrigin: true,
   pathRewrite: {
     '^/products': '/api/products'
@@ -95,11 +95,11 @@ router.use('/products', validateToken, createProxyMiddleware({
 }));
 
 // Tenant Service Routes
-router.use('/tenant', validateToken, createProxyMiddleware({
-  target: TENANT_SERVICE_URL,
+router.use('/tenants', validateToken, createProxyMiddleware({
+  target: TENANTS_SERVICE_URL,
   changeOrigin: true,
   pathRewrite: {
-    '^/tenant': '/api/tenant'
+    '^/tenants': '/api/tenants'
   },
   onProxyReq: (proxyReq, req, res) => {
     console.log(`Proxying request to tenant service: ${req.method} ${req.url}`);

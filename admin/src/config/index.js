@@ -17,9 +17,9 @@ module.exports = {
     MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL || 'amqp://localhost',
     EXCHANGE_NAME: process.env.EXCHANGE_NAME || 'B2B_EXCHANGE',
     ADMIN_SERVICE: 'admin_service',
-    CUSTOMER_SERVICE: 'customer_service',
+    CUSTOMERS_SERVICE: 'customers_service',
     SHOPPING_SERVICE: 'shopping_service',
-    PRODUCT_SERVICE: 'product_service',
+    PRODUCTS_SERVICE: 'products_service',
     PAYMENT_SERVICE: 'payment_service',
     NOTIFICATION_SERVICE: 'notification_service',
     

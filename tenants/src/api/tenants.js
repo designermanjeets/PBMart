@@ -21,7 +21,7 @@ module.exports = (app, channel) => {
     // Root endpoint
     router.get('/', (req, res) => {
         res.json({
-            message: 'Tenant service API',
+            message: 'Tenants service API',
             version: '1.0.0'
         });
     });

@@ -60,18 +60,25 @@ module.exports = (app, channel) => {
         }
     });
 
-    // Add new address
-    router.post('/address', validateToken, validateRequest(customerSchema.address), async (req, res, next) => {
+    // Update profile
+    router.put('/profile', validateToken, validateRequest(customerSchema.profile), async (req, res, next) => {
         try {
             const { _id } = req.user;
-            const { street, postalCode, city, country } = req.body;
-            const { data } = await service.AddNewAddress(_id, {
-                street,
-                postalCode,
-                city,
-                country
-            });
-            res.status(201).json(data);
+            const { name, email, phone, address } = req.body;
+            const { data } = await service.UpdateProfile(_id, { name, email, phone, address });
+            res.status(200).json(data);
+        } catch (err) {
+            next(err);
+        }
+    });
+
+    // Add to wishlist
+    router.post('/wishlist', validateToken, validateRequest(customerSchema.wishlist), async (req, res, next) => {
+        try {
+            const { _id } = req.user;
+            const { product_id } = req.body;
+            const { data } = await service.AddToWishlist(_id, product_id);
+            res.status(200).json(data);
         } catch (err) {
             next(err);
         }
@@ -82,18 +89,6 @@ module.exports = (app, channel) => {
         try {
             const { _id } = req.user;
             const { data } = await service.GetWishlist(_id);
-            res.status(200).json(data);
-        } catch (err) {
-            next(err);
-        }
-    });
-
-    // Add to wishlist
-    router.post('/wishlist', validateToken, async (req, res, next) => {
-        try {
-            const { _id } = req.user;
-            const { product } = req.body;
-            const { data } = await service.AddToWishlist(_id, product);
             res.status(200).json(data);
         } catch (err) {
             next(err);
@@ -117,16 +112,7 @@ module.exports = (app, channel) => {
         try {
             const { _id } = req.user;
             const { product_id, qty } = req.body;
-            const { data } = await service.ManageCart(_id, { _id: product_id }, qty, false);
-            
-            // Publish event to shopping service if channel exists
-            if (channel) {
-                PublishMessage(channel, SHOPPING_SERVICE, {
-                    event: 'ADD_TO_CART',
-                    data: { userId: _id, product: { _id: product_id }, qty }
-                });
-            }
-            
+            const { data } = await service.AddToCart(_id, { product_id, qty });
             res.status(200).json(data);
         } catch (err) {
             next(err);
@@ -137,28 +123,19 @@ module.exports = (app, channel) => {
     router.get('/cart', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
-            const { data } = await service.GetShoppingDetails(_id);
+            const { data } = await service.GetCart({ _id });
             res.status(200).json(data);
         } catch (err) {
             next(err);
         }
     });
 
-    // Delete cart item
+    // Remove from cart
     router.delete('/cart/:id', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
             const productId = req.params.id;
-            const { data } = await service.ManageCart(_id, { _id: productId }, 0, true);
-            
-            // Publish event to shopping service if channel exists
-            if (channel) {
-                PublishMessage(channel, SHOPPING_SERVICE, {
-                    event: 'REMOVE_FROM_CART',
-                    data: { userId: _id, product: { _id: productId } }
-                });
-            }
-            
+            const { data } = await service.RemoveFromCart(_id, productId);
             res.status(200).json(data);
         } catch (err) {
             next(err);

@@ -12,10 +12,10 @@ module.exports = {
   APP_SECRET: process.env.APP_SECRET || "your_app_secret",
   
   // Service URLs
-  CUSTOMER_SERVICE_URL: process.env.CUSTOMER_SERVICE_URL || "http://customer:8001",
-  PRODUCT_SERVICE_URL: process.env.PRODUCT_SERVICE_URL || "http://products:8002",
+  CUSTOMERS_SERVICE_URL: process.env.CUSTOMERS_SERVICE_URL || "http://customers:8001",
+  PRODUCTS_SERVICE_URL: process.env.PRODUCTS_SERVICE_URL || "http://products:8002",
   SHOPPING_SERVICE_URL: process.env.SHOPPING_SERVICE_URL || "http://shopping:8003",
-  TENANT_SERVICE_URL: process.env.TENANT_SERVICE_URL || "http://tenant:8004",
+  TENANTS_SERVICE_URL: process.env.TENANTS_SERVICE_URL || "http://tenants:8004",
   ADMIN_SERVICE_URL: process.env.ADMIN_SERVICE_URL || "http://admin:8005",
   // Rate limiting
   RATE_LIMIT_WINDOW_MS: process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000, // 15 minutes
