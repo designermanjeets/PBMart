@@ -112,3 +112,42 @@
 2025-02-26 06:48:07 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
 2025-02-26 06:48:07 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
 2025-02-26 06:48:07 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:20:18 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:20:18 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:20:18 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:20:18 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:25:08 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:08 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:09 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:10 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:12 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:14 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:18 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:25 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:25:38 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:26:04 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:27:23 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:27:23 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:27:23 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:27:23 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:28:03 [[32minfo[39m]: GET /api/payment{"metadata":{}}
+2025-02-26 08:33:34 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:33:34 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:33:34 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:33:34 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:36:21 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:36:21 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:36:21 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:36:21 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:38:54 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:38:54 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:38:54 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:38:54 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:41:11 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:41:11 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:41:11 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:41:11 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 08:43:31 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 08:43:31 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 08:43:31 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 08:43:31 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}

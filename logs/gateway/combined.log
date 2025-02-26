@@ -365,3 +365,92 @@
 {"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:48:39.690Z"}
 {"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:53:15.208Z"}
 {"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:53:21.652Z"}
+2025-02-26 08:22:05 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:22:05.606Z"}
+2025-02-26 08:25:07 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:25:07.821Z"}
+2025-02-26 08:27:23 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:27:23.369Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T08:27:32.548Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-02-26T08:27:38.451Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-02-26T08:27:43.849Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-02-26T08:27:48.972Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-02-26T08:27:53.573Z"}
+{"level":"info","message":"Incoming request: GET /api/admin","service":"api-gateway","timestamp":"2025-02-26T08:27:58.466Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T08:28:03.169Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T08:28:08.497Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:33:34.577Z"}
+2025-02-26 08:33:34 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T08:33:51.635Z"}
+{"level":"info","message":"Incoming request: GET /api/search","service":"api-gateway","timestamp":"2025-02-26T08:33:57.478Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:34:09.821Z"}
+2025-02-26 08:36:21 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:36:21.500Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:22.403Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:24.765Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:26.167Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:26.693Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:26.960Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:27.194Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:27.413Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:27.593Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:27.752Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:27.938Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:41.506Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:41.824Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:42.141Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:42.329Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:42.481Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:36:42.760Z"}
+2025-02-26 08:38:53 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:38:53.687Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:38:59.100Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:00.068Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:00.268Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:00.482Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:01.322Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:01.486Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:01.661Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:01.838Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:02.021Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:02.208Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:02.399Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:02.607Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:02.852Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:03.044Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:03.243Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:03.436Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:03.617Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:09.511Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:09.758Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:09.931Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:10.267Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:10.426Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:10.739Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:39:30.885Z"}
+2025-02-26 08:41:11 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:41:11.096Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:41:33.814Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:41:34.613Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:41:34.761Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:41:34.915Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:41:35.137Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:41:36.727Z"}
+2025-02-26 08:43:30 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T08:43:30.985Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:43:34.345Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:43:36.385Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T08:43:38.671Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:43:43.913Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:43:44.399Z"}
+{"level":"info","message":"Incoming request: GET /api/search/","service":"api-gateway","timestamp":"2025-02-26T08:43:48.818Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:43:53.984Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:44:52.997Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:44:54.616Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:44:55.211Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:44:55.542Z"}
+{"level":"info","message":"Incoming request: POST /api/search/index","service":"api-gateway","timestamp":"2025-02-26T08:46:14.907Z"}
+{"level":"error","message":"Error: Request failed with status code 401","service":"api-gateway","timestamp":"2025-02-26T08:46:14.927Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:48:32.168Z"}
+{"level":"info","message":"Incoming request: GET /api/search/health","service":"api-gateway","timestamp":"2025-02-26T08:48:35.740Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T08:48:41.919Z"}

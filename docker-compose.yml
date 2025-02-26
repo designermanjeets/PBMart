@@ -221,6 +221,41 @@ services:
     networks:
       - app-network
 
+  search:
+    build:
+      context: ./search
+      dockerfile: Dockerfile
+    ports:
+      - "8009:8009"
+    volumes:
+      - ./search:/app/search
+      - /app/search/node_modules
+    depends_on:
+      - nosql-db
+      - rabbitmq
+      - elasticsearch
+    environment:
+      - NODE_ENV=dev
+    networks:
+      - app-network
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.6.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      - app-network
+
+volumes:
+  esdata:
+    driver: local
+
 networks:
   app-network:
     driver: bridge

@@ -22,3 +22,4 @@
 {"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:24.872Z"}
 {"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:25.053Z"}
 {"level":"error","message":"Error: Cannot read properties of undefined (reading 'message')","service":"api-gateway","timestamp":"2025-02-25T20:04:27.405Z"}
+{"level":"error","message":"Error: Request failed with status code 401","service":"api-gateway","timestamp":"2025-02-26T08:46:14.927Z"}

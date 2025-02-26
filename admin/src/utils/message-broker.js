@@ -1,0 +1,1 @@
+await channel.assertExchange(EXCHANGE_NAME, 'topic', { durable: true }); 

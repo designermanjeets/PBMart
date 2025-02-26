@@ -1,0 +1,53 @@
+2025-02-26 08:24:57 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:25:04 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:25:04 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-02-26 08:25:04 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-02-26 08:25:04 [info]: [message-broker] Attempting to connect to RabbitMQ at amqp://rabbitmq:5672{"metadata":{}}
+2025-02-26 08:25:04 [info]: [message-broker] Connected to RabbitMQ and channel created{"metadata":{}}
+2025-02-26 08:25:04 [info]: [express-app] Message broker channel created{"metadata":{}}
+2025-02-26 08:25:04 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:27:12 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:27:19 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:27:19 [info]: [message-broker] Attempting to connect to RabbitMQ at amqp://rabbitmq:5672{"metadata":{}}
+2025-02-26 08:27:19 [info]: [message-broker] Connected to RabbitMQ and channel created{"metadata":{}}
+2025-02-26 08:27:19 [info]: [express-app] Message broker channel created{"metadata":{}}
+2025-02-26 08:27:19 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:33:23 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:33:30 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:33:30 [info]: [message-broker] Attempting to connect to RabbitMQ at amqp://rabbitmq:5672{"metadata":{}}
+2025-02-26 08:33:30 [info]: [message-broker] Connected to RabbitMQ and channel created{"metadata":{}}
+2025-02-26 08:33:30 [info]: [express-app] Message broker channel created{"metadata":{}}
+2025-02-26 08:33:30 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:36:10 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:36:17 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:36:17 [info]: [message-broker] Attempting to connect to RabbitMQ at amqp://rabbitmq:5672{"metadata":{}}
+2025-02-26 08:36:17 [info]: [message-broker] Connected to RabbitMQ and channel created{"metadata":{}}
+2025-02-26 08:36:17 [info]: [express-app] Message broker channel created{"metadata":{}}
+2025-02-26 08:36:17 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 08:36:17 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:38:43 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:38:51 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:38:51 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 08:38:51 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 08:38:51 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 08:38:51 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:41:00 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:41:00 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 08:41:08 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:41:08 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 08:41:08 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 08:41:08 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 08:41:08 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:43:16 [info]: [database] No database URL provided, skipping MongoDB connection{"metadata":{}}
+2025-02-26 08:43:16 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-02-26 08:43:25 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-02-26 08:43:25 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-02-26 08:43:25 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-02-26 08:43:25 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-02-26 08:43:25 [info]: [express-app] Express app configured{"metadata":{}}
+2025-02-26 08:43:25 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-02-26 08:43:48 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-02-26 08:43:48 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-02-26 08:43:49 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-02-26 08:46:14 [error]: [auth-middleware] Token validation failed: jwt malformed{"metadata":{}}
+2025-02-26 08:46:14 [error]: [error-handler] Error: Invalid token{"metadata":{}}

@@ -36,10 +36,21 @@ app.get('/', (req, res) => {
 // Health check for the gateway itself at root level
 app.get('/health', (req, res) => {
   logger.info('Handling health check request');
+  const services = [
+    { name: 'customers', url: CUSTOMERS_SERVICE },
+    { name: 'products', url: PRODUCTS_SERVICE },
+    { name: 'shopping', url: SHOPPING_SERVICE },
+    { name: 'tenants', url: TENANTS_SERVICE },
+    { name: 'admin', url: ADMIN_SERVICE },
+    { name: 'payment', url: PAYMENT_SERVICE },
+    { name: 'notification', url: NOTIFICATION_SERVICE },
+    { name: 'search', url: SEARCH_SERVICE }
+  ];
   res.status(200).json({
     service: 'API Gateway',
     status: 'active',
-    time: new Date().toISOString()
+    time: new Date().toISOString(),
+    services: services
   });
 });
 

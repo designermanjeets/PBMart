@@ -7,10 +7,13 @@ const {
   TENANTS_SERVICE, 
   ADMIN_SERVICE,
   PAYMENT_SERVICE,
-  NOTIFICATION_SERVICE
+  NOTIFICATION_SERVICE,
+  SEARCH_SERVICE
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { validateToken } = require('../middleware');
+const axios = require('axios');
+const circuitBreaker = require('../utils/circuitBreaker');
 
 // Root path handler
 router.get('/', (req, res) => {
@@ -24,7 +27,8 @@ router.get('/', (req, res) => {
       { name: 'Tenants', endpoint: '/api/tenants' },
       { name: 'Admin', endpoint: '/api/admin' },
       { name: 'Payment', endpoint: '/api/payment' },
-      { name: 'Notification', endpoint: '/api/notification' }
+      { name: 'Notification', endpoint: '/api/notification' },
+      { name: 'Search', endpoint: '/api/search' }
     ],
     documentation: '/api/docs'
   });
@@ -132,8 +136,6 @@ router.use('/payment', validateToken, createProxyMiddleware({
   }
 }));
 
-// Check if NOTIFICATION_SERVICE is properly imported and used
-console.log('NOTIFICATION_SERVICE:', NOTIFICATION_SERVICE);
 
 // Notification Service Routes
 router.use('/notification', validateToken, createProxyMiddleware({
@@ -143,5 +145,28 @@ router.use('/notification', validateToken, createProxyMiddleware({
     '^/notification': '/api/notification'
   }
 }));
+
+// Search Service Routes
+router.use('/search', circuitBreaker.createCircuitBreaker(
+    async (req, res, next) => {
+        try {
+            const { method, path, query, body, headers } = req;
+            const authHeader = headers.authorization;
+            
+            const response = await axios({
+                method,
+                url: `${SEARCH_SERVICE}${path}`,
+                params: query,
+                data: body,
+                headers: authHeader ? { Authorization: authHeader } : {}
+            });
+            
+            return res.status(response.status).json(response.data);
+        } catch (error) {
+            next(error);
+        }
+    },
+    'search-service'
+));
 
 module.exports = router; 
