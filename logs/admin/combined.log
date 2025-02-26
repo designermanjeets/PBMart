@@ -514,3 +514,79 @@
 {"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 08:43:31"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 08:43:31"}
 {"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 08:43:31"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 10:55:41"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 10:55:41"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 10:55:41"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 10:55:41"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 10:55:41"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 10:58:45"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 10:58:45"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 10:58:45"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 10:58:45"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 10:58:45"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 10:59:38"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 10:59:38"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 10:59:38"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 10:59:38"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 10:59:38"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:01:38"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:01:38"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:01:38"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:01:38"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:01:38"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:04:56"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:04:56"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:04:56"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:04:56"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:04:56"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:12:16"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:12:16"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:12:16"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:12:16"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:12:16"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:14:49"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:14:49"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:14:49"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:14:49"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:14:49"}
+{"level":"info","message":"Headers: {\"if-none-match\":\"W/\\\"112-eqWcq/pq/em8j2SkOzLD8q12QDY\\\"\",\"cookie\":\"csrftoken=98dugM8WOJtQ8LLl5yRSRqD3iolFYh9k; _ga=GA1.1.587227873.1717431524; ajs_anonymous_id=80b78cf5-5a46-4267-9162-840f7df58723; _ga_8TQQ32NP0S=GS1.1.1719503709.35.0.1719503709.0.0.0; __stripe_mid=1b73d119-d8e4-476b-ae59-86b2dbacadc1c659c3; rl_page_init_referrer=RudderEncrypt%3AU2FsdGVkX1%2BaafrDXwFcLccW4PqUVJglb5JfLUYfUUY%3D; rl_page_init_referring_domain=RudderEncrypt%3AU2FsdGVkX19mHsLF1DiJepD32%2Bd0LvhTpPHTYc1%2FJ%2Bk%3D; _clck=1tya5qe%7C2%7Cfs1%7C0%7C1790; _ga_Q16TM1H6C9=GS1.1.1735200365.10.1.1735201514.0.0.0; rl_anonymous_id=RudderEncrypt%3AU2FsdGVkX1%2FUsx26O%2ByJJOX3DJHhZm1grGImtJSmhkllVSewlmeyTDSTJRaOv3VjiHovHONkBcvHByz3GiW3jA%3D%3D; rl_user_id=RudderEncrypt%3AU2FsdGVkX19Dkd3ioF4yEfPMj6GX5pFMgyxN%2FxqoxHhyxPLr%2BcTfikSO82ZXMgGM1K%2FYOFB3GkRX4DpPoiRB76XkBYWimy%2Fm7ejmkx8TA1lc4%2FwJQVpnHUZ9HyXXxRxL96FRYvBuOoUFUzjarVp5JNZ36R9K9sfdDQqt8CAqd7M%3D; rl_trait=RudderEncrypt%3AU2FsdGVkX19nkqREOF1Kqym%2BU%2Ba%2BKd9lQfeFVWb9UUJp4xBM0%2F2oE39bfXPmNVV%2FmInpQNDFb%2Bh0KZzBaPfMPxEfzAwuvUT6ZdUceHp%2FUwT6KosBDlRbSZSnGp5cCe7B3ig5PAlqnQwM0ghwTqOODQ%3D%3D; rl_session=RudderEncrypt%3AU2FsdGVkX1%2FDk1xxXkYp0APkoo9%2BfO4P6WK6Z0A53ZbfUXKAQd%2F148mtYHLvj004mTOCmv9azs5Xs4jiB4Tdz4bqelm%2Bjaa1AWUpz8mXhDDeiosBa1e3MP8oIs%2BGwhaq0hn5bH9PiO2rZ9sdybF9xg%3D%3D; ph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog=%7B%22distinct_id%22%3A%2233db994e99cc73f5a6a776cf7f460486b3f7bd16c83cd2d724de4871b3f0bd28%23196b6592-135f-45d2-9a22-b7762a05ebed%22%2C%22%24sesid%22%3A%5B1739952504558%2C%2201951d25-69be-71b9-bf10-e74c47f14771%22%2C1739950746046%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22%24direct%22%2C%22u%22%3A%22http%3A%2F%2Flocalhost%3A5678%2Fsetup%22%7D%7D\",\"accept-language\":\"en-US,en;q=0.9\",\"accept-encoding\":\"gzip, deflate, br, zstd\",\"sec-fetch-dest\":\"document\",\"sec-fetch-user\":\"?1\",\"sec-fetch-mode\":\"navigate\",\"sec-fetch-site\":\"none\",\"accept\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\",\"purpose\":\"prefetch\",\"sec-purpose\":\"prefetch;prerender\",\"user-agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36\",\"upgrade-insecure-requests\":\"1\",\"sec-ch-ua-platform\":\"\\\"macOS\\\"\",\"sec-ch-ua-mobile\":\"?0\",\"sec-ch-ua\":\"\\\"Not(A:Brand\\\";v=\\\"99\\\", \\\"Google Chrome\\\";v=\\\"133\\\", \\\"Chromium\\\";v=\\\"133\\\"\",\"connection\":\"close\",\"host\":\"admin:8005\"}","module":"app","service":"admin-service","timestamp":"2025-02-26 11:15:28"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:19:40"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:19:40"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:19:40"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:19:40"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:19:40"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:24:59"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:24:59"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:24:59"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:24:59"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:24:59"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:32:40"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:32:40"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:32:40"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:32:40"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:32:40"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:37:42"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:37:42"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:37:42"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:37:42"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:37:42"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:42:26"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:42:26"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:42:26"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:42:26"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:42:26"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:51:12"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:51:12"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:51:12"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:51:12"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:51:12"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 11:55:48"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 11:55:48"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 11:55:48"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 11:55:48"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 11:55:48"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-26 12:00:55"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-02-26 12:00:55"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-02-26 12:00:55"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-02-26 12:00:55"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-02-26 12:00:55"}

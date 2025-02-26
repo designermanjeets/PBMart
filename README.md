@@ -1,293 +1,166 @@
-# B2B eCommerce Microservices Platform
+# B2B eCommerce Platform
 
 ## Overview
 
-This B2B eCommerce platform is a comprehensive solution built using a microservices architecture. It enables businesses to create and manage their online presence, product catalogs, and customer relationships. The platform is designed with scalability, resilience, and maintainability in mind, making it suitable for businesses of all sizes.
+This is a comprehensive B2B eCommerce platform built with a microservices architecture. The platform provides a complete solution for businesses to sell products to other businesses, with features including product management, customer management, order processing, payment processing, tenant management, admin functionality, notifications, and powerful search capabilities.
 
 ## Architecture
 
-### System Architecture
+The platform is built using a microservices architecture, with each service responsible for a specific domain of functionality. The services communicate with each other through a combination of synchronous REST API calls and asynchronous message-based communication using RabbitMQ.
 
-The platform follows a microservices architecture pattern, with each service responsible for a specific business domain. This approach allows for independent development, deployment, and scaling of individual components.
+### Services
 
-![Microservices Architecture](https://miro.medium.com/max/1400/1*QzlqmA-BWGgYQXTgRtOc0g.png)
+- **API Gateway**: Routes client requests to appropriate microservices
+- **Customer Service**: Manages customer accounts and authentication
+- **Product Service**: Handles product catalog and inventory
+- **Shopping Service**: Manages shopping carts and orders
+- **Tenant Service**: Supports multi-tenancy for different business entities
+- **Admin Service**: Provides administrative functionality
+- **Payment Service**: Processes payments and manages transactions
+- **Notification Service**: Handles email, SMS, and in-app notifications
+- **Search Service**: Provides powerful search capabilities using Elasticsearch
+- **Vendor Service**: Manages vendor registration, verification, and performance tracking
 
-### Key Components
+### Technology Stack
 
-1. **API Gateway**: Routes requests to appropriate microservices
-2. **Service Discovery**: Manages service registration and discovery
-3. **Microservices**: Independent services for specific business domains
-4. **Message Broker**: Facilitates asynchronous communication between services
-5. **Databases**: Each service has its own database
-6. **Authentication/Authorization**: Centralized identity management
-
-### Communication Patterns
-
-1. **Synchronous Communication**: REST APIs for direct service-to-service communication
-2. **Asynchronous Communication**: Event-driven architecture using RabbitMQ
-3. **Circuit Breaker Pattern**: Prevents cascading failures across services
-
-## Available Microservices
-
-### Tenant Service
-- **Purpose**: Manages business accounts, authentication, and subscription management
-- **Key Features**: Business registration, authentication, subscription management
-- **Port**: 8004
-- [Detailed Documentation](./tenant/README.md)
-
-### Customer Service
-- **Purpose**: Manages customer accounts, authentication, and profile management
-- **Key Features**: Customer registration, authentication, address management
-- **Port**: 8001
-- [Detailed Documentation](./customer/README.md)
-
-### Products Service
-- **Purpose**: Manages product catalogs, inventory, and product-related operations
-- **Key Features**: Product CRUD operations, inventory management, category management
-- **Port**: 8002
-- [Detailed Documentation](./products/README.md)
-
-### Shopping Service
-- **Purpose**: Manages shopping carts, orders, and checkout processes
-- **Key Features**: Cart management, order processing, checkout flow
-- **Port**: 8003
-- [Detailed Documentation](./shopping/README.md)
-
-## Technology Stack
-
-### Backend
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB
+- **Backend**: Node.js, Express.js
+- **Databases**: MongoDB, Elasticsearch
 - **Message Broker**: RabbitMQ
+- **Containerization**: Docker, Docker Compose
 - **Authentication**: JWT (JSON Web Tokens)
+- **API Documentation**: Swagger/OpenAPI
 
-### DevOps & Infrastructure
-- **Containerization**: Docker
-- **Container Orchestration**: Docker Compose (development), Kubernetes (production)
-- **CI/CD**: GitHub Actions
-- **Monitoring**: Prometheus, Grafana
-- **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana)
-
-### Resilience Patterns
-- **Circuit Breaker**: Prevents cascading failures
-- **Health Checks**: Monitors service health
-- **Structured Logging**: Consistent logging across services
-- **Retry Mechanisms**: Handles transient failures
-
-## Benefits
-
-### For Businesses
-- **Scalability**: Easily scale individual services based on demand
-- **Flexibility**: Adapt to changing business requirements
-- **Resilience**: Fault isolation prevents system-wide failures
-- **Time-to-Market**: Independent development and deployment of services
-
-### For Developers
-- **Technology Flexibility**: Each service can use the most appropriate technology
-- **Maintainability**: Smaller, focused codebases are easier to understand and maintain
-- **Testability**: Services can be tested in isolation
-- **Deployment**: Independent deployment reduces risk and enables continuous delivery
-
-### For Operations
-- **Resource Efficiency**: Scale services based on their specific resource needs
-- **Monitoring**: Granular monitoring of individual services
-- **Fault Isolation**: Issues in one service don't affect others
-- **Deployment Flexibility**: Deploy updates to specific services without affecting others
-
-## Development Guide
+## Getting Started
 
 ### Prerequisites
-- Node.js (v14+)
+
 - Docker and Docker Compose
-- MongoDB
-- RabbitMQ
+- Node.js (for local development)
+- MongoDB (for local development)
+- RabbitMQ (for local development)
+- Elasticsearch (for search functionality)
 
-### Local Development Setup
+### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/b2b-ecommerce-platform.git
-   cd b2b-ecommerce-platform
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/b2b-ecommerce.git
+   cd b2b-ecommerce
    ```
 
-2. **Install dependencies for all services**
-   ```bash
-   # Install dependencies for each service
-   cd tenant && npm install
-   cd ../customer && npm install
-   cd ../products && npm install
-   cd ../shopping && npm install
+2. Start the services using Docker Compose:
    ```
-
-3. **Set up environment variables**
-   - Copy `.env.example` to `.env` in each service directory
-   - Update the variables with your local configuration
-
-4. **Start the services using Docker Compose**
-   ```bash
-   docker-compose up
-   ```
-
-5. **Access the services**
-   - Tenant Service: http://localhost:8004
-   - Customer Service: http://localhost:8001
-   - Products Service: http://localhost:8002
-   - Shopping Service: http://localhost:8003
-
-### Development Workflow
-
-1. **Create a feature branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-2. **Make changes to the relevant service**
-
-3. **Run tests**
-   ```bash
-   cd service-name && npm test
-   ```
-
-4. **Submit a pull request**
-
-### Adding a New Microservice
-
-1. **Create a new directory for your service**
-   ```bash
-   mkdir new-service && cd new-service
-   ```
-
-2. **Initialize a new Node.js project**
-   ```bash
-   npm init -y
-   ```
-
-3. **Install core dependencies**
-   ```bash
-   npm install express mongoose amqplib winston jsonwebtoken
-   ```
-
-4. **Copy the basic structure from an existing service**
-   - Adapt the code to your service's needs
-   - Follow the established patterns for consistency
-
-5. **Add your service to docker-compose.yml**
-
-6. **Create comprehensive documentation in README.md**
-
-## Deployment Guide
-
-### Docker Deployment
-
-1. **Build the Docker images**
-   ```bash
-   docker-compose build
-   ```
-
-2. **Run the services**
-   ```bash
    docker-compose up -d
    ```
 
-### Kubernetes Deployment
+3. The API Gateway will be available at http://localhost:8000
 
-1. **Create Kubernetes deployment files**
-   - Use the provided templates in the `k8s` directory
+### Development
 
-2. **Deploy to Kubernetes**
-   ```bash
-   kubectl apply -f k8s/
+For local development of individual services:
+
+1. Navigate to the service directory:
+   ```
+   cd service-name
    ```
 
-### Cloud Deployment
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-The platform can be deployed to various cloud providers:
+3. Start the service in development mode:
+   ```
+   npm run dev
+   ```
 
-- **AWS**: Using ECS, EKS, or EC2
-- **Azure**: Using AKS or App Service
-- **Google Cloud**: Using GKE or Compute Engine
+## API Documentation
 
-Detailed deployment guides for each cloud provider are available in the `docs/deployment` directory.
+API documentation is available at http://localhost:8000/api/docs when the platform is running.
 
-## Monitoring and Maintenance
+## Service Details
 
-### Health Checks
+### API Gateway (Port: 8000)
 
-Each service provides a `/health` endpoint that returns the service's health status, including:
-- Service status
-- Database connectivity
-- Message broker connectivity
+The API Gateway is the entry point for all client requests. It routes requests to the appropriate microservice, handles authentication, and provides a unified API for clients.
 
-### Logging
+### Customer Service (Port: 8001)
 
-- Structured logs are stored in the `logs` directory of each service
-- In production, logs should be aggregated using a centralized logging system (ELK Stack)
+Manages customer accounts, authentication, and customer-related operations.
 
-### Monitoring
+### Product Service (Port: 8002)
 
-- Prometheus metrics are exposed on the `/metrics` endpoint of each service
-- Grafana dashboards are provided in the `monitoring` directory
+Handles product catalog, categories, and inventory management.
 
-## Extending the Platform
+### Shopping Service (Port: 8003)
 
-### Adding New Features to Existing Services
+Manages shopping carts, orders, and checkout processes.
 
-1. Identify the appropriate service for your feature
-2. Follow the service's README.md for guidance on adding new endpoints
-3. Implement the necessary repository methods, service logic, and API endpoints
-4. Add appropriate tests
-5. Update documentation
+### Tenant Service (Port: 8004)
 
-### Creating New Events
+Supports multi-tenancy, allowing multiple businesses to use the platform with their own isolated data.
 
-1. Define the event structure and payload
-2. Implement the event publisher in the source service
-3. Implement the event subscriber in the target service(s)
-4. Test the event flow end-to-end
+### Admin Service (Port: 8005)
 
-### Integrating with External Systems
+Provides administrative functionality for managing the platform.
 
-1. Create a dedicated integration service or add integration capabilities to an existing service
-2. Use the circuit breaker pattern for external API calls
-3. Implement retry mechanisms for transient failures
-4. Add appropriate logging and monitoring
+### Payment Service (Port: 8006)
 
-## Troubleshooting
+Processes payments, manages transactions, and handles payment-related operations.
 
-### Common Issues
+### Notification Service (Port: 8007)
 
-1. **Service Unavailable**
-   - Check if the service is running
-   - Verify network connectivity
-   - Check the service's health endpoint
+Handles email, SMS, and in-app notifications for various events in the system.
 
-2. **Database Connection Issues**
-   - Verify MongoDB connection string
-   - Check MongoDB logs
-   - Ensure the database server is running
+### Search Service (Port: 8009)
 
-3. **Message Broker Issues**
-   - Verify RabbitMQ connection
-   - Check RabbitMQ management console
-   - Ensure exchanges and queues are properly configured
+Provides powerful search capabilities using Elasticsearch, including full-text search, faceted search, autocomplete, and search analytics.
 
-### Getting Help
+### Vendor Service
+- **Port**: 8010
+- **Description**: Manages vendor registration, verification, and performance tracking
+- **Key Features**:
+  - Vendor registration and profile management
+  - Document verification process
+  - Performance metrics tracking
+  - Integration with product and order services
 
-- Check the service-specific README.md files
-- Review the logs for error messages
-- Consult the troubleshooting guide in the `docs` directory
+## Environment Variables
+
+Each service has its own set of environment variables for configuration. These are defined in `.env.dev` and `.env.prod` files in each service directory.
+
+## Testing
+
+Run tests for all services:
+
+```
+npm test
+```
+
+Or for a specific service:
+
+```
+cd service-name
+npm test
+```
+
+## Deployment
+
+The platform can be deployed to various cloud providers using Docker and Kubernetes. Detailed deployment instructions are available in the `deployment` directory.
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests
-5. Submit a pull request
-
-Please follow the coding standards and patterns established in the codebase.
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Thanks to all contributors who have helped build this platform
+- Special thanks to the open-source community for the amazing tools and libraries used in this project

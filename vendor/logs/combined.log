@@ -1,0 +1,86 @@
+2025-02-26 10:55:30 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 10:55:30 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 10:55:30 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 10:55:30 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 10:55:30 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 10:58:35 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 10:58:35 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 10:58:35 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 10:58:35 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 10:58:35 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 10:59:29 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 10:59:29 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 10:59:29 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 10:59:29 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 10:59:29 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:01:29 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:01:29 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:01:29 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:01:29 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:01:29 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:04:48 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:04:48 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:04:48 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:04:48 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:04:48 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:12:07 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:12:07 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:12:07 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:12:07 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:12:07 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:14:40 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:14:40 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:14:40 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:14:40 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:14:40 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:19:27 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:19:27 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:19:27 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:19:27 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:19:27 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:24:49 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:24:49 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:24:49 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:24:49 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:24:49 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:32:31 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:32:31 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 11:32:31 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 11:32:31 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:32:31 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:37:21 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:37:21 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:37:21 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:37:21 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:37:21 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:42:13 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:42:13 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 11:42:13 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 11:42:13 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:42:13 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:51:03 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:51:03 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:51:03 [warn]: [express-app] Failed to connect to message broker: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 11:51:03 [warn]: [express-app] Service will run without message broker functionality{"metadata":{}}
+2025-02-26 11:51:03 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:55:38 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 11:55:38 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-02-26 11:55:38 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:55:38 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:55:38 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-02-26 11:55:38 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 11:57:38 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-02-26 11:57:38 [error]: [error-handler] Route /api/vendor not found{"metadata":{"stack":"Error: Route /api/vendor not found\n    at /app/src/express-app.js:77:23\n    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13)\n    at /app/node_modules/express/lib/router/index.js:286:9\n    at param (/app/node_modules/express/lib/router/index.js:365:14)\n    at param (/app/node_modules/express/lib/router/index.js:376:14)\n    at Function.process_params (/app/node_modules/express/lib/router/index.js:421:3)\n    at next (/app/node_modules/express/lib/router/index.js:280:10)\n    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:91:12)\n    at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13)"}}
+2025-02-26 11:57:38 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-02-26 11:57:38 [error]: [error-handler] Route /api/vendor not found{"metadata":{"stack":"Error: Route /api/vendor not found\n    at /app/src/express-app.js:77:23\n    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13)\n    at /app/node_modules/express/lib/router/index.js:286:9\n    at param (/app/node_modules/express/lib/router/index.js:365:14)\n    at param (/app/node_modules/express/lib/router/index.js:376:14)\n    at Function.process_params (/app/node_modules/express/lib/router/index.js:421:3)\n    at next (/app/node_modules/express/lib/router/index.js:280:10)\n    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:91:12)\n    at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13)"}}
+2025-02-26 11:59:52 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-02-26 11:59:52 [error]: [error-handler] Route /api/vendor not found{"metadata":{"stack":"Error: Route /api/vendor not found\n    at /app/src/express-app.js:77:23\n    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13)\n    at /app/node_modules/express/lib/router/index.js:286:9\n    at param (/app/node_modules/express/lib/router/index.js:365:14)\n    at param (/app/node_modules/express/lib/router/index.js:376:14)\n    at Function.process_params (/app/node_modules/express/lib/router/index.js:421:3)\n    at next (/app/node_modules/express/lib/router/index.js:280:10)\n    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:91:12)\n    at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13)"}}
+2025-02-26 12:00:46 [info]: [database] Database Connected{"metadata":{}}
+2025-02-26 12:00:46 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-02-26 12:00:46 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 12:00:46 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 12:00:46 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-02-26 12:00:46 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-02-26 12:01:07 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-02-26 12:01:10 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-02-26 12:01:11 [info]: [express-app] GET /api/vendor{"metadata":{}}

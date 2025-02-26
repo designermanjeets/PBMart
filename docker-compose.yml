@@ -153,6 +153,8 @@ services:
       - ./gateway/.env.dev
     networks:
       - app-network
+    environment:
+      - VENDOR_SERVICE_URL=http://vendor-service:8010
 
   admin:
     build:
@@ -251,6 +253,34 @@ services:
       - esdata:/usr/share/elasticsearch/data
     networks:
       - app-network
+
+  vendor-service:
+    build:
+      context: ./vendor
+      dockerfile: Dockerfile
+    container_name: vendor-service
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./vendor:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=dev
+      - PORT=8010
+      - APP_SECRET=${APP_SECRET}
+      - MONGODB_URI=mongodb://nosql-db:27017/vendor-service
+      - MESSAGE_BROKER_URL=amqp://rabbitmq:5672
+      - EXCHANGE_NAME=B2B_EXCHANGE
+      - QUEUE_NAME=vendor_queue
+      - STORAGE_TYPE=local
+      - UPLOAD_DIR=./uploads
+      - LOG_LEVEL=debug
+    depends_on:
+      - nosql-db
+      - rabbitmq
+    networks:
+      - app-network
+    restart: always
 
 volumes:
   esdata:

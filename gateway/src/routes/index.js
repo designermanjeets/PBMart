@@ -8,7 +8,8 @@ const {
   ADMIN_SERVICE,
   PAYMENT_SERVICE,
   NOTIFICATION_SERVICE,
-  SEARCH_SERVICE
+  SEARCH_SERVICE,
+  VENDOR_SERVICE_URL
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { validateToken } = require('../middleware');
@@ -28,7 +29,9 @@ router.get('/', (req, res) => {
       { name: 'Admin', endpoint: '/api/admin' },
       { name: 'Payment', endpoint: '/api/payment' },
       { name: 'Notification', endpoint: '/api/notification' },
-      { name: 'Search', endpoint: '/api/search' }
+      { name: 'Search', endpoint: '/api/search' },
+      { name: 'Vendor', endpoint: '/api/vendors' },
+      { name: 'Verification', endpoint: '/api/verification' }
     ],
     documentation: '/api/docs'
   });
@@ -146,6 +149,33 @@ router.use('/notification', validateToken, createProxyMiddleware({
   }
 }));
 
+// Vendor Service Routes - Remove validateToken for testing
+router.use('/vendor', createProxyMiddleware({
+  target: VENDOR_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/vendor': '/api/vendors'
+  },
+  // Add logging to see what's happening
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request to vendor service: ${req.method} ${req.url}`);
+    console.log(`Target URL: ${VENDOR_SERVICE_URL}/api/vendors${req.url}`);
+  },
+  onError: (err, req, res) => {
+    console.error('Proxy error to vendor service:', err);
+    res.status(500).json({ error: 'Proxy error', message: err.message });
+  }
+}));
+
+// Add Verification routes
+router.use('/verification', validateToken, createProxyMiddleware({
+  target: VENDOR_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/verification': '/api/verifications'
+  }
+}));
+
 // Search Service Routes
 router.use('/search', circuitBreaker.createCircuitBreaker(
     async (req, res, next) => {
@@ -168,5 +198,18 @@ router.use('/search', circuitBreaker.createCircuitBreaker(
     },
     'search-service'
 ));
+
+// Add this before the vendor routes
+router.get('/vendor-health', async (req, res) => {
+  try {
+    const response = await axios.get(`${VENDOR_SERVICE_URL}/health`);
+    return res.status(200).json(response.data);
+  } catch (error) {
+    return res.status(500).json({
+      error: 'Failed to reach vendor service',
+      message: error.message
+    });
+  }
+});
 
 module.exports = router; 

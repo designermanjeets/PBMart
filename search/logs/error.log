@@ -1,3 +1,9 @@
 2025-02-26 08:43:25 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
 2025-02-26 08:46:14 [error]: [auth-middleware] Token validation failed: jwt malformed{"metadata":{}}
 2025-02-26 08:46:14 [error]: [error-handler] Error: Invalid token{"metadata":{}}
+2025-02-26 11:12:11 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-02-26 11:14:44 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
+2025-02-26 11:19:32 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-02-26 11:37:28 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
+2025-02-26 11:37:28 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-02-26 11:42:20 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}

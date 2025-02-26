@@ -25,5 +25,8 @@ module.exports = {
   RATE_LIMIT_MAX: process.env.RATE_LIMIT_MAX || 100, // limit each IP to 100 requests per windowMs
   
   // Logging
-  LOG_LEVEL: process.env.LOG_LEVEL || "info"
-}; 
+  LOG_LEVEL: process.env.LOG_LEVEL || "info",
+
+  // Vendor Service URL
+  VENDOR_SERVICE_URL: process.env.VENDOR_SERVICE_URL || 'http://vendor-service:8010',
+};
