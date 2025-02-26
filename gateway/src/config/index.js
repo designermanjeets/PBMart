@@ -18,6 +18,7 @@ module.exports = {
   TENANTS_SERVICE: process.env.TENANTS_SERVICE,
   ADMIN_SERVICE: process.env.ADMIN_SERVICE,
   PAYMENT_SERVICE: process.env.PAYMENT_SERVICE,
+  NOTIFICATION_SERVICE: process.env.NOTIFICATION_SERVICE,
   // Rate limiting
   RATE_LIMIT_WINDOW_MS: process.env.RATE_LIMIT_WINDOW_MS || 900000, // 15 minutes
   RATE_LIMIT_MAX: process.env.RATE_LIMIT_MAX || 100, // limit each IP to 100 requests per windowMs

@@ -10,3 +10,7 @@
 2025-02-26 05:45:18 [[31merror[39m]: [message-broker] Error subscribing to messages: PAYMENT_SERVICE is not defined{"metadata":{}}
 2025-02-26 05:50:52 [[31merror[39m]: [error-handler] ERROR 💥: Route / not found{"metadata":{"statusCode":404,"status":"error"}}
 2025-02-26 05:50:53 [[31merror[39m]: [error-handler] ERROR 💥: Route /favicon.ico not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:50 [[31merror[39m]: [error-handler] ERROR 💥: Route / not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:51 [[31merror[39m]: [error-handler] ERROR 💥: Route /favicon.ico not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:56 [[31merror[39m]: [error-handler] ERROR 💥: Route / not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:56 [[31merror[39m]: [error-handler] ERROR 💥: Route /favicon.ico not found{"metadata":{"statusCode":404,"status":"error"}}

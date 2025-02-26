@@ -1,0 +1,104 @@
+2025-02-26 06:17:15 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:17:45 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:18:16 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:19:53 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:20:24 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:20:54 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:21:25 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:21:55 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:22:26 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:22:57 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:23:28 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:23:58 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:24:29 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:24:59 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:25:30 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:26:01 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:26:55 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:27:25 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:33:12 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:34:04 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:34:34 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:35:05 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:35:35 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:36:06 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:36:37 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:37:07 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:37:38 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:38:09 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:38:39 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:39:10 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:39:40 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:40:11 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:40:41 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:41:12 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:42:53 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:43:24 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:43:54 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:44:25 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:44:56 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:45:26 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:45:57 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:46:28 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:46:59 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:47:29 [[31merror[39m]: [database] Error connecting to database: connect ECONNREFUSED ::1:27017{"metadata":{}}
+2025-02-26 06:47:30 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:30 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED ::1:5672{"metadata":{}}
+2025-02-26 06:47:31 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:31 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED ::1:5672{"metadata":{}}
+2025-02-26 06:47:32 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:32 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED ::1:5672{"metadata":{}}
+2025-02-26 06:47:57 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:57 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 06:47:57 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:57 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 06:47:58 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:58 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:47:59 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:47:59 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:00 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:00 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:02 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:03 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:07 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:07 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:14 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:14 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:28 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:28 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:55 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:55 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:49:47 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:49:47 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:49:59 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:49:59 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:00 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:00 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:01 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:01 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:02 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:02 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:04 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:05 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:07 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:07 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:11 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:11 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:18 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:18 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:31 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:31 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:50:58 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:50:58 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:51:50 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:51:50 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:52:51 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:52:51 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:52:51 [[32minfo[39m]: [express-app] Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:52:51 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-02-26 06:52:51 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-02-26 06:53:09 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:53:09 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:53:09 [[32minfo[39m]: [express-app] Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:53:09 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-02-26 06:53:09 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}

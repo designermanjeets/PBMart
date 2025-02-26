@@ -6,7 +6,8 @@ const {
   PRODUCTS_SERVICE, 
   TENANTS_SERVICE, 
   ADMIN_SERVICE,
-  PAYMENT_SERVICE
+  PAYMENT_SERVICE,
+  NOTIFICATION_SERVICE
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { validateToken } = require('../middleware');
@@ -22,7 +23,8 @@ router.get('/', (req, res) => {
       { name: 'Shopping', endpoint: '/api/shopping' },
       { name: 'Tenants', endpoint: '/api/tenants' },
       { name: 'Admin', endpoint: '/api/admin' },
-      { name: 'Payment', endpoint: '/api/payment' }
+      { name: 'Payment', endpoint: '/api/payment' },
+      { name: 'Notification', endpoint: '/api/notification' }
     ],
     documentation: '/api/docs'
   });
@@ -127,6 +129,18 @@ router.use('/payment', validateToken, createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {  
     '^/payment': '/api/payment'
+  }
+}));
+
+// Check if NOTIFICATION_SERVICE is properly imported and used
+console.log('NOTIFICATION_SERVICE:', NOTIFICATION_SERVICE);
+
+// Notification Service Routes
+router.use('/notification', validateToken, createProxyMiddleware({
+  target: NOTIFICATION_SERVICE,
+  changeOrigin: true,
+  pathRewrite: {  
+    '^/notification': '/api/notification'
   }
 }));
 

@@ -65,6 +65,26 @@ module.exports = async (app) => {
     // Setup API routes with prefix
     app.use('/api/payment', payment(app, channel));
 
+    // Root route handler
+    app.get('/', (req, res) => {
+        res.status(200).json({
+            message: 'Payment Service API',
+            version: '1.0.0',
+            endpoints: [
+                '/api/payment/create',
+                '/api/payment/process',
+                '/api/payment/verify',
+                '/api/payment/history',
+                '/api/payment/health'
+            ]
+        });
+    });
+
+    // Add a catch-all route for favicon.ico
+    app.get('/favicon.ico', (req, res) => {
+        res.status(204).end(); // No content response
+    });
+
     // Add this before the error handler middleware
     app.use('*', (req, res, next) => {
         const error = new Error(`Route ${req.originalUrl} not found`);

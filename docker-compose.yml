@@ -124,6 +124,9 @@ services:
       - shopping
       - customers
       - tenants
+      - notification
+      - admin
+      - payment
     ports:
       - 80:80
     networks:
@@ -192,6 +195,29 @@ services:
       - ./logs/payment:/app/payment/logs
     env_file:
       - ./payment/.env.dev
+    networks:
+      - app-network
+
+  notification:
+    build:
+      context: ./notification
+      dockerfile: Dockerfile
+    container_name: notification
+    ports:
+      - "8007:8007"
+      - "8008:8008"  # Socket.IO port
+    restart: always
+    depends_on:
+      - "nosql-db"
+      - "rabbitmq"
+    environment:
+      - NODE_ENV=dev
+      - MONGODB_URI=mongodb://nosql-db:27017/notification-service
+    volumes:
+      - ./notification:/app/notification
+      - /app/notification/node_modules
+    env_file:
+      - ./notification/.env.dev
     networks:
       - app-network
 

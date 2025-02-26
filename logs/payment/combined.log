@@ -71,3 +71,44 @@
 2025-02-26 05:58:01 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
 2025-02-26 05:58:17 [[32minfo[39m]: GET /api/payment{"metadata":{}}
 2025-02-26 05:58:23 [[32minfo[39m]: GET /api/payment/health{"metadata":{}}
+2025-02-26 06:16:53 [[32minfo[39m]: GET /api/payment{"metadata":{}}
+2025-02-26 06:19:35 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:19:36 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:19:36 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:19:36 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 06:20:50 [[32minfo[39m]: GET /{"metadata":{}}
+2025-02-26 06:20:50 [[31merror[39m]: [error-handler] ERROR 💥: Route / not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:51 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 06:20:51 [[31merror[39m]: [error-handler] ERROR 💥: Route /favicon.ico not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:56 [[32minfo[39m]: GET /{"metadata":{}}
+2025-02-26 06:20:56 [[31merror[39m]: [error-handler] ERROR 💥: Route / not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:20:56 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 06:20:56 [[31merror[39m]: [error-handler] ERROR 💥: Route /favicon.ico not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-02-26 06:23:52 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:23:53 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:23:53 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:23:53 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 06:23:59 [[32minfo[39m]: GET /{"metadata":{}}
+2025-02-26 06:23:59 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 06:24:12 [[32minfo[39m]: GET /health{"metadata":{}}
+2025-02-26 06:24:12 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 06:24:17 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 06:24:18 [[32minfo[39m]: GET /{"metadata":{}}
+2025-02-26 06:24:18 [[32minfo[39m]: GET /favicon.ico{"metadata":{}}
+2025-02-26 06:26:36 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:26:36 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:26:36 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:26:36 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 06:30:08 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:30:08 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:30:08 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:30:08 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 06:42:35 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:42:35 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:42:35 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:42:35 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-26 06:43:20 [[32minfo[39m]: GET /api/payment{"metadata":{}}
+2025-02-26 06:48:07 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 06:48:07 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-02-26 06:48:07 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-02-26 06:48:07 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}

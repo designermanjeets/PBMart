@@ -343,3 +343,25 @@
 {"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T05:58:11.569Z"}
 {"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T05:58:17.195Z"}
 {"level":"info","message":"Incoming request: GET /api/payment/health","service":"api-gateway","timestamp":"2025-02-26T05:58:23.818Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T06:16:53.354Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:16:58.059Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:17:05.278Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:18:10.303Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T06:26:36.125Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:26:42.400Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:26:48.990Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T06:30:08.346Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T06:42:35.060Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:43:04.732Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:43:06.105Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:43:11.963Z"}
+{"level":"info","message":"Incoming request: GET /api/payment","service":"api-gateway","timestamp":"2025-02-26T06:43:20.375Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:43:28.585Z"}
+{"level":"info","message":"Incoming request: GET /","service":"api-gateway","timestamp":"2025-02-26T06:44:50.263Z"}
+{"level":"info","message":"Handling root path request","service":"api-gateway","timestamp":"2025-02-26T06:44:50.265Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T06:48:07.277Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:48:36.685Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:48:36.993Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:48:39.690Z"}
+{"level":"info","message":"Incoming request: GET /api/notification","service":"api-gateway","timestamp":"2025-02-26T06:53:15.208Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T06:53:21.652Z"}
