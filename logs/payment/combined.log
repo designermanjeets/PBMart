@@ -262,3 +262,8 @@
 2025-02-26 19:48:35 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
 2025-02-26 19:48:35 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
 2025-02-26 19:48:35 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-02-27 20:04:02 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
+2025-02-27 20:04:33 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
+2025-02-27 20:05:04 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
+2025-02-27 20:05:35 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
+2025-02-27 20:06:07 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}

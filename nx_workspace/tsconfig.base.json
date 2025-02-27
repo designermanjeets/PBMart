@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-workspace/nxt-core": ["libs-next/nxt-core/src/index.ts"],
+      "@nx-workspace/nxt-core/server": ["libs-next/nxt-core/src/server.ts"],
+      "@nx-workspace/nxt-shared": ["libs-next/nxt-shared/src/index.ts"],
+      "@nx-workspace/nxt-shared/server": ["libs-next/nxt-shared/src/server.ts"],
+      "@nx-workspace/ui-core": ["libs-ui/ui-core/src/index.ts"],
+      "@nx-workspace/ui-core/server": ["libs-ui/ui-core/src/server.ts"],
+      "@nx-workspace/ui-shared": ["libs-ui/ui-shared/src/index.ts"],
+      "@nx-workspace/ui-shared/server": ["libs-ui/ui-shared/src/server.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

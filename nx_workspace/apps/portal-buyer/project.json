@@ -1,0 +1,59 @@
+{
+  "name": "portal-buyer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/portal-buyer",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project portal-buyer --web",
+  "targets": {
+    "serve": {
+      "options": {
+        "cwd": "apps/portal-buyer",
+        "command": "next start",
+        "port": 3000
+      },
+      "executor": "nx:run-commands",
+      "configurations": {},
+      "parallelism": true
+    },
+    "start": {
+      "options": {
+        "cwd": "apps/portal-buyer",
+        "command": "next start"
+      },
+      "dependsOn": [
+        "build"
+      ],
+      "executor": "nx:run-commands",
+      "configurations": {},
+      "parallelism": true
+    },
+    "build": {
+      "options": {
+        "cwd": "apps/portal-buyer",
+        "tty": false,
+        "command": "next build"
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/portal-buyer/.next",
+        "{workspaceRoot}/apps/portal-buyer/.next/!(cache)"
+      ],
+      "executor": "nx:run-commands",
+      "configurations": {},
+      "parallelism": true
+    }
+  }
+}
