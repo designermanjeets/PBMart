@@ -744,3 +744,47 @@
 {"level":"info","message":"Incoming request: GET /api/rfq/quote","service":"api-gateway","timestamp":"2025-02-26T18:59:26.731Z"}
 {"level":"info","message":"Incoming request: GET /api/rfq/","service":"api-gateway","timestamp":"2025-02-26T18:59:28.881Z"}
 {"level":"info","message":"Incoming request: GET /api/rfq/quotes","service":"api-gateway","timestamp":"2025-02-26T18:59:37.642Z"}
+2025-02-26 19:26:42 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:26:42.263Z"}
+2025-02-26 19:30:41 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:30:41.919Z"}
+2025-02-26 19:33:11 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:33:11.078Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq/quotes","service":"api-gateway","timestamp":"2025-02-26T19:33:21.995Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:33:25.229Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:37:39.056Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:37:58.705Z"}
+{"level":"info","message":"Incoming request: GET /favicon.ico","service":"api-gateway","timestamp":"2025-02-26T19:37:58.814Z"}
+2025-02-26 19:38:13 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:38:13.870Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:38:16.262Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:38:27.742Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:38:27.952Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:38:34.795Z"}
+{"level":"info","message":"Incoming request: GET /api/quotes","service":"api-gateway","timestamp":"2025-02-26T19:38:37.482Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:38:40.791Z"}
+2025-02-26 19:40:13 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:40:13.366Z"}
+2025-02-26 19:40:15 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:40:15.010Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:40:18.351Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:40:19.820Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:40:46.234Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:40:57.077Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:40:57.261Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:41:02.879Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:41:35.345Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:41:37.333Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:41:46.763Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:41:47.090Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:41:50.450Z"}
+{"level":"info","message":"Incoming request: GET /api/quotes","service":"api-gateway","timestamp":"2025-02-26T19:41:55.573Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:41:57.742Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:43:18.132Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-02-26T19:43:20.780Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:43:47.108Z"}
+2025-02-26 19:48:35 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-26T19:48:35.196Z"}
+{"level":"info","message":"Incoming request: GET /api/quote","service":"api-gateway","timestamp":"2025-02-26T19:48:44.470Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:49:16.919Z"}
+{"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:49:17.191Z"}

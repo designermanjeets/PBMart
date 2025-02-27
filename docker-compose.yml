@@ -37,9 +37,6 @@ services:
         condition: service_healthy
       nosql-db:
         condition: service_started
-    environment:
-      - NODE_ENV=dev
-      - MESSAGE_BROKER_URL=amqp://rabbitmq:5672
     volumes:
       - ./products:/app/products
       - /app/products/node_modules
@@ -119,6 +116,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./proxy
+    container_name: nginx-proxy
     depends_on:
       - products
       - shopping
@@ -153,8 +151,6 @@ services:
       - ./gateway/.env.dev
     networks:
       - app-network
-    environment:
-      - VENDOR_SERVICE_URL=http://vendor-service:8010
 
   admin:
     build:
@@ -212,9 +208,6 @@ services:
     depends_on:
       - "nosql-db"
       - "rabbitmq"
-    environment:
-      - NODE_ENV=dev
-      - MONGODB_URI=mongodb://nosql-db:27017/notification-service
     volumes:
       - ./notification:/app/notification
       - /app/notification/node_modules
@@ -227,6 +220,7 @@ services:
     build:
       context: ./search
       dockerfile: Dockerfile
+    container_name: search
     ports:
       - "8009:8009"
     volumes:
@@ -236,12 +230,13 @@ services:
       - nosql-db
       - rabbitmq
       - elasticsearch
-    environment:
-      - NODE_ENV=dev
+    env_file:
+      - ./search/.env.dev
     networks:
       - app-network
 
   elasticsearch:
+    container_name: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:8.6.0
     environment:
       - discovery.type=single-node
@@ -254,53 +249,40 @@ services:
     networks:
       - app-network
 
-  vendor-service:
+  vendor:
     build:
       context: ./vendor
       dockerfile: Dockerfile
-    container_name: vendor-service
+    container_name: vendor
     ports:
       - "8010:8010"
     volumes:
       - ./vendor:/app
       - /app/node_modules
-    environment:
-      - NODE_ENV=dev
-      - PORT=8010
-      - APP_SECRET=${APP_SECRET}
-      - MONGODB_URI=mongodb://nosql-db:27017/vendor-service
-      - MESSAGE_BROKER_URL=amqp://rabbitmq:5672
-      - EXCHANGE_NAME=B2B_EXCHANGE
-      - QUEUE_NAME=vendor_queue
-      - STORAGE_TYPE=local
-      - UPLOAD_DIR=./uploads
-      - LOG_LEVEL=debug
     depends_on:
       - nosql-db
       - rabbitmq
+    env_file:
+      - ./vendor/.env.dev
     networks:
       - app-network
     restart: always
 
-  rfq-service:
+  rfq:
     build:
       context: ./rfq
       dockerfile: Dockerfile
-    container_name: rfq-service
+    container_name: rfq
     ports:
       - "8011:8011"
     volumes:
       - ./rfq:/app
       - /app/node_modules
-    environment:
-      - NODE_ENV=dev
-      - PORT=8011
-      - MONGODB_URI=mongodb://nosql-db:27017/rfq-service
-      - MESSAGE_BROKER_URL=amqp://rabbitmq:5672
-      - APP_SECRET=your_app_secret
     depends_on:
       - nosql-db
       - rabbitmq
+    env_file:
+      - ./rfq/.env.dev
     networks:
       - app-network
     restart: unless-stopped
@@ -308,7 +290,9 @@ services:
 volumes:
   esdata:
     driver: local
+    name: elasticsearch-data
 
 networks:
   app-network:
     driver: bridge
+    name: app-network

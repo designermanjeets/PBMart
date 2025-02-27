@@ -257,3 +257,23 @@
 2025-02-26 13:09:54 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
 2025-02-26 13:09:54 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
 2025-02-26 13:09:54 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-02-26 19:26:23 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 19:26:23 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 19:26:23 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-02-26 19:26:23 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-02-26 19:26:23 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-02-26 19:30:32 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 19:30:32 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 19:30:32 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-02-26 19:30:32 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-02-26 19:30:32 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-02-26 19:32:58 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 19:32:58 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
+2025-02-26 19:32:58 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-02-26 19:32:58 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-02-26 19:32:58 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-02-26 19:48:26 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-02-26 19:48:26 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-02-26 19:48:26 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-02-26 19:48:26 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-02-26 19:48:26 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}

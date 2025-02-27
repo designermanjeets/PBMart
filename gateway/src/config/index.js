@@ -19,7 +19,7 @@ module.exports = {
   ADMIN_SERVICE: process.env.ADMIN_SERVICE,
   PAYMENT_SERVICE: process.env.PAYMENT_SERVICE,
   NOTIFICATION_SERVICE: process.env.NOTIFICATION_SERVICE,
-  SEARCH_SERVICE: process.env.SEARCH_SERVICE || 'http://search:8009/api/search',
+  SEARCH_SERVICE: process.env.SEARCH_SERVICE,
   // Rate limiting
   RATE_LIMIT_WINDOW_MS: process.env.RATE_LIMIT_WINDOW_MS || 900000, // 15 minutes
   RATE_LIMIT_MAX: process.env.RATE_LIMIT_MAX || 100, // limit each IP to 100 requests per windowMs
@@ -28,8 +28,11 @@ module.exports = {
   LOG_LEVEL: process.env.LOG_LEVEL || "info",
 
   // Vendor Service URL
-  VENDOR_SERVICE_URL: process.env.VENDOR_SERVICE_URL || 'http://vendor-service:8010',
+  VENDOR_SERVICE_URL: process.env.VENDOR_SERVICE_URL,
 
   // RFQ Service URL
-  RFQ_SERVICE_URL: process.env.RFQ_SERVICE_URL || 'http://rfq-service:8011',
+  RFQ_SERVICE_URL: process.env.RFQ_SERVICE_URL,
+
+  // Quote Service URL
+  QUOTE_SERVICE_URL: process.env.QUOTE_SERVICE_URL,
 };

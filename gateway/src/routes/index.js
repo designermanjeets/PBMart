@@ -10,7 +10,8 @@ const {
   NOTIFICATION_SERVICE,
   SEARCH_SERVICE,
   VENDOR_SERVICE_URL,
-  RFQ_SERVICE_URL
+  RFQ_SERVICE_URL,
+  QUOTE_SERVICE_URL
 } = require('../config');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { validateToken } = require('../middleware');
@@ -31,8 +32,11 @@ router.get('/', (req, res) => {
       { name: 'Payment', endpoint: '/api/payment' },
       { name: 'Notification', endpoint: '/api/notification' },
       { name: 'Search', endpoint: '/api/search' },
-      { name: 'Vendor', endpoint: '/api/vendors' },
-      { name: 'Verification', endpoint: '/api/verification' }
+      { name: 'Vendor', endpoint: '/api/vendor' },
+      { name: 'Verification', endpoint: '/api/verification' },
+      { name: 'RFQ', endpoint: '/api/rfq' },
+      { name: 'Quote', endpoint: '/api/quote' }
+      
     ],
     documentation: '/api/docs'
   });
@@ -217,46 +221,19 @@ router.use('/rfq', createProxyMiddleware({
   }
 }));
 
-// Add Quote routes
-router.use('/quotes', createProxyMiddleware({
-  target: RFQ_SERVICE_URL,
+// Quote Service Routes
+router.use('/quote', createProxyMiddleware({
+  target: QUOTE_SERVICE_URL,
   changeOrigin: true,
   pathRewrite: {
-    '^/quotes': '/api/quotes'
+    '^/quote': '/api/quote'
   },
   onProxyReq: (proxyReq, req, res) => {
     console.log(`Proxying request to Quote service: ${req.method} ${req.url}`);
+    console.log(`Target URL: ${QUOTE_SERVICE_URL}/api/quote${req.url}`);
   },
   onError: (err, req, res) => {
-    console.error('Proxy error to Quote service:', err);
-    res.status(500).json({ error: 'Proxy error', message: err.message });
   }
 }));
-
-// Add RFQ health check
-router.get('/rfq-health', async (req, res) => {
-  try {
-    const response = await axios.get(`${RFQ_SERVICE_URL}/health`);
-    return res.status(200).json(response.data);
-  } catch (error) {
-    return res.status(500).json({
-      error: 'Failed to reach RFQ service',
-      message: error.message
-    });
-  }
-});
-
-// Add this before the vendor routes
-router.get('/vendor-health', async (req, res) => {
-  try {
-    const response = await axios.get(`${VENDOR_SERVICE_URL}/health`);
-    return res.status(200).json(response.data);
-  } catch (error) {
-    return res.status(500).json({
-      error: 'Failed to reach vendor service',
-      message: error.message
-    });
-  }
-});
 
 module.exports = router; 
