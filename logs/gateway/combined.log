@@ -790,3 +790,5 @@
 {"level":"info","message":"Incoming request: GET /api/rfq","service":"api-gateway","timestamp":"2025-02-26T19:49:17.191Z"}
 2025-02-27 20:03:32 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
 {"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-27T20:03:32.096Z"}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-02-28T08:14:17.432Z"}
+2025-02-28 08:14:17 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}

@@ -99,3 +99,42 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+
+How to add new service to the workspace library:
+
+1. Add the service to the `libs-next` folder.
+2. Add the service to the `libs-ui` folder.
+3. Add the service to the `libs-api` folder.
+4. Add the service to the `libs-auth` folder.
+5. Add the service to the `libs-layouts` folder.
+
+below command will generate the service in the `libs-next` folder and export it.
+
+```bash
+npx nx generate @nx/react:component libs-next/nxt-api/src/lib/_services/products/ProductService --project=nxt-api --export
+```
+
+```bash
+npx nx generate @nx/react:component libs-next/nxt-auth/src/lib/login/LoginForm --project=nxt-auth --export 
+```
+How to create new libraries:
+```bash
+npx nx generate @nx/next:library store --directory=libs-next/nxt-store --importPath=@b2b/store
+```
+
+```bash
+npx nx generate @nx/next:library layouts --directory=libs-next/nxt-layouts --importPath=@b2b/layouts
+```
+
+```bash
+npx nx generate @nx/next:library auth --directory=libs-next/nxt-auth --importPath=@b2b/auth
+```
+
+
+
+
+
+
+
+
