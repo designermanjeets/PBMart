@@ -664,3 +664,37 @@
 {"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:05:37"}
 {"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:06:07"}
 {"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:06:08"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:06:38"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:06:39"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:07:09"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:07:10"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:07:40"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:07:41"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:08:11"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:08:12"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:08:42"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:08:43"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:09:13"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:09:14"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:09:44"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:09:45"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:10:15"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:10:16"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:10:46"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:10:47"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:11:17"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:11:18"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:11:48"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:11:49"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:12:20"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:12:22"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:12:52"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:12:53"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:13:23"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:13:24"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:13:54"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:13:55"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:14:25"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:14:26"}
+{"level":"error","message":"Database connection error: getaddrinfo ENOTFOUND nosql-db","module":"database","service":"admin-service","timestamp":"2025-02-27 20:14:56"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-02-27 20:14:57"}

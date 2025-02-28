@@ -1,0 +1,9 @@
+{
+  "name": "nxt-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs-next/nxt-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project nxt-api --web",
+  "targets": {}
+}

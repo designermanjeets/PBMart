@@ -15,6 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@b2b/api": ["libs-next/nxt-api/src/index.ts"],
+      "@b2b/api/server": ["libs-next/nxt-api/src/server.ts"],
+      "@b2b/auth": ["libs-next/nxt-auth/src/index.ts"],
+      "@b2b/auth/server": ["libs-next/nxt-auth/src/server.ts"],
+      "@b2b/layouts": ["libs-next/nxt-layouts/src/index.ts"],
+      "@b2b/layouts/server": ["libs-next/nxt-layouts/src/server.ts"],
+      "@b2b/ui-components": ["libs-ui/ui-components/src/index.ts"],
       "@nx-workspace/nxt-core": ["libs-next/nxt-core/src/index.ts"],
       "@nx-workspace/nxt-core/server": ["libs-next/nxt-core/src/server.ts"],
       "@nx-workspace/nxt-shared": ["libs-next/nxt-shared/src/index.ts"],
