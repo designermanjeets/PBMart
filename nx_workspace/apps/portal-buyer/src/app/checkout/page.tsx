@@ -1,9 +1,21 @@
-import styles from './page.module.scss';
+import { Metadata } from 'next';
+import { BuyerLayout } from '@b2b/nxt-layouts';
+import { AuthGuard } from '@b2b/auth';
+import CheckoutForm from './components/CheckoutForm';
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: 'Checkout - B2B Marketplace',
+  description: 'Complete your purchase',
+};
+
+export default function CheckoutPage() {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Page!</h1>
-    </div>
+    <AuthGuard>
+      <BuyerLayout>
+        <div className="py-6">
+          <CheckoutForm />
+        </div>
+      </BuyerLayout>
+    </AuthGuard>
   );
 }

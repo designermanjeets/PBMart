@@ -3,57 +3,56 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/portal-buyer",
   "projectType": "application",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project portal-buyer --web",
   "targets": {
-    "serve": {
-      "options": {
-        "cwd": "apps/portal-buyer",
-        "command": "next start",
-        "port": 3000
-      },
-      "executor": "nx:run-commands",
-      "configurations": {},
-      "parallelism": true
-    },
-    "start": {
-      "options": {
-        "cwd": "apps/portal-buyer",
-        "command": "next start"
-      },
-      "dependsOn": [
-        "build"
-      ],
-      "executor": "nx:run-commands",
-      "configurations": {},
-      "parallelism": true
-    },
     "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "cwd": "apps/portal-buyer",
-        "tty": false,
-        "command": "next build"
+        "outputPath": "dist/apps/portal-buyer"
       },
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "externalDependencies": [
-            "next"
-          ]
+      "configurations": {
+        "development": {
+          "outputPath": "apps/portal-buyer"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "portal-buyer:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "portal-buyer:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "portal-buyer:build:production",
+          "dev": false
         }
-      ],
-      "outputs": [
-        "{workspaceRoot}/apps/portal-buyer/.next",
-        "{workspaceRoot}/apps/portal-buyer/.next/!(cache)"
-      ],
-      "executor": "nx:run-commands",
-      "configurations": {},
-      "parallelism": true
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "portal-buyer:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/portal-buyer/jest.config.ts"
+      }
     }
-  }
+  },
+  "tags": []
 }

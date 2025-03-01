@@ -1,9 +1,21 @@
-import styles from './page.module.scss';
+import { Metadata } from 'next';
+import { BuyerLayout } from '@b2b/nxt-layouts';
+import { AuthGuard } from '@b2b/auth';
+import OrderList from './components/OrderList';
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: 'Orders - B2B Marketplace',
+  description: 'View and manage your orders',
+};
+
+export default function OrdersPage() {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Page!</h1>
-    </div>
+    <AuthGuard>
+      <BuyerLayout>
+        <div className="py-6">
+          <OrderList />
+        </div>
+      </BuyerLayout>
+    </AuthGuard>
   );
 }

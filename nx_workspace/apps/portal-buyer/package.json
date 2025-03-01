@@ -1,0 +1,10 @@
+{
+  "name": "portal-buyer",
+  "dependencies": {
+    "@b2b/ui-components": "*",
+    "@b2b/nxt-layouts": "*",
+    "@b2b/auth": "*",
+    "formik": "^2.4.6",
+    "yup": "^1.6.1"
+  }
+} 

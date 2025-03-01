@@ -1,9 +1,21 @@
-import styles from './page.module.scss';
+import { Metadata } from 'next';
+import { BuyerLayout } from '@b2b/nxt-layouts';
+import { AuthGuard } from '@b2b/auth';
+import ProfileContent from './components/ProfileContent';
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: 'Profile - B2B Marketplace',
+  description: 'Manage your profile and account settings',
+};
+
+export default async function ProfilePage() {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Page!</h1>
-    </div>
+    <AuthGuard>
+      <BuyerLayout>
+        <div className="py-6">
+          <ProfileContent />
+        </div>
+      </BuyerLayout>
+    </AuthGuard>
   );
 }

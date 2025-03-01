@@ -1,3 +1,62 @@
+# B2B E-commerce Frontend
+
+This is the frontend monorepo for the B2B E-commerce platform, built with Next.js and Nx.
+
+## Structure
+
+- **apps/**
+  - **portal-buyer/** - The buyer-facing application
+  - **portal-seller/** - The seller-facing application
+- **libs-ui/** - UI component libraries
+- **libs-next/** - Next.js specific libraries
+
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   # For buyer portal
+   npm run start:buyer
+   
+   # For seller portal
+   npm run start:seller
+   ```
+
+3. Build for production:
+   ```bash
+   # Build all applications
+   npm run build:all
+   
+   # Build specific application
+   npm run build:buyer
+   npm run build:seller
+   ```
+
+## Libraries
+
+- **@b2b/nxt-core** - Core utilities for Next.js applications
+- **@b2b/api** - API integration services
+- **@b2b/auth** - Authentication components and utilities
+- **@b2b/layouts** - Layout components
+- **@b2b/store** - State management
+- **@b2b/query** - React Query integration
+- **@b2b/ui-components** - Shared UI components
+
+## Technologies
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- React Query
+- Zustand
+- Formik & Yup
+- Nx Monorepo
+
 # NxWorkspace
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
