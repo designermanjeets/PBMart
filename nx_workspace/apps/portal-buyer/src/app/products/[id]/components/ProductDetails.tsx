@@ -1,67 +1,61 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button } from '@b2b/ui-components';
 import { useCartStore } from '@b2b/nxt-store';
 import Link from 'next/link';
 import ProductReviews from './ProductReviews';
+import { useRouter } from 'next/navigation';
 
 interface ProductDetailsProps {
   id: string;
 }
 
 export default function ProductDetails({ id }: ProductDetailsProps) {
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
-  const { addItem } = useCartStore();
+  const [showModal, setShowModal] = useState(false);
+  const addToCart = useCartStore((state) => state.addItem);
+  const router = useRouter();
 
-  // Mock data - replace with API call
-  const product = {
-    id,
-    name: 'Office Chair',
-    price: '199.99',
-    description: 'Ergonomic office chair with adjustable height...',
-    specifications: [
-      { name: 'Material', value: 'Mesh and Metal' },
-      { name: 'Color', value: 'Black' },
-      { name: 'Weight Capacity', value: '300 lbs' },
-    ],
-    images: ['/product-image.jpg'],
-    category: 'Furniture',
-    stock: 50,
-    reviews: [
-      {
-        id: '1',
-        productId: id,
-        userId: '1',
-        userName: 'John Doe',
-        rating: 5,
-        comment: 'Excellent chair! Very comfortable for long work sessions.',
-        createdAt: '2024-01-15T10:00:00Z',
-      },
-      {
-        id: '2',
-        productId: id,
-        userId: '2',
-        userName: 'Jane Smith',
-        rating: 4,
-        comment: 'Good quality chair. The lumbar support is great, but I wish it had more padding on the armrests.',
-        createdAt: '2024-02-20T14:30:00Z',
-      },
-    ],
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`/api/products/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch product');
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  const handleAddToCart = () => {
+    if (product) {
+      // Make sure product has all required properties before adding to cart
+      // Safely access product properties with optional chaining
+      addToCart({
+        id: product.id || id,
+        name: product.name || 'Unknown Product',
+        price: product.price || 0,
+        quantity,
+        image: product.images && product.images.length > 0 ? product.images[0] : '',
+      });
+      setShowModal(true);
+    }
   };
 
-  const handleAddToCart = async () => {
-    try {
-      await addItem({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity,
-        image: product.images[0],
-      });
-    } catch (error) {
-      console.error('Failed to add item to cart:', error);
-    }
+  const handleBuyNow = () => {
+    handleAddToCart();
+    router.push('/checkout');
   };
 
   const handleAddReview = async (review: {
@@ -83,7 +77,7 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
       const newReview = await response.json();
       
       // Update the product state with the new review
-      setProduct((prev) => {
+      setProduct((prev: any) => {
         if (!prev) return prev;
         return {
           ...prev,
@@ -95,6 +89,29 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="text-center py-10">
+        <h2 className="text-2xl font-bold text-gray-800">Product not found</h2>
+        <p className="mt-2 text-gray-600">The product you're looking for doesn't exist or has been removed.</p>
+        <Button
+          onClick={() => router.push('/products')}
+          className="mt-4"
+        >
+          Back to Products
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="flex justify-between items-center mb-6">
@@ -102,17 +119,23 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
           <h1 className="text-2xl font-semibold text-gray-900">{product.name}</h1>
           <p className="mt-1 text-sm text-gray-500">Category: {product.category}</p>
         </div>
-        <div className="text-2xl font-bold text-gray-900">${product.price}</div>
+        <div className="text-2xl font-bold text-gray-900">${product.price?.toFixed(2) || '0.00'}</div>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <div className="aspect-w-3 aspect-h-2">
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
+            {product.images && product.images.length > 0 ? (
+              <img
+                src={product.images[0]}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="h-full w-full bg-gray-200 flex items-center justify-center">
+                <span className="text-gray-500">No image available</span>
+              </div>
+            )}
           </div>
         </Card>
 
@@ -125,7 +148,7 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
               <div className="mt-6">
                 <h3 className="text-sm font-medium text-gray-900">Specifications</h3>
                 <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
-                  {product.specifications.map((spec) => (
+                  {product.specifications.map((spec: { name: string; value: string }) => (
                     <div key={spec.name} className="py-3 flex justify-between">
                       <dt className="text-sm font-medium text-gray-500">{spec.name}</dt>
                       <dd className="text-sm text-gray-900">{spec.value}</dd>
@@ -165,11 +188,9 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
                 <Button variant="primary" onClick={handleAddToCart}>
                   Add to Cart
                 </Button>
-                <Link href={`/rfq/create?productId=${id}`}>
-                  <Button variant="outline" className="w-full">
-                    Create RFQ
-                  </Button>
-                </Link>
+                <Button variant="outline" className="w-full" onClick={handleBuyNow}>
+                  Buy Now
+                </Button>
               </div>
             </div>
           </Card>
@@ -182,6 +203,34 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
           reviews={product.reviews}
           onAddReview={handleAddReview}
         />
+      )}
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h3 className="text-lg font-bold mb-4">Added to Cart</h3>
+            <p>
+              {product.name} has been added to your cart.
+            </p>
+            <div className="mt-6 flex justify-end space-x-4">
+              <Button
+                onClick={() => setShowModal(false)}
+                variant="secondary"
+              >
+                Continue Shopping
+              </Button>
+              <Button
+                onClick={() => {
+                  setShowModal(false);
+                  router.push('/cart');
+                }}
+                variant="primary"
+              >
+                View Cart
+              </Button>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

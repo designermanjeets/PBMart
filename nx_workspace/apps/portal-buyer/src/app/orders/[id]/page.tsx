@@ -4,7 +4,7 @@ import { AuthGuard } from '@b2b/auth';
 import OrderDetails from './components/OrderDetails';
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>;
 };
 
 export const metadata: Metadata = {
@@ -12,12 +12,14 @@ export const metadata: Metadata = {
   description: 'View order details and status',
 };
 
-export default function OrderDetailsPage({ params }: Props) {
+export default async function OrderDetailsPage({ params }: Props) {
+  const { id } = await params;
+
   return (
     <AuthGuard>
       <BuyerLayout>
         <div className="py-6">
-          <OrderDetails id={params.id} />
+          <OrderDetails id={id} />
         </div>
       </BuyerLayout>
     </AuthGuard>

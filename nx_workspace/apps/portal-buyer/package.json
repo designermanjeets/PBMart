@@ -1,5 +1,13 @@
 {
   "name": "portal-buyer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@b2b/ui-components": "*",
     "@b2b/nxt-layouts": "*",

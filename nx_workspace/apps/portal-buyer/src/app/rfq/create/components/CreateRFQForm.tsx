@@ -48,7 +48,6 @@ export default function CreateRFQForm() {
               <FormInput
                 type="text"
                 {...formik.getFieldProps('title')}
-                error={!!(formik.touched.title && formik.errors.title)}
               />
             </FormField>
 
@@ -66,7 +65,6 @@ export default function CreateRFQForm() {
                 <FormInput
                   type="number"
                   {...formik.getFieldProps('quantity')}
-                  error={!!(formik.touched.quantity && formik.errors.quantity)}
                 />
               </FormField>
 
@@ -74,7 +72,6 @@ export default function CreateRFQForm() {
                 <FormInput
                   type="date"
                   {...formik.getFieldProps('deadline')}
-                  error={!!(formik.touched.deadline && formik.errors.deadline)}
                 />
               </FormField>
             </div>

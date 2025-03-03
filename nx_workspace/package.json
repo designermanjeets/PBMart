@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-
-    "dev:buyer": "nx run portal-buyer:serve",
     "build:buyer": "nx run portal-buyer:build",
-    "dev:seller": "nx run portal-seller:serve",
+    "start:buyer": "nx run portal-buyer:build && nx run portal-buyer:serve",
     "build:seller": "nx run portal-seller:build",
+    "start:seller": "nx run portal-seller:build && nx run portal-seller:serve",
     "build:all": "nx run-many --target=build --all",
     "test": "nx run-many --target=test --all",
     "lint": "nx run-many --target=lint --all"
@@ -21,7 +20,7 @@
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "formik": "^2.4.6",
-    "next": "^13.5.2",
+    "next": "^15.2.0",
     "next-auth": "^4.24.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -50,6 +49,7 @@
     "nx": "16.9.1",
     "postcss": "^8.4.29",
     "prettier": "^2.8.8",
+    "sass": "^1.85.1",
     "typescript": "^5.1.6"
   }
 }

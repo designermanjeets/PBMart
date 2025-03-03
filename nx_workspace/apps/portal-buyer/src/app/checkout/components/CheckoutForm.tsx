@@ -7,6 +7,18 @@ import { useCartStore } from '@b2b/nxt-store';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+const CheckoutSchema = Yup.object().shape({
+  shippingName: Yup.string().required('Required'),
+  shippingCompany: Yup.string(),
+  shippingStreet: Yup.string().required('Required'),
+  shippingCity: Yup.string().required('Required'),
+  shippingState: Yup.string().required('Required'),
+  shippingZip: Yup.string().required('Required'),
+  cardNumber: Yup.string().required('Required'),
+  cardExpiry: Yup.string().required('Required'),
+  cardCvc: Yup.string().required('Required'),
+});
+
 export default function CheckoutForm() {
   const router = useRouter();
   const { items, getTotal, clearCart } = useCartStore();
@@ -14,45 +26,23 @@ export default function CheckoutForm() {
   const [error, setError] = useState<string | null>(null);
 
   const subtotal = getTotal();
-  const shipping = 29.99;
-  const total = subtotal + shipping;
+  const tax = subtotal * 0.08;
+  const shipping = 15.00;
+  const total = subtotal + tax + shipping;
 
   const formik = useFormik({
     initialValues: {
-      // Shipping Address
       shippingName: '',
       shippingCompany: '',
       shippingStreet: '',
       shippingCity: '',
       shippingState: '',
       shippingZip: '',
-      shippingCountry: '',
-      // Billing Address
-      sameAsShipping: true,
-      billingName: '',
-      billingCompany: '',
-      billingStreet: '',
-      billingCity: '',
-      billingState: '',
-      billingZip: '',
-      billingCountry: '',
-      // Payment
       cardNumber: '',
       cardExpiry: '',
       cardCvc: '',
     },
-    validationSchema: Yup.object({
-      shippingName: Yup.string().required('Required'),
-      shippingCompany: Yup.string().required('Required'),
-      shippingStreet: Yup.string().required('Required'),
-      shippingCity: Yup.string().required('Required'),
-      shippingState: Yup.string().required('Required'),
-      shippingZip: Yup.string().required('Required'),
-      shippingCountry: Yup.string().required('Required'),
-      cardNumber: Yup.string().required('Required'),
-      cardExpiry: Yup.string().required('Required'),
-      cardCvc: Yup.string().required('Required'),
-    }),
+    validationSchema: CheckoutSchema,
     onSubmit: async (values) => {
       setIsSubmitting(true);
       setError(null);
@@ -100,55 +90,67 @@ export default function CheckoutForm() {
               <div className="p-6">
                 <h2 className="text-lg font-medium text-gray-900 mb-4">Shipping Address</h2>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <FormField label="Full Name" error={formik.touched.shippingName && formik.errors.shippingName}>
+                  <FormField 
+                    label="Full Name" 
+                    error={formik.touched.shippingName && formik.errors.shippingName ? formik.errors.shippingName : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('shippingName')}
-                      error={!!(formik.touched.shippingName && formik.errors.shippingName)}
                     />
                   </FormField>
 
-                  <FormField label="Company" error={formik.touched.shippingCompany && formik.errors.shippingCompany}>
+                  <FormField 
+                    label="Company" 
+                    error={formik.touched.shippingCompany && formik.errors.shippingCompany ? formik.errors.shippingCompany : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('shippingCompany')}
-                      error={!!(formik.touched.shippingCompany && formik.errors.shippingCompany)}
                     />
                   </FormField>
                 </div>
 
                 <div className="mt-6">
-                  <FormField label="Street Address" error={formik.touched.shippingStreet && formik.errors.shippingStreet}>
+                  <FormField 
+                    label="Street Address" 
+                    error={formik.touched.shippingStreet && formik.errors.shippingStreet ? formik.errors.shippingStreet : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('shippingStreet')}
-                      error={!!(formik.touched.shippingStreet && formik.errors.shippingStreet)}
                     />
                   </FormField>
                 </div>
 
                 <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                  <FormField label="City" error={formik.touched.shippingCity && formik.errors.shippingCity}>
+                  <FormField 
+                    label="City" 
+                    error={formik.touched.shippingCity && formik.errors.shippingCity ? formik.errors.shippingCity : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('shippingCity')}
-                      error={!!(formik.touched.shippingCity && formik.errors.shippingCity)}
                     />
                   </FormField>
 
-                  <FormField label="State" error={formik.touched.shippingState && formik.errors.shippingState}>
+                  <FormField 
+                    label="State" 
+                    error={formik.touched.shippingState && formik.errors.shippingState ? formik.errors.shippingState : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('shippingState')}
-                      error={!!(formik.touched.shippingState && formik.errors.shippingState)}
                     />
                   </FormField>
 
-                  <FormField label="ZIP Code" error={formik.touched.shippingZip && formik.errors.shippingZip}>
+                  <FormField 
+                    label="ZIP Code" 
+                    error={formik.touched.shippingZip && formik.errors.shippingZip ? formik.errors.shippingZip : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('shippingZip')}
-                      error={!!(formik.touched.shippingZip && formik.errors.shippingZip)}
                     />
                   </FormField>
                 </div>
@@ -159,29 +161,35 @@ export default function CheckoutForm() {
               <div className="p-6">
                 <h2 className="text-lg font-medium text-gray-900 mb-4">Payment Information</h2>
                 <div className="grid grid-cols-1 gap-6">
-                  <FormField label="Card Number" error={formik.touched.cardNumber && formik.errors.cardNumber}>
+                  <FormField 
+                    label="Card Number" 
+                    error={formik.touched.cardNumber && formik.errors.cardNumber ? formik.errors.cardNumber : undefined}
+                  >
                     <FormInput
                       type="text"
                       {...formik.getFieldProps('cardNumber')}
-                      error={!!(formik.touched.cardNumber && formik.errors.cardNumber)}
                     />
                   </FormField>
 
                   <div className="grid grid-cols-2 gap-6">
-                    <FormField label="Expiry Date" error={formik.touched.cardExpiry && formik.errors.cardExpiry}>
+                    <FormField 
+                      label="Expiry Date" 
+                      error={formik.touched.cardExpiry && formik.errors.cardExpiry ? formik.errors.cardExpiry : undefined}
+                    >
                       <FormInput
                         type="text"
                         placeholder="MM/YY"
                         {...formik.getFieldProps('cardExpiry')}
-                        error={!!(formik.touched.cardExpiry && formik.errors.cardExpiry)}
                       />
                     </FormField>
 
-                    <FormField label="CVC" error={formik.touched.cardCvc && formik.errors.cardCvc}>
+                    <FormField 
+                      label="CVC" 
+                      error={formik.touched.cardCvc && formik.errors.cardCvc ? formik.errors.cardCvc : undefined}
+                    >
                       <FormInput
                         type="text"
                         {...formik.getFieldProps('cardCvc')}
-                        error={!!(formik.touched.cardCvc && formik.errors.cardCvc)}
                       />
                     </FormField>
                   </div>
@@ -223,6 +231,10 @@ export default function CheckoutForm() {
                 <div className="flex items-center justify-between">
                   <dt className="text-sm text-gray-600">Subtotal</dt>
                   <dd className="text-sm font-medium text-gray-900">${subtotal.toFixed(2)}</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-sm text-gray-600">Tax</dt>
+                  <dd className="text-sm font-medium text-gray-900">${tax.toFixed(2)}</dd>
                 </div>
                 <div className="flex items-center justify-between">
                   <dt className="text-sm text-gray-600">Shipping</dt>

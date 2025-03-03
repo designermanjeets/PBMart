@@ -61,7 +61,7 @@ export default function PreferencesSettings() {
           <div className="p-6">
             <h3 className="text-lg font-medium text-gray-900 mb-4">Email Notifications</h3>
             <div className="space-y-4">
-              <FormField>
+              <FormField label="Email Notifications">
                 <div className="flex items-center">
                   <input
                     type="checkbox"
@@ -74,7 +74,7 @@ export default function PreferencesSettings() {
                 </div>
               </FormField>
 
-              <FormField>
+              <FormField label="Order Updates">
                 <div className="flex items-center">
                   <input
                     type="checkbox"
@@ -87,7 +87,7 @@ export default function PreferencesSettings() {
                 </div>
               </FormField>
 
-              <FormField>
+              <FormField label="Marketing Emails">
                 <div className="flex items-center">
                   <input
                     type="checkbox"
@@ -107,7 +107,7 @@ export default function PreferencesSettings() {
           <div className="p-6">
             <h3 className="text-lg font-medium text-gray-900 mb-4">Regional Settings</h3>
             <div className="space-y-4">
-              <FormField label="Language" error={formik.touched.language && formik.errors.language}>
+              <FormField label="Language" error={formik.touched.language && formik.errors.language ? String(formik.errors.language) : undefined}>
                 <select
                   {...formik.getFieldProps('language')}
                   className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
@@ -118,7 +118,7 @@ export default function PreferencesSettings() {
                 </select>
               </FormField>
 
-              <FormField label="Timezone" error={formik.touched.timezone && formik.errors.timezone}>
+              <FormField label="Timezone" error={formik.touched.timezone && formik.errors.timezone ? String(formik.errors.timezone) : undefined}>
                 <select
                   {...formik.getFieldProps('timezone')}
                   className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"

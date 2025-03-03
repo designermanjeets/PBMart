@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'View and manage your shopping cart',
 };
 
-export default async function CartPage() {
+export default function CartPage() {
   return (
     <AuthGuard>
       <BuyerLayout>

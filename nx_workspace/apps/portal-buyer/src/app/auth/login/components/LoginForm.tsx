@@ -1,90 +1,106 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { signIn } from 'next-auth/react';
-import { Card, Button, Form, FormField, FormInput } from '@b2b/ui-components';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Form, FormField, FormInput } from '@b2b/ui-components';
+import { useAuth } from '@b2b/auth';
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string().required('Required'),
+});
 
 export default function LoginForm() {
+  const [error, setError] = useState('');
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { login } = useAuth();
 
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string().required('Required'),
-    }),
+    validationSchema: LoginSchema,
     onSubmit: async (values) => {
-      setIsSubmitting(true);
-      setError(null);
+      setError('');
       try {
-        const result = await signIn('credentials', {
-          redirect: false,
-          email: values.email,
-          password: values.password,
-        });
-
-        if (result?.error) {
-          setError('Invalid email or password');
-          return;
-        }
-
-        const callbackUrl = searchParams.get('callbackUrl') || '/';
-        router.push(callbackUrl);
+        await login(values.email, values.password);
+        router.push('/dashboard');
       } catch (err) {
-        setError('An error occurred during sign in');
-      } finally {
-        setIsSubmitting(false);
+        setError('Invalid email or password');
       }
     },
   });
 
   return (
-    <Card>
-      <div className="p-6">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          Sign in to your account
+        </h2>
+      </div>
+
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
-            <p className="text-sm text-red-600">{error}</p>
+          <div className="mb-4 rounded-md bg-red-50 p-4">
+            <div className="flex">
+              <div className="text-sm text-red-700">{error}</div>
+            </div>
           </div>
         )}
 
         <Form onSubmit={formik.handleSubmit} className="space-y-6">
-          <FormField label="Email" error={formik.touched.email && formik.errors.email}>
+          <FormField 
+            label="Email" 
+            error={formik.touched.email && formik.errors.email ? formik.errors.email : undefined}
+          >
             <FormInput
               type="email"
-              {...formik.getFieldProps('email')}
-              error={!!(formik.touched.email && formik.errors.email)}
+              id="email"
+              name="email"
+              autoComplete="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
           </FormField>
 
-          <FormField label="Password" error={formik.touched.password && formik.errors.password}>
+          <FormField 
+            label="Password" 
+            error={formik.touched.password && formik.errors.password ? formik.errors.password : undefined}
+          >
             <FormInput
               type="password"
-              {...formik.getFieldProps('password')}
-              error={!!(formik.touched.password && formik.errors.password)}
+              id="password"
+              name="password"
+              autoComplete="current-password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
           </FormField>
 
           <div>
-            <Button
+            <button
               type="submit"
-              variant="primary"
-              className="w-full"
-              disabled={isSubmitting}
+              disabled={formik.isSubmitting}
+              className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
-              {isSubmitting ? 'Signing in...' : 'Sign in'}
-            </Button>
+              {formik.isSubmitting ? 'Signing in...' : 'Sign in'}
+            </button>
           </div>
         </Form>
+
+        <p className="mt-10 text-center text-sm text-gray-500">
+          Not a member?{' '}
+          <Link href="/register" className="font-semibold leading-6 text-blue-600 hover:text-blue-500">
+            Register now
+          </Link>
+        </p>
       </div>
-    </Card>
+    </div>
   );
-} 
+}

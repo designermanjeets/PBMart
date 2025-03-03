@@ -1,4 +1,4 @@
-import Metadata from 'next';
+import { Metadata } from 'next';
 import { BuyerLayout } from '@b2b/nxt-layouts';
 import { AuthGuard } from '@b2b/auth';
 import DashboardContent from './components/DashboardContent';
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'View your B2B marketplace dashboard',
 };
 
-export default async function DashboardPage() {
+export default function DashboardPage() {
   return (
     <AuthGuard>
       <BuyerLayout>

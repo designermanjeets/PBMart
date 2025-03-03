@@ -114,7 +114,7 @@ export default function ProductReviews({ productId, reviews, onAddReview }: Prod
 
               <FormField
                 label="Review"
-                error={formik.touched.comment && formik.errors.comment}
+                error={formik.touched.comment && formik.errors.comment ? String(formik.errors.comment) : undefined}
               >
                 <textarea
                   {...formik.getFieldProps('comment')}

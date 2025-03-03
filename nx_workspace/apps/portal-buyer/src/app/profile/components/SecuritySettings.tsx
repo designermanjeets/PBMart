@@ -58,27 +58,24 @@ export default function SecuritySettings() {
       )}
 
       <Form onSubmit={formik.handleSubmit} className="space-y-6">
-        <FormField label="Current Password" error={formik.touched.currentPassword && formik.errors.currentPassword}>
+        <FormField label="Current Password" error={formik.touched.currentPassword && formik.errors.currentPassword ? String(formik.errors.currentPassword) : undefined}>
           <FormInput
             type="password"
             {...formik.getFieldProps('currentPassword')}
-            error={!!(formik.touched.currentPassword && formik.errors.currentPassword)}
           />
         </FormField>
 
-        <FormField label="New Password" error={formik.touched.newPassword && formik.errors.newPassword}>
+        <FormField label="New Password" error={formik.touched.newPassword && formik.errors.newPassword ? String(formik.errors.newPassword) : undefined}>
           <FormInput
             type="password"
             {...formik.getFieldProps('newPassword')}
-            error={!!(formik.touched.newPassword && formik.errors.newPassword)}
           />
         </FormField>
 
-        <FormField label="Confirm Password" error={formik.touched.confirmPassword && formik.errors.confirmPassword}>
+        <FormField label="Confirm Password" error={formik.touched.confirmPassword && formik.errors.confirmPassword ? String(formik.errors.confirmPassword) : undefined}>
           <FormInput
             type="password"
             {...formik.getFieldProps('confirmPassword')}
-            error={!!(formik.touched.confirmPassword && formik.errors.confirmPassword)}
           />
         </FormField>
 

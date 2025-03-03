@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../auth/[...nextauth]/route';
+import { authOptions } from '../auth/auth-options';
 
 export async function GET() {
   const session = await getServerSession(authOptions);
@@ -13,19 +13,28 @@ export async function GET() {
   }
 
   try {
-    // Replace with actual database call
+    // Mock cart data - replace with actual database call
     const cart = {
-      id: '1',
-      userId: '1',
       items: [
         {
           id: '1',
           name: 'Office Chair',
           price: '199.99',
-          quantity: 2,
+          quantity: 1,
+          image: '/product-image.jpg',
+        },
+        {
+          id: '2',
+          name: 'Office Desk',
+          price: '299.99',
+          quantity: 1,
           image: '/product-image.jpg',
         },
       ],
+      subtotal: '499.98',
+      tax: '40.00',
+      shipping: '15.00',
+      total: '554.98',
     };
 
     return NextResponse.json(cart);
@@ -48,23 +57,68 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
-    // Add item to cart in database
-    const updatedCart = {
-      id: '1',
-      userId: '1',
-      items: [
-        {
-          ...body,
-          id: Math.random().toString(36).substr(2, 9),
-        },
-      ],
-    };
+    const data = await request.json();
+    
+    // Mock response - replace with actual database call
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Item added to cart',
+      item: data
+    });
+  } catch (error) {
+    return new NextResponse(
+      JSON.stringify({ error: 'Failed to add item to cart' }),
+      { status: 500 }
+    );
+  }
+}
 
-    return NextResponse.json(updatedCart);
+export async function PUT(request: Request) {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return new NextResponse(
+      JSON.stringify({ error: 'Authentication required' }),
+      { status: 401 }
+    );
+  }
+
+  try {
+    const data = await request.json();
+    
+    // Mock response - replace with actual database call
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Cart updated',
+      item: data
+    });
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ error: 'Failed to update cart' }),
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: Request) {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return new NextResponse(
+      JSON.stringify({ error: 'Authentication required' }),
+      { status: 401 }
+    );
+  }
+
+  try {
+    // Mock response - replace with actual database call
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Cart cleared'
+    });
+  } catch (error) {
+    return new NextResponse(
+      JSON.stringify({ error: 'Failed to clear cart' }),
       { status: 500 }
     );
   }

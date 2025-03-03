@@ -1,6 +1,6 @@
 export function RegisterForm() {
   return (
-    <div className={styles['container']}>
+    <div className="container">
       <h1>Welcome to RegisterForm!</h1>
     </div>
   );

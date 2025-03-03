@@ -1,16 +1,19 @@
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../../auth/[...nextauth]/route';
+import { authOptions } from '../../auth/auth-options';
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    return new NextResponse(
-      JSON.stringify({ error: 'Authentication required' }),
+    return Response.json(
+      { error: 'Authentication required' },
       { status: 401 }
     );
   }
@@ -18,7 +21,7 @@ export async function GET(
   try {
     // Replace with actual database call
     const product = {
-      id: params.id,
+      id,
       name: 'Office Chair',
       price: '199.99',
       description: 'Ergonomic office chair with lumbar support and adjustable height. Perfect for long work sessions and designed for comfort.',
@@ -48,7 +51,7 @@ export async function GET(
       reviews: [
         {
           id: '1',
-          productId: params.id,
+          productId: id,
           userId: '1',
           userName: 'John Doe',
           rating: 5,
@@ -57,7 +60,7 @@ export async function GET(
         },
         {
           id: '2',
-          productId: params.id,
+          productId: id,
           userId: '2',
           userName: 'Jane Smith',
           rating: 4,
@@ -67,10 +70,10 @@ export async function GET(
       ],
     };
 
-    return NextResponse.json(product);
+    return Response.json(product);
   } catch (error) {
-    return new NextResponse(
-      JSON.stringify({ error: 'Failed to fetch product' }),
+    return Response.json(
+      { error: 'Failed to fetch product' },
       { status: 500 }
     );
   }

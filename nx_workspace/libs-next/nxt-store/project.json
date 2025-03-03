@@ -5,5 +5,16 @@
   "projectType": "library",
   "tags": [],
   "// targets": "to see all targets run: nx show project nxt-store --web",
-  "targets": {}
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs-next/nxt-store/jest.config.ts"
+      }
+    }
+  }
 }

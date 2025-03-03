@@ -1,39 +1,22 @@
 {
   "name": "portal-buyer",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/portal-buyer",
+  "sourceRoot": "apps/portal-buyer/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "executor": "nx:run-commands",
       "options": {
-        "outputPath": "dist/apps/portal-buyer"
+        "command": "next build",
+        "cwd": "apps/portal-buyer"
       },
-      "configurations": {
-        "development": {
-          "outputPath": "apps/portal-buyer"
-        },
-        "production": {}
-      }
+      "dependsOn": ["^build"]
     },
     "serve": {
-      "executor": "@nx/next:server",
-      "defaultConfiguration": "development",
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "portal-buyer:build",
-        "dev": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "portal-buyer:build:development",
-          "dev": true
-        },
-        "production": {
-          "buildTarget": "portal-buyer:build:production",
-          "dev": false
-        }
+        "command": "next dev",
+        "cwd": "apps/portal-buyer"
       }
     },
     "export": {
@@ -43,8 +26,11 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/portal-buyer/**/*.{ts,tsx,js,jsx}"]
+      }
     },
     "test": {
       "executor": "@nx/jest:jest",

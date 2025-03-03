@@ -1,22 +1,16 @@
-//@ts-check
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { composePlugins, withNx } = require('@nx/next');
-
-/**
- * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
- **/
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  nx: {
-    // Set this to true if you would like to use SVGR
-    // See: https://github.com/gregberge/svgr
-    svgr: false,
-  },
+  reactStrictMode: true,
+  swcMinify: true,
+  // Add transpilePackages to handle local packages
+  transpilePackages: [
+    '@b2b/ui-components',
+    '@b2b/auth',
+    '@b2b/nxt-layouts',
+    '@b2b/nxt-store',
+  ],
+  // Ensure output is configured correctly
+  output: 'standalone',
 };
 
-const plugins = [
-  // Add more Next.js plugins to this list if needed.
-  withNx,
-];
-
-module.exports = composePlugins(...plugins)(nextConfig);
+module.exports = nextConfig;

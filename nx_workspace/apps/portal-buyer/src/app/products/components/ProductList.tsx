@@ -100,7 +100,7 @@ export default function ProductList() {
                       addItem({
                         id: product.id,
                         name: product.name,
-                        price: product.price,
+                        price: typeof product.price === 'string' ? parseFloat(product.price) : product.price,
                         quantity: 1,
                         image: product.image,
                       })

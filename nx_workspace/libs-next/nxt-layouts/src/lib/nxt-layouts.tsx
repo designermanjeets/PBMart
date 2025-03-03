@@ -1,6 +1,6 @@
 export function NxtLayouts() {
   return (
-    <div className={styles['container']}>
+    <div className="container">
       <h1>Welcome to NxtLayouts!</h1>
     </div>
   );

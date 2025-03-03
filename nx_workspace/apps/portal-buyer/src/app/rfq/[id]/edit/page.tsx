@@ -4,7 +4,7 @@ import { AuthGuard } from '@b2b/auth';
 import EditRFQForm from './components/EditRFQForm';
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>;
 };
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function EditRFQPage({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   return (
     <AuthGuard>

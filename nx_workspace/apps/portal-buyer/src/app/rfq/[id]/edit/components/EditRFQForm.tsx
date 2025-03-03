@@ -61,15 +61,14 @@ export default function EditRFQForm({ id }: EditRFQFormProps) {
       <div className="mt-6">
         <Card>
           <Form onSubmit={formik.handleSubmit} className="space-y-6 p-6">
-            <FormField label="Title" error={formik.touched.title && formik.errors.title}>
+            <FormField label="Title" error={formik.touched.title && formik.errors.title ? String(formik.errors.title) : undefined}>
               <FormInput
                 type="text"
                 {...formik.getFieldProps('title')}
-                error={!!(formik.touched.title && formik.errors.title)}
               />
             </FormField>
 
-            <FormField label="Description" error={formik.touched.description && formik.errors.description}>
+            <FormField label="Description" error={formik.touched.description && formik.errors.description ? String(formik.errors.description) : undefined}>
               <textarea
                 {...formik.getFieldProps('description')}
                 rows={4}
@@ -79,24 +78,22 @@ export default function EditRFQForm({ id }: EditRFQFormProps) {
             </FormField>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <FormField label="Quantity" error={formik.touched.quantity && formik.errors.quantity}>
+              <FormField label="Quantity" error={formik.touched.quantity && formik.errors.quantity ? String(formik.errors.quantity) : undefined}>
                 <FormInput
                   type="number"
                   {...formik.getFieldProps('quantity')}
-                  error={!!(formik.touched.quantity && formik.errors.quantity)}
                 />
               </FormField>
 
-              <FormField label="Deadline" error={formik.touched.deadline && formik.errors.deadline}>
+              <FormField label="Deadline" error={formik.touched.deadline && formik.errors.deadline ? String(formik.errors.deadline) : undefined}>
                 <FormInput
                   type="date"
                   {...formik.getFieldProps('deadline')}
-                  error={!!(formik.touched.deadline && formik.errors.deadline)}
                 />
               </FormField>
             </div>
 
-            <FormField label="Specifications" error={formik.touched.specifications && formik.errors.specifications}>
+            <FormField label="Specifications" error={formik.touched.specifications && formik.errors.specifications ? String(formik.errors.specifications) : undefined}>
               <textarea
                 {...formik.getFieldProps('specifications')}
                 rows={4}

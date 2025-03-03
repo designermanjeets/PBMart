@@ -22,6 +22,36 @@ export default function EditRFQForm({ id }: EditRFQFormProps) {
   // Form validation schemas and handlers from the original page
   // ... rest of the component logic ...
 
+  const formik = useFormik({
+    initialValues: {
+      title: '',
+      description: '',
+      quantity: 0,
+      deadline: '',
+      specifications: '',
+    },
+    validationSchema: Yup.object({
+      title: Yup.string().required('Title is required'),
+      description: Yup.string().required('Description is required'),
+      quantity: Yup.number().required('Quantity is required').min(1, 'Quantity must be at least 1'),
+      deadline: Yup.date().required('Deadline is required').min(new Date(), 'Deadline must be in the future'),
+      specifications: Yup.string(),
+    }),
+    onSubmit: async (values) => {
+      // setIsSubmitting(true);
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('RFQ updated:', values);
+        // setIsSubmitting(false);
+        router.push(`/rfq/${id}`);
+      } catch (error) { 
+        console.error('Error updating RFQ:', error);
+        // setIsSubmitting(false);
+    }
+    },
+  });
+
   return (
     <>
       <div className="flex justify-between items-center">

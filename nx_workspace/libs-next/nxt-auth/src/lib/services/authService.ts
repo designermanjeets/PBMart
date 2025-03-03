@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { User } from '../hooks/useAuth';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env['NEXT_PUBLIC_API_URL'] || 'http://localhost:8000';
 
 // Helper function to handle API errors
 const handleApiError = (error: any) => {
@@ -18,45 +18,92 @@ const handleApiError = (error: any) => {
 };
 
 export const authService = {
-  async login(email: string, password: string): Promise<User> {
+  login: async (email: string, password: string) => {
     try {
-      const response = await axios.post(`${API_URL}/api/auth/login`, {
-        email,
-        password,
+      const response = await fetch(`${API_BASE_URL}/api/customers/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
       });
-      
-      // Store the token in localStorage
-      localStorage.setItem('token', response.data.token);
-      
-      return response.data.user;
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Login failed');
+      }
+
+      return await response.json();
     } catch (error) {
-      return handleApiError(error);
+      console.error('Login error:', error);
+      throw error;
     }
   },
-  
-  async register(userData: any): Promise<User> {
+
+  register: async (userData: any) => {
     try {
-      const response = await axios.post(`${API_URL}/api/auth/register`, userData);
-      
-      // Store the token in localStorage
-      localStorage.setItem('token', response.data.token);
-      
-      return response.data.user;
+      const response = await fetch(`${API_BASE_URL}/api/customers/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Registration failed');
+      }
+
+      return await response.json();
     } catch (error) {
-      return handleApiError(error);
+      console.error('Registration error:', error);
+      throw error;
     }
   },
-  
-  async logout(): Promise<void> {
+
+  getProfile: async (token: string) => {
     try {
-      await axios.post(`${API_URL}/api/auth/logout`);
-      localStorage.removeItem('token');
+      const response = await fetch(`${API_BASE_URL}/api/customers/profile`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch profile');
+      }
+
+      return await response.json();
     } catch (error) {
-      return handleApiError(error);
+      console.error('Get profile error:', error);
+      throw error;
     }
   },
-  
-  async getCurrentUser(): Promise<User | null> {
+
+  updateProfile: async (token: string, profileData: any) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/customers/profile`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(profileData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Update profile error:', error);
+      throw error;
+    }
+  },
+
+  getCurrentUser: async (): Promise<any> => {
     try {
       const token = localStorage.getItem('token');
       
@@ -64,43 +111,35 @@ export const authService = {
         return null;
       }
       
-      const response = await axios.get(`${API_URL}/api/auth/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      
-      return response.data;
+      return await authService.getProfile(token);
     } catch (error) {
-      localStorage.removeItem('token');
+      console.error('Get current user error:', error);
       return null;
     }
   },
-  
-  async refreshToken(): Promise<string> {
+
+  getHealth: async () => {
     try {
-      const response = await axios.post(`${API_URL}/api/auth/refresh-token`);
-      const newToken = response.data.token;
-      localStorage.setItem('token', newToken);
-      return newToken;
+      const response = await fetch(`${API_BASE_URL}/api/customers/health`, {
+        method: 'GET',
+      });
+
+      if (!response.ok) {
+        throw new Error('Health check failed');
+      }
+
+      return await response.json();
     } catch (error) {
-      localStorage.removeItem('token');
-      return handleApiError(error);
+      console.error('Health check error:', error);
+      throw error;
     }
-  },
-  
-  getToken(): string | null {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('token');
-    }
-    return null;
   },
 };
 
 // Set up axios interceptor to add the token to all requests
 axios.interceptors.request.use(
   (config) => {
-    const token = authService.getToken();
+    const token = localStorage.getItem('token');
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -119,7 +158,7 @@ axios.interceptors.response.use(
       originalRequest._retry = true;
       
       try {
-        const token = await authService.refreshToken();
+        const token = localStorage.getItem('token');
         originalRequest.headers.Authorization = `Bearer ${token}`;
         return axios(originalRequest);
       } catch (refreshError) {

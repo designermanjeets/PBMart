@@ -105,3 +105,15 @@
 {"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-02-27 20:04:27"}
 {"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-02-28 08:15:13"}
 {"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-02-28 08:15:13"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 14:40:22"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:03:41"}
+{"level":"info","message":"GET /api/shopping/cart","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:03:48"}
+{"level":"error","message":"Authentication error: Authorization header is required","module":"auth-middleware","service":"shopping-service","timestamp":"2025-03-02 15:03:48"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:15:31"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:20:09"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:23:11"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:46:16"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:52:34"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:53:28"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:56:38"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 16:08:14"}

@@ -1016,3 +1016,39 @@
 2025-02-28 14:31:19 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
 2025-02-28 14:31:50 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
 2025-02-28 14:32:22 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
+2025-03-02 14:40:17 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 14:40:17 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.13:5672{"metadata":{}}
+2025-03-02 14:40:17 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-02 14:40:17 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:15:31 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:15:31 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:15:31 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:15:31 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:20:09 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:20:09 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:20:09 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:20:09 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:23:10 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:23:10 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:23:10 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:23:10 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:46:16 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:46:16 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:46:16 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:46:16 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:52:34 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:52:34 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:52:34 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:52:34 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:53:28 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:53:28 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:53:28 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:53:28 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 15:56:38 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 15:56:38 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 15:56:38 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 15:56:38 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-02 16:08:14 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-02 16:08:14 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-02 16:08:14 [[32minfo[39m]: Message broker channel created successfully{"metadata":{}}
+2025-03-02 16:08:14 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}

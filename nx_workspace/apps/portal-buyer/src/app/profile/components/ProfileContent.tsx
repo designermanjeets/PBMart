@@ -90,43 +90,38 @@ export default function ProfileContent() {
               {isEditing ? (
                 <Form onSubmit={formik.handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <FormField label="First Name" error={formik.touched.firstName && formik.errors.firstName}>
+                    <FormField label="First Name" error={formik.touched.firstName && formik.errors.firstName ? String(formik.errors.firstName) : undefined}>
                       <FormInput
                         type="text"
                         {...formik.getFieldProps('firstName')}
-                        error={!!(formik.touched.firstName && formik.errors.firstName)}
                       />
                     </FormField>
 
-                    <FormField label="Last Name" error={formik.touched.lastName && formik.errors.lastName}>
+                    <FormField label="Last Name" error={formik.touched.lastName && formik.errors.lastName ? String(formik.errors.lastName) : undefined}>
                       <FormInput
                         type="text"
                         {...formik.getFieldProps('lastName')}
-                        error={!!(formik.touched.lastName && formik.errors.lastName)}
                       />
                     </FormField>
 
-                    <FormField label="Email" error={formik.touched.email && formik.errors.email}>
+                    <FormField label="Email" error={formik.touched.email && formik.errors.email ? String(formik.errors.email) : undefined}>
                       <FormInput
                         type="email"
                         {...formik.getFieldProps('email')}
-                        error={!!(formik.touched.email && formik.errors.email)}
                       />
                     </FormField>
 
-                    <FormField label="Phone" error={formik.touched.phone && formik.errors.phone}>
+                    <FormField label="Phone" error={formik.touched.phone && formik.errors.phone ? String(formik.errors.phone) : undefined}>
                       <FormInput
                         type="tel"
                         {...formik.getFieldProps('phone')}
-                        error={!!(formik.touched.phone && formik.errors.phone)}
                       />
                     </FormField>
 
-                    <FormField label="Company" error={formik.touched.company && formik.errors.company}>
+                    <FormField label="Company" error={formik.touched.company && formik.errors.company ? String(formik.errors.company) : undefined}>
                       <FormInput
                         type="text"
                         {...formik.getFieldProps('company')}
-                        error={!!(formik.touched.company && formik.errors.company)}
                       />
                     </FormField>
                   </div>

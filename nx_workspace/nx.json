@@ -1,5 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "extends": "nx/presets/npm.json",
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
@@ -17,28 +18,14 @@
     ],
     "sharedGlobals": []
   },
-  "plugins": [
-    {
-      "plugin": "@nx/next/plugin",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "buildTargetName": "build",
-        "devTargetName": "dev",
-        "serveStaticTargetName": "serve-static"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
-  ],
+  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"]
@@ -72,6 +59,10 @@
     "portal-seller": {
       "root": "apps/portal-seller",
       "projectType": "application"
+    },
+    "ui-core": {
+      "root": "libs-ui/ui-core",
+      "projectType": "library"
     }
   },
   "defaultProject": "portal-buyer"

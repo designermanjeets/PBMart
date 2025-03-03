@@ -28,7 +28,9 @@ class CustomerService {
             }
             
             // Update last login
-            await existingCustomer.updateLastLogin();
+            if (existingCustomer.updateLastLogin) {
+                await existingCustomer.updateLastLogin();
+            }
             
             const token = await GenerateSignature({
                 email: existingCustomer.email,
@@ -45,6 +47,8 @@ class CustomerService {
 
     async SignUp(userInputs){
         const { email, password, phone } = userInputs;
+    
+        console.log('Signup request received:', { email, phone });
         
         try {
             // Check if user already exists
@@ -53,7 +57,9 @@ class CustomerService {
             if (existingCustomer) {
                 throw new ValidationError('Email already exists');
             }
-
+    
+            console.log('No existing customer found, proceeding with signup');
+    
             // Create salt
             const salt = await GenerateSalt();
             
@@ -67,13 +73,15 @@ class CustomerService {
                 phone,
                 salt 
             });
-
+    
             // Generate token
             const token = await GenerateSignature({ 
                 email: customer.email, 
                 _id: customer._id 
             });
-
+    
+            console.log('Customer created successfully:', customer._id);
+    
             return FormateData({ id: customer._id, token });
         } catch (err) {
             logger.error(`Error during sign up: ${err.message}`);

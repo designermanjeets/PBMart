@@ -8,6 +8,7 @@ const logger = createLogger('customer-repository');
 class CustomerRepository {
 
     async CreateCustomer({ email, password, phone, salt }){
+        console.log("Create customer request received", { email, password, phone, salt });
         try {
             // Check if customer already exists
             const existingCustomer = await CustomerModel.findOne({ email });
@@ -60,13 +61,11 @@ class CustomerRepository {
 
     async FindCustomer({ email }){
         try {
+            console.log(`Attempting to find customer with email: ${email}`);
             const existingCustomer = await CustomerModel.findOne({ email }).select('+password +salt');
             
-            if (!existingCustomer) {
-                throw new AuthenticationError('Invalid email or password');
-            }
-            
-            return existingCustomer;
+            console.log(`Customer search result:`, existingCustomer);
+            return existingCustomer; // Just return the result, don't throw error if not found
         } catch (error) {
             logger.error(`Error finding customer: ${error.message}`);
             throw error;

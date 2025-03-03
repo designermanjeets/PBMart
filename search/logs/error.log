@@ -19,3 +19,6 @@
 2025-02-26 19:26:31 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
 2025-02-26 19:26:31 [error]: [message-broker] Error creating channel: connect ECONNREFUSED 172.18.0.4:5672{"metadata":{}}
 2025-02-26 19:33:07 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-03-02 15:23:06 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-03-02 15:53:29 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-03-02 16:08:10 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}

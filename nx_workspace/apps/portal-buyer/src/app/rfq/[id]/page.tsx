@@ -4,7 +4,7 @@ import { AuthGuard } from '@b2b/auth';
 import RFQDetails from './components/RFQDetails';
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -16,7 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function RFQDetailPage({ params }: Props) {
-  const { id } = params;
+  // Need to await params
+  const { id } = await params;
 
   return (
     <AuthGuard>

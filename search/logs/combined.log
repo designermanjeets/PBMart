@@ -264,3 +264,64 @@
 2025-02-26 19:48:35 [info]: [search-controller] Subscribed to product events{"metadata":{}}
 2025-02-26 19:48:35 [info]: [express-app] Express app configured{"metadata":{}}
 2025-02-26 19:48:35 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 14:40:17 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 14:40:24 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-02 14:40:24 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 14:40:24 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 14:40:24 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 14:40:24 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:15:22 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:15:27 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-02 15:15:27 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:15:27 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:15:27 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:15:27 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:20:00 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:20:04 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-02 15:20:04 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:20:04 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:20:04 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:20:04 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:22:57 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:23:06 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
+2025-03-02 15:23:06 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-02 15:23:07 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:23:07 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:23:07 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:23:07 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:46:08 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:46:13 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-02 15:46:13 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-03-02 15:46:13 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-03-02 15:46:13 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:46:13 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:46:13 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:46:13 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:52:25 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:52:30 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-02 15:52:31 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:52:31 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:52:31 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:52:31 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:53:21 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:53:29 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-03-02 15:53:29 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-02 15:53:29 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:53:29 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:53:29 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:53:29 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 15:56:31 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 15:56:38 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-02 15:56:39 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-03-02 15:56:39 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-03-02 15:56:39 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 15:56:39 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 15:56:39 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 15:56:39 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-02 16:08:03 [info]: [database] Database connected{"metadata":{}}
+2025-03-02 16:08:10 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-03-02 16:08:10 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-02 16:08:10 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-02 16:08:10 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-02 16:08:10 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-02 16:08:10 [info]: [server] Search Service running on port 8009{"metadata":{}}

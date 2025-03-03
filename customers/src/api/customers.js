@@ -7,6 +7,7 @@ const { validateRequest } = require('./middlewares/validator');
 const { customerSchema } = require('./middlewares/schemas');
 const { NotFoundError, ValidationError } = require('../utils/errors');
 const logger = require('../utils/logger');
+const mongoose = require('mongoose');
 
 module.exports = (app, channel) => {
     const router = express.Router();
@@ -40,6 +41,7 @@ module.exports = (app, channel) => {
 
     // Login
     router.post('/login', validateRequest(customerSchema.signin), async (req, res, next) => {
+        console.log("Login request received");
         try {
             const { email, password } = req.body;
             const { data } = await service.SignIn({ email, password });
@@ -150,6 +152,25 @@ module.exports = (app, channel) => {
             res.status(200).json(data.orders || []);
         } catch (err) {
             next(err);
+        }
+    });
+
+    // Add a test endpoint
+    router.get('/test-db', async (req, res) => {
+        try {
+            // Get the customer model
+            const CustomerModel = require('../database/models/Customer');
+            // Count documents
+            const count = await CustomerModel.countDocuments();
+            // Return the result
+            res.json({ 
+                message: 'Database connection test', 
+                databaseName: mongoose.connection.name,
+                count,
+                connected: mongoose.connection.readyState === 1
+            });
+        } catch (err) {
+            res.status(500).json({ error: err.message });
         }
     });
 

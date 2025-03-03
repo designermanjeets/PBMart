@@ -16,7 +16,8 @@ module.exports.setupRootRoutes = (app) => {
                 '/api/customers/wishlist',
                 '/api/customers/cart',
                 '/api/customers/orders',
-                '/api/customers/health'
+                '/api/customers/health',
+                '/api/customers/test-db'
             ]
         });
     });
