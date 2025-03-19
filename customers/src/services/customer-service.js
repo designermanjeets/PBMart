@@ -286,15 +286,28 @@ class CustomerService {
         }
     }
 
-    async RemoveFromWishlist(customerId, productId) {
+    async RemoveFromWishlist(customerId, productId){
         try {
+            if (!customerId) {
+                throw new ValidationError('Customer ID is required');
+            }
+            
+            if (!productId) {
+                throw new ValidationError('Product ID is required');
+            }
+            
+            console.log(`Removing product from wishlist: Customer ID: ${customerId}, Product ID: ${productId}`);
+            
             const customer = await this.repository.RemoveWishlistItem(customerId, productId);
             
-            return FormateData(customer.wishlist);
+            return FormateData({
+                wishlist: customer.wishlist || [],
+                message: 'Product removed from wishlist successfully'
+            });
         } catch (error) {
             logger.error(`Error removing from wishlist: ${error.message}`);
             
-            if (error.name === 'NotFoundError') {
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
                 throw error;
             }
             
@@ -352,6 +365,137 @@ class CustomerService {
                 break;
             default:
                 break;
+        }
+    }
+
+    async AddToCart(customerId, productData, qty = 1){
+        try {
+            if (!customerId) {
+                throw new ValidationError('Customer ID is required');
+            }
+            
+            if (!productData) {
+                throw new ValidationError('Product data is required');
+            }
+            
+            // If product ID is provided, verify it exists
+            if (productData._id) {
+                const { ProductModel } = require('../database/models');
+                const existingProduct = await ProductModel.findById(productData._id);
+                
+                if (!existingProduct) {
+                    throw new NotFoundError(`Product with ID ${productData._id} not found`);
+                }
+                
+                console.log(`Found existing product: ${existingProduct._id}`);
+                
+                // Use the existing product for the cart
+                const customer = await this.repository.AddCartItem(customerId, existingProduct, qty);
+                
+                return FormateData({
+                    cart: customer.cart || [],
+                    message: 'Product added to cart successfully'
+                });
+            } 
+            // If no product ID, check if product with same name exists
+            else if (productData.name) {
+                const { ProductModel } = require('../database/models');
+                const existingProduct = await ProductModel.findOne({ name: productData.name });
+                
+                if (existingProduct) {
+                    console.log(`Found existing product with name ${productData.name}: ${existingProduct._id}`);
+                    
+                    // Use the existing product for the cart
+                    const customer = await this.repository.AddCartItem(customerId, existingProduct, qty);
+                    
+                    return FormateData({
+                        cart: customer.cart || [],
+                        message: 'Product added to cart successfully'
+                    });
+                } else {
+                    // Create a new product with all required fields
+                    const newProduct = new ProductModel({
+                        name: productData.name,
+                        desc: productData.description || 'No description provided',
+                        banner: productData.banner || 'https://via.placeholder.com/150',
+                        type: productData.type || 'other',
+                        unit: productData.unit || 1,
+                        price: productData.price || 0,
+                        available: productData.available !== undefined ? productData.available : true,
+                        supplier: productData.supplier || 'Unknown Supplier'
+                    });
+                    
+                    await newProduct.save();
+                    console.log(`Created new product: ${newProduct._id}`);
+                    
+                    // Add the new product to the cart
+                    const customer = await this.repository.AddCartItem(customerId, newProduct, qty);
+                    
+                    return FormateData({
+                        cart: customer.cart || [],
+                        message: 'New product created and added to cart successfully'
+                    });
+                }
+            } else {
+                throw new ValidationError('Product name is required');
+            }
+        } catch (error) {
+            logger.error(`Error adding to cart: ${error.message}`);
+            
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to add to cart: ${error.message}`);
+        }
+    }
+
+    async RemoveFromCart(customerId, productId){
+        try {
+            if (!customerId) {
+                throw new ValidationError('Customer ID is required');
+            }
+            
+            if (!productId) {
+                throw new ValidationError('Product ID is required');
+            }
+            
+            console.log(`Removing product from cart: Customer ID: ${customerId}, Product ID: ${productId}`);
+            
+            const customer = await this.repository.RemoveCartItem(customerId, productId);
+            
+            return FormateData({
+                cart: customer.cart || [],
+                message: 'Product removed from cart successfully'
+            });
+        } catch (error) {
+            logger.error(`Error removing from cart: ${error.message}`);
+            
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
+                throw error;
+            }
+            
+            throw new DatabaseError(`Failed to remove from cart: ${error.message}`);
+        }
+    }
+
+    async GetCart(customerId){
+        try {
+            if (!customerId) {
+                logger.error('Customer ID is undefined in GetCart');
+                throw new ValidationError('Customer ID is required');
+            }
+            
+            logger.info(`Getting cart for customer: ${customerId}`);
+            
+            const cart = await this.repository.GetCart(customerId);
+            
+            return FormateData({
+                cart: cart || []
+            });
+        } catch (err) {
+            logger.error(`Error getting cart: ${err.message}`);
+            throw err;
         }
     }
 

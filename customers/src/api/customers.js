@@ -143,7 +143,23 @@ module.exports = (app, channel) => {
     router.delete('/wishlist/:id', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
+            
+            if (!_id) {
+                return res.status(400).json({
+                    message: 'User ID is required'
+                });
+            }
+            
             const productId = req.params.id;
+            
+            if (!productId) {
+                return res.status(400).json({
+                    message: 'Product ID is required'
+                });
+            }
+            
+            console.log(`Removing product ${productId} from wishlist for user: ${_id}`);
+            
             const { data } = await service.RemoveFromWishlist(_id, productId);
             res.status(200).json(data);
         } catch (err) {
@@ -152,11 +168,47 @@ module.exports = (app, channel) => {
     });
 
     // Add to cart
-    router.post('/cart', validateToken, validateRequest(customerSchema.cart), async (req, res, next) => {
+    router.post('/cart', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
-            const { product_id, qty } = req.body;
-            const { data } = await service.AddToCart(_id, { product_id, qty });
+            
+            if (!_id) {
+                return res.status(400).json({
+                    message: 'User ID is required'
+                });
+            }
+            
+            // Make sure we have product data in the request body
+            if (!req.body) {
+                return res.status(400).json({
+                    message: 'Product data is required'
+                });
+            }
+            
+            // If product ID is provided, validate it's a valid MongoDB ObjectId
+            if (req.body._id && !mongoose.Types.ObjectId.isValid(req.body._id)) {
+                return res.status(400).json({
+                    message: 'Invalid product ID format'
+                });
+            }
+            
+            // If no product ID, ensure name is provided
+            if (!req.body._id && !req.body.name) {
+                return res.status(400).json({
+                    message: 'Product ID or name is required'
+                });
+            }
+            
+            // Map description to desc if provided
+            if (req.body.description && !req.body.desc) {
+                req.body.desc = req.body.description;
+            }
+            
+            const qty = req.body.qty || 1;
+            
+            console.log(`Adding product to cart for user: ${_id}`, req.body);
+            
+            const { data } = await service.AddToCart(_id, req.body, qty);
             res.status(200).json(data);
         } catch (err) {
             next(err);
@@ -167,7 +219,15 @@ module.exports = (app, channel) => {
     router.get('/cart', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
-            const { data } = await service.GetCart({ _id });
+            
+            if (!_id) {
+                return res.status(400).json({
+                    message: 'User ID is required'
+                });
+            }
+            
+            console.log(`Getting cart for user: ${_id}`);
+            const { data } = await service.GetCart(_id);
             res.status(200).json(data);
         } catch (err) {
             next(err);
@@ -178,7 +238,23 @@ module.exports = (app, channel) => {
     router.delete('/cart/:id', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
+            
+            if (!_id) {
+                return res.status(400).json({
+                    message: 'User ID is required'
+                });
+            }
+            
             const productId = req.params.id;
+            
+            if (!productId) {
+                return res.status(400).json({
+                    message: 'Product ID is required'
+                });
+            }
+            
+            console.log(`Removing product ${productId} from cart for user: ${_id}`);
+            
             const { data } = await service.RemoveFromCart(_id, productId);
             res.status(200).json(data);
         } catch (err) {

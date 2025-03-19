@@ -188,58 +188,119 @@ class CustomerRepository {
         }
     }
 
-
-    async AddCartItem(customerId, { _id, name, price, banner},qty, isRemove){
+    async AddCartItem(customerId, product, qty){
         try {
+            console.log(`Adding product to cart for customer: ${customerId}`, product);
+            
+            if (!product || !product._id) {
+                throw new ValidationError('Valid product with ID is required');
+            }
+            
             const customer = await this.FindCustomerById(customerId);
             
             if (!customer) {
                 throw new NotFoundError(`Customer not found with ID: ${customerId}`);
             }
             
+            // Initialize cart if it doesn't exist
+            if (!customer.cart) {
+                customer.cart = [];
+            }
+            
             const cartItem = {
-                product: { _id, name, price, banner },
-                unit: qty,
+                product: {
+                    _id: product._id,
+                    name: product.name,
+                    price: product.price,
+                    banner: product.banner || 'https://via.placeholder.com/150'
+                },
+                unit: qty || 1
             };
-          
-            let cartItems = customer.cart;
             
-            if(cartItems.length > 0){
-                let isExist = false;
-                 cartItems.map(item => {
-                    if(item.product._id.toString() === _id.toString()){
-
-                        if(isRemove){
-                            cartItems.splice(cartItems.indexOf(item), 1);
-                        }else{
-                            item.unit = qty;
-                        }
-                        isExist = true;
-                    }
-                });
-
-                if(!isExist){
-                    cartItems.push(cartItem);
-                } 
-            }else{
-                cartItems.push(cartItem);
+            // Check if product already exists in cart
+            const existingItemIndex = customer.cart.findIndex(
+                item => item.product._id.toString() === product._id.toString()
+            );
+            
+            // If product exists, update quantity
+            if (existingItemIndex >= 0) {
+                customer.cart[existingItemIndex].unit = qty;
+                console.log(`Updated product ${product._id} quantity in cart to ${qty}`);
+            } else {
+                // Add product to cart
+                customer.cart.push(cartItem);
+                console.log(`Added product ${product._id} to cart`);
             }
-
-            customer.cart = cartItems;
-
-            return await customer.save();
+            
+            // Save the updated customer
+            await customer.save();
+            
+            return customer;
         } catch (error) {
-            logger.error(`Error adding cart item: ${error.message}`);
-            
-            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
-                throw error;
-            }
-            
-            throw new DatabaseError(`Failed to add cart item: ${error.message}`);
+            logger.error(`Error adding product to cart: ${error.message}`);
+            throw error;
         }
     }
 
+    async RemoveCartItem(customerId, productId){
+        try {
+            console.log(`Removing product ${productId} from cart for customer: ${customerId}`);
+            
+            if (!productId) {
+                throw new ValidationError('Product ID is required');
+            }
+            
+            const customer = await this.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            // Initialize cart if it doesn't exist
+            if (!customer.cart) {
+                customer.cart = [];
+                return customer;
+            }
+            
+            // Find the product in the cart
+            const productIndex = customer.cart.findIndex(
+                item => item.product._id.toString() === productId.toString()
+            );
+            
+            // If product exists in cart, remove it
+            if (productIndex >= 0) {
+                customer.cart.splice(productIndex, 1);
+                console.log(`Removed product ${productId} from cart`);
+            } else {
+                console.log(`Product ${productId} not found in cart`);
+            }
+            
+            // Save the updated customer
+            await customer.save();
+            
+            return customer;
+        } catch (error) {
+            logger.error(`Error removing product from cart: ${error.message}`);
+            throw error;
+        }
+    }
 
+    async GetCart(customerId){
+        try {
+            console.log(`Getting cart for customer: ${customerId}`);
+            
+            const customer = await this.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            return customer.cart || [];
+        } catch (error) {
+            logger.error(`Error getting cart: ${error.message}`);
+            throw error;
+        }
+    }
 
     async AddOrderToProfile(customerId, order){
         try {
@@ -277,6 +338,49 @@ class CustomerRepository {
         } catch (err) {
             console.log('Database connection check failed:', err);
             return false;
+        }
+    }
+
+    async RemoveWishlistItem(customerId, productId){
+        try {
+            console.log(`Removing product ${productId} from wishlist for customer: ${customerId}`);
+            
+            if (!productId) {
+                throw new ValidationError('Product ID is required');
+            }
+            
+            const customer = await this.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            // Initialize wishlist if it doesn't exist
+            if (!customer.wishlist) {
+                customer.wishlist = [];
+                return customer;
+            }
+            
+            // Find the product in the wishlist
+            const productIndex = customer.wishlist.findIndex(
+                item => item.toString() === productId.toString()
+            );
+            
+            // If product exists in wishlist, remove it
+            if (productIndex >= 0) {
+                customer.wishlist.splice(productIndex, 1);
+                console.log(`Removed product ${productId} from wishlist`);
+            } else {
+                console.log(`Product ${productId} not found in wishlist`);
+            }
+            
+            // Save the updated customer
+            await customer.save();
+            
+            return customer;
+        } catch (error) {
+            logger.error(`Error removing product from wishlist: ${error.message}`);
+            throw error;
         }
     }
 
