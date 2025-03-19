@@ -140,7 +140,13 @@ customer/
 - **Request Body**:
   ```json
   {
-    "productId": "product_id_here"
+    "product": {
+      "name": "Product Name",
+      "description": "Product Description",
+      "price": 100,
+      "available": true,
+      "banner": "https://example.com/banner.jpg"
+    }
   }
   ```
 - **Response**: Updated wishlist
@@ -158,6 +164,42 @@ customer/
 - **Description**: Remove a product from wishlist
 - **Authentication**: Required (JWT)
 - **Response**: Updated wishlist
+
+### Cart Management
+
+#### Add to Cart
+- **URL**: `/cart`
+- **Method**: `POST`
+- **Description**: Add a product to customer's cart
+- **Authentication**: Required (JWT)
+- **Request Body**:
+  ```json
+  {
+    "product": {
+      "name": "Product Name",
+      "description": "Product Description",
+      "price": 100,
+      "available": true,
+      "banner": "https://example.com/banner.jpg"
+    }
+  } 
+  ```
+- **Response**: Updated cart
+
+#### Get Cart
+- **URL**: `/cart`
+- **Method**: `GET` 
+- **Description**: Get customer's cart
+- **Authentication**: Required (JWT)
+- **Response**: List of products in cart
+
+#### Remove from Cart
+- **URL**: `/cart/:id`  
+- **Method**: `DELETE`
+- **Description**: Remove a product from cart
+- **Authentication**: Required (JWT)
+- **Response**: Updated cart    
+
 
 ### Health Check
 
