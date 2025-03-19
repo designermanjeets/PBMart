@@ -325,3 +325,23 @@
 2025-03-02 16:08:10 [info]: [search-controller] Subscribed to product events{"metadata":{}}
 2025-03-02 16:08:10 [info]: [express-app] Express app configured{"metadata":{}}
 2025-03-02 16:08:10 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-19 12:35:23 [info]: [database] Database connected{"metadata":{}}
+2025-03-19 12:35:31 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-19 12:35:31 [info]: [elasticsearch-service] Created product index: products{"metadata":{}}
+2025-03-19 12:35:31 [info]: [elasticsearch-service] Created analytics index: search_analytics{"metadata":{}}
+2025-03-19 12:35:31 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-19 12:35:31 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-19 12:35:31 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-19 12:35:31 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-19 13:42:22 [info]: [database] Database connected{"metadata":{}}
+2025-03-19 13:42:26 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-19 13:42:27 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-19 13:42:27 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-19 13:42:27 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-19 13:42:27 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-19 14:01:33 [info]: [database] Database connected{"metadata":{}}
+2025-03-19 14:01:34 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-19 14:01:34 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-19 14:01:34 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-19 14:01:34 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-19 14:01:34 [info]: [server] Search Service running on port 8009{"metadata":{}}

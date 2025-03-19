@@ -22,10 +22,6 @@ const CustomerSchema = new Schema({
         minlength: [8, 'Password must be at least 8 characters long'],
         select: false // Don't include password in query results by default
     },
-    salt: {
-        type: String,
-        select: false
-    },
     phone: {
         type: String,
         required: [true, 'Phone number is required'],
@@ -34,36 +30,22 @@ const CustomerSchema = new Schema({
             'Please provide a valid phone number'
         ]
     },
-    address:[
+    address: [
         { type: Schema.Types.ObjectId, ref: 'address', require: true }
     ],
     cart: [
         {
-          product: { 
-                _id: { type: String, require: true},
-                name: { type: String},
-                banner: { type: String},
-                price: { type: Number},
-            },
-          unit: { type: Number, require: true}
+            product: { type: Schema.Types.ObjectId, ref: 'product', require: true },
+            unit: { type: Number, require: true }
         }
     ],
-    wishlist:[
-        {
-            _id: { type: String, require: true },
-            name: { type: String },
-            description: { type: String },
-            banner: { type: String },
-            avalable: { type: Boolean },
-            price: { type: Number },
+    wishlist: [
+        { 
+            type: Schema.Types.ObjectId, ref: 'product', require: true
         }
     ],
     orders: [
-        {
-            _id: {type: String, required: true},
-            amount: { type: String},
-            date: {type: Date, default: Date.now()}
-        }
+        { type: Schema.Types.ObjectId, ref: 'order', require: true }
     ],
     isActive: {
         type: Boolean,
@@ -84,7 +66,6 @@ const CustomerSchema = new Schema({
     toJSON: {
         transform(doc, ret){
             delete ret.password;
-            delete ret.salt;
             delete ret.__v;
         }
     },
@@ -96,21 +77,22 @@ CustomerSchema.index({ email: 1 }, { unique: true });
 CustomerSchema.index({ phone: 1 });
 CustomerSchema.index({ isActive: 1 });
 
-// Pre-save middleware to hash password
+// IMPORTANT: Comment out or remove this pre-save middleware
+// since we're already hashing the password in the service layer
+/*
 CustomerSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
   
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(this.password, salt);
+    const hash = await bcrypt.hash(this.password, 10);
     this.password = hash;
-    this.salt = salt;
     this.updatedAt = Date.now();
     next();
   } catch (error) {
     next(error);
   }
 });
+*/
 
 // Method to compare passwords
 CustomerSchema.methods.comparePassword = async function(password) {

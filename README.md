@@ -20,6 +20,8 @@ The platform is built using a microservices architecture, with each service resp
 - **Notification Service**: Handles email, SMS, and in-app notifications
 - **Search Service**: Provides powerful search capabilities using Elasticsearch
 - **Vendor Service**: Manages vendor registration, verification, and performance tracking
+- **RFQ Service**: Manages RFQs and RFQ responses
+- **Verification Service**: Manages document verification
 
 ### Technology Stack
 

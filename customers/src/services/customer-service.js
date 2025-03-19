@@ -2,6 +2,9 @@ const { CustomerRepository } = require("../database");
 const { FormateData, GeneratePassword, GenerateSalt, GenerateSignature, ValidatePassword } = require('../utils');
 const { NotFoundError, ValidationError, DatabaseError, AuthenticationError } = require('../utils/errors');
 const { createLogger } = require('../utils/logger');
+const bcrypt = require('bcrypt');
+
+// Add this line to define the logger
 const logger = createLogger('customer-service');
 
 // All Business logic will be here
@@ -15,22 +18,32 @@ class CustomerService {
         const { email, password } = userInputs;
         
         try {
+            console.log(`Attempting to sign in user: ${email}`);
+            
+            // Use select('+password') to include the password field which is normally excluded
             const existingCustomer = await this.repository.FindCustomer({ email });
             
             if (!existingCustomer) {
+                console.log(`No user found with email: ${email}`);
                 throw new ValidationError('Invalid email or password');
             }
             
-            const validPassword = await ValidatePassword(password, existingCustomer.password, existingCustomer.salt);
+            console.log(`User found: ${existingCustomer._id}`);
+            console.log(`Stored password hash: ${existingCustomer.password}`);
             
-            if (!validPassword) {
+            // Trim password to remove any leading/trailing spaces
+            const trimmedPassword = password.trim();
+            
+            // Validate password using bcrypt compare
+            const isValid = await ValidatePassword(trimmedPassword, existingCustomer.password);
+            console.log(`Password validation result: ${isValid}`);
+            
+            if (!isValid) {
+                console.log("Password validation failed");
                 throw new ValidationError('Invalid email or password');
             }
             
-            // Update last login
-            if (existingCustomer.updateLastLogin) {
-                await existingCustomer.updateLastLogin();
-            }
+            console.log("Password validation successful");
             
             const token = await GenerateSignature({
                 email: existingCustomer.email,
@@ -38,7 +51,18 @@ class CustomerService {
                 isActive: existingCustomer.isActive
             });
             
-            return FormateData({ id: existingCustomer._id, token });
+            // Return more user details in the response
+            return FormateData({ 
+                id: existingCustomer._id,
+                token,
+                email: existingCustomer.email,
+                phone: existingCustomer.phone,
+                cart: existingCustomer.cart || [],
+                wishlist: existingCustomer.wishlist || [],
+                orders: existingCustomer.orders || [],
+                address: existingCustomer.address || [],
+                isActive: existingCustomer.isActive
+            });
         } catch (err) {
             logger.error(`Error during sign in: ${err.message}`);
             throw err;
@@ -48,41 +72,45 @@ class CustomerService {
     async SignUp(userInputs){
         const { email, password, phone } = userInputs;
     
-        console.log('Signup request received:', { email, phone });
-        
         try {
-            // Check if user already exists
+            // Check if user exists
             const existingCustomer = await this.repository.FindCustomer({ email });
             
             if (existingCustomer) {
                 throw new ValidationError('Email already exists');
             }
-    
-            console.log('No existing customer found, proceeding with signup');
-    
-            // Create salt
-            const salt = await GenerateSalt();
             
-            // Hash password
-            const hashedPassword = await GeneratePassword(password, salt);
+            // Trim password to remove any leading/trailing spaces
+            const trimmedPassword = password.trim();
             
-            // Create customer
+            // Hash password directly - no salt needed separately
+            const hashedPassword = await GeneratePassword(trimmedPassword);
+            console.log("Generated hash during signup:", hashedPassword);
+            
+            // Create customer without salt field
             const customer = await this.repository.CreateCustomer({ 
                 email, 
                 password: hashedPassword,
-                phone,
-                salt 
+                phone
             });
-    
-            // Generate token
+            
             const token = await GenerateSignature({ 
                 email: customer.email, 
                 _id: customer._id 
             });
-    
-            console.log('Customer created successfully:', customer._id);
-    
-            return FormateData({ id: customer._id, token });
+            
+            // Return more user details in the response
+            return FormateData({ 
+                id: customer._id, 
+                email: customer.email,
+                phone: customer.phone,
+                cart: customer.cart || [],
+                wishlist: customer.wishlist || [],
+                orders: customer.orders || [],
+                address: customer.address || [],
+                isActive: customer.isActive,
+                token 
+            });
         } catch (err) {
             logger.error(`Error during sign up: ${err.message}`);
             throw err;

@@ -117,3 +117,11 @@
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:53:28"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 15:56:38"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-02 16:08:14"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-19 12:39:44"}
+{"level":"info","message":"GET /api/shopping/health","module":"app","service":"shopping-service","timestamp":"2025-03-19 12:39:50"}
+{"level":"error","message":"Route /api/shopping/health not found","module":"error-handler","service":"shopping-service","status":"error","statusCode":404,"timestamp":"2025-03-19 12:39:50"}
+{"level":"info","message":"GET /api/shopping/cart","module":"app","service":"shopping-service","timestamp":"2025-03-19 12:40:19"}
+{"level":"error","message":"Authentication error: Authorization header is required","module":"auth-middleware","service":"shopping-service","timestamp":"2025-03-19 12:40:19"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-19 14:01:38"}

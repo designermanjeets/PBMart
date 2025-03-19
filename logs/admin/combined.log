@@ -2208,3 +2208,18 @@
 {"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-03-02 16:08:14"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-03-02 16:08:14"}
 {"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-03-02 16:08:14"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Attempting to connect to MongoDB at: mongodb://nosql-db:27017/admin-service","module":"database","service":"admin-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Database connected successfully","module":"database","service":"admin-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Message broker channel created","module":"message-broker","service":"admin-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"admin-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Admin service running on port 8005","module":"startup","service":"admin-service","timestamp":"2025-03-19 14:01:38"}

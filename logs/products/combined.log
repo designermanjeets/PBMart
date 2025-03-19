@@ -523,3 +523,22 @@
 {"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-02 16:08:14"}
 {"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-03-02 16:08:14"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-03-02 16:08:14"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-03-19 12:35:30"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-03-19 12:37:23"}
+{"level":"info","message":"GET /api/products/health","module":"app","service":"products-service","timestamp":"2025-03-19 12:37:42"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID must be a valid MongoDB ObjectId\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-19 12:37:42"}
+{"level":"info","message":"GET /api/products/health","module":"app","service":"products-service","timestamp":"2025-03-19 12:37:42"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID must be a valid MongoDB ObjectId\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-19 12:37:42"}
+{"level":"info","message":"GET /api/products/health","module":"app","service":"products-service","timestamp":"2025-03-19 12:38:00"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID must be a valid MongoDB ObjectId\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-19 12:38:00"}
+{"level":"info","message":"GET /api/products/health","module":"app","service":"products-service","timestamp":"2025-03-19 12:38:00"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID must be a valid MongoDB ObjectId\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-19 12:38:01"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-03-19 12:38:20"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-03-19 13:42:29"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-03-19 14:01:38"}

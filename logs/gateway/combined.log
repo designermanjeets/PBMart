@@ -836,3 +836,44 @@
 2025-03-02 15:56:38 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
 {"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-02T16:08:12.906Z"}
 2025-03-02 16:08:12 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-03T08:59:47.014Z"}
+{"level":"info","message":"Incoming request: GET /favicon.ico","service":"api-gateway","timestamp":"2025-03-03T08:59:47.133Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-03-03T08:59:56.853Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-03-03T09:00:02.760Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-03-03T09:00:02.996Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/test-db","service":"api-gateway","timestamp":"2025-03-03T09:00:09.352Z"}
+{"level":"info","message":"Incoming request: GET /api/health","service":"api-gateway","timestamp":"2025-03-03T09:00:16.003Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/profile","service":"api-gateway","timestamp":"2025-03-03T09:00:33.149Z"}
+{"level":"info","message":"Incoming request: POST /api/customers/signup","service":"api-gateway","timestamp":"2025-03-03T09:01:09.213Z"}
+2025-03-19 12:35:29 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-19T12:35:29.768Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-19T12:35:32.659Z"}
+{"level":"info","message":"Incoming request: GET /favicon.ico","service":"api-gateway","timestamp":"2025-03-19T12:35:32.792Z"}
+{"level":"info","message":"Incoming request: GET /","service":"api-gateway","timestamp":"2025-03-19T12:35:33.117Z"}
+{"level":"info","message":"Handling root path request","service":"api-gateway","timestamp":"2025-03-19T12:35:33.117Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-19T12:35:36.622Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-19T12:37:23.571Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-03-19T12:37:42.309Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-03-19T12:37:42.526Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-03-19T12:38:00.757Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-03-19T12:38:00.994Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-19T12:38:20.649Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-03-19T12:38:57.691Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/test-db","service":"api-gateway","timestamp":"2025-03-19T12:39:06.629Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-03-19T12:39:15.676Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/health","service":"api-gateway","timestamp":"2025-03-19T12:39:15.880Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/test-db","service":"api-gateway","timestamp":"2025-03-19T12:39:29.420Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping","service":"api-gateway","timestamp":"2025-03-19T12:39:44.124Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping/health","service":"api-gateway","timestamp":"2025-03-19T12:39:50.236Z"}
+{"level":"info","message":"Incoming request: GET /api/shopping/cart","service":"api-gateway","timestamp":"2025-03-19T12:40:19.170Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants","service":"api-gateway","timestamp":"2025-03-19T12:40:37.211Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/health","service":"api-gateway","timestamp":"2025-03-19T12:40:47.910Z"}
+{"level":"info","message":"Incoming request: GET /api/tenants/settings","service":"api-gateway","timestamp":"2025-03-19T12:40:56.938Z"}
+{"level":"info","message":"Incoming request: GET /api/customers/","service":"api-gateway","timestamp":"2025-03-19T13:39:28.982Z"}
+{"level":"info","message":"Incoming request: POST /api/customers/signup","service":"api-gateway","timestamp":"2025-03-19T13:40:44.388Z"}
+2025-03-19 13:42:29 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-19T13:42:29.580Z"}
+{"level":"info","message":"Incoming request: POST /api/customers/signup","service":"api-gateway","timestamp":"2025-03-19T13:42:38.340Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-03-19T13:43:54.932Z"}
+2025-03-19 14:01:37 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-19T14:01:37.971Z"}

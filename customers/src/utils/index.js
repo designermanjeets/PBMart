@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const amqplib = require("amqplib");
 const logger = require("./logger");
@@ -12,19 +12,22 @@ const {
 
 //Utility functions
 module.exports.GenerateSalt = async () => {
-  return await bcrypt.genSalt();
+  return await bcrypt.genSalt(10);  // explicit rounds for clarity
 };
 
-module.exports.GeneratePassword = async (password, salt) => {
-  return await bcrypt.hash(password, salt);
+module.exports.GeneratePassword = async (password) => {
+  // Always use cost factor 10 directly
+  return await bcrypt.hash(password, 10);
 };
 
-module.exports.ValidatePassword = async (
-  enteredPassword,
-  savedPassword,
-  salt
-) => {
-  return (await this.GeneratePassword(enteredPassword, salt)) === savedPassword;
+module.exports.ValidatePassword = async (enteredPassword, savedPassword) => {
+  try {
+    // Use the standard bcrypt compare
+    return await bcrypt.compare(enteredPassword, savedPassword);
+  } catch (error) {
+    console.error("Error validating password:", error);
+    return false;
+  }
 };
 
 module.exports.GenerateSignature = async (payload) => {
@@ -59,7 +62,7 @@ module.exports.FormateData = (data) => {
 
 //Message Broker
 module.exports.CreateChannel = async () => {
-  let retries = 5;
+  let retries = 1;
   while (retries) {
     try {
       const connection = await amqplib.connect(MSG_QUEUE_URL);

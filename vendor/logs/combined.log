@@ -312,3 +312,20 @@
 2025-03-02 16:08:03 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
 2025-03-02 16:08:03 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
 2025-03-02 16:08:03 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-19 12:35:23 [info]: [database] Database Connected{"metadata":{}}
+2025-03-19 12:35:23 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-19 12:35:23 [error]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-03-19 12:35:23 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-03-19 12:35:23 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-03-19 12:35:23 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-19 13:42:22 [info]: [database] Database Connected{"metadata":{}}
+2025-03-19 13:42:22 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-19 13:42:22 [error]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-19 13:42:22 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-19 13:42:22 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-03-19 13:42:22 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-19 14:01:33 [info]: [database] Database Connected{"metadata":{}}
+2025-03-19 14:01:33 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-19 14:01:33 [info]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-19 14:01:33 [info]: [express-app] Message broker channel created successfully{"metadata":{}}
+2025-03-19 14:01:33 [info]: [index] Vendor service running on port 8010{"metadata":{}}

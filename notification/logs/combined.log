@@ -1076,3 +1076,18 @@
 2025-03-02 16:08:03 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
 2025-03-02 16:08:03 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
 2025-03-02 16:08:03 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-03-19 12:35:23 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-19 12:35:23 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-03-19 12:35:23 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-03-19 12:35:23 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-03-19 12:35:23 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-03-19 13:42:22 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-19 13:42:22 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-19 13:42:22 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-03-19 13:42:22 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-03-19 13:42:22 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-03-19 14:01:33 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-19 14:01:33 [[32minfo[39m]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-19 14:01:33 [[32minfo[39m]: [express-app] Message broker channel created successfully{"metadata":{}}
+2025-03-19 14:01:33 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-03-19 14:01:33 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
