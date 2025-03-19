@@ -86,9 +86,23 @@ module.exports = (app, channel) => {
             }
             
             // Make sure we have product data in the request body
-            if (!req.body || !req.body.name) {
+            if (!req.body) {
                 return res.status(400).json({
-                    message: 'Product name is required'
+                    message: 'Product data is required'
+                });
+            }
+            
+            // If product ID is provided, validate it's a valid MongoDB ObjectId
+            if (req.body._id && !mongoose.Types.ObjectId.isValid(req.body._id)) {
+                return res.status(400).json({
+                    message: 'Invalid product ID format'
+                });
+            }
+            
+            // If no product ID, ensure name is provided
+            if (!req.body._id && !req.body.name) {
+                return res.status(400).json({
+                    message: 'Product ID or name is required'
                 });
             }
             

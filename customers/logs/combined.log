@@ -187,3 +187,24 @@
 {"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:15:00"}
 {"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:15:03"}
 {"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:15:03"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:15:44"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:15:44"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:15:44"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:16:41"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:16:41"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:16:45"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:16:45"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:16:45"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-19 22:21:19"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-19 22:21:19"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:21:28"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:21:28"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:21:28"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:21:32"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:21:32"}
+{"level":"error","message":"Error adding to wishlist: Product with ID 67dae594ef5898e951ea23c5 not found","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:21:32"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:21:41"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:21:41"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:21:49"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:21:49"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:21:49"}

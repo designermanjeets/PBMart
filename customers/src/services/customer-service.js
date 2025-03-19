@@ -210,18 +210,68 @@ class CustomerService {
                 throw new ValidationError('Customer ID is required');
             }
             
-            if (!productData || !productData.name) {
-                throw new ValidationError('Product name is required');
+            if (!productData) {
+                throw new ValidationError('Product data is required');
             }
             
-            console.log(`Adding product to wishlist: Customer ID: ${customerId}, Product:`, productData);
-            
-            const customer = await this.repository.AddWishlistItem(customerId, productData);
-            
-            return FormateData({
-                wishlist: customer.wishlist || [],
-                message: 'Product added to wishlist successfully'
-            });
+            // If product ID is provided, verify it exists
+            if (productData._id) {
+                const { ProductModel } = require('../database/models');
+                const existingProduct = await ProductModel.findById(productData._id);
+                
+                if (!existingProduct) {
+                    throw new NotFoundError(`Product with ID ${productData._id} not found`);
+                }
+                
+                console.log(`Found existing product: ${existingProduct._id}`);
+                
+                // Use the existing product for the wishlist
+                const customer = await this.repository.AddWishlistItem(customerId, existingProduct);
+                
+                return FormateData({
+                    wishlist: customer.wishlist || [],
+                    message: 'Product added to wishlist successfully'
+                });
+            } 
+            // If no product ID, check if product with same name exists
+            else if (productData.name) {
+                const { ProductModel } = require('../database/models');
+                const existingProduct = await ProductModel.findOne({ name: productData.name });
+                
+                if (existingProduct) {
+                    console.log(`Found existing product with name ${productData.name}: ${existingProduct._id}`);
+                    
+                    // Use the existing product for the wishlist
+                    const customer = await this.repository.AddWishlistItem(customerId, existingProduct);
+                    
+                    return FormateData({
+                        wishlist: customer.wishlist || [],
+                        message: 'Product added to wishlist successfully'
+                    });
+                } else {
+                    // Create a new product
+                    const newProduct = new ProductModel({
+                        name: productData.name,
+                        description: productData.description || '',
+                        banner: productData.banner || '',
+                        price: productData.price || 0,
+                        available: productData.available !== undefined ? productData.available : true
+                    });
+                    
+                    await newProduct.save();
+                    console.log(`Created new product: ${newProduct._id}`);
+                    
+                    // Add the new product to the wishlist
+                    const customer = await this.repository.AddWishlistItem(customerId, newProduct);
+                    
+                    return FormateData({
+                        wishlist: customer.wishlist || [],
+                        message: 'New product created and added to wishlist successfully'
+                    });
+                }
+            } else {
+                throw new ValidationError('Product name is required');
+            }
         } catch (error) {
             logger.error(`Error adding to wishlist: ${error.message}`);
             
