@@ -106,6 +106,11 @@ module.exports = (app, channel) => {
                 });
             }
             
+            // Map description to desc if provided
+            if (req.body.description && !req.body.desc) {
+                req.body.desc = req.body.description;
+            }
+            
             console.log(`Adding product to wishlist for user: ${_id}`, req.body);
             
             const { data } = await service.AddToWishlist(_id, req.body);

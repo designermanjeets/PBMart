@@ -249,13 +249,16 @@ class CustomerService {
                         message: 'Product added to wishlist successfully'
                     });
                 } else {
-                    // Create a new product
+                    // Create a new product with all required fields
                     const newProduct = new ProductModel({
                         name: productData.name,
-                        description: productData.description || '',
-                        banner: productData.banner || '',
+                        desc: productData.description || 'No description provided',
+                        banner: productData.banner || 'https://via.placeholder.com/150',
+                        type: productData.type || 'other',
+                        unit: productData.unit || 1,
                         price: productData.price || 0,
-                        available: productData.available !== undefined ? productData.available : true
+                        available: productData.available !== undefined ? productData.available : true,
+                        supplier: productData.supplier || 'Unknown Supplier'
                     });
                     
                     await newProduct.save();
