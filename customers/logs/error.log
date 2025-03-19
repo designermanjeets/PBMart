@@ -30,3 +30,23 @@
 {"level":"error","message":"Error during sign in: Unable to find customer: Schema hasn't been registered for model \"product\".\nUse mongoose.model(name, schema)","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 21:16:11"}
 {"level":"error","message":"Error finding customer: Schema hasn't been registered for model \"product\".\nUse mongoose.model(name, schema)","module":"customer-repository","service":"customer-service","timestamp":"2025-03-19 21:18:17"}
 {"level":"error","message":"Error during sign in: Unable to find customer: Schema hasn't been registered for model \"product\".\nUse mongoose.model(name, schema)","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 21:18:17"}
+{"level":"error","message":"Authentication error: Authorization header is required","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:49:39"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:50:56"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:50:56"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:51:09"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:51:09"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:51:27"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:51:27"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:51:33"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:51:33"}
+{"level":"error","message":"Error finding customer by ID: Customer not found with ID: undefined","module":"customer-repository","service":"customer-service","timestamp":"2025-03-19 21:52:47"}
+{"level":"error","message":"Error getting wishlist: Customer not found with ID: undefined","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 21:52:47"}
+{"level":"error","message":"Authentication error: Token is required","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:00:36"}
+{"level":"error","message":"Error adding to wishlist: Cannot destructure property '_id' of 'undefined' as it is undefined.","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:01:00"}
+{"level":"error","message":"Error adding to wishlist: Cannot destructure property '_id' of 'undefined' as it is undefined.","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:01:12"}
+{"level":"error","message":"Error adding to wishlist: Cannot destructure property '_id' of 'undefined' as it is undefined.","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:01:22"}
+{"level":"error","message":"Error adding to wishlist: Product details are required","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:06:56"}
+{"level":"error","message":"Error adding to wishlist: Product details are required","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:08:49"}
+{"level":"error","message":"Error adding product to wishlist: Cast to ObjectId failed for value \"1\" (type string) at path \"wishlist\" because of \"BSONTypeError\"","module":"customer-repository","service":"customer-service","timestamp":"2025-03-19 22:08:58"}
+{"level":"error","message":"Error adding to wishlist: Cast to ObjectId failed for value \"1\" (type string) at path \"wishlist\" because of \"BSONTypeError\"","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:08:58"}
+{"level":"error","message":"Error adding to wishlist: Product details are required","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:13:55"}

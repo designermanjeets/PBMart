@@ -75,11 +75,26 @@ module.exports = (app, channel) => {
     });
 
     // Add to wishlist
-    router.post('/wishlist', validateToken, validateRequest(customerSchema.wishlist), async (req, res, next) => {
+    router.post('/wishlist', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
-            const { product_id } = req.body;
-            const { data } = await service.AddToWishlist(_id, product_id);
+            
+            if (!_id) {
+                return res.status(400).json({
+                    message: 'User ID is required'
+                });
+            }
+            
+            // Make sure we have product data in the request body
+            if (!req.body || !req.body.name) {
+                return res.status(400).json({
+                    message: 'Product name is required'
+                });
+            }
+            
+            console.log(`Adding product to wishlist for user: ${_id}`, req.body);
+            
+            const { data } = await service.AddToWishlist(_id, req.body);
             res.status(200).json(data);
         } catch (err) {
             next(err);
@@ -90,6 +105,14 @@ module.exports = (app, channel) => {
     router.get('/wishlist', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
+            
+            if (!_id) {
+                return res.status(400).json({
+                    message: 'User ID is required'
+                });
+            }
+            
+            console.log(`Getting wishlist for user: ${_id}`);
             const { data } = await service.GetWishlist(_id);
             res.status(200).json(data);
         } catch (err) {

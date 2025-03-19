@@ -123,3 +123,67 @@
 {"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-19 21:47:46"}
 {"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-19 21:47:46"}
 {"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-19 21:47:48"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:49:39"}
+{"level":"error","message":"Authentication error: Authorization header is required","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:49:39"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:50:56"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:50:56"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:50:56"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:51:09"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:51:09"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:51:09"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:51:27"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:51:27"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:51:27"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:51:33"}
+{"level":"error","message":"Error validating token: jwt malformed","module":"token-utility","service":"customer-service","timestamp":"2025-03-19 21:51:33"}
+{"level":"error","message":"Authentication error: Invalid token","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:51:33"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:52:47"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:52:47"}
+{"level":"error","message":"Error finding customer by ID: Customer not found with ID: undefined","module":"customer-repository","service":"customer-service","timestamp":"2025-03-19 21:52:47"}
+{"level":"error","message":"Error getting wishlist: Customer not found with ID: undefined","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 21:52:47"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-19 21:56:55"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-19 21:56:55"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 21:57:00"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 21:57:00"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 21:57:00"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:00:36"}
+{"level":"error","message":"Authentication error: Token is required","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:00:36"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:01:00"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:01:00"}
+{"level":"error","message":"Error adding to wishlist: Cannot destructure property '_id' of 'undefined' as it is undefined.","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:01:00"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:01:12"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:01:12"}
+{"level":"error","message":"Error adding to wishlist: Cannot destructure property '_id' of 'undefined' as it is undefined.","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:01:12"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:01:22"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:01:22"}
+{"level":"error","message":"Error adding to wishlist: Cannot destructure property '_id' of 'undefined' as it is undefined.","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:01:22"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-19 22:06:46"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-19 22:06:46"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:06:51"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:06:51"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:06:51"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:06:53"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:06:53"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:06:53"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:06:56"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:06:56"}
+{"level":"error","message":"Error adding to wishlist: Product details are required","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:06:56"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:08:49"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:08:49"}
+{"level":"error","message":"Error adding to wishlist: Product details are required","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:08:49"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:08:58"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:08:58"}
+{"level":"error","message":"Error adding product to wishlist: Cast to ObjectId failed for value \"1\" (type string) at path \"wishlist\" because of \"BSONTypeError\"","module":"customer-repository","service":"customer-service","timestamp":"2025-03-19 22:08:58"}
+{"level":"error","message":"Error adding to wishlist: Cast to ObjectId failed for value \"1\" (type string) at path \"wishlist\" because of \"BSONTypeError\"","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:08:58"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:10:03"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:10:03"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:13:55"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:13:55"}
+{"level":"error","message":"Error adding to wishlist: Product details are required","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:13:55"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:14:11"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:14:11"}
+{"level":"info","message":"GET /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:15:00"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:15:00"}
+{"level":"info","message":"Getting wishlist for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:15:00"}
+{"level":"info","message":"POST /api/customers/wishlist","module":"app","service":"customer-service","timestamp":"2025-03-19 22:15:03"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:15:03"}

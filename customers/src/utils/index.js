@@ -32,6 +32,13 @@ module.exports.ValidatePassword = async (enteredPassword, savedPassword) => {
 
 module.exports.GenerateSignature = async (payload) => {
   try {
+    // Ensure the payload includes _id
+    if (!payload._id) {
+      console.error('Payload missing _id:', payload);
+      throw new Error('User ID is required for token generation');
+    }
+    
+    console.log('Generating token with payload:', payload);
     return await jwt.sign(payload, APP_SECRET, { expiresIn: "30d" });
   } catch (error) {
     console.log(error);

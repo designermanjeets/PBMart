@@ -37,12 +37,14 @@ const validateToken = async (req, res, next) => {
         // Add the user to the request
         req.user = payload;
         
+        // Log the user ID for debugging
+        logger.info(`Authenticated user ID: ${payload._id}`);
+        
         // Check if user is active
         if (payload.isActive === false) {
             throw new AuthorizationError('User account is inactive');
         }
         
-        logger.info(`Authenticated user: ${payload.email}`);
         next();
     } catch (error) {
         logger.error(`Authentication error: ${error.message}`);

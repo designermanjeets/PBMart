@@ -182,33 +182,50 @@ class CustomerService {
 
     async GetWishlist(customerId){
         try {
+            if (!customerId) {
+                logger.error('Customer ID is undefined in GetWishlist');
+                throw new ValidationError('Customer ID is required');
+            }
+            
+            logger.info(`Getting wishlist for customer: ${customerId}`);
+            
             const customer = await this.repository.FindCustomerById(customerId);
             
             if (!customer) {
                 throw new NotFoundError(`Customer not found with ID: ${customerId}`);
             }
             
-            return FormateData(customer.wishlist);
-        } catch (error) {
-            logger.error(`Error getting wishlist: ${error.message}`);
-            
-            if (error.name === 'NotFoundError') {
-                throw error;
-            }
-            
-            throw new DatabaseError(`Failed to get wishlist: ${error.message}`);
+            return FormateData({
+                wishlist: customer.wishlist || []
+            });
+        } catch (err) {
+            logger.error(`Error getting wishlist: ${err.message}`);
+            throw err;
         }
     }
 
-    async AddToWishlist(customerId, product){
+    async AddToWishlist(customerId, productData){
         try {
-            const customer = await this.repository.AddWishlistItem(customerId, product);
+            if (!customerId) {
+                throw new ValidationError('Customer ID is required');
+            }
             
-            return FormateData(customer.wishlist);
+            if (!productData || !productData.name) {
+                throw new ValidationError('Product name is required');
+            }
+            
+            console.log(`Adding product to wishlist: Customer ID: ${customerId}, Product:`, productData);
+            
+            const customer = await this.repository.AddWishlistItem(customerId, productData);
+            
+            return FormateData({
+                wishlist: customer.wishlist || [],
+                message: 'Product added to wishlist successfully'
+            });
         } catch (error) {
             logger.error(`Error adding to wishlist: ${error.message}`);
             
-            if (error.name === 'NotFoundError') {
+            if (error.name === 'NotFoundError' || error.name === 'ValidationError') {
                 throw error;
             }
             

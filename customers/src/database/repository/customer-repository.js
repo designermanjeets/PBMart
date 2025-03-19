@@ -72,27 +72,30 @@ class CustomerRepository {
         }
     }
 
-    async FindCustomerById({ id }){
+    async FindCustomerById(id){
         try {
+            console.log(`Attempting to find customer with ID: ${id}`);
+            
+            if (!id) {
+                throw new ValidationError('Customer ID is required');
+            }
+            
+            // Validate that the ID is a valid MongoDB ObjectId
+            if (!mongoose.Types.ObjectId.isValid(id)) {
+                throw new ValidationError('Invalid customer ID format');
+            }
+            
             const existingCustomer = await CustomerModel.findById(id);
             
             if (!existingCustomer) {
                 throw new NotFoundError(`Customer not found with ID: ${id}`);
             }
             
+            console.log(`Customer found with ID: ${id}`);
             return existingCustomer;
         } catch (error) {
             logger.error(`Error finding customer by ID: ${error.message}`);
-            
-            if (error.name === 'NotFoundError') {
-                throw error;
-            }
-            
-            if (error.name === 'CastError') {
-                throw new NotFoundError(`Invalid customer ID: ${id}`);
-            }
-            
-            throw new DatabaseError(`Failed to find customer by ID: ${error.message}`);
+            throw error;
         }
     }
 
@@ -103,43 +106,86 @@ class CustomerRepository {
         return profile.wishlist;
     }
 
-    async AddWishlistItem(customerId, { _id, name, desc, price, available, banner}){
-        
-        const product = {
-            _id, name, desc, price, available, banner
-        };
-
-        const profile = await CustomerModel.findById(customerId).populate('wishlist');
-       
-        if(profile){
-
-             let wishlist = profile.wishlist;
-  
-            if(wishlist.length > 0){
-                let isExist = false;
-                wishlist.map(item => {
-                    if(item._id.toString() === product._id.toString()){
-                       const index = wishlist.indexOf(item);
-                       wishlist.splice(index,1);
-                       isExist = true;
-                    }
-                });
-
-                if(!isExist){
-                    wishlist.push(product);
-                }
-
-            }else{
-                wishlist.push(product);
+    async AddWishlistItem(customerId, productData){
+        try {
+            console.log(`Adding product to wishlist for customer: ${customerId}`, productData);
+            
+            if (!productData || !productData.name) {
+                throw new ValidationError('Product name is required');
             }
-
-            profile.wishlist = wishlist;
+            
+            const customer = await this.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            // Initialize wishlist if it doesn't exist
+            if (!customer.wishlist) {
+                customer.wishlist = [];
+            }
+            
+            // Find or create the product
+            let product;
+            
+            // If product has an ID, try to find it
+            if (productData._id && mongoose.Types.ObjectId.isValid(productData._id)) {
+                // Try to find existing product
+                product = await mongoose.model('product').findById(productData._id);
+            }
+            
+            // If product doesn't exist, create a new one
+            if (!product) {
+                // Create a new product model if it doesn't exist
+                if (!mongoose.models.product) {
+                    const ProductSchema = new mongoose.Schema({
+                        name: String,
+                        description: String,
+                        banner: String,
+                        price: Number,
+                        available: Boolean
+                    });
+                    
+                    mongoose.model('product', ProductSchema);
+                }
+                
+                // Create a new product
+                product = new mongoose.model('product')({
+                    name: productData.name,
+                    description: productData.description || '',
+                    banner: productData.banner || '',
+                    price: productData.price || 0,
+                    available: productData.available !== undefined ? productData.available : true
+                });
+                
+                // Save the product
+                await product.save();
+                console.log(`Created new product with ID: ${product._id}`);
+            }
+            
+            // Check if product already exists in wishlist
+            const existingProductIndex = customer.wishlist.findIndex(
+                item => item.toString() === product._id.toString()
+            );
+            
+            // If product exists, remove it (toggle behavior)
+            if (existingProductIndex >= 0) {
+                customer.wishlist.splice(existingProductIndex, 1);
+                console.log(`Removed product ${product._id} from wishlist`);
+            } else {
+                // Add product to wishlist
+                customer.wishlist.push(product._id);
+                console.log(`Added product ${product._id} to wishlist`);
+            }
+            
+            // Save the updated customer
+            await customer.save();
+            
+            return customer;
+        } catch (error) {
+            logger.error(`Error adding product to wishlist: ${error.message}`);
+            throw error;
         }
-
-        const profileResult = await profile.save();      
-
-        return profileResult.wishlist;
-
     }
 
 
