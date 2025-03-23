@@ -384,3 +384,10 @@
 2025-03-23 15:29:24 [info]: [search-controller] Subscribed to product events{"metadata":{}}
 2025-03-23 15:29:24 [info]: [express-app] Express app configured{"metadata":{}}
 2025-03-23 15:29:24 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-23 16:55:50 [info]: [database] Database connected{"metadata":{}}
+2025-03-23 16:55:57 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-03-23 16:55:57 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-23 16:55:57 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-23 16:55:57 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-23 16:55:57 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-23 16:55:57 [info]: [server] Search Service running on port 8009{"metadata":{}}

@@ -355,3 +355,9 @@
 2025-03-23 15:29:17 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
 2025-03-23 15:29:17 [info]: [index] Vendor service running on port 8010{"metadata":{}}
 2025-03-23 15:30:11 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-03-23 16:55:50 [info]: [database] Database Connected{"metadata":{}}
+2025-03-23 16:55:50 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-23 16:55:50 [error]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-23 16:55:50 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-23 16:55:50 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-03-23 16:55:50 [info]: [index] Vendor service running on port 8010{"metadata":{}}

@@ -887,3 +887,24 @@
 {"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-23T14:31:07.210Z"}
 2025-03-23 15:29:28 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
 {"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-23T15:29:28.227Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-23T15:32:15.411Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-23T15:32:31.952Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T15:32:54.726Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:27:33.981Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:44:07.490Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-23T16:44:28.503Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:45:33.169Z"}
+{"level":"info","message":"Incoming request: GET /favicon.ico","service":"api-gateway","timestamp":"2025-03-23T16:45:33.591Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:45:44.617Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-03-23T16:46:21.558Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-23T16:46:25.851Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:46:32.695Z"}
+{"level":"info","message":"Incoming request: GET /api/products/health","service":"api-gateway","timestamp":"2025-03-23T16:46:50.421Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-03-23T16:47:04.527Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-23T16:47:34.688Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:47:42.175Z"}
+{"level":"info","message":"Incoming request: GET /api/customers","service":"api-gateway","timestamp":"2025-03-23T16:48:04.104Z"}
+{"level":"info","message":"Incoming request: GET /api/products","service":"api-gateway","timestamp":"2025-03-23T16:48:11.224Z"}
+{"level":"info","message":"Incoming request: GET /api/","service":"api-gateway","timestamp":"2025-03-23T16:48:32.641Z"}
+2025-03-23 16:56:01 [info]: [circuit-breaker] Circuit breaker created for service: search-service{"metadata":{}}
+{"level":"info","message":"API Gateway running on port 8000","service":"api-gateway","timestamp":"2025-03-23T16:56:02.043Z"}

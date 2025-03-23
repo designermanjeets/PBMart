@@ -135,3 +135,5 @@
 {"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-03-23 15:29:53"}
 {"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-03-23 15:29:53"}
 {"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-23 15:30:28"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-03-23 16:56:28"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-03-23 16:56:28"}

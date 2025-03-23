@@ -10,7 +10,7 @@ module.exports = (app, channel) => {
   const service = new AdminService();
   
   // Public login endpoint (no token required)
-  app.post('/api/admin/auth/login', validateRequest(adminSchema.login), async (req, res, next) => {
+  app.post('/api/admin/login', validateRequest(adminSchema.login), async (req, res, next) => {
     try {
       const { email, password } = req.body;
       const result = await service.SignIn({ email, password });

@@ -1124,3 +1124,10 @@
 2025-03-23 15:29:28 [[32minfo[39m]: [express-app] Express app configured successfully{"metadata":{}}
 2025-03-23 15:29:28 [[32minfo[39m]: [server] Payment service listening on port 8006{"metadata":{}}
 2025-03-23 15:30:20 [[32minfo[39m]: [express-app] GET /api/payment{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [server] Payment Database Connected{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [message-broker] Attempting to connect to RabbitMQ at amqp://rabbitmq:5672{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [message-broker] Connected to RabbitMQ and channel created{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [express-app] Message broker channel created successfully{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [express-app] Express app configured successfully{"metadata":{}}
+2025-03-23 16:56:03 [[32minfo[39m]: [server] Payment service listening on port 8006{"metadata":{}}

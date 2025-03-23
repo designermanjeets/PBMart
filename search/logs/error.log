@@ -35,3 +35,4 @@
 2025-03-23 14:19:42 [error]: [server] UNCAUGHT EXCEPTION: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'B2B_EXCHANGE' in vhost '/': received 'topic' but current is 'direct'"{"metadata":{}}
 2025-03-23 14:31:02 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: this.createIndices is not a function{"metadata":{}}
 2025-03-23 15:29:23 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
+2025-03-23 16:55:57 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
