@@ -1,0 +1,56 @@
+2025-03-23 17:52:19 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 17:52:19 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 17:52:19 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 17:52:19 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 17:52:25 [[32minfo[39m]: GET /api/payment/health{"metadata":{}}
+2025-03-23 17:52:35 [[32minfo[39m]: GET /api/payment/process{"metadata":{}}
+2025-03-23 17:52:35 [[31merror[39m]: [error-handler] ERROR 💥: Route /api/payment/process not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-03-23 17:55:26 [[32minfo[39m]: POST /api/payment/process{"metadata":{}}
+2025-03-23 17:55:26 [[31merror[39m]: [token-utils] Error validating token: invalid signature{"metadata":{}}
+2025-03-23 17:55:26 [[31merror[39m]: [auth-middleware] Authentication error: Invalid token{"metadata":{}}
+2025-03-23 17:56:32 [[32minfo[39m]: POST /api/payment/process{"metadata":{}}
+2025-03-23 17:56:32 [[31merror[39m]: [token-utils] Error validating token: invalid signature{"metadata":{}}
+2025-03-23 17:56:32 [[31merror[39m]: [auth-middleware] Authentication error: Invalid token{"metadata":{}}
+2025-03-23 17:57:01 [[32minfo[39m]: POST /api/customers/login{"metadata":{}}
+2025-03-23 17:57:01 [[31merror[39m]: [error-handler] ERROR 💥: Route /api/customers/login not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-03-23 17:57:51 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 17:57:51 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 17:57:51 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 17:57:51 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 17:57:57 [[32minfo[39m]: POST /api/payment/process{"metadata":{}}
+2025-03-23 17:57:57 [[31merror[39m]: [token-utils] Error validating token: invalid signature{"metadata":{}}
+2025-03-23 17:57:57 [[31merror[39m]: [auth-middleware] Authentication error: Invalid token{"metadata":{}}
+2025-03-23 17:59:11 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 17:59:11 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 17:59:11 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 17:59:11 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 17:59:15 [[32minfo[39m]: POST /api/payment/process{"metadata":{}}
+2025-03-23 17:59:15 [[31merror[39m]: [token-utils] Error validating token: invalid signature{"metadata":{}}
+2025-03-23 17:59:15 [[31merror[39m]: [auth-middleware] Authentication error: Invalid token{"metadata":{}}
+2025-03-23 17:59:17 [[32minfo[39m]: POST /api/payment/process{"metadata":{}}
+2025-03-23 17:59:17 [[31merror[39m]: [token-utils] Error validating token: invalid signature{"metadata":{}}
+2025-03-23 17:59:17 [[31merror[39m]: [auth-middleware] Authentication error: Invalid token{"metadata":{}}
+2025-03-23 17:59:52 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 17:59:52 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 17:59:52 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 17:59:52 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 18:00:00 [[32minfo[39m]: POST /api/payment/process{"metadata":{}}
+2025-03-23 18:00:00 [[31merror[39m]: [token-utils] Error validating token: invalid signature{"metadata":{}}
+2025-03-23 18:00:00 [[31merror[39m]: [auth-middleware] Authentication error: Invalid token{"metadata":{}}
+2025-03-23 18:00:15 [[32minfo[39m]: POST /api/payment/test-process{"metadata":{}}
+2025-03-23 18:00:15 [[31merror[39m]: [payment-service] Stripe payment error: Invalid API Key provided: your_str**********_key{"metadata":{}}
+2025-03-23 18:00:15 [[31merror[39m]: [payment-service] Error processing payment: Credit card payment failed: Invalid API Key provided: your_str**********_key{"metadata":{}}
+2025-03-23 18:01:00 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:01:00 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:01:00 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:01:00 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 18:01:25 [[32minfo[39m]: POST /api/payment/test-process{"metadata":{}}
+2025-03-23 18:01:25 [[32minfo[39m]: [payment-service] Processing credit_card payment for order ORD-12345{"metadata":{}}
+2025-03-23 18:01:25 [[31merror[39m]: [payment-service] Error processing payment: Payment is not defined{"metadata":{}}
+2025-03-23 18:02:07 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:02:07 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:02:07 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:02:07 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 18:02:16 [[32minfo[39m]: POST /api/payment/test-process{"metadata":{}}
+2025-03-23 18:02:16 [[32minfo[39m]: [payment-service] Processing credit_card payment for order ORD-12345{"metadata":{}}
+2025-03-23 18:02:16 [[32minfo[39m]: [payment-service] [TEST MODE] Simulating successful payment for credit_card{"metadata":{}}

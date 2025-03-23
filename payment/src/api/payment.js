@@ -68,6 +68,35 @@ module.exports = (app, channel) => {
         }
     });
 
+    // Test endpoint for payment processing (REMOVE IN PRODUCTION)
+    router.post('/test-process', validateBody(paymentSchema.process), async (req, res, next) => {
+        try {
+            const { orderId, amount, currency, paymentMethod, description } = req.body;
+            const customerId = "test-customer-123"; // Use a test customer ID
+
+            const payment = await paymentService.ProcessPayment({
+                orderId,
+                customerId,
+                amount,
+                currency,
+                paymentMethod,
+                description
+            });
+
+            // Publish payment completed event
+            if (channel && payment.status === 'completed') {
+                PublishMessage(channel, PAYMENT_SERVICE, {
+                    event: 'PAYMENT_COMPLETED',
+                    data: payment
+                });
+            }
+
+            res.status(201).json(payment);
+        } catch (err) {
+            next(err);
+        }
+    });
+
     router.get('/status/:id', validateToken, validateParams(paymentSchema.params), async (req, res, next) => {
         try {
             const { id } = req.params;

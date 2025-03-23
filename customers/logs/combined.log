@@ -312,3 +312,6 @@
 {"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:20:25"}
 {"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:20:25"}
 {"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 16:20:42"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 17:57:28"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 17:57:28"}
+{"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 17:57:31"}
