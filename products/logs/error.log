@@ -1,0 +1,20 @@
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:44"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:28:21"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:32:03"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:47"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:35:56"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:41:25"}
+{"level":"error","message":"Error creating product: product validation failed: supplier: Product supplier is required","module":"product-repository","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"error","message":"Error creating product: product validation failed: supplier: Product supplier is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"error","message":"Error creating product: product validation failed: supplier: Product supplier is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:42:31"}
+{"level":"error","message":"Route /api/products/ not found","module":"error-handler","service":"products-service","status":"error","statusCode":404,"timestamp":"2025-03-23 16:44:29"}
+{"level":"error","message":"Route /api/products/ not found","module":"error-handler","service":"products-service","status":"error","statusCode":404,"timestamp":"2025-03-23 16:44:34"}
+{"body":"{\n    \"_id\": \"67dfed2ee7e19f0ea5bd085e\",\n    \"name\": \"Wireless Headphones 2\",\n    \"desc\": \"Premium noise-cancelling wireless headphones with 20-hour battery life\",\n    \"banner\": \"https:&#x2F;&#x2F;via.placeholder.com&#x2F;300x200\",\n    \"type\": \"electronics\",\n    \"unit\": 1,\n    \"price\": 199.99,\n    \"available\": true,\n}","expose":true,"level":"error","message":"Expected double-quoted property name in JSON at position 318 (line 10 column 1)","module":"error-handler","service":"products-service","status":400,"statusCode":400,"timestamp":"2025-03-23 16:50:45","type":"entity.parse.failed"}
+{"level":"error","message":"Error finding product by ID: Product ID is required","module":"product-repository","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"error","message":"Error getting product payload: Product ID is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"error","message":"Error adding product to wishlist: Failed to get product payload: Product ID is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"error","message":"Error finding product by ID: Product ID is required","module":"product-repository","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"error","message":"Error getting product payload: Product ID is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"error","message":"Error adding product to wishlist: Failed to get product payload: Product ID is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:37"}

@@ -39,7 +39,7 @@ products/
 │   │   └── repository/      # Repository pattern implementation
 │   ├── services/            # Business logic
 │   ├── utils/               # Utility functions
-│   │   ├── circuit-breaker.js  # Circuit breaker implementation
+│   │   ├── errors.js        # Custom error classes
 │   │   ├── logger.js        # Logging utility
 │   │   └── index.js         # Common utilities
 │   ├── express-app.js       # Express application setup
@@ -51,166 +51,155 @@ products/
 
 ## API Endpoints
 
+### Root Endpoint
+
+- **URL**: `/api/products`
+- **Method**: `GET`
+- **Description**: Returns all products with categories
+- **Response**:
+  ```json
+  {
+    "products": [
+      {
+        "_id": "67daf8070da21fb4b034f81f",
+        "name": "Wireless Headphones",
+        "desc": "Premium noise-cancelling wireless headphones",
+        "type": "electronics",
+        "unit": 1,
+        "price": 199.99,
+        "available": true,
+        "supplier": "AudioTech",
+        "banner": "https://example.com/headphones.jpg"
+      }
+    ],
+    "categories": ["electronics", "clothing", "furniture"]
+  }
+  ```
+
+### Documentation Endpoint
+
+- **URL**: `/api/products/docs`
+- **Method**: `GET`
+- **Description**: Returns API documentation
+- **Response**: List of available endpoints
+
 ### Product Management
 
 #### Create Product
-- **URL**: `/product/create`
+- **URL**: `/api/products/create`
 - **Method**: `POST`
 - **Description**: Create a new product
 - **Authentication**: Required (JWT)
 - **Request Body**:
   ```json
   {
-    "name": "Product Name",
-    "desc": "Product description",
+    "name": "Wireless Headphones",
+    "desc": "Premium noise-cancelling wireless headphones",
     "type": "electronics",
-    "unit": "piece",
-    "price": 99.99,
+    "unit": 1,
+    "price": 199.99,
     "available": true,
-    "suplier": "Supplier Name",
-    "banner": "https://example.com/product-image.jpg"
+    "supplier": "AudioTech",
+    "banner": "https://example.com/headphones.jpg"
   }
   ```
+- **Notes**: 
+  - `supplier` and `banner` fields are optional
+  - If `banner` is not a valid URL, a default placeholder image will be used
 - **Response**: Created product data
 
-#### Get All Products
-- **URL**: `/products`
-- **Method**: `GET`
-- **Description**: Get all products
-- **Response**: List of products with categories
-
 #### Get Product by ID
-- **URL**: `/product/:id`
+- **URL**: `/api/products/:id`
 - **Method**: `GET`
 - **Description**: Get a specific product by ID
 - **Response**: Product data
 
 #### Get Products by Category
-- **URL**: `/category/:type`
+- **URL**: `/api/products/category/:type`
 - **Method**: `GET`
 - **Description**: Get products by category type
+- **Valid Categories**: `electronics`, `clothing`, `furniture`, `books`, `other`
 - **Response**: List of products in the specified category
 
-### Inventory Management
+#### Get Products by IDs
+- **URL**: `/api/products/ids`
+- **Method**: `POST`
+- **Description**: Get multiple products by their IDs
+- **Request Body**:
+  ```json
+  {
+    "ids": ["67daf8070da21fb4b034f81f", "67daf8070da21fb4b034f820"]
+  }
+  ```
+- **Response**: List of products matching the provided IDs
 
-#### Update Inventory
-- **URL**: `/product/inventory/:id`
+### Wishlist Operations
+
+#### Add to Wishlist
+- **URL**: `/api/products/wishlist`
 - **Method**: `PUT`
-- **Description**: Update product inventory
+- **Description**: Add product to wishlist (sends event to Customer service)
 - **Authentication**: Required (JWT)
 - **Request Body**:
   ```json
   {
-    "available": true,
-    "quantity": 100
+    "_id": "67daf8070da21fb4b034f81f"
   }
   ```
-- **Response**: Updated product data
+- **Response**: Product that was added to wishlist
 
-#### Bulk Update Products
-- **URL**: `/products/bulk-update`
-- **Method**: `POST`
-- **Description**: Update multiple products at once
-- **Authentication**: Required (JWT with admin role)
-- **Request Body**:
-  ```json
-  {
-    "products": [
-      {
-        "id": "product_id_1",
-        "price": 89.99,
-        "available": true
-      },
-      {
-        "id": "product_id_2",
-        "price": 129.99,
-        "available": false
-      }
-    ]
-  }
-  ```
-- **Response**: Status of the bulk update operation
+#### Remove from Wishlist
+- **URL**: `/api/products/wishlist/:id`
+- **Method**: `DELETE`
+- **Description**: Remove product from wishlist (sends event to Customer service)
+- **Authentication**: Required (JWT)
+- **Response**: Product that was removed from wishlist
 
-### Shopping Cart Integration
+### Shopping Cart Operations
 
 #### Add to Cart
-- **URL**: `/product/cart`
-- **Method**: `POST`
-- **Description**: Add product to cart (sends event to Shopping service)
+- **URL**: `/api/products/cart`
+- **Method**: `PUT`
+- **Description**: Add product to cart (sends events to Customer and Shopping services)
 - **Authentication**: Required (JWT)
 - **Request Body**:
   ```json
   {
-    "productId": "product_id_here",
+    "_id": "67daf8070da21fb4b034f81f",
     "qty": 2
   }
   ```
-- **Response**: Status of the operation
-
-#### Remove from Cart
-- **URL**: `/product/cart/:id`
-- **Method**: `DELETE`
-- **Description**: Remove product from cart (sends event to Shopping service)
-- **Authentication**: Required (JWT)
-- **Response**: Status of the operation
-
-### Health Check
-
-#### Health Check Endpoint
-- **URL**: `/health`
-- **Method**: `GET`
-- **Description**: Check the health of the service
-- **Response**: Service health status including database and message broker connectivity
+- **Response**: 
   ```json
   {
-    "service": "Products Service",
-    "status": "active",
-    "time": "2023-05-15T10:30:45.123Z",
-    "database": "connected",
-    "messageBroker": "connected"
+    "product": {
+      "_id": "67daf8070da21fb4b034f81f",
+      "name": "Wireless Headphones",
+      "desc": "Premium noise-cancelling wireless headphones",
+      "type": "electronics",
+      "unit": 1,
+      "price": 199.99,
+      "available": true,
+      "supplier": "AudioTech",
+      "banner": "https://example.com/headphones.jpg"
+    },
+    "unit": 2
   }
   ```
 
-## Resilience Features
+#### Remove from Cart
+- **URL**: `/api/products/cart/:id`
+- **Method**: `DELETE`
+- **Description**: Remove product from cart (sends events to Customer and Shopping services)
+- **Authentication**: Required (JWT)
+- **Response**: Product that was removed from cart
 
-### Circuit Breaker
+### Database Test
 
-The circuit breaker pattern is implemented to prevent cascading failures. When a dependent service or database operation fails repeatedly, the circuit breaker "opens" and fails fast, preventing resource exhaustion.
-
-```javascript
-// Example usage in a service
-async CreateProduct(productInputs) {
-    try {
-        return await this.circuitBreaker.execute(async () => {
-            // Database operations that might fail
-            const productResult = await this.repository.CreateProduct(productInputs);
-            logger.info(`New product created: ${productResult._id}`);
-            return FormateData(productResult);
-        });
-    } catch (err) {
-        logger.error(`Error in CreateProduct: ${err.message}`);
-        throw new APIError('Data Not found', err);
-    }
-}
-```
-
-### Structured Logging
-
-Winston logger is used for structured logging with different log levels:
-
-```javascript
-// Example logging
-logger.info(`New product created: ${product._id}`);
-logger.error(`Error in GetProducts: ${err.message}`);
-logger.warn(`Unauthorized access attempt: ${req.method} ${req.originalUrl}`);
-```
-
-### Health Checks
-
-The health check endpoint monitors:
-- Database connectivity
-- Message broker connectivity
-- Service status
+- **URL**: `/api/products/test-db`
+- **Method**: `GET`
+- **Description**: Test database connection
+- **Response**: Database connection status
 
 ## Message Broker Integration
 
@@ -218,51 +207,42 @@ The Products Service communicates with other services using RabbitMQ:
 
 ### Publishing Messages
 
-```javascript
-// Example of publishing a message
-await PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify({
-    event: 'ADD_TO_CART',
-    data: { userId, product, qty }
-}));
-```
+The service publishes messages for the following events:
+- `CREATE_PRODUCT`: When a new product is created
+- `ADD_TO_WISHLIST`: When a product is added to a wishlist
+- `REMOVE_FROM_WISHLIST`: When a product is removed from a wishlist
+- `ADD_TO_CART`: When a product is added to a cart
+- `REMOVE_FROM_CART`: When a product is removed from a cart
 
 ### Subscribing to Messages
 
-```javascript
-// Example of subscribing to messages
-SubscribeMessage(channel, service);
-
-// In the service
-async SubscribeEvents(payload) {
-    const { event, data } = payload;
-    
-    switch(event) {
-        case 'UPDATE_INVENTORY':
-            // Handle inventory update event
-            break;
-        // Other event types
-    }
-}
-```
+The service subscribes to events from the Customer Service to handle customer-related operations.
 
 ## Error Handling
 
-The service implements a centralized error handling middleware:
+The service implements a centralized error handling approach with custom error classes:
 
-```javascript
-app.use((err, req, res, next) => {
-    logger.error(`Error: ${err.message}`);
-    
-    const statusCode = err.statusCode || 500;
-    const data = {
-        error: err.name || 'Internal Server Error',
-        message: err.message || 'Something went wrong',
-        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-    };
-    
-    res.status(statusCode).json(data);
-});
+- `ValidationError`: For input validation errors
+- `NotFoundError`: When a requested resource doesn't exist
+- `DatabaseError`: For database operation failures
+- `APIError`: For general API errors
+
+Example error response:
+```json
+{
+  "status": "error",
+  "message": "Product not found with ID: 67daf8070da21fb4b034f81f"
+}
 ```
+
+## Validation
+
+Input validation is implemented using Joi schemas for:
+- Product creation and updates
+- ID parameters
+- Category parameters
+- Cart operations
+- Wishlist operations
 
 ## Database Schema
 
@@ -270,110 +250,126 @@ app.use((err, req, res, next) => {
 
 ```javascript
 const ProductSchema = new Schema({
-    name: String,
-    desc: String,
-    banner: String,
+  name: {
     type: String,
-    unit: Number,
-    price: Number,
-    available: Boolean,
-    suplier: String,
-    createdAt: {
-        type: Date,
-        default: Date.now
+    required: [true, 'Product name is required'],
+    trim: true,
+    maxlength: [100, 'Product name cannot exceed 100 characters']
+  },
+  desc: {
+    type: String,
+    required: [true, 'Product description is required'],
+    trim: true,
+    maxlength: [1000, 'Product description cannot exceed 1000 characters']
+  },
+  banner: {
+    type: String
+    // Optional field
+  },
+  type: {
+    type: String,
+    required: [true, 'Product type is required'],
+    enum: {
+      values: ['electronics', 'clothing', 'furniture', 'books', 'other'],
+      message: 'Product type must be one of: electronics, clothing, furniture, books, other'
     }
+  },
+  unit: {
+    type: Number,
+    required: [true, 'Product unit is required'],
+    min: [0, 'Product unit cannot be negative']
+  },
+  price: {
+    type: Number,
+    required: [true, 'Product price is required'],
+    min: [0, 'Product price cannot be negative']
+  },
+  available: {
+    type: Boolean,
+    default: true
+  },
+  supplier: {
+    type: String
+    // Optional field
+  }
+}, {
+  timestamps: true
 });
 ```
 
-## Extending the Service
+## Best Practices
 
-### Adding a New API Endpoint
+1. **Error Handling**: Use try-catch blocks in all async functions
+2. **Validation**: Validate all input data before processing
+3. **Logging**: Use appropriate log levels (info, warn, error)
+4. **Default Values**: Provide sensible defaults for optional fields
+5. **Testing**: Test all endpoints with valid and invalid inputs
 
-1. Define the route in `src/api/products.js`:
+## Example Usage
 
-```javascript
-app.get('/new-endpoint', UserAuth, async (req, res, next) => {
-    try {
-        const data = await service.NewFeature(req.params.id);
-        return res.json(data);
-    } catch (err) {
-        next(err);
-    }
-});
-```
-
-2. Implement the business logic in `src/services/product-service.js`:
+### Creating a Product
 
 ```javascript
-async NewFeature(productId) {
-    try {
-        return await this.circuitBreaker.execute(async () => {
-            // Implementation
-            const result = await this.repository.SomeOperation(productId);
-            logger.info(`New feature used for product: ${productId}`);
-            return FormateData(result);
-        });
-    } catch (err) {
-        logger.error(`Error in NewFeature: ${err.message}`);
-        throw new APIError('Error in new feature', err);
-    }
-}
+// Request
+fetch('http://localhost:8000/api/products/create', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer your_jwt_token'
+  },
+  body: JSON.stringify({
+    name: "Wireless Headphones",
+    desc: "Premium noise-cancelling wireless headphones with 20-hour battery life",
+    type: "electronics",
+    unit: 1,
+    price: 199.99,
+    available: true,
+    supplier: "AudioTech",
+    banner: "https://example.com/headphones.jpg"
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
 ```
 
-3. Add repository methods if needed in `src/database/repository/product-repository.js`:
+### Adding to Cart
 
 ```javascript
-async SomeOperation(productId) {
-    try {
-        // Database operations
-        return result;
-    } catch (err) {
-        throw new APIError('Database error', err);
-    }
-}
+// Request
+fetch('http://localhost:8000/api/products/cart', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer your_jwt_token'
+  },
+  body: JSON.stringify({
+    _id: "67daf8070da21fb4b034f81f",
+    qty: 2
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
 ```
 
-### Adding a New Event
+## Troubleshooting
 
-1. Define the event handler in the service:
+### Common Issues
 
-```javascript
-// In SubscribeEvents method
-case 'NEW_EVENT_TYPE':
-    await this.HandleNewEvent(data);
-    break;
+1. **Validation Errors**:
+   - Check request payload against schema requirements
+   - Ensure all required fields are provided
+   - Verify data types and formats
+   - For banner URLs, ensure they are valid URLs or leave empty to use default
 
-// New method
-async HandleNewEvent(data) {
-    // Implementation
-}
-```
+2. **Authentication Failures**:
+   - Verify JWT token is valid and not expired
+   - Check that the user has appropriate permissions
 
-2. Publish the event when needed:
-
-```javascript
-const payload = {
-    event: 'NEW_EVENT_FROM_PRODUCTS',
-    data: { /* event data */ }
-};
-
-await PublishMessage(channel, TARGET_SERVICE, JSON.stringify(payload));
-```
-
-## Deployment
-
-The service is containerized using Docker and can be deployed with Docker Compose:
-
-```bash
-# Build and start the service
-docker-compose up -d products
-
-# View logs
-docker-compose logs -f products
-
-# Restart the service
-docker-compose restart products
-```
+3. **Database Connection Issues**:
+   - Use the `/api/products/test-db` endpoint to check connection
+   - Verify MongoDB is running and accessible
 
 ## Environment Variables
 
@@ -387,39 +383,6 @@ The service uses the following environment variables:
 - `QUEUE_NAME`: RabbitMQ queue name
 - `NODE_ENV`: Environment (development/production)
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Database Connection Failures**:
-   - Check MongoDB connection string
-   - Verify network connectivity
-   - Check MongoDB logs
-
-2. **Message Broker Issues**:
-   - Verify RabbitMQ is running
-   - Check connection string
-   - Ensure exchanges and queues are properly configured
-
-3. **Authentication Failures**:
-   - Verify JWT token is properly formatted
-   - Check if token is expired
-   - Ensure APP_SECRET is consistent
-
-### Monitoring
-
-- Use the `/health` endpoint to check service health
-- Monitor logs in the `logs/` directory
-- Set up alerts for error-level log entries
-
-## Best Practices
-
-1. **Error Handling**: Always use try-catch blocks and pass errors to the next middleware
-2. **Validation**: Validate all input data before processing
-3. **Logging**: Use appropriate log levels (info, warn, error)
-4. **Circuit Breaking**: Use circuit breakers for external dependencies
-5. **Testing**: Write unit and integration tests for new features
-
 ## Conclusion
 
-The Products Service is designed with scalability, resilience, and maintainability in mind. By following the patterns and practices outlined in this documentation, you can extend and enhance the service while maintaining its reliability. 
+The Products Service is designed with scalability, resilience, and maintainability in mind. By following the patterns and practices outlined in this documentation, you can extend and enhance the service while maintaining its reliability.

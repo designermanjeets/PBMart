@@ -4,7 +4,7 @@ const logger = require("./logger");
 
 // Create a channel with retry logic
 const createChannel = async () => {
-  let retries = 5;
+  let retries = 1;
   while (retries) {
     try {
       logger.info(`Attempting to connect to RabbitMQ at ${MESSAGE_BROKER_URL}`);

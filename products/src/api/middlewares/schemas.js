@@ -44,19 +44,11 @@ const productSchema = {
       .messages({
         'boolean.base': 'Available must be a boolean'
       }),
-    supplier: Joi.string().trim().required()
+    supplier: Joi.string().trim().optional()
       .messages({
-        'string.base': 'Supplier must be a string',
-        'string.empty': 'Supplier is required',
-        'any.required': 'Supplier is required'
+        'string.base': 'Supplier must be a string'
       }),
-    banner: Joi.string().uri().required()
-      .messages({
-        'string.base': 'Banner must be a string',
-        'string.empty': 'Banner is required',
-        'string.uri': 'Banner must be a valid URL',
-        'any.required': 'Banner is required'
-      })
+    banner: Joi.string().optional().allow('')
   }),
   
   update: Joi.object({
@@ -105,13 +97,20 @@ const productSchema = {
   }),
   
   params: Joi.object({
-    id: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required()
+    id: Joi.string().regex(/^[0-9a-fA-F]{24}$/)
       .messages({
         'string.base': 'ID must be a string',
-        'string.empty': 'ID is required',
-        'string.pattern.base': 'ID must be a valid MongoDB ObjectId',
-        'any.required': 'ID is required'
+        'string.pattern.base': 'ID must be a valid MongoDB ObjectId'
+      }),
+    _id: Joi.string().regex(/^[0-9a-fA-F]{24}$/)
+      .messages({
+        'string.base': 'ID must be a string',
+        'string.pattern.base': 'ID must be a valid MongoDB ObjectId'
       })
+  })
+  .or('id', '_id')
+  .messages({
+    'object.missing': 'Either id or _id is required'
   }),
   
   category: Joi.object({
@@ -153,6 +152,16 @@ const productSchema = {
         'number.integer': 'Quantity must be an integer',
         'number.min': 'Quantity must be at least 1',
         'any.required': 'Quantity is required'
+      })
+  }),
+  
+  wishlist: Joi.object({
+    _id: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required()
+      .messages({
+        'string.base': 'Product ID must be a string',
+        'string.empty': 'Product ID is required',
+        'string.pattern.base': 'Product ID must be a valid MongoDB ObjectId',
+        'any.required': 'Product ID is required'
       })
   })
 };

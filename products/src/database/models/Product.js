@@ -18,7 +18,7 @@ const ProductSchema = new Schema(
     },
     banner: {
       type: String,
-      required: [true, 'Product banner image is required']
+      // Remove required: true to make it optional
     },
     type: {
       type: String,
@@ -44,7 +44,7 @@ const ProductSchema = new Schema(
     },
     supplier: {
       type: String,
-      required: [true, 'Product supplier is required']
+      // Remove required: true to make it optional
     },
     createdAt: {
       type: Date,

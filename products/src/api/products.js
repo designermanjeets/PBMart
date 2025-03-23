@@ -106,7 +106,7 @@ module.exports = (app, channel) => {
     });
 
     // Add product to wishlist
-    router.put("/wishlist", UserAuth, validateBody(productSchema.params), async (req, res, next) => {
+    router.put("/wishlist", UserAuth, validateBody(productSchema.wishlist), async (req, res, next) => {
         try {
             const { _id } = req.user;
             const productId = req.body._id;
@@ -220,6 +220,25 @@ module.exports = (app, channel) => {
         } catch (error) {
             logger.error(`Error removing product from cart: ${error.message}`);
             next(error);
+        }
+    });
+
+    // Add a test endpoint for database connection
+    router.get('/test-db', async (req, res) => {
+        try {
+            // Get the product model
+            const ProductModel = require('../database/models/Product');
+            // Count documents
+            const count = await ProductModel.countDocuments();
+            // Return the result
+            res.json({ 
+                message: 'Database connection test', 
+                databaseName: mongoose.connection.name,
+                count,
+                connected: mongoose.connection.readyState === 1
+            });
+        } catch (err) {
+            res.status(500).json({ error: err.message });
         }
     });
 

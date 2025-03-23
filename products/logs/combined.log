@@ -1,0 +1,175 @@
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:26:55"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 5): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:26:55"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:00"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 4): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:01"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:39"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:39"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:44"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:27:44"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:27:44"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:28:16"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:28:16"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:28:21"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:28:21"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:28:21"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:31:58"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:31:58"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:32:03"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:32:03"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:32:03"}
+{"level":"info","message":"GET /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:32:53"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:42"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:42"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:47"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:34:47"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:47"}
+{"level":"info","message":"GET /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:50"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-03-23 16:34:58"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:35:51"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:35:51"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:35:56"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:35:56"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:35:56"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-03-23 16:35:59"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:35:59"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:37:39"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:37:39"}
+{"level":"warn","message":"Validation error: {\"name\":\"Name is required\",\"desc\":\"Description is required\",\"type\":\"Type is required\",\"unit\":\"Unit is required\",\"price\":\"Price is required\",\"supplier\":\"Supplier is required\",\"banner\":\"Banner is required\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:37:39"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:38:21"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:38:21"}
+{"level":"warn","message":"Validation error: {\"banner\":\"Banner must be a valid URL\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:38:21"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:38:40"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:38:40"}
+{"level":"warn","message":"Validation error: {\"banner\":\"Banner must be a valid URL\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:38:40"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:39:18"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:39:18"}
+{"level":"warn","message":"Validation error: {\"banner\":\"Banner must be a valid URL\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:39:18"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:39:25"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:39:25"}
+{"level":"warn","message":"Validation error: {\"banner\":\"Banner must be a valid URL\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:39:25"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:40:10"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:40:10"}
+{"level":"warn","message":"Validation error: {\"banner\":\"Banner must be a valid URL\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:40:10"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:41:20"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:41:20"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:41:25"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:41:25"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:41:25"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"info","message":"Creating product: Wireless Headphones","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"error","message":"Error creating product: product validation failed: supplier: Product supplier is required","module":"product-repository","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"error","message":"Error creating product: product validation failed: supplier: Product supplier is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"error","message":"Error creating product: product validation failed: supplier: Product supplier is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:41:26"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:42:26"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:42:26"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:42:31"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:42:31"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:42:31"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:42:34"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:42:34"}
+{"level":"info","message":"Creating product: Wireless Headphones","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:42:34"}
+{"level":"warn","message":"Message broker channel not available. Event not published.","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:42:34"}
+{"level":"info","message":"GET /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:43:50"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:43:50"}
+{"level":"info","message":"POST /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:44:29"}
+{"level":"error","message":"Route /api/products/ not found","module":"error-handler","service":"products-service","status":"error","statusCode":404,"timestamp":"2025-03-23 16:44:29"}
+{"level":"info","message":"POST /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:44:34"}
+{"level":"error","message":"Route /api/products/ not found","module":"error-handler","service":"products-service","status":"error","statusCode":404,"timestamp":"2025-03-23 16:44:34"}
+{"level":"info","message":"POST /api/products/create","module":"app","service":"products-service","timestamp":"2025-03-23 16:44:54"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:44:54"}
+{"level":"info","message":"Creating product: Wireless Headphones 2","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:44:54"}
+{"level":"warn","message":"Message broker channel not available. Event not published.","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:44:54"}
+{"level":"info","message":"GET /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:44:58"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:44:58"}
+{"level":"info","message":"GET /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:45:19"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:45:19"}
+{"level":"info","message":"GET /api/products/category/others","module":"app","service":"products-service","timestamp":"2025-03-23 16:45:56"}
+{"level":"warn","message":"Validation error: {\"type\":\"Type must be one of: electronics, clothing, furniture, books, other\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:45:56"}
+{"level":"info","message":"GET /api/products/category/electronics","module":"app","service":"products-service","timestamp":"2025-03-23 16:46:19"}
+{"level":"info","message":"Getting products by category: electronics","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:46:19"}
+{"level":"info","message":"GET /api/products/67dfed2ee7e19f0ea5bd085e","module":"app","service":"products-service","timestamp":"2025-03-23 16:47:18"}
+{"level":"info","message":"Getting product by ID: 67dfed2ee7e19f0ea5bd085e","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:47:18"}
+{"level":"info","message":"POST /api/products/ids","module":"app","service":"products-service","timestamp":"2025-03-23 16:49:04"}
+{"level":"info","message":"Getting products by IDs: 67daf8070da21fb4b034f81f, 67daf8070da21fb4b034f820, 67daf8070da21fb4b034f821","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:49:04"}
+{"level":"info","message":"POST /api/products/ids","module":"app","service":"products-service","timestamp":"2025-03-23 16:49:20"}
+{"level":"info","message":"Getting products by IDs: 67daf8070da21fb4b034f81f, 67dfeca2e7e19f0ea5bd085b, 67daf8070da21fb4b034f821","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:49:20"}
+{"level":"info","message":"POST /api/products/ids","module":"app","service":"products-service","timestamp":"2025-03-23 16:49:35"}
+{"level":"info","message":"Getting products by IDs: 67daf8070da21fb4b034f81f, 67dfeca2e7e19f0ea5bd085b, 67dfed2ee7e19f0ea5bd085e","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:49:35"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:50:37"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:50:37"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\",\"desc\":\"\\\"desc\\\" is not allowed\",\"banner\":\"\\\"banner\\\" is not allowed\",\"type\":\"\\\"type\\\" is not allowed\",\"unit\":\"\\\"unit\\\" is not allowed\",\"price\":\"\\\"price\\\" is not allowed\",\"available\":\"\\\"available\\\" is not allowed\",\"createdAt\":\"\\\"createdAt\\\" is not allowed\",\"updatedAt\":\"\\\"updatedAt\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:50:37"}
+{"body":"{\n    \"_id\": \"67dfed2ee7e19f0ea5bd085e\",\n    \"name\": \"Wireless Headphones 2\",\n    \"desc\": \"Premium noise-cancelling wireless headphones with 20-hour battery life\",\n    \"banner\": \"https:&#x2F;&#x2F;via.placeholder.com&#x2F;300x200\",\n    \"type\": \"electronics\",\n    \"unit\": 1,\n    \"price\": 199.99,\n    \"available\": true,\n}","expose":true,"level":"error","message":"Expected double-quoted property name in JSON at position 318 (line 10 column 1)","module":"error-handler","service":"products-service","status":400,"statusCode":400,"timestamp":"2025-03-23 16:50:45","type":"entity.parse.failed"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:50:53"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:50:53"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\",\"desc\":\"\\\"desc\\\" is not allowed\",\"banner\":\"\\\"banner\\\" is not allowed\",\"type\":\"\\\"type\\\" is not allowed\",\"unit\":\"\\\"unit\\\" is not allowed\",\"price\":\"\\\"price\\\" is not allowed\",\"available\":\"\\\"available\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:50:53"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:00"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:00"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\",\"desc\":\"\\\"desc\\\" is not allowed\",\"banner\":\"\\\"banner\\\" is not allowed\",\"type\":\"\\\"type\\\" is not allowed\",\"unit\":\"\\\"unit\\\" is not allowed\",\"price\":\"\\\"price\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:00"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:07"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:07"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\",\"desc\":\"\\\"desc\\\" is not allowed\",\"banner\":\"\\\"banner\\\" is not allowed\",\"type\":\"\\\"type\\\" is not allowed\",\"unit\":\"\\\"unit\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:07"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:12"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:12"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\",\"desc\":\"\\\"desc\\\" is not allowed\",\"type\":\"\\\"type\\\" is not allowed\",\"unit\":\"\\\"unit\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:12"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:19"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:19"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\",\"unit\":\"\\\"unit\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:19"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:30"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:30"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\",\"name\":\"\\\"name\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:30"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"info","message":"Adding product undefined to wishlist for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"error","message":"Error finding product by ID: Product ID is required","module":"product-repository","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"error","message":"Error getting product payload: Product ID is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"error","message":"Error adding product to wishlist: Failed to get product payload: Product ID is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:51:38"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:50"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:50"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:50"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:51:57"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:51:57"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"ID\":\"\\\"ID\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:51:57"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"info","message":"Adding product undefined to wishlist for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"error","message":"Error finding product by ID: Product ID is required","module":"product-repository","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"error","message":"Error getting product payload: Product ID is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"error","message":"Error adding product to wishlist: Failed to get product payload: Product ID is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:52:06"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:52:28"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:52:28"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:52:28"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:53:51"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:53:51"}
+{"level":"warn","message":"Validation error: {\"id\":\"ID is required\",\"_id\":\"\\\"_id\\\" is not allowed\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:53:51"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:32"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:32"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:37"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:54:37"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:37"}
+{"level":"info","message":"PUT /api/products/wishlist","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:40"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:54:40"}
+{"level":"info","message":"Adding product 67daf8070da21fb4b034f81f to wishlist for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:54:40"}
+{"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:40"}
+{"level":"info","message":"DELETE /api/products/wishlist/67daf8070da21fb4b034f81f","module":"app","service":"products-service","timestamp":"2025-03-23 16:55:35"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:55:35"}
+{"level":"info","message":"Removing product 67daf8070da21fb4b034f81f from wishlist for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:55:35"}
+{"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:55:35"}
+{"level":"info","message":"PUT /api/products/cart","module":"app","service":"products-service","timestamp":"2025-03-23 16:56:34"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:56:34"}
+{"level":"warn","message":"Validation error: {\"qty\":\"Quantity is required\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:56:34"}
+{"level":"info","message":"GET /api/products/","module":"app","service":"products-service","timestamp":"2025-03-23 16:56:40"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:56:40"}
+{"level":"info","message":"PUT /api/products/cart","module":"app","service":"products-service","timestamp":"2025-03-23 16:56:47"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:56:47"}
+{"level":"warn","message":"Validation error: {\"qty\":\"Quantity is required\"}","module":"validator-middleware","service":"products-service","timestamp":"2025-03-23 16:56:47"}
+{"level":"info","message":"PUT /api/products/cart","module":"app","service":"products-service","timestamp":"2025-03-23 16:57:50"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:57:50"}
+{"level":"info","message":"Adding product 67daf8070da21fb4b034f81f to cart for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:57:50"}
+{"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:57:50"}
+{"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:57:50"}
+{"level":"info","message":"DELETE /api/products/cart/67daf8070da21fb4b034f81f","module":"app","service":"products-service","timestamp":"2025-03-23 16:58:50"}
+{"level":"info","message":"Authenticated user: manjeet.singh@aiinfox.com","module":"auth-middleware","service":"products-service","timestamp":"2025-03-23 16:58:50"}
+{"level":"info","message":"Removing product 67daf8070da21fb4b034f81f from cart for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:58:50"}
+{"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:58:50"}
+{"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:58:50"}
