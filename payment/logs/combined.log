@@ -54,3 +54,14 @@
 2025-03-23 18:02:16 [[32minfo[39m]: POST /api/payment/test-process{"metadata":{}}
 2025-03-23 18:02:16 [[32minfo[39m]: [payment-service] Processing credit_card payment for order ORD-12345{"metadata":{}}
 2025-03-23 18:02:16 [[32minfo[39m]: [payment-service] [TEST MODE] Simulating successful payment for credit_card{"metadata":{}}
+2025-03-23 18:04:14 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:04:14 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:04:14 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:04:14 [[32minfo[39m]: [server] Payment Service running on port 8000{"metadata":{}}
+2025-03-23 18:35:42 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:35:42 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:35:42 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:35:42 [[32minfo[39m]: [server] Payment Service running on port 8006{"metadata":{}}
+2025-03-23 18:35:56 [[32minfo[39m]: GET /api/payments{"metadata":{}}
+2025-03-23 18:35:56 [[31merror[39m]: [error-handler] ERROR 💥: Route /api/payments not found{"metadata":{"statusCode":404,"status":"error"}}
+2025-03-23 18:35:59 [[32minfo[39m]: GET /api/payment{"metadata":{}}

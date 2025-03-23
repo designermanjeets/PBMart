@@ -8,9 +8,10 @@ if (process.env.NODE_ENV === 'prod') {
 }
 
 module.exports = {
-    PORT: process.env.PORT || 8010,
+    PORT: process.env.PORT,
     APP_SECRET: process.env.APP_SECRET,
     DB_URL: process.env.MONGODB_URI,
+    BASE_URL: process.env.BASE_URL,
     MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL,
     EXCHANGE_NAME: process.env.EXCHANGE_NAME,
     QUEUE_NAME: process.env.QUEUE_NAME,
@@ -22,5 +23,5 @@ module.exports = {
         accessKey: process.env.S3_ACCESS_KEY,
         secretKey: process.env.S3_SECRET_KEY
     },
-    LOG_LEVEL: process.env.LOG_LEVEL || 'info'
+    LOG_LEVEL: process.env.LOG_LEVEL
 }; 

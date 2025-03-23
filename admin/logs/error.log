@@ -1,0 +1,6 @@
+{"level":"error","message":"Error creating channel: getaddrinfo ENOTFOUND rabbitmq","module":"message-broker","service":"admin-service","timestamp":"2025-03-23 18:22:26"}
+{"code":"ENOTFOUND","errno":-3008,"hostname":"rabbitmq","level":"error","message":"Failed to create channel: getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"admin-service","stack":"Error: getaddrinfo ENOTFOUND rabbitmq\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)","syscall":"getaddrinfo","timestamp":"2025-03-23 18:22:26"}
+{"level":"error","message":"Error: Route /api not found","module":"error-handler","service":"admin-service","timestamp":"2025-03-23 18:22:44"}
+{"level":"error","message":"Error: Route /api/customers not found","module":"error-handler","service":"admin-service","timestamp":"2025-03-23 18:23:13"}
+{"level":"error","message":"Error creating channel: getaddrinfo ENOTFOUND rabbitmq","module":"message-broker","service":"admin-service","timestamp":"2025-03-23 18:27:42"}
+{"code":"ENOTFOUND","errno":-3008,"hostname":"rabbitmq","level":"error","message":"Failed to create channel: getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"admin-service","stack":"Error: getaddrinfo ENOTFOUND rabbitmq\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)","syscall":"getaddrinfo","timestamp":"2025-03-23 18:27:42"}

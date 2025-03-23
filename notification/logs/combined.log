@@ -1197,3 +1197,15 @@
                 </body>
             </html>
         {"metadata":{}}
+2025-03-23 18:03:38 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:03:38 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:03:38 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:03:38 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-03-23 18:03:38 [[32minfo[39m]: [server] Notification Service running on port 8000{"metadata":{}}
+2025-03-23 18:03:39 [[32minfo[39m]: [email-service] Test email account created: vdhurqffmnrzgheg@ethereal.email{"metadata":{}}
+2025-03-23 18:34:27 [[32minfo[39m]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:34:27 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:34:27 [[33mwarn[39m]: [express-app] Message broker channel not created. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:34:27 [[33mwarn[39m]: [sms-service] Valid Twilio credentials not provided. SMS service will not be functional.{"metadata":{}}
+2025-03-23 18:34:27 [[32minfo[39m]: [server] Notification Service running on port 8007{"metadata":{}}
+2025-03-23 18:34:28 [[32minfo[39m]: [email-service] Test email account created: l4zaxqnhkva3ua57@ethereal.email{"metadata":{}}

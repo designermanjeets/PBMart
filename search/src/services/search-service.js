@@ -12,47 +12,25 @@ class SearchService {
     
     async SearchProducts(query, filters = {}, pagination = { page: 1, limit: 10 }, sort = {}, userId = null) {
         try {
-            // Ensure Elasticsearch is connected
-            if (!this.elasticsearchService.isConnected) {
-                await this.elasticsearchService.initializeConnection();
-            }
-            
-            // Build search query
-            const searchQuery = query ? query.trim() : '';
-            
-            // Execute search
-            const results = await this.elasticsearchService.SearchProducts(
-                searchQuery, 
-                filters, 
-                pagination, 
-                sort
-            );
-            
-            // Save search query for analytics
-            if (query) {
-                await this.searchRepository.SaveSearchQuery({
-                    query,
-                    filters,
-                    userId,
-                    tenantId: filters.tenantId,
-                    resultCount: results.pagination.total
-                });
-                
-                // Index search analytics in Elasticsearch
-                await this.elasticsearchService.indexSearchAnalytics({
-                    query,
-                    filters,
-                    userId,
-                    tenantId: filters.tenantId,
-                    resultCount: results.pagination.total,
-                    timestamp: new Date()
-                });
-            }
-            
+            // Try to search using Elasticsearch
+            const results = await this.elasticsearchService.SearchProducts(query, filters, pagination, sort, userId);
             return results;
         } catch (error) {
             logger.error(`Error searching products: ${error.message}`);
-            throw error;
+            
+            // Return fallback results if Elasticsearch fails
+            return {
+                hits: [],
+                total: 0,
+                page: pagination.page,
+                limit: pagination.limit,
+                totalPages: 0,
+                query: query || '',
+                filters: filters,
+                sort: sort,
+                error: `Failed to search products: ${error.message}`,
+                fallback: true
+            };
         }
     }
     

@@ -18,3 +18,6 @@
 {"level":"error","message":"Error getting product payload: Product ID is required","module":"product-service","service":"products-service","timestamp":"2025-03-23 16:52:06"}
 {"level":"error","message":"Error adding product to wishlist: Failed to get product payload: Product ID is required","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:52:06"}
 {"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 16:54:37"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 18:02:58"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 18:37:42"}
+{"level":"error","message":"Route /api/ not found","module":"error-handler","service":"products-service","status":"error","statusCode":404,"timestamp":"2025-03-23 18:38:10"}

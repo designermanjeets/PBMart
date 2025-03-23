@@ -7,6 +7,11 @@ const logger = createLogger('rfq-controller');
 class RfqController {
     constructor(channel) {
         this.rfqService = new RfqService(channel);
+        
+        // Log warning if channel is not provided
+        if (!channel) {
+            logger.warn('Message broker channel not available. Some functionality may be limited.');
+        }
     }
     
     async CreateRfq(req, res, next) {

@@ -1,2 +1,5 @@
 {"level":"info","message":"GET /","service":"tenant-service","timestamp":"2025-02-25T17:48:10.779Z"}
 {"level":"info","message":"GET /health","service":"tenant-service","timestamp":"2025-02-25T17:48:14.417Z"}
+2025-03-23 18:57:49 [[33mwarn[39m]: Message broker channel not available. Some functionality may be limited.{"metadata":{}}
+2025-03-23 18:57:49 [[33mwarn[39m]: Message broker channel not available. Event subscription skipped.{"metadata":{}}
+2025-03-23 18:57:55 [[32minfo[39m]: GET /api/tenants{"metadata":{}}

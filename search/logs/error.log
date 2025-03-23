@@ -22,3 +22,11 @@
 2025-03-02 15:23:06 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.3:9200{"metadata":{}}
 2025-03-02 15:53:29 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
 2025-03-02 16:08:10 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.2:9200{"metadata":{}}
+2025-03-23 18:50:56 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:50:56 [error]: [message-broker] Error creating channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:51:26 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:51:33 [error]: [elasticsearch-service] Error searching products: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:51:33 [error]: [search-service] Error searching products: Failed to search products: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:51:33 [error]: [error-handler] Error: Failed to search products: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:54:39 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:54:39 [error]: [message-broker] Error creating channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}

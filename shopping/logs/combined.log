@@ -1,0 +1,3 @@
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-03-23 18:56:06"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-03-23 18:56:06"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-23 18:56:16"}

@@ -8,19 +8,20 @@ if (process.env.NODE_ENV !== 'prod') {
 }
 
 module.exports = {
-    PORT: process.env.PORT || 8011,
+    PORT: process.env.PORT,
     APP_SECRET: process.env.APP_SECRET,
-    
+    BASE_URL: process.env.BASE_URL,
+
     // Database
-    MONGODB_URI: process.env.MONGODB_URI || 'mongodb://nosql-db:27017/rfq-service',
+    MONGODB_URI: process.env.MONGODB_URI,
     
     // Message Broker
-    MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL || 'amqp://rabbitmq:5672',
-    EXCHANGE_NAME: process.env.EXCHANGE_NAME || 'B2B_EXCHANGE',
-    QUEUE_NAME: process.env.QUEUE_NAME || 'rfq_queue',
+    MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL,
+    EXCHANGE_NAME: process.env.EXCHANGE_NAME,
+    QUEUE_NAME: process.env.QUEUE_NAME,
     
     // Logging
-    LOG_LEVEL: process.env.LOG_LEVEL || 'info',
+    LOG_LEVEL: process.env.LOG_LEVEL,
     
     // RFQ Settings
     RFQ_EXPIRY_DAYS: process.env.RFQ_EXPIRY_DAYS || 7,

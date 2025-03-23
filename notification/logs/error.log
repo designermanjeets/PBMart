@@ -889,3 +889,5 @@
 2025-03-23 17:41:52 [[31merror[39m]: [express-app] Error: Failed to send email notification: Failed to send email: getaddrinfo ENOTFOUND smtp.example.com{"metadata":{}}
 2025-03-23 17:42:57 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
 2025-03-23 17:44:07 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:03:38 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:34:27 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}

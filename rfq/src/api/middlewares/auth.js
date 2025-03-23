@@ -2,69 +2,86 @@ const jwt = require('jsonwebtoken');
 const { APP_SECRET } = require('../../config');
 const { AuthenticationError, AuthorizationError } = require('../../utils/errors');
 const { createLogger } = require('../../utils/logger');
+const { validateToken } = require('../../utils/token');
 
 const logger = createLogger('auth-middleware');
 
-module.exports = {
-    validateToken: async (req, res, next) => {
-        try {
-            const authHeader = req.headers.authorization;
-            
-            if (!authHeader || !authHeader.startsWith('Bearer ')) {
-                throw new AuthenticationError('No token provided');
-            }
-            
-            const token = authHeader.split(' ')[1];
-            
-            if (!token) {
-                throw new AuthenticationError('No token provided');
-            }
-            
-            try {
-                const decoded = jwt.verify(token, APP_SECRET);
-                req.user = decoded;
-                next();
-            } catch (error) {
-                throw new AuthenticationError('Invalid token');
-            }
-        } catch (error) {
-            next(error);
+// List of routes that don't require authentication
+const publicRoutes = [
+    '/api/rfq/health',
+    '/api/rfq/public'
+];
+
+const validateAuth = async (req, res, next) => {
+    try {
+        // Check if the route is public
+        if (publicRoutes.some(route => req.path.startsWith(route))) {
+            return next();
         }
-    },
-    
-    isAdmin: async (req, res, next) => {
-        try {
-            if (!req.user || !req.user.role || req.user.role !== 'admin') {
-                throw new AuthorizationError('Admin access required');
-            }
-            
-            next();
-        } catch (error) {
-            next(error);
+        
+        const token = req.headers.authorization;
+        
+        if (!token) {
+            throw new AuthenticationError('No token provided');
         }
-    },
-    
-    isBuyer: async (req, res, next) => {
-        try {
-            if (!req.user || !req.user.role || req.user.role !== 'buyer') {
-                throw new AuthorizationError('Buyer access required');
-            }
-            
-            next();
-        } catch (error) {
-            next(error);
+        
+        // Extract the token from the Authorization header
+        const tokenParts = token.split(' ');
+        const tokenValue = tokenParts.length === 2 && tokenParts[0] === 'Bearer' ? tokenParts[1] : token;
+        
+        const payload = await validateToken(tokenValue);
+        
+        if (!payload) {
+            throw new AuthenticationError('Invalid token');
         }
-    },
-    
-    isVendor: async (req, res, next) => {
-        try {
-            if (!req.user || !req.user.role || req.user.role !== 'vendor') {
-                throw new AuthorizationError('Vendor access required');
-            }
-            
-            next();
-        } catch (error) {
-            next(error);
-        }
+        
+        req.user = payload;
+        next();
+    } catch (err) {
+        logger.error(`Authentication error: ${err.message}`);
+        next(err);
     }
+};
+
+const isAdmin = async (req, res, next) => {
+    try {
+        if (!req.user || !req.user.role || req.user.role !== 'admin') {
+            throw new AuthorizationError('Admin access required');
+        }
+        
+        next();
+    } catch (error) {
+        next(error);
+    }
+};
+
+const isBuyer = async (req, res, next) => {
+    try {
+        if (!req.user || !req.user.role || req.user.role !== 'buyer') {
+            throw new AuthorizationError('Buyer access required');
+        }
+        
+        next();
+    } catch (error) {
+        next(error);
+    }
+};
+
+const isVendor = async (req, res, next) => {
+    try {
+        if (!req.user || !req.user.role || req.user.role !== 'vendor') {
+            throw new AuthorizationError('Vendor access required');
+        }
+        
+        next();
+    } catch (error) {
+        next(error);
+    }
+};
+
+module.exports = {
+    validateToken: validateAuth,
+    isAdmin,
+    isBuyer,
+    isVendor
 }; 

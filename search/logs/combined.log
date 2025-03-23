@@ -345,3 +345,21 @@
 2025-03-19 14:01:34 [info]: [search-controller] Subscribed to product events{"metadata":{}}
 2025-03-19 14:01:34 [info]: [express-app] Express app configured{"metadata":{}}
 2025-03-19 14:01:34 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-23 18:50:48 [info]: [database] Database connected{"metadata":{}}
+2025-03-23 18:50:56 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:50:56 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-23 18:50:56 [error]: [message-broker] Error creating channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:50:56 [warn]: [express-app] Failed to create message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:50:56 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-23 18:50:56 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-23 18:51:26 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:51:33 [error]: [elasticsearch-service] Error searching products: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:51:33 [error]: [search-service] Error searching products: Failed to search products: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:51:33 [error]: [error-handler] Error: Failed to search products: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:54:29 [info]: [database] Database connected{"metadata":{}}
+2025-03-23 18:54:39 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: getaddrinfo ENOTFOUND elasticsearch{"metadata":{}}
+2025-03-23 18:54:39 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-23 18:54:39 [error]: [message-broker] Error creating channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:54:39 [warn]: [express-app] Failed to create message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:54:39 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-23 18:54:39 [info]: [server] Search Service running on port 8009{"metadata":{}}

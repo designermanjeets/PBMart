@@ -173,3 +173,20 @@
 {"level":"info","message":"Removing product 67daf8070da21fb4b034f81f from cart for user 67dae594ef5898e951ea23c3","module":"products-api","service":"products-service","timestamp":"2025-03-23 16:58:50"}
 {"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:58:50"}
 {"level":"warn","message":"Channel not available for publishing message","module":"app","service":"products-service","timestamp":"2025-03-23 16:58:50"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 18:02:53"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 18:02:53"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 18:02:58"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 18:02:58"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 18:02:58"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 18:04:01"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 18:04:01"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 18:37:37"}
+{"level":"warn","message":"Error connecting to message broker (retries left: 1): getaddrinfo ENOTFOUND rabbitmq","module":"app","service":"products-service","timestamp":"2025-03-23 18:37:37"}
+{"level":"error","message":"Failed to connect to RabbitMQ after multiple attempts","module":"app","service":"products-service","timestamp":"2025-03-23 18:37:42"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"products-api","service":"products-service","timestamp":"2025-03-23 18:37:42"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"products-service","timestamp":"2025-03-23 18:37:42"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-03-23 18:38:02"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 18:38:02"}
+{"level":"info","message":"GET /api/","module":"app","service":"products-service","timestamp":"2025-03-23 18:38:10"}
+{"level":"error","message":"Route /api/ not found","module":"error-handler","service":"products-service","status":"error","statusCode":404,"timestamp":"2025-03-23 18:38:10"}
+{"level":"info","message":"GET /api/products/docs","module":"app","service":"products-service","timestamp":"2025-03-23 18:38:32"}

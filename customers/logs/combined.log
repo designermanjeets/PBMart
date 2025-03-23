@@ -315,3 +315,17 @@
 {"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 17:57:28"}
 {"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 17:57:28"}
 {"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 17:57:31"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:03:19"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:03:19"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:24:38"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:24:38"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:31:02"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:31:02"}
+{"level":"info","message":"GET /api/","module":"app","service":"customer-service","timestamp":"2025-03-23 18:31:17"}
+{"level":"error","message":"Route /api/ not found","module":"error-handler","service":"customer-service","status":"error","statusCode":404,"timestamp":"2025-03-23 18:31:17"}
+{"level":"info","message":"GET /api/customers/","module":"app","service":"customer-service","timestamp":"2025-03-23 18:31:25"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:47:43"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 18:47:43"}
+{"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 18:48:15"}
+{"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 18:48:23"}
+{"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 18:48:48"}

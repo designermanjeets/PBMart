@@ -329,3 +329,10 @@
 2025-03-19 14:01:33 [info]: [message-broker] Message broker channel created{"metadata":{}}
 2025-03-19 14:01:33 [info]: [express-app] Message broker channel created successfully{"metadata":{}}
 2025-03-19 14:01:33 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-23 18:59:14 [info]: [database] Database Connected{"metadata":{}}
+2025-03-23 18:59:14 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-23 18:59:14 [error]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:59:14 [error]: [express-app] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:59:14 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-03-23 18:59:14 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-23 18:59:23 [info]: [express-app] GET /api/vendor{"metadata":{}}

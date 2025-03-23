@@ -21,3 +21,6 @@
 2025-03-23 18:01:00 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
 2025-03-23 18:01:25 [[31merror[39m]: [payment-service] Error processing payment: Payment is not defined{"metadata":{}}
 2025-03-23 18:02:07 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:04:14 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:35:42 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
+2025-03-23 18:35:56 [[31merror[39m]: [error-handler] ERROR 💥: Route /api/payments not found{"metadata":{"statusCode":404,"status":"error"}}

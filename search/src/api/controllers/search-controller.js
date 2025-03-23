@@ -30,7 +30,14 @@ class SearchController {
             
             return res.status(200).json(result);
         } catch (error) {
-            next(error);
+            logger.error(`Search error: ${error.message}`);
+            
+            // Return a friendly error response
+            return res.status(500).json({
+                status: 'error',
+                message: error.message,
+                fallback: true
+            });
         }
     };
     

@@ -8,23 +8,23 @@ if (process.env.NODE_ENV !== 'prod') {
 }
 
 module.exports = {
-    PORT: process.env.PORT || 8006,
-    DB_URL: process.env.MONGODB_URI || 'mongodb://localhost:27017/payment-service',
-    APP_SECRET: process.env.APP_SECRET || 'payment_service_secret',
-    BASE_URL: process.env.BASE_URL || 'http://localhost:8006',
+    PORT: process.env.PORT,
+    DB_URL: process.env.MONGODB_URI,
+    APP_SECRET: process.env.APP_SECRET,
+    BASE_URL: process.env.BASE_URL,
     
     // Message Broker
-    MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL || 'amqp://localhost',
-    EXCHANGE_NAME: process.env.EXCHANGE_NAME || 'B2B_EXCHANGE',
-    PAYMENT_SERVICE: 'payment_service',
-    CUSTOMERS_SERVICE: 'customers_service',
-    SHOPPING_SERVICE: 'shopping_service',
-    PRODUCTS_SERVICE: 'products_service',
-    TENANTS_SERVICE: 'tenants_service',
-    ADMIN_SERVICE: 'admin_service',
+    MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL,
+    EXCHANGE_NAME: process.env.EXCHANGE_NAME,
+    PAYMENT_SERVICE: process.env.PAYMENT_SERVICE,
+    CUSTOMERS_SERVICE: process.env.CUSTOMERS_SERVICE,
+    SHOPPING_SERVICE: process.env.SHOPPING_SERVICE,
+    PRODUCTS_SERVICE: process.env.PRODUCTS_SERVICE,
+    TENANTS_SERVICE: process.env.TENANTS_SERVICE,
+    ADMIN_SERVICE: process.env.ADMIN_SERVICE,
     
     // Queue names
-    QUEUE_NAME: 'payment_queue',
+    QUEUE_NAME: process.env.QUEUE_NAME,
     
     // Payment Gateways
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
@@ -33,5 +33,5 @@ module.exports = {
     PAYPAL_CLIENT_SECRET: process.env.PAYPAL_CLIENT_SECRET,
     
     // Logging
-    LOG_LEVEL: process.env.LOG_LEVEL || 'info'
+    LOG_LEVEL: process.env.LOG_LEVEL
 }; 

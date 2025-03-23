@@ -8,28 +8,17 @@ if (process.env.NODE_ENV !== 'prod') {
 }
 
 module.exports = {
-    PORT: process.env.PORT || 8004,
-    DB_URL: process.env.MONGODB_URI || 'mongodb://localhost:27017/admin-service',
-    APP_SECRET: process.env.APP_SECRET || 'admin_service_secret',
-    BASE_URL: process.env.BASE_URL || 'http://localhost:8004',
-    
-    // Message Broker
-    MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL || 'amqp://localhost',
-    EXCHANGE_NAME: process.env.EXCHANGE_NAME || 'B2B_EXCHANGE',
-    ADMIN_SERVICE: 'admin_service',
-    CUSTOMERS_SERVICE: 'customers_service',
-    SHOPPING_SERVICE: 'shopping_service',
-    PRODUCTS_SERVICE: 'products_service',
-    PAYMENT_SERVICE: 'payment_service',
-    NOTIFICATION_SERVICE: 'notification_service',
-    
-    // Queue names
-    QUEUE_NAME: 'admin_queue',
-    
-    // Logging
-    LOG_LEVEL: process.env.LOG_LEVEL || 'info',
-    
-    // Feature flags
+    PORT: process.env.PORT,
+    DB_URL: process.env.MONGODB_URI,
+    BASE_URL: process.env.BASE_URL,
+    APP_SECRET: process.env.APP_SECRET,
+    EXCHANGE_NAME: process.env.EXCHANGE_NAME,
+    MSG_BROKER_URL: process.env.MSG_BROKER_URL,
+    CUSTOMER_SERVICE: process.env.CUSTOMER_SERVICE,
+    SHOPPING_SERVICE: process.env.SHOPPING_SERVICE,
+    VERIFICATION_SERVICE: process.env.VERIFICATION_SERVICE,
+    LOG_LEVEL: process.env.LOG_LEVEL,
+    QUEUE_NAME: process.env.QUEUE_NAME,
     FEATURES: {
         MAX_ADMIN_USERS: process.env.MAX_ADMIN_USERS || 5,
         ANALYTICS_RETENTION_DAYS: process.env.ANALYTICS_RETENTION_DAYS || 30,

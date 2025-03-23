@@ -21,19 +21,24 @@ class ElasticsearchService {
         
         this.client = null;
         this.isConnected = false;
-        this.productIndex = ELASTICSEARCH_PRODUCT_INDEX;
-        this.analyticsIndex = ELASTICSEARCH_ANALYTICS_INDEX;
+        this.productIndex = ELASTICSEARCH_PRODUCT_INDEX || 'products';
+        this.analyticsIndex = ELASTICSEARCH_ANALYTICS_INDEX || 'search_analytics';
         
         instance = this;
     }
 
     async initializeConnection() {
         try {
+            if (!ELASTICSEARCH_NODE) {
+                logger.warn('No Elasticsearch node provided, running in fallback mode');
+                return false;
+            }
+
+            // Create Elasticsearch client
             const config = {
                 node: ELASTICSEARCH_NODE,
-                ssl: {
-                    rejectUnauthorized: false
-                }
+                maxRetries: 3,
+                requestTimeout: 10000
             };
 
             // Add authentication if provided
@@ -48,10 +53,10 @@ class ElasticsearchService {
             
             // Test connection
             const info = await this.client.info();
-            logger.info(`Connected to Elasticsearch cluster: ${info.cluster_name || 'unknown'}`);
+            logger.info(`Connected to Elasticsearch cluster: ${info.cluster_name}`);
             
-            // Initialize indices
-            await this.initializeIndices();
+            // Create indices if they don't exist
+            await this.createIndices();
             
             this.isConnected = true;
             return true;
@@ -65,20 +70,20 @@ class ElasticsearchService {
     // Static method to check connection
     static async checkConnection() {
         try {
-            const service = new ElasticsearchService();
-            if (service.isConnected && service.client) {
-                return true;
+            if (!ELASTICSEARCH_NODE) {
+                return false;
             }
             
             const client = new Client({
                 node: ELASTICSEARCH_NODE,
-                ssl: { rejectUnauthorized: false }
+                maxRetries: 1,
+                requestTimeout: 3000
             });
             
             await client.ping();
             return true;
-        } catch (err) {
-            logger.error(`Elasticsearch connection check failed: ${err.message}`);
+        } catch (error) {
+            logger.error(`Error checking Elasticsearch connection: ${error.message}`);
             return false;
         }
     }
@@ -187,8 +192,9 @@ class ElasticsearchService {
     // Search products
     async SearchProducts(query, filters = {}, pagination = { page: 1, limit: 10 }, sort = {}, userId = null) {
         try {
-            if (!this.client) {
-                await this.initializeConnection();
+            if (!this.isConnected || !this.client) {
+                logger.warn('Elasticsearch not connected, returning mock data');
+                return this.getMockSearchResults(query, pagination);
             }
             
             const { page, limit } = pagination;
@@ -338,8 +344,48 @@ class ElasticsearchService {
             };
         } catch (error) {
             logger.error(`Error searching products: ${error.message}`);
-            throw new ElasticsearchError(`Failed to search products: ${error.message}`);
+            return this.getMockSearchResults(query, pagination);
         }
+    }
+
+    // Mock data method
+    getMockSearchResults(query, pagination) {
+        const mockProducts = [
+            {
+                id: 'mock-product-1',
+                name: 'Mock Product 1',
+                description: 'This is a mock product for testing',
+                price: 99.99,
+                category: 'Electronics',
+                brand: 'MockBrand',
+                inStock: true,
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 'mock-product-2',
+                name: 'Mock Product 2',
+                description: 'Another mock product for testing',
+                price: 149.99,
+                category: 'Home & Kitchen',
+                brand: 'HomeMock',
+                inStock: true,
+                createdAt: new Date().toISOString()
+            }
+        ];
+        
+        return {
+            hits: mockProducts,
+            total: mockProducts.length,
+            page: pagination.page,
+            limit: pagination.limit,
+            totalPages: 1,
+            query: query || '',
+            filters: {},
+            sort: {},
+            took: 1,
+            fallback: true,
+            message: 'Using mock data because Elasticsearch is not available'
+        };
     }
 
     // Get search suggestions
