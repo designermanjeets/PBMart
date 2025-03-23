@@ -32,14 +32,14 @@ customer/
 ├── src/
 │   ├── api/                 # API routes and controllers
 │   │   ├── middlewares/     # Express middlewares
-│   │   └── customer.js      # Customer API endpoints
+│   │   └── customers.js     # Customer API endpoints
 │   ├── config/              # Configuration files
 │   ├── database/            # Database connection and models
 │   │   ├── models/          # Mongoose models
 │   │   └── repository/      # Repository pattern implementation
 │   ├── services/            # Business logic
 │   ├── utils/               # Utility functions
-│   │   ├── circuit-breaker.js  # Circuit breaker implementation
+│   │   ├── errors.js        # Custom error classes
 │   │   ├── logger.js        # Logging utility
 │   │   └── index.js         # Common utilities
 │   ├── express-app.js       # Express application setup
@@ -50,6 +50,19 @@ customer/
 ```
 
 ## API Endpoints
+
+### Root Endpoint
+
+- **URL**: `/`
+- **Method**: `GET`
+- **Description**: Returns basic service information
+- **Response**:
+  ```json
+  {
+    "message": "Customer service API",
+    "version": "1.0.0"
+  }
+  ```
 
 ### Authentication
 
@@ -65,10 +78,10 @@ customer/
     "phone": "1234567890"
   }
   ```
-- **Response**: JWT token and customer ID
+- **Response**: JWT token and customer details
 
-#### Sign In
-- **URL**: `/signin`
+#### Login
+- **URL**: `/login`
 - **Method**: `POST`
 - **Description**: Authenticate a customer
 - **Request Body**:
@@ -78,7 +91,7 @@ customer/
     "password": "securepassword"
   }
   ```
-- **Response**: JWT token and customer ID
+- **Response**: JWT token and customer details
 
 ### Customer Profile Management
 
@@ -94,41 +107,21 @@ customer/
 - **Method**: `PUT`
 - **Description**: Update customer profile
 - **Authentication**: Required (JWT)
-- **Request Body**: Fields to update
-- **Response**: Updated customer profile
-
-### Address Management
-
-#### Add Address
-- **URL**: `/address`
-- **Method**: `POST`
-- **Description**: Add a new address for the customer
-- **Authentication**: Required (JWT)
 - **Request Body**:
   ```json
   {
-    "street": "123 Main St",
-    "city": "Anytown",
-    "state": "ST",
-    "country": "USA",
-    "zipCode": "12345"
+    "name": "Customer Name",
+    "email": "customer@example.com",
+    "phone": "1234567890",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "postalCode": "12345",
+      "country": "USA"
+    }
   }
   ```
-- **Response**: Updated customer with new address
-
-#### Get Addresses
-- **URL**: `/address`
-- **Method**: `GET`
-- **Description**: Get all addresses for the customer
-- **Authentication**: Required (JWT)
-- **Response**: List of customer addresses
-
-#### Delete Address
-- **URL**: `/address/:id`
-- **Method**: `DELETE`
-- **Description**: Delete a customer address
-- **Authentication**: Required (JWT)
-- **Response**: Updated customer data
+- **Response**: Updated customer profile
 
 ### Wishlist Management
 
@@ -140,13 +133,12 @@ customer/
 - **Request Body**:
   ```json
   {
-    "product": {
-      "name": "Product Name",
-      "description": "Product Description",
-      "price": 100,
-      "available": true,
-      "banner": "https://example.com/banner.jpg"
-    }
+    "_id": "product_id",  // Optional - if product exists
+    "name": "Product Name",
+    "description": "Product Description",
+    "price": 100,
+    "available": true,
+    "banner": "https://example.com/banner.jpg"
   }
   ```
 - **Response**: Updated wishlist
@@ -175,14 +167,14 @@ customer/
 - **Request Body**:
   ```json
   {
-    "product": {
-      "name": "Product Name",
-      "description": "Product Description",
-      "price": 100,
-      "available": true,
-      "banner": "https://example.com/banner.jpg"
-    }
-  } 
+    "_id": "product_id",  // Optional - if product exists
+    "name": "Product Name",
+    "description": "Product Description",
+    "price": 100,
+    "available": true,
+    "banner": "https://example.com/banner.jpg",
+    "qty": 1  // Optional - defaults to 1
+  }
   ```
 - **Response**: Updated cart
 
@@ -200,113 +192,38 @@ customer/
 - **Authentication**: Required (JWT)
 - **Response**: Updated cart    
 
+### Order Management
 
-### Health Check
-
-#### Health Check Endpoint
-- **URL**: `/health`
+#### Get Orders
+- **URL**: `/orders`
 - **Method**: `GET`
-- **Description**: Check the health of the service
-- **Response**: Service health status including database and message broker connectivity
-  ```json
-  {
-    "service": "Customer Service",
-    "status": "active",
-    "time": "2023-05-15T10:30:45.123Z",
-    "database": "connected",
-    "messageBroker": "connected"
-  }
-  ```
+- **Description**: Get customer's orders
+- **Authentication**: Required (JWT)
+- **Response**: List of orders
 
-## Resilience Features
+### Database Testing
 
-### Circuit Breaker
-
-The circuit breaker pattern is implemented to prevent cascading failures. When a dependent service or database operation fails repeatedly, the circuit breaker "opens" and fails fast, preventing resource exhaustion.
-
-```javascript
-// Example usage in a service
-async SignUp(userInputs) {
-    try {
-        return await this.circuitBreaker.execute(async () => {
-            // Database operations that might fail
-            // ...
-        });
-    } catch (err) {
-        logger.error(`Error in SignUp: ${err.message}`);
-        throw new APIError('Data Not found', err);
-    }
-}
-```
-
-### Structured Logging
-
-Winston logger is used for structured logging with different log levels:
-
-```javascript
-// Example logging
-logger.info(`New customer created: ${customer._id}`);
-logger.error(`Error in SignIn: ${err.message}`);
-logger.warn(`Unauthorized access attempt: ${req.method} ${req.originalUrl}`);
-```
-
-### Health Checks
-
-The health check endpoint monitors:
-- Database connectivity
-- Message broker connectivity
-- Service status
-
-## Message Broker Integration
-
-The Customer Service communicates with other services using RabbitMQ:
-
-### Publishing Messages
-
-```javascript
-// Example of publishing a message
-await PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify({
-    event: 'CUSTOMER_CREATED',
-    data: { customerId: customer._id, email: customer.email }
-}));
-```
-
-### Subscribing to Messages
-
-```javascript
-// Example of subscribing to messages
-SubscribeMessage(channel, service);
-
-// In the service
-async SubscribeEvents(payload) {
-    const { event, data } = payload;
-    
-    switch(event) {
-        case 'ORDER_CREATED':
-            // Handle order created event
-            break;
-        // Other event types
-    }
-}
-```
+#### Test Database Connection
+- **URL**: `/test-db`
+- **Method**: `GET`
+- **Description**: Test the database connection
+- **Response**: Database connection status
 
 ## Error Handling
 
-The service implements a centralized error handling middleware:
+The service implements a centralized error handling approach with custom error classes:
 
-```javascript
-app.use((err, req, res, next) => {
-    logger.error(`Error: ${err.message}`);
-    
-    const statusCode = err.statusCode || 500;
-    const data = {
-        error: err.name || 'Internal Server Error',
-        message: err.message || 'Something went wrong',
-        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-    };
-    
-    res.status(statusCode).json(data);
-});
+- **ValidationError**: For input validation errors (400 Bad Request)
+- **AuthenticationError**: For authentication failures (401 Unauthorized)
+- **NotFoundError**: For resource not found errors (404 Not Found)
+- **DatabaseError**: For database operation errors (500 Internal Server Error)
+
+Example error response:
+```json
+{
+  "status": "error",
+  "message": "Error message details"
+}
 ```
 
 ## Database Schema
@@ -317,9 +234,9 @@ app.use((err, req, res, next) => {
 const CustomerSchema = new Schema({
     email: { type: String, unique: true },
     password: String,
-    salt: String,
     phone: String,
-    addresses: [
+    name: String,
+    address: [
         { 
             type: Schema.Types.ObjectId,
             ref: 'address'
@@ -340,13 +257,17 @@ const CustomerSchema = new Schema({
     cart: [
         {
             product: {
-                type: Schema.Types.ObjectId,
-                ref: 'product'
+                _id: String,
+                name: String,
+                price: Number,
+                banner: String
             },
             unit: { type: Number, require: true }
         }
     ],
-    createdAt: { type: Date, default: Date.now }
+    isActive: { type: Boolean, default: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 });
 ```
 
@@ -355,24 +276,80 @@ const CustomerSchema = new Schema({
 ```javascript
 const AddressSchema = new Schema({
     street: String,
+    postalCode: String,
     city: String,
-    state: String,
-    country: String,
-    zipCode: String
+    country: String
 });
 ```
 
-## Extending the Service
+## Message Broker Integration
+
+The Customer Service communicates with other services using RabbitMQ:
+
+### Publishing Messages
+
+```javascript
+await PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify({
+    event: 'CUSTOMER_CREATED',
+    data: { customerId: customer._id, email: customer.email }
+}));
+```
+
+### Subscribing to Messages
+
+```javascript
+SubscribeMessage(channel, service);
+
+// In the service
+async SubscribeEvents(payload) {
+    const { event, data } = payload;
+    
+    switch(event) {
+        case 'ADD_TO_WISHLIST':
+        case 'REMOVE_FROM_WISHLIST':
+        case 'ADD_TO_CART':
+        case 'REMOVE_FROM_CART':
+        case 'CREATE_ORDER':
+            this.repository.ManageCart(data.userId, data.product, data.qty, event);
+            break;
+        default:
+            break;
+    }
+}
+```
+
+## Development Guide
+
+### Setting Up the Development Environment
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables (create a `.env` file):
+   ```
+   APP_SECRET=your_jwt_secret
+   MONGODB_URI=mongodb://localhost:27017/customer_service
+   PORT=8001
+   MESSAGE_BROKER_URL=amqp://localhost
+   EXCHANGE_NAME=ONLINE_STORE
+   ```
+4. Start the service:
+   ```bash
+   npm run dev
+   ```
 
 ### Adding a New API Endpoint
 
-1. Define the route in `src/api/customer.js`:
+1. Define the route in `src/api/customers.js`:
 
 ```javascript
-app.get('/new-endpoint', UserAuth, async (req, res, next) => {
+router.get('/new-endpoint', validateToken, async (req, res, next) => {
     try {
-        const data = await service.NewFeature(req.user._id);
-        return res.json(data);
+        const { _id } = req.user;
+        const { data } = await service.NewFeature(_id);
+        res.status(200).json(data);
     } catch (err) {
         next(err);
     }
@@ -384,15 +361,13 @@ app.get('/new-endpoint', UserAuth, async (req, res, next) => {
 ```javascript
 async NewFeature(customerId) {
     try {
-        return await this.circuitBreaker.execute(async () => {
-            // Implementation
-            const result = await this.repository.SomeOperation(customerId);
-            logger.info(`New feature used by customer: ${customerId}`);
-            return FormateData(result);
-        });
+        // Implementation
+        const result = await this.repository.SomeOperation(customerId);
+        logger.info(`New feature used by customer: ${customerId}`);
+        return FormateData(result);
     } catch (err) {
         logger.error(`Error in NewFeature: ${err.message}`);
-        throw new APIError('Error in new feature', err);
+        throw new DatabaseError(`Failed to execute new feature: ${err.message}`);
     }
 }
 ```
@@ -403,134 +378,142 @@ async NewFeature(customerId) {
 async SomeOperation(customerId) {
     try {
         // Database operations
+        const customer = await this.FindCustomerById(customerId);
+        // Perform operations
         return result;
     } catch (err) {
-        throw new APIError('Database error', err);
+        logger.error(`Error in SomeOperation: ${err.message}`);
+        throw err;
     }
 }
 ```
 
-### Adding a New Event
+### Input Validation
 
-1. Define the event handler in the service:
+The service uses a validation middleware with Joi schemas:
 
 ```javascript
-// In SubscribeEvents method
-case 'NEW_EVENT_TYPE':
-    await this.HandleNewEvent(data);
-    break;
+// Define schema in middlewares/schemas.js
+const customerSchema = {
+    signup: Joi.object({
+        email: Joi.string().email().required(),
+        password: Joi.string().min(6).required(),
+        phone: Joi.string().required()
+    }),
+    // Other schemas
+};
 
-// New method
-async HandleNewEvent(data) {
-    // Implementation
+// Use in routes
+router.post('/signup', validateRequest(customerSchema.signup), async (req, res, next) => {
+    // Route handler
+});
+```
+
+### Authentication
+
+The service uses JWT for authentication:
+
+```javascript
+// Generate token
+const token = await GenerateSignature({
+    email: customer.email,
+    _id: customer._id
+});
+
+// Validate token middleware
+router.get('/profile', validateToken, async (req, res, next) => {
+    // Access authenticated user with req.user
+});
+```
+
+### Error Handling Best Practices
+
+1. Use try-catch blocks in all async functions
+2. Use specific error types for different scenarios
+3. Log errors with appropriate context
+4. Pass errors to the next middleware for centralized handling
+
+```javascript
+try {
+    // Operation that might fail
+} catch (err) {
+    logger.error(`Context: ${err.message}`);
+    
+    if (err.name === 'ValidationError') {
+        throw new ValidationError(err.message);
+    }
+    
+    throw new DatabaseError(`Operation failed: ${err.message}`);
 }
 ```
 
-2. Publish the event when needed:
+## Testing
 
-```javascript
-const payload = {
-    event: 'NEW_EVENT_FROM_CUSTOMER',
-    data: { /* event data */ }
-};
+### Unit Testing
 
-await PublishMessage(channel, TARGET_SERVICE, JSON.stringify(payload));
+```bash
+npm run test:unit
 ```
+
+### Integration Testing
+
+```bash
+npm run test:integration
+```
+
+### Manual Testing with Postman
+
+A Postman collection is available in the `docs/postman` directory for testing the API endpoints.
 
 ## Deployment
 
-The service is containerized using Docker and can be deployed with Docker Compose:
+### Docker
 
 ```bash
-# Build and start the service
-docker-compose up -d customer
+# Build the image
+docker build -t customer-service .
 
-# View logs
-docker-compose logs -f customer
-
-# Restart the service
-docker-compose restart customer
+# Run the container
+docker run -p 8001:8001 --env-file .env customer-service
 ```
 
-## Environment Variables
+### Docker Compose
 
-The service uses the following environment variables:
-
-- `APP_SECRET`: Secret key for JWT signing
-- `MONGODB_URI`: MongoDB connection string
-- `PORT`: Service port (default: 8001)
-- `MESSAGE_BROKER_URL`: RabbitMQ connection string
-- `EXCHANGE_NAME`: RabbitMQ exchange name
-- `QUEUE_NAME`: RabbitMQ queue name
-- `NODE_ENV`: Environment (development/production)
+```yaml
+version: '3'
+services:
+  customer:
+    build: ./customers
+    ports:
+      - "8001:8001"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/customer_service
+      - MESSAGE_BROKER_URL=amqp://rabbitmq
+      - APP_SECRET=your_jwt_secret
+    depends_on:
+      - mongo
+      - rabbitmq
+```
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Database Connection Failures**:
+1. **Authentication Failures**:
+   - Check if token is expired or malformed
+   - Verify that APP_SECRET is consistent
+   - Ensure the user exists and is active
+
+2. **Database Connection Issues**:
    - Check MongoDB connection string
    - Verify network connectivity
-   - Check MongoDB logs
+   - Use the `/test-db` endpoint to test connection
 
-2. **Message Broker Issues**:
-   - Verify RabbitMQ is running
-   - Check connection string
-   - Ensure exchanges and queues are properly configured
-
-3. **Authentication Failures**:
-   - Verify JWT token is properly formatted
-   - Check if token is expired
-   - Ensure APP_SECRET is consistent
-
-### Monitoring
-
-- Use the `/health` endpoint to check service health
-- Monitor logs in the `logs/` directory
-- Set up alerts for error-level log entries
-
-## Best Practices
-
-1. **Error Handling**: Always use try-catch blocks and pass errors to the next middleware
-2. **Validation**: Validate all input data before processing
-3. **Logging**: Use appropriate log levels (info, warn, error)
-4. **Circuit Breaking**: Use circuit breakers for external dependencies
-5. **Testing**: Write unit and integration tests for new features
+3. **Validation Errors**:
+   - Check request payload against schema requirements
+   - Look for missing required fields
+   - Verify data types and formats
 
 ## Conclusion
 
 The Customer Service is designed with scalability, resilience, and maintainability in mind. By following the patterns and practices outlined in this documentation, you can extend and enhance the service while maintaining its reliability.
-
-## Tenant Service vs Customer Service
-
-In a B2B e-commerce platform, it's common to have both Tenant and Customer services, as they serve different purposes:
-
-### Tenant Service
-- Represents sellers or vendors in the B2B platform
-- Manages organizations that sell products/services 
-- Handles multi-tenancy aspects of the platform
-- Manages tenant-specific settings, branding, catalogs
-- Typically includes tenant admin users, tenant settings, etc.
-
-### Customer Service
-- Represents buyers or purchasing organizations
-- Manages organizations that buy products/services
-- Handles customer accounts, profiles, and purchasing history
-- Manages customer-specific pricing, discounts, etc.
-- Typically includes customer users, addresses, payment methods, etc.
-
-### Do You Need Both?
-Yes, for a complete B2B e-commerce platform, you typically need both services because they serve different user types with different needs:
-
-1. **Different User Journeys**: Sellers (tenants) and buyers (customers) have completely different journeys and needs in the platform.
-2. **Different Data Models**: The data you store for a tenant (seller) is very different from what you store for a customer (buyer).
-3. **Separation of Concerns**: Keeping these services separate follows good microservice design principles.
-4. **Scalability**: Different parts of your system may need to scale differently (you might have many more customers than tenants).
-
-### Example Scenario
-In your B2B platform:
-- **Tenant Service**: Manages Company A, B, and C who sell products on your platform
-- **Customer Service**: Manages Company X, Y, and Z who purchase products from those sellers
-- Each has different needs, permissions, and data requirements.
-
-> **Note**: If you're building a simplified version, you could potentially combine them, but for a proper B2B platform, having both services is the recommended approach.

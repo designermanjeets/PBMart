@@ -267,3 +267,45 @@
 {"level":"info","message":"Getting cart for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-19 22:43:17"}
 {"level":"info","message":"DELETE /api/customers/cart/67dafb18e55a93f24ae77646","module":"app","service":"customer-service","timestamp":"2025-03-19 22:44:19"}
 {"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-19 22:44:19"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:53:58"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:53:58"}
+{"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 15:53:59"}
+{"level":"info","message":"GET /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 15:54:43"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 15:54:43"}
+{"level":"error","message":"Error finding customer by ID: Invalid customer ID format","module":"customer-repository","service":"customer-service","timestamp":"2025-03-23 15:54:43"}
+{"level":"error","message":"Error getting profile: Invalid customer ID format","module":"customer-service","service":"customer-service","timestamp":"2025-03-23 15:54:43"}
+{"level":"info","message":"GET /api/customers/cart","module":"app","service":"customer-service","timestamp":"2025-03-23 15:54:52"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 15:54:52"}
+{"level":"info","message":"Getting cart for customer: 67dae594ef5898e951ea23c3","module":"customer-service","service":"customer-service","timestamp":"2025-03-23 15:54:52"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:56:21"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:56:21"}
+{"level":"info","message":"GET /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 15:56:24"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 15:56:24"}
+{"level":"error","message":"Error finding customer by ID: Invalid customer ID format","module":"customer-repository","service":"customer-service","timestamp":"2025-03-23 15:56:24"}
+{"level":"error","message":"Error getting profile: Invalid customer ID format","module":"customer-service","service":"customer-service","timestamp":"2025-03-23 15:56:24"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:57:19"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:57:19"}
+{"level":"info","message":"GET /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 15:57:23"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 15:57:23"}
+{"level":"info","message":"PUT /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 15:59:04"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 15:59:04"}
+{"level":"error","message":"APIError is not a constructor","module":"error-handler","service":"customer-service","status":"error","statusCode":500,"timestamp":"2025-03-23 15:59:04"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:59:46"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 15:59:46"}
+{"level":"info","message":"PUT /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 15:59:50"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 15:59:50"}
+{"level":"error","message":"Error updating profile: this.repository.UpdateCustomerProfile is not a function","module":"customer-service","service":"customer-service","timestamp":"2025-03-23 15:59:50"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:01:32"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:01:32"}
+{"level":"info","message":"PUT /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 16:01:35"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 16:01:35"}
+{"level":"error","message":"Error updating customer profile: Cast to ObjectId failed for value \"{\n  street: '123 Tech Park',\n  city: 'Bangalore',\n  state: 'Karnataka',\n  country: 'India',\n  postalCode: '560001'\n}\" (type Object) at path \"address\" because of \"BSONTypeError\"","module":"customer-repository","service":"customer-service","timestamp":"2025-03-23 16:01:36"}
+{"level":"error","message":"Error updating profile: Cast to ObjectId failed for value \"{\n  street: '123 Tech Park',\n  city: 'Bangalore',\n  state: 'Karnataka',\n  country: 'India',\n  postalCode: '560001'\n}\" (type Object) at path \"address\" because of \"BSONTypeError\"","module":"customer-service","service":"customer-service","timestamp":"2025-03-23 16:01:36"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:02:23"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:02:23"}
+{"level":"info","message":"PUT /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 16:02:25"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 16:02:25"}
+{"level":"info","message":"PUT /api/customers/profile","module":"app","service":"customer-service","timestamp":"2025-03-23 16:02:34"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 16:02:34"}
+{"level":"info","message":"GET /api/customers/orders","module":"app","service":"customer-service","timestamp":"2025-03-23 16:03:36"}
+{"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 16:03:36"}

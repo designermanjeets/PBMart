@@ -384,6 +384,54 @@ class CustomerRepository {
         }
     }
 
+    async UpdateCustomerProfile(customerId, userInputs) {
+        try {
+            console.log(`Updating profile for customer: ${customerId}`, userInputs);
+            
+            const customer = await this.FindCustomerById(customerId);
+            
+            if (!customer) {
+                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            }
+            
+            // Update only the fields that are provided
+            if (userInputs.name) customer.name = userInputs.name;
+            if (userInputs.email) customer.email = userInputs.email;
+            if (userInputs.phone) customer.phone = userInputs.phone;
+            
+            // Handle address update
+            if (userInputs.address) {
+                // Create a new address using the AddressModel
+                const newAddress = new AddressModel({
+                    street: userInputs.address.street,
+                    postalCode: userInputs.address.postalCode,
+                    city: userInputs.address.city,
+                    country: userInputs.address.country
+                });
+                
+                // Save the new address
+                await newAddress.save();
+                
+                // If customer doesn't have an address array, create it
+                if (!customer.address) {
+                    customer.address = [];
+                }
+                
+                // Add the new address to the array
+                customer.address.push(newAddress);
+            }
+            
+            // Save the updated customer
+            await customer.save();
+            console.log(`Customer profile updated successfully: ${customerId}`);
+            
+            return customer;
+        } catch (error) {
+            logger.error(`Error updating customer profile: ${error.message}`);
+            throw error;
+        }
+    }
+
 }
 
 module.exports = CustomerRepository;

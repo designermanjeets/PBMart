@@ -55,6 +55,14 @@ module.exports = (app, channel) => {
     router.get('/profile', validateToken, async (req, res, next) => {
         try {
             const { _id } = req.user;
+            
+            // Validate that _id is a valid MongoDB ObjectId
+            if (!_id || !mongoose.Types.ObjectId.isValid(_id)) {
+                return res.status(400).json({
+                    message: 'Invalid customer ID format'
+                });
+            }
+            
             const { data } = await service.GetProfile({ _id });
             res.status(200).json(data);
         } catch (err) {
@@ -66,6 +74,14 @@ module.exports = (app, channel) => {
     router.put('/profile', validateToken, validateRequest(customerSchema.profile), async (req, res, next) => {
         try {
             const { _id } = req.user;
+            
+            // Validate that _id is a valid MongoDB ObjectId
+            if (!_id || !mongoose.Types.ObjectId.isValid(_id)) {
+                return res.status(400).json({
+                    message: 'Invalid customer ID format'
+                });
+            }
+            
             const { name, email, phone, address } = req.body;
             const { data } = await service.UpdateProfile(_id, { name, email, phone, address });
             res.status(200).json(data);

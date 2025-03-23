@@ -3,6 +3,8 @@ const { FormateData, GeneratePassword, GenerateSalt, GenerateSignature, Validate
 const { NotFoundError, ValidationError, DatabaseError, AuthenticationError } = require('../utils/errors');
 const { createLogger } = require('../utils/logger');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const { APIError } = require('../utils/errors');
 
 // Add this line to define the logger
 const logger = createLogger('customer-service');
@@ -140,23 +142,20 @@ class CustomerService {
         }
     }
 
-    async GetProfile(customerId){
+    async GetProfile({ _id }) {
         try {
-            const customer = await this.repository.FindCustomerById(customerId);
+            // Convert _id to string if it's an object
+            const customerId = typeof _id === 'object' ? _id.toString() : _id;
             
-            if (!customer) {
-                throw new NotFoundError(`Customer not found with ID: ${customerId}`);
+            // Validate the ID format
+            if (!mongoose.Types.ObjectId.isValid(customerId)) {
+                throw new ValidationError('Invalid customer ID format');
             }
             
-            return FormateData(customer);
-        } catch (error) {
-            logger.error(`Error getting profile: ${error.message}`);
-            
-            if (error.name === 'NotFoundError') {
-                throw error;
-            }
-            
-            throw new DatabaseError(`Failed to get profile: ${error.message}`);
+            const existingCustomer = await this.repository.FindCustomerById(customerId);
+            return FormateData(existingCustomer);
+        } catch (err) {
+            throw new APIError('Error getting profile: ' + err.message);
         }
     }
 
@@ -496,6 +495,29 @@ class CustomerService {
         } catch (err) {
             logger.error(`Error getting cart: ${err.message}`);
             throw err;
+        }
+    }
+
+    async UpdateProfile(id, userInputs) {
+        try {
+            // Convert id to string if it's an object
+            const customerId = typeof id === 'object' ? id.toString() : id;
+            
+            // Validate the ID format
+            if (!mongoose.Types.ObjectId.isValid(customerId)) {
+                throw new ValidationError('Invalid customer ID format');
+            }
+            
+            const updatedCustomer = await this.repository.UpdateCustomerProfile(customerId, userInputs);
+            return FormateData(updatedCustomer);
+        } catch (err) {
+            logger.error(`Error updating profile: ${err.message}`);
+            
+            if (err.name === 'ValidationError') {
+                throw err;
+            }
+            
+            throw new DatabaseError(`Failed to update profile: ${err.message}`);
         }
     }
 
