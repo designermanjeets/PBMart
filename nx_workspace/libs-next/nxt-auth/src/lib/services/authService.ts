@@ -134,6 +134,17 @@ export const authService = {
       throw error;
     }
   },
+
+  logout: async () => {
+    try {
+      localStorage.removeItem('token');
+      
+      return { success: true };
+    } catch (error) {
+      console.error('Logout error:', error);
+      throw error;
+    }
+  },
 };
 
 // Set up axios interceptor to add the token to all requests

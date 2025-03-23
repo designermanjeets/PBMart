@@ -1,5 +1,5 @@
 module.exports = {
-  PORT: process.env.PORT || 8001,
+  PORT: process.env.PORT || 8000,
   DB_URL: process.env.MONGODB_URI || 'mongodb+srv://designermanjeets:U0N24OFr0g1CPHSs@xbusiness.hcn8v.mongodb.net/?retryWrites=true&w=majority&appName=Xbusiness',
   APP_SECRET: process.env.APP_SECRET || 'jg_youtube_tutorial',
   EXCHANGE_NAME: process.env.EXCHANGE_NAME || 'ONLINE_STORE',

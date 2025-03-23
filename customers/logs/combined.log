@@ -309,3 +309,6 @@
 {"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 16:02:34"}
 {"level":"info","message":"GET /api/customers/orders","module":"app","service":"customer-service","timestamp":"2025-03-23 16:03:36"}
 {"level":"info","message":"Authenticated user ID: 67dae594ef5898e951ea23c3","module":"auth-middleware","service":"customer-service","timestamp":"2025-03-23 16:03:36"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:20:25"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"customer-service","timestamp":"2025-03-23 16:20:25"}
+{"level":"info","message":"POST /api/customers/login","module":"app","service":"customer-service","timestamp":"2025-03-23 16:20:42"}
