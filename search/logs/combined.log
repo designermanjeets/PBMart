@@ -363,3 +363,24 @@
 2025-03-23 18:54:39 [warn]: [express-app] Failed to create message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}
 2025-03-23 18:54:39 [info]: [express-app] Express app configured{"metadata":{}}
 2025-03-23 18:54:39 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-23 14:19:42 [error]: [database] Error connecting to database: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/{"metadata":{}}
+2025-03-23 14:19:42 [info]: [server] Database connection skipped or failed, but continuing startup{"metadata":{}}
+2025-03-23 14:19:42 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-23 14:19:42 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: this.createIndices is not a function{"metadata":{}}
+2025-03-23 14:19:42 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-23 14:19:42 [error]: [server] UNCAUGHT EXCEPTION: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'B2B_EXCHANGE' in vhost '/': received 'topic' but current is 'direct'"{"metadata":{}}
+2025-03-23 14:30:57 [info]: [database] Database connected{"metadata":{}}
+2025-03-23 14:31:02 [info]: [elasticsearch-service] Connected to Elasticsearch cluster: docker-cluster{"metadata":{}}
+2025-03-23 14:31:02 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: this.createIndices is not a function{"metadata":{}}
+2025-03-23 14:31:02 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-23 14:31:02 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-23 14:31:02 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-23 14:31:02 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-23 14:31:02 [info]: [server] Search Service running on port 8009{"metadata":{}}
+2025-03-23 15:29:17 [info]: [database] Database connected{"metadata":{}}
+2025-03-23 15:29:23 [error]: [elasticsearch-service] Failed to connect to Elasticsearch: connect ECONNREFUSED 172.18.0.4:9200{"metadata":{}}
+2025-03-23 15:29:23 [warn]: [server] Failed to connect to Elasticsearch, but continuing startup{"metadata":{}}
+2025-03-23 15:29:24 [info]: [message-broker] Message broker connection established{"metadata":{}}
+2025-03-23 15:29:24 [info]: [search-controller] Subscribed to product events{"metadata":{}}
+2025-03-23 15:29:24 [info]: [express-app] Express app configured{"metadata":{}}
+2025-03-23 15:29:24 [info]: [server] Search Service running on port 8009{"metadata":{}}

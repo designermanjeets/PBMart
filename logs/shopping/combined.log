@@ -125,3 +125,13 @@
 {"level":"error","message":"Authentication error: Authorization header is required","module":"auth-middleware","service":"shopping-service","timestamp":"2025-03-19 12:40:19"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-19 13:42:29"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"shopping-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:20:19"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:20:19"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:26:24"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:31:32"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:31:32"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:33:15"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-23 14:41:06"}
+{"level":"warn","message":"Message broker channel not available. Some functionality may be limited.","module":"app","service":"shopping-service","timestamp":"2025-03-23 15:29:53"}
+{"level":"warn","message":"Message broker channel not available. Event subscription skipped.","module":"app","service":"shopping-service","timestamp":"2025-03-23 15:29:53"}
+{"level":"info","message":"GET /api/shopping","module":"app","service":"shopping-service","timestamp":"2025-03-23 15:30:28"}

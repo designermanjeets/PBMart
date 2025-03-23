@@ -5,73 +5,74 @@ const mongoose = require("mongoose");
 const { products, setupRootRoutes } = require("./api");
 const errorHandler = require('./api/middlewares/error-handler');
 const { createChannel } = require("./utils/message-broker");
-const logger = require('./utils/logger');
+const { createLogger } = require('./utils/logger');
+const logger = createLogger('express-app');
 
 module.exports = async (app) => {
-    app.use(express.json({ limit: '1mb' }));
-    app.use(express.urlencoded({ extended: true, limit: '1mb' }));
-    app.use(cors());
-    app.use(express.static(__dirname + "/public"));
-
-    // Request logging middleware
-    app.use((req, res, next) => {
-        logger.info(`${req.method} ${req.url}`);
-        next();
-    });
-
-    // Create message broker channel
-    let channel;
     try {
-        channel = await createChannel();
-        if (!channel) {
-            logger.warn("Message broker channel not available. Some functionality may be limited.");
-        } else {
-            logger.info("Message broker channel created successfully");
-        }
-    } catch (err) {
-        logger.error(`Error creating message broker channel: ${err.message}`);
-        logger.info("Continuing without message broker functionality");
-    }
+        app.use(express.json({ limit: '1mb' }));
+        app.use(express.urlencoded({ extended: true, limit: '1mb' }));
+        app.use(cors());
+        app.use(express.static(__dirname + "/public"));
 
-    // Health check endpoint
-    app.get('/health', async (req, res) => {
+        // Request logging middleware
+        app.use((req, res, next) => {
+            logger.info(`${req.method} ${req.url}`);
+            next();
+        });
+
+        // Create message broker channel
+        let channel = null;
         try {
-            // Check database connection
-            const dbStatus = mongoose.connection.readyState === 1;
-            
-            // Check message broker connection
-            const brokerStatus = channel ? 'connected' : 'disconnected';
-            
-            return res.status(200).json({
-                service: 'Products Service',
-                status: 'active',
-                time: new Date(),
-                database: dbStatus ? 'connected' : 'disconnected',
-                messageBroker: brokerStatus
-            });
+            channel = await createChannel();
+            if (!channel) {
+                logger.warn("Message broker channel not available. Some functionality may be limited.");
+            } else {
+                logger.info("Message broker channel created successfully");
+            }
         } catch (err) {
-            return res.status(503).json({
-                service: 'Products Service',
-                status: 'error',
-                time: new Date(),
-                error: err.message
-            });
+            logger.error(`Error creating message broker channel: ${err.message}`);
+            logger.warn("Continuing without message broker functionality");
         }
-    });
 
-    // Setup root routes
-    setupRootRoutes(app);
-    
-    // Setup API routes with prefix
-    app.use('/api/products', products(app, channel));
+        // Health check endpoint
+        app.get('/health', async (req, res) => {
+            try {
+                return res.status(200).json({
+                    service: 'Products Service',
+                    status: 'active',
+                    time: new Date(),
+                    messageBroker: channel ? 'connected' : 'disconnected'
+                });
+            } catch (err) {
+                return res.status(503).json({
+                    service: 'Products Service',
+                    status: 'error',
+                    time: new Date(),
+                    error: err.message
+                });
+            }
+        });
 
-    // Add this before the error handler middleware
-    app.use('*', (req, res, next) => {
-        const error = new Error(`Route ${req.originalUrl} not found`);
-        error.statusCode = 404;
-        next(error);
-    });
+        // Setup root routes
+        setupRootRoutes(app);
+        
+        // Setup API routes with prefix
+        app.use('/api/products', products(app, channel));
 
-    // Error handling middleware (should be last)
-    app.use(errorHandler);
+        // Add this before the error handler middleware
+        app.use('*', (req, res, next) => {
+            const error = new Error(`Route ${req.originalUrl} not found`);
+            error.statusCode = 404;
+            next(error);
+        });
+
+        // Error handling middleware (should be last)
+        app.use(errorHandler);
+        
+        logger.info('Express app configured successfully');
+    } catch (error) {
+        logger.error(`Error configuring express app: ${error.message}`);
+        throw error;
+    }
 };

@@ -54,59 +54,77 @@ module.exports.FormateData = (data) => {
 
 // Message Broker
 module.exports.CreateChannel = async () => {
-    let retries = 5;
-    while (retries) {
-        try {
-            const connection = await amqplib.connect(MESSAGE_BROKER_URL);
-            const channel = await connection.createChannel();
-            await channel.assertExchange(EXCHANGE_NAME, 'direct', false);
-            console.log('Successfully connected to RabbitMQ');
-            return channel;
-        } catch (err) {
-            console.log(`Error connecting to message broker (retries left: ${retries}):`, err.message);
-            retries -= 1;
-            // Wait for 5 seconds before retrying
-            await new Promise(resolve => setTimeout(resolve, 5000));
-        }
+    try {
+        logger.info(`Attempting to connect to RabbitMQ at ${MESSAGE_BROKER_URL}`);
+        const connection = await amqplib.connect(MESSAGE_BROKER_URL);
+        const channel = await connection.createChannel();
+        
+        // Use 'topic' exchange type to match existing exchange
+        await channel.assertExchange(EXCHANGE_NAME, 'topic', { durable: true });
+        
+        logger.info('Connected to RabbitMQ and channel created');
+        return channel;
+    } catch (error) {
+        logger.error(`Error creating channel: ${error.message}`);
+        return null; // Return null instead of throwing to allow service to continue
     }
-    // After all retries, return null
-    console.log('Failed to connect to RabbitMQ after multiple attempts');
-    return null;
 };
 
-module.exports.PublishMessage = async (channel, service, msg) => {
+module.exports.PublishMessage = async (channel, routingKey, message) => {
     try {
         if (!channel) {
             logger.warn('Cannot publish message: Channel not available');
-            return false;
+            return;
         }
         
-        await channel.publish(EXCHANGE_NAME, service, Buffer.from(JSON.stringify(msg)));
-        return true;
-    } catch (err) {
-        logger.error(`Error publishing message: ${err.message}`);
-        return false;
+        await channel.publish(
+            EXCHANGE_NAME,
+            routingKey,
+            Buffer.from(JSON.stringify(message))
+        );
+        logger.info(`Message published to ${routingKey}`);
+    } catch (error) {
+        logger.error(`Error publishing message: ${error.message}`);
     }
 };
 
 module.exports.SubscribeMessage = async (channel, service) => {
     try {
         if (!channel) {
-            console.log('Channel not available for subscription');
+            logger.warn('Cannot subscribe to messages: Channel not available');
             return;
         }
         
         const appQueue = await channel.assertQueue(QUEUE_NAME);
         
-        channel.bindQueue(appQueue.queue, EXCHANGE_NAME, TENANT_SERVICE);
+        // Bind queue to exchange with appropriate routing keys
+        const bindingKeys = [
+            'tenant.created',
+            'tenant.updated',
+            'tenant.deleted',
+            'user.created',
+            'user.updated'
+        ];
+        
+        for (const key of bindingKeys) {
+            await channel.bindQueue(appQueue.queue, EXCHANGE_NAME, key);
+        }
         
         channel.consume(appQueue.queue, data => {
-            console.log('Received data in tenant service');
-            console.log(data.content.toString());
-            service.SubscribeEvents(JSON.parse(data.content.toString()));
-            channel.ack(data);
+            if (data) {
+                try {
+                    const message = JSON.parse(data.content.toString());
+                    service.SubscribeEvents(message);
+                    channel.ack(data);
+                } catch (error) {
+                    logger.error(`Error processing message: ${error.message}`);
+                    channel.nack(data, false, false); // Don't requeue
+                }
+            }
         });
-    } catch (err) {
-        console.log('Error in subscription:', err.message);
+        
+        logger.info(`Subscribed to ${bindingKeys.join(', ')} events`);
+    } catch (error) {
+        logger.error(`Error subscribing to messages: ${error.message}`);
     }
 }; 

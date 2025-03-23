@@ -2,21 +2,45 @@ const express = require('express');
 const { PORT } = require('./config');
 const { databaseConnection } = require('./database');
 const expressApp = require('./express-app');
+const logger = require('./utils/logger');
 
 const StartServer = async () => {
     const app = express();
     
-    await databaseConnection();
-    
-    await expressApp(app);
+    try {
+        // Connect to database
+        await databaseConnection();
+        logger.info('Tenants Database Connected');
+        
+        // Configure express app
+        await expressApp(app);
+        
+        // Start server
+        app.listen(PORT, () => {
+            logger.info(`Tenants service listening on port ${PORT}`);
+        })
+        .on('error', (err) => {
+            logger.error(`Server error: ${err.message}`);
+            process.exit(1);
+        });
+    } catch (error) {
+        logger.error(`Error starting server: ${error.message}`);
+        process.exit(1);
+    }
+};
 
-    app.listen(PORT, () => {
-        console.log(`Tenant service listening on port ${PORT}`);
-    })
-    .on('error', (err) => {
-        console.log(err);
-        process.exit();
-    });
-}
+// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+    logger.error(`Uncaught Exception: ${err.message}`);
+    logger.error(err.stack);
+    process.exit(1);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+    logger.error(`Unhandled Rejection: ${err.message}`);
+    logger.error(err.stack);
+    process.exit(1);
+});
 
 StartServer(); 

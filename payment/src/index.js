@@ -7,17 +7,41 @@ const logger = createLogger('server');
 
 const StartServer = async () => {
     const app = express();
-
-    await databaseConnection();
     
-    await expressApp(app);
-
-    app.listen(PORT, () => {
-        logger.info(`Payment Service running on port ${PORT}`);
-    }).on('error', (err) => {
-        logger.error(`Error starting server: ${err.message}`);
+    try {
+        // Connect to database
+        await databaseConnection();
+        logger.info('Payment Database Connected');
+        
+        // Configure express app
+        await expressApp(app);
+        
+        // Start server
+        app.listen(PORT, () => {
+            logger.info(`Payment service listening on port ${PORT}`);
+        })
+        .on('error', (err) => {
+            logger.error(`Server error: ${err.message}`);
+            process.exit(1);
+        });
+    } catch (error) {
+        logger.error(`Error starting server: ${error.message}`);
         process.exit(1);
-    });
+    }
 };
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+    logger.error(`Uncaught Exception: ${err.message}`);
+    logger.error(err.stack);
+    process.exit(1);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+    logger.error(`Unhandled Rejection: ${err.message}`);
+    logger.error(err.stack);
+    process.exit(1);
+});
 
 StartServer(); 

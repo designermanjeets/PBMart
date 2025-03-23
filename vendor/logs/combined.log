@@ -336,3 +336,22 @@
 2025-03-23 18:59:14 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
 2025-03-23 18:59:14 [info]: [index] Vendor service running on port 8010{"metadata":{}}
 2025-03-23 18:59:23 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-03-23 14:19:42 [error]: [database] Error connecting to database: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/{"metadata":{}}
+2025-03-23 14:19:42 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-23 14:19:42 [info]: [message-broker] Message broker channel created{"metadata":{}}
+2025-03-23 14:19:42 [info]: [express-app] Message broker channel created successfully{"metadata":{}}
+2025-03-23 14:19:42 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-23 14:30:57 [info]: [database] Database Connected{"metadata":{}}
+2025-03-23 14:30:57 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-23 14:30:57 [error]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-23 14:30:57 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-23 14:30:57 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-03-23 14:30:57 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-23 15:24:51 [info]: [express-app] GET /api/vendor{"metadata":{}}
+2025-03-23 15:29:17 [info]: [database] Database Connected{"metadata":{}}
+2025-03-23 15:29:17 [info]: [index] Successfully connected to database{"metadata":{}}
+2025-03-23 15:29:17 [error]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-03-23 15:29:17 [error]: [express-app] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
+2025-03-23 15:29:17 [info]: [express-app] Continuing without message broker functionality{"metadata":{}}
+2025-03-23 15:29:17 [info]: [index] Vendor service running on port 8010{"metadata":{}}
+2025-03-23 15:30:11 [info]: [express-app] GET /api/vendor{"metadata":{}}

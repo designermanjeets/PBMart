@@ -542,3 +542,37 @@
 {"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-19 14:01:38"}
 {"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-03-19 14:01:38"}
 {"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-03-19 14:01:38"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:25:03"}
+{"level":"info","message":"Successfully connected to RabbitMQ","module":"app","service":"products-service","timestamp":"2025-03-23 14:25:03"}
+{"level":"info","message":"Message broker channel created successfully","module":"app","service":"products-service","timestamp":"2025-03-23 14:25:03"}
+{"level":"info","message":"GET /api/products","module":"app","service":"products-service","timestamp":"2025-03-23 14:25:06"}
+{"level":"info","message":"Getting all products","module":"products-api","service":"products-service","timestamp":"2025-03-23 14:25:06"}
+{"level":"info","message":"GET /api/products/docs","module":"app","service":"products-service","timestamp":"2025-03-23 14:25:17"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:07"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:09"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:10"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:11"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:13"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:16"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:20"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:28"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:31:42"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:32:08"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"app","service":"products-service","timestamp":"2025-03-23 14:33:01"}
+{"level":"info","message":"Products Database Connected","module":"server","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"message-broker","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"Connected to RabbitMQ and channel created","module":"message-broker","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"Message broker channel created successfully","module":"express-app","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"Products service listening on port 8002","module":"server","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"Express app configured successfully","module":"express-app","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"Subscribed to product.created, product.updated, product.deleted, category.created, category.updated events","module":"message-broker","service":"products-service","timestamp":"2025-03-23 14:33:57"}
+{"level":"info","message":"GET /api/products/docs","module":"express-app","service":"products-service","timestamp":"2025-03-23 14:34:11"}
+{"level":"info","message":"GET /api/products/docs","module":"express-app","service":"products-service","timestamp":"2025-03-23 14:41:08"}
+{"level":"info","message":"Products Database Connected","module":"server","service":"products-service","timestamp":"2025-03-23 15:29:28"}
+{"level":"info","message":"Attempting to connect to RabbitMQ at amqp://rabbitmq:5672","module":"message-broker","service":"products-service","timestamp":"2025-03-23 15:29:28"}
+{"level":"info","message":"Connected to RabbitMQ and channel created","module":"message-broker","service":"products-service","timestamp":"2025-03-23 15:29:28"}
+{"level":"info","message":"Message broker channel created successfully","module":"express-app","service":"products-service","timestamp":"2025-03-23 15:29:28"}
+{"level":"info","message":"Products service listening on port 8002","module":"server","service":"products-service","timestamp":"2025-03-23 15:29:28"}
+{"level":"info","message":"Express app configured successfully","module":"express-app","service":"products-service","timestamp":"2025-03-23 15:29:28"}
+{"level":"info","message":"Subscribed to product.created, product.updated, product.deleted, category.created, category.updated events","module":"message-broker","service":"products-service","timestamp":"2025-03-23 15:29:29"}
+{"level":"info","message":"GET /api/products/docs","module":"express-app","service":"products-service","timestamp":"2025-03-23 15:30:31"}
