@@ -847,3 +847,45 @@
 2025-03-02 16:08:03 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
 2025-03-19 12:35:23 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.2:5672{"metadata":{}}
 2025-03-19 13:42:22 [[31merror[39m]: [message-broker] Error creating message broker channel: connect ECONNREFUSED 172.18.0.3:5672{"metadata":{}}
+2025-03-23 17:13:24 [[31merror[39m]: [database] Error connecting to database: getaddrinfo ENOTFOUND nosql-db{"metadata":{}}
+2025-03-23 17:14:13 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:18:30 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:18:30 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:19:56 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:19:59 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:19:59 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:21:37 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:23:17 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:23:17 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:23:23 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:23:29 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:23:29 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:28:05 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:28:05 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:35:04 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:35:34 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:35:34 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:35:38 [[31merror[39m]: [notification-service] Error sending email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:35:38 [[31merror[39m]: [express-app] Error: Failed to send email notification: Template with name welcome_email not found{"metadata":{}}
+2025-03-23 17:36:37 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:37:10 [[31merror[39m]: [notification-repository] Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:37:10 [[31merror[39m]: [notification-service] Error sending email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:37:10 [[31merror[39m]: [express-app] Error: Failed to send email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:38:12 [[31merror[39m]: [notification-repository] Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:38:12 [[31merror[39m]: [notification-service] Error sending email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:38:12 [[31merror[39m]: [express-app] Error: Failed to send email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:39:01 [[31merror[39m]: [notification-repository] Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:39:01 [[31merror[39m]: [notification-service] Error sending email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:39:01 [[31merror[39m]: [express-app] Error: Failed to send email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:39:38 [[31merror[39m]: [notification-repository] Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:39:38 [[31merror[39m]: [notification-service] Error sending email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:39:38 [[31merror[39m]: [express-app] Error: Failed to send email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:40:50 [[31merror[39m]: [notification-repository] Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:40:50 [[31merror[39m]: [notification-service] Error sending email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:40:50 [[31merror[39m]: [express-app] Error: Failed to send email notification: Error creating notification: Notification validation failed: userId: User ID is required{"metadata":{}}
+2025-03-23 17:41:09 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:41:52 [[31merror[39m]: [email-service] Error sending email: getaddrinfo ENOTFOUND smtp.example.com{"metadata":{}}
+2025-03-23 17:41:52 [[31merror[39m]: [notification-service] Error sending email notification: Failed to send email: getaddrinfo ENOTFOUND smtp.example.com{"metadata":{}}
+2025-03-23 17:41:52 [[31merror[39m]: [express-app] Error: Failed to send email notification: Failed to send email: getaddrinfo ENOTFOUND smtp.example.com{"metadata":{}}
+2025-03-23 17:42:57 [[31merror[39m]: [message-broker] Error creating message broker channel: {"metadata":{}}
+2025-03-23 17:44:07 [[31merror[39m]: [message-broker] Error creating message broker channel: getaddrinfo ENOTFOUND rabbitmq{"metadata":{}}

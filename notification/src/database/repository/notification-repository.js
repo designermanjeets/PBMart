@@ -1,15 +1,25 @@
 const Notification = require('../models/Notification');
-const { DatabaseError, NotFoundError } = require('../../utils/errors');
+const { DatabaseError, NotFoundError, ValidationError } = require('../../utils/errors');
 const { createLogger } = require('../../utils/logger');
 const logger = createLogger('notification-repository');
 
 class NotificationRepository {
     async CreateNotification(notificationData) {
         try {
+            console.log('Creating notification with data:', JSON.stringify(notificationData));
+            
+            // Make sure userId is present and valid
+            if (!notificationData.userId) {
+                console.error('userId is missing in notification data');
+                throw new ValidationError('User ID is required');
+            }
+            
             const notification = new Notification(notificationData);
             const result = await notification.save();
+            console.log('Notification created successfully with ID:', result.id);
             return result;
         } catch (err) {
+            console.error('Error creating notification:', err.message);
             logger.error(`Error creating notification: ${err.message}`);
             throw new DatabaseError(`Error creating notification: ${err.message}`);
         }

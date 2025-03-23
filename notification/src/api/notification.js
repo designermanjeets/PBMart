@@ -8,6 +8,7 @@ const { notificationSchema } = require('./middlewares/schemas');
 const { NotFoundError, ValidationError } = require('../utils/errors');
 const { createLogger } = require('../utils/logger');
 const logger = createLogger('notification-api');
+const TemplateRepository = require('../database/repository/template-repository');
 
 module.exports = (app, channel) => {
     const router = express.Router();
@@ -39,6 +40,16 @@ module.exports = (app, channel) => {
     router.post('/email', validateToken, validateBody(notificationSchema.email), async (req, res, next) => {
         try {
             const { email, templateName, data, options } = req.body;
+            
+            // Make sure user ID is available
+            if (!req.user || !req.user.id) {
+                return res.status(401).json({
+                    error: "AuthenticationError",
+                    message: "User ID not found in token. Please authenticate properly."
+                });
+            }
+            
+            console.log(`Sending email with user ID: ${req.user.id}`);
             
             const result = await notificationService.SendEmailNotification(
                 req.user.id,
@@ -150,6 +161,55 @@ module.exports = (app, channel) => {
             const result = await notificationService.GetUnreadNotificationsCount(req.user.id);
             res.status(200).json(result);
         } catch (err) {
+            next(err);
+        }
+    });
+
+    // Add this route to check if templates exist
+    router.get('/template-check/:name', async (req, res, next) => {
+        try {
+            const templateRepository = new TemplateRepository();
+            try {
+                const template = await templateRepository.FindTemplateByName(req.params.name);
+                res.status(200).json({
+                    exists: true,
+                    template: {
+                        name: template.name,
+                        type: template.type,
+                        subject: template.subject
+                    }
+                });
+            } catch (err) {
+                res.status(404).json({
+                    exists: false,
+                    error: err.message
+                });
+            }
+        } catch (err) {
+            next(err);
+        }
+    });
+
+    // Test endpoint for sending email without authentication (REMOVE IN PRODUCTION)
+    router.post('/test-email', validateBody(notificationSchema.email), async (req, res, next) => {
+        try {
+            const { email, templateName, data, options } = req.body;
+            
+            // Use a test user ID - make sure this is a string
+            const testUserId = "test-user-123";
+            console.log('Using test user ID:', testUserId);
+            
+            const result = await notificationService.SendEmailNotification(
+                testUserId,
+                email,
+                templateName,
+                data,
+                options
+            );
+            
+            res.status(201).json(result);
+        } catch (err) {
+            console.error('Test email error:', err.message);
             next(err);
         }
     });

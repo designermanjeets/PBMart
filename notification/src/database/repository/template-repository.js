@@ -35,12 +35,15 @@ class TemplateRepository {
 
     async FindTemplateByName(name) {
         try {
+            console.log(`Looking for template with name: ${name}`);
             const template = await Template.findOne({ name });
             
             if (!template) {
+                console.log(`Template with name ${name} not found`);
                 throw new NotFoundError(`Template with name ${name} not found`);
             }
             
+            console.log(`Found template: ${template.name}`);
             return template;
         } catch (err) {
             if (err instanceof NotFoundError) {

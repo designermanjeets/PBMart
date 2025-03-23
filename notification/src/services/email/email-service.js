@@ -13,15 +13,31 @@ const logger = createLogger('email-service');
 
 class EmailService {
     constructor() {
-        this.transporter = nodemailer.createTransport({
-            service: EMAIL_SERVICE,
-            host: EMAIL_HOST,
-            port: EMAIL_PORT,
-            secure: EMAIL_PORT === 465, // true for 465, false for other ports
-            auth: {
-                user: EMAIL_USER,
-                pass: EMAIL_PASSWORD
-            }
+        // Create a test account at Ethereal Email
+        nodemailer.createTestAccount().then(testAccount => {
+            this.transporter = nodemailer.createTransport({
+                host: 'smtp.ethereal.email',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: testAccount.user,
+                    pass: testAccount.pass
+                }
+            });
+            logger.info(`Test email account created: ${testAccount.user}`);
+        }).catch(err => {
+            logger.error(`Error creating test email account: ${err.message}`);
+            // Fallback to regular configuration
+            this.transporter = nodemailer.createTransport({
+                service: EMAIL_SERVICE,
+                host: EMAIL_HOST,
+                port: EMAIL_PORT,
+                secure: EMAIL_PORT === 465,
+                auth: {
+                    user: EMAIL_USER,
+                    pass: EMAIL_PASSWORD
+                }
+            });
         });
     }
 
@@ -29,6 +45,17 @@ class EmailService {
         try {
             const { cc, bcc, attachments } = options;
             
+            // For testing: just log the email instead of sending
+            logger.info(`[MOCK EMAIL] To: ${to}, Subject: ${subject}`);
+            logger.info(`[MOCK EMAIL] HTML: ${html}`);
+            
+            // Return a mock success response
+            return {
+                success: true,
+                messageId: `mock-email-${Date.now()}`
+            };
+            
+            /* Comment out the actual email sending code for now
             const mailOptions = {
                 from: options.from || EMAIL_FROM,
                 to,
@@ -46,6 +73,7 @@ class EmailService {
                 success: true,
                 messageId: info.messageId
             };
+            */
         } catch (error) {
             logger.error(`Error sending email: ${error.message}`);
             throw new NotificationError(`Failed to send email: ${error.message}`);

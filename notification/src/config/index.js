@@ -1,11 +1,30 @@
 const dotEnv = require('dotenv');
+const path = require('path');
 
-if (process.env.NODE_ENV !== 'prod') {
-    const configFile = `./.env.${process.env.NODE_ENV}`;
-    dotEnv.config({ path: configFile });
-} else {
-    dotEnv.config();
-}
+// Log the current environment
+console.log('Current NODE_ENV:', process.env.NODE_ENV);
+
+// Default to 'dev' if NODE_ENV is not set
+const environment = process.env.NODE_ENV || 'dev';
+console.log('Using environment:', environment);
+
+// Construct the path to the env file
+const configFile = path.resolve(`./.env.${environment}`);
+console.log('Loading config from:', configFile);
+
+// Load environment variables
+dotEnv.config({ path: configFile });
+
+// Log loaded configuration
+console.log('Loaded environment variables:', {
+    MONGODB_URI: process.env.MONGODB_URI,
+    PORT: process.env.PORT,
+    EMAIL_SERVICE: process.env.EMAIL_SERVICE,
+    EMAIL_HOST: process.env.EMAIL_HOST,
+    EMAIL_PORT: process.env.EMAIL_PORT,
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_FROM: process.env.EMAIL_FROM
+});
 
 module.exports = {
     PORT: process.env.PORT || 8007,
@@ -26,7 +45,7 @@ module.exports = {
     
     // Email Configuration
     EMAIL_SERVICE: process.env.EMAIL_SERVICE || 'smtp',
-    EMAIL_HOST: process.env.EMAIL_HOST || 'smtp.example.com',
+    EMAIL_HOST: process.env.EMAIL_HOST || 'smtp.gmail.com',
     EMAIL_PORT: process.env.EMAIL_PORT || 587,
     EMAIL_USER: process.env.EMAIL_USER || 'your_email@example.com',
     EMAIL_PASSWORD: process.env.EMAIL_PASSWORD || 'your_email_password',
@@ -43,3 +62,12 @@ module.exports = {
     // Logging
     LOG_LEVEL: process.env.LOG_LEVEL || 'info'
 };
+
+// Add this for debugging
+console.log('Email configuration:', {
+    EMAIL_SERVICE: process.env.EMAIL_SERVICE,
+    EMAIL_HOST: process.env.EMAIL_HOST,
+    EMAIL_PORT: process.env.EMAIL_PORT,
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_FROM: process.env.EMAIL_FROM
+});

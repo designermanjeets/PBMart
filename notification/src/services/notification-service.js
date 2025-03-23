@@ -3,7 +3,7 @@ const TemplateRepository = require('../database/repository/template-repository')
 const EmailService = require('./email/email-service');
 const SMSService = require('./sms/sms-service');
 const InAppService = require('./inapp/inapp-service');
-const { NotFoundError, NotificationError } = require('../utils/errors');
+const { NotFoundError, NotificationError, ValidationError } = require('../utils/errors');
 const { createLogger } = require('../utils/logger');
 const logger = createLogger('notification-service');
 
@@ -18,6 +18,13 @@ class NotificationService {
 
     async SendEmailNotification(userId, email, templateName, data, options = {}) {
         try {
+            // Validate userId
+            if (!userId) {
+                throw new ValidationError('User ID is required');
+            }
+            
+            console.log(`Processing email notification for user: ${userId}`);
+            
             // Find template
             const template = await this.templateRepository.FindTemplateByName(templateName);
             
@@ -64,21 +71,9 @@ class NotificationService {
                 notificationId: notification.id,
                 messageId: result.messageId
             };
-        } catch (error) {
-            logger.error(`Error sending email notification: ${error.message}`);
-            
-            // If notification was created but sending failed, update its status
-            if (error.notificationId) {
-                await this.notificationRepository.UpdateNotification(error.notificationId, {
-                    status: 'failed',
-                    metadata: {
-                        ...error.notification.metadata,
-                        error: error.message
-                    }
-                });
-            }
-            
-            throw new NotificationError(`Failed to send email notification: ${error.message}`);
+        } catch (err) {
+            logger.error(`Error sending email notification: ${err.message}`);
+            throw new NotificationError(`Failed to send email notification: ${err.message}`);
         }
     }
 
